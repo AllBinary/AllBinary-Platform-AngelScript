@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryPlatformWithIntegrationPOMAngelScript</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>AllBinaryPlatformWithIntegrationPOMAngelScript</name>
+    <url>http://www.allbinary.com/</url>
+    
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+        -->
+        <module>../../AllBinary-Platform-Integration</module>
+        
+<!--        <module>../j2me/games/platform/j2se/AllBinaryOnJ2SEBasePlatformJavaLibraryAngelScriptM</module>-->
+        <module>../j2me/games/platform/j2se/AllBinaryOnJ2SEPlatformJavaLibraryAngelScriptM</module>
+        
+        <!--<module>../j2me/FullScreenJavaLibraryAngelScriptM</module>-->
+
+        <!--<module>../j2me/SWTToJ2MELibraryAngelScriptM</module>-->
+        
+        <module>../j2me/media/graphics/ImageCacheOpenGLESJavaLibraryAngelScriptM</module>
+        <module>../graphics/opengl/Min3dForNullJavaLibraryAngelScriptM</module>
+        <module>../graphics/opengl/OpenGLESFileConfigurationJavaLibraryAngelScriptM</module>
+        <module>../graphics/opengl/OpenGLESJavaLibraryAngelScriptM</module>
+        <module>../j2me/media/graphics/animation/vector/SVGToAllBinaryJavaLibraryAngelScriptM</module>
+        <!--<module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryAngelScriptM</module>-->
+
+        <module>../j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryAngelScriptM</module>        
+        <module>../j2me/media/graphics/geography/map/GeographicMapLibraryAngelScriptM</module>
+        <module>../j2me/media/graphics/geography/GeographicPathFindingLibraryAngelScriptM</module>
+        <module>../j2me/media/graphics/geography/map/RaceTrackGeographicMapLibraryAngelScriptM</module>
+        <module>../j2me/media/graphics/geography/map/BasicTopViewGeographicMapJavaLibraryAngelScriptM</module>
+        <module>../j2me/games/arcade/platformer/TopViewGameBehaviorJavaLibraryAngelScriptM</module>
+
+        <module>../j2me/games/GameJ2MEOptionalLibraryPOAngelScriptM</module>
+
+        <module>../j2me/media/graphics/geography/map/GraphAngelScriptP</module>
+        <module>../j2me/games/strategy/rts/RTSGameJavaLibraryAngelScriptP</module>
+        
+        <!--<module>../j2me/android/AllBinaryPlatformAndroidLibraryPOAngelScriptM</module>-->
+
+    </modules>
+
+    <dependencies>
+        
+    </dependencies>
+
+</project>
+

@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>CombatGameJavaLibraryPOMAngelScript</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>CombatGameJavaLibraryPOMAngelScript</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+
+        -->
+
+        <module>../../games/TickableJavaLibraryAngelScriptM</module>
+
+        <module>../../games/CommonHeadsUpDisplayLibraryAngelScriptM</module>
+
+        <module>../../../physics/MovementJavaLibraryAngelScriptM</module>
+        <!--        -->
+        <module>../../games/PartsJavaLibraryAngelScriptM</module>
+        <module>../../games/PickupGameJavaLibraryAngelScriptM</module>
+
+        <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryAngelScriptM</module>
+        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryAngelScriptM</module>
+        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryAngelScriptM</module>
+
+        <module>../../games/licensing/PartnerJ2MEJavaLibraryAngelScriptM</module>
+        <!--<module>../../games/licensing/PartnerHTMLJavaLibraryAngelScriptM</module>-->
+        <!--<module>../../games/licensing/PartnerAndroidJavaLibraryAngelScriptM</module>-->
+        <module>../../games/licensing/NoGameLicensingJavaLibraryAngelScriptM</module>
+        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryAngelScriptM</module>
+        <!--<module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryAngelScriptM</module>-->
+        <module>../../games/licensing/GameLicensingBaseJavaLibraryAngelScriptM</module>
+
+        <!--
+        <module>../../games/GameScoresBaseLibraryAngelScriptM</module>
+        <module>../../games/GameScoresBaseHTMLLibraryAngelScriptM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryAngelScriptM</module>
+        -->
+        <module>../../games/GameScoresLocalJavaLibraryAngelScriptM</module>
+        <!--<module>../../games/GameScoresRemoteAndLocalJavaLibraryAngelScriptM</module>-->
+
+        <module>../../../store/ThirdPartyStoreJavaLibraryAngelScriptM</module>
+        <module>../../../store/NoThirdPartyStoreJavaLibraryAngelScriptM</module>
+
+        <module>../../media/graphics/layer/CollisionLayerJavaLibraryAngelScriptM</module>
+        <module>../../games/CollisionLibraryAngelScriptM</module>
+
+        <module>../../games/multiplayer/AllBinaryGameClientBaseNullJavaLibraryAngelScriptM</module>
+
+        <module>../../games/PickupLayerJavaLibraryAngelScriptM</module>
+
+        <module>../../games/DamageGameJavaLibraryAngelScriptM</module>
+        <module>../../games/DropJavaLibraryAngelScriptM</module>
+        <module>../../games/WeaponLayerJavaLibraryAngelScriptM</module>
+
+        <module>../../games/CombatGameJavaLibraryAngelScriptM</module>
+        <module>../../games/LifeJavaLibraryAngelScriptM</module>
+
+        <module>../../games/CommonHeadsUpDisplayCombatGameLibraryAngelScriptM</module>
+        <module>../../games/LifeOrDeathDataJavaLibraryAngelScriptM</module>
+
+        <module>../../games/BasicWeaponPartsJavaLibraryAngelScriptM</module>
+        <module>../../games/weapon/WeaponPropertiesJavaLibraryAngelScriptM</module>
+
+        <module>../../games/weapon/WeaponMineJavaLibraryAngelScriptM</module>
+
+        <!--
+        <module>../../media/graphics/effects/fireworks/FireworksJavaLibraryAngelScriptM</module>
+        -->
+
+        <module>../../media/graphics/geography/map/TerrainEventJavaLibraryAngelScriptM</module>
+
+<!--
+        <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryAngelScriptM</module>
+        -->
+
+        <!--
+        <module>../../media/graphics/geography/map/RaceTrackAngelScriptP</module>
+        -->
+
+        <!--
+        XmlRpcJavaLibrary
+        RemoteXmlRpcJavaLibrary
+
+        Since POMs are built before the other libs is it best to handle this differently
+        ../../
+        <module>../../../../workangelscript/j2me/games/strategy/rts/RTSGameJavaLibraryAngelScriptP</module>
+        -->
+
+        <module>../../media/graphics/OtherGraphicsMediaLibraryAngelScriptP</module>
+
+        <module>../../input/NoTouchButtonResourceAnimationJavaLibraryAngelScriptM</module>
+        <module>../../input/TouchButtonResourceAnimationJavaLibraryAngelScriptM</module>
+        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryAngelScriptM</module>
+
+        <module>../../input/TrackingEventJavaLibraryAngelScriptM</module>
+        <module>../../../game/behavior/BehaviorLibraryAngelScriptP</module>
+
+        <module>../../media/sound/OtherSoundMediaLibraryAngelScriptP</module>
+
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryAngelScriptM</module>
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryAngelScriptM</module>
+        <!--<module>../../input/AllBinaryMagneticFieldSensorJavaLibraryAngelScriptM</module>-->
+        <!--<module>../../android/VirtualKeyboardJavaLibraryAngelScriptM</module>-->
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+

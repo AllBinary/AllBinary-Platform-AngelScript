@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>OtherGraphicsMediaLibraryPAngelScript</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>OtherGraphicsMediaLibraryPAngelScript</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+        -->
+        <module>../../graphics/animation/vector/VectorAnimationBaseJavaLibraryAngelScriptM</module>
+
+        <module>../../graphics/animation/vector/VectorAnimationJ2MEJavaLibraryAngelScriptM</module>
+        <module>../../graphics/animation/vector/VectorAnimationJavaLibraryAngelScriptM</module>
+
+        <module>../../graphics/VectorJavaLibraryAngelScriptM</module>
+
+        <module>../../graphics/BoundsJavaLibraryAngelScriptM</module>
+
+        <module>../../../../graphics/opengl/OpenGLESNullImageJavaLibraryAngelScriptM</module>
+        <module>../../../../graphics/opengl/OpenGLESNullImageJ2MEJavaLibraryAngelScriptM</module>
+
+        <module>../../graphics/animation/image/AllBinaryImageAnimationJavaLibraryAngelScriptM</module>
+        <module>../../graphics/animation/sprite/AllBinarySpriteAnimationJavaLibraryAngelScriptM</module>
+
+        <!--
+        ../../
+        <module>../../../../../workangelscript/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimationJavaLibraryAngelScriptM</module>
+        -->
+        <!--
+        ../../
+        <module>../../../../../workangelscript/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryAngelScriptM</module>
+        -->
+
+        <module>../../graphics/animation/image/ImageJ2MEJavaLibraryAngelScriptM</module>
+        <!--
+        <module>../../graphics/animation/image/ImageHTMLJavaLibraryAngelScriptM</module>
+        -->
+        <!--<module>../../graphics/animation/image/ImageJ2SEJavaLibraryAngelScriptM</module>-->
+        <!--
+        <module>../../graphics/animation/image/ImageAndroidJavaLibraryAngelScriptM</module>
+        -->
+        <!--
+        <module>../../graphics/animation/image/ImageSwtJ2SEJavaLibraryAngelScriptM</module>
+        -->
+        
+        <!--
+        ../../
+        <module>../../../../../workangelscript/j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryAngelScriptM</module>
+        <module>../../graphics/layer/AllBinaryTiledLayerJavaLibraryAngelScriptM</module>
+        -->
+
+        <!-- Not used in Platform Libraries -->
+        <module>../../graphics/GraphicsBasicImageJavaLibraryAngelScriptM</module>
+        <!--
+        -->
+        <module>../../graphics/animation/image/AllBinaryImageAnimationRotationJavaLibraryAngelScriptM</module>
+
+    </modules>
+
+</project>
+

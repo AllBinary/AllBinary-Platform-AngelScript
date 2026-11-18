@@ -1,0 +1,65 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.input.gyro
+
+class AllBinaryOrientationSensor : AllBinarySensor
+{
+    CompleteMotionGestureInputEventListenerInterface@ listener_AllBinaryOrientationSensor;
+
+    // Java field initializers run after the super constructor
+    void jfields_AllBinaryOrientationSensor()
+    {
+    @this.listener_AllBinaryOrientationSensor = NoCompleteMotionGestureInputEventListener::getInstance();
+    }
+    
+
+    void setListener(CompleteMotionGestureInputEventListenerInterface@ completeMotionGestureInputEventListenerInterface)
+    {
+        @this.listener_AllBinaryOrientationSensor = completeMotionGestureInputEventListenerInterface;
+    }
+    
+
+    AllBinaryOrientationSensor@ jinit_AllBinaryOrientationSensor()
+    {
+        this.jinit_AllBinarySensor();
+        this.jfields_AllBinaryOrientationSensor();
+        return this;
+    }
+    
+
+    Orientation@ getOrientation()
+    {
+        jthrow(Exception().jinit_Exception(this.commonStrings.NOT_IMPLEMENTED));
+        return null;
+    }
+}
+
+namespace AllBinaryOrientationSensor
+{
+
+    bool jclinitDone;
+    void jclinit()
+    {
+        if (jclinitDone) { return; }
+        jclinitDone = true;
+        @jcell_NULL_ALLBINARY_ORIENTATION_SENSOR = AllBinaryOrientationSensor().jinit_AllBinaryOrientationSensor();
+    }
+
+    AllBinaryOrientationSensor@ jcell_NULL_ALLBINARY_ORIENTATION_SENSOR;
+    AllBinaryOrientationSensor@ get_NULL_ALLBINARY_ORIENTATION_SENSOR() property { jclinit(); return jcell_NULL_ALLBINARY_ORIENTATION_SENSOR; }
+    void set_NULL_ALLBINARY_ORIENTATION_SENSOR(AllBinaryOrientationSensor@ value) property { jclinit(); @jcell_NULL_ALLBINARY_ORIENTATION_SENSOR = value; }
+}
+

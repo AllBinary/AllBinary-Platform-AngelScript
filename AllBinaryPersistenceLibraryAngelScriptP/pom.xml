@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryPersistenceLibraryPAngelScript</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>AllBinaryPersistenceLibraryPAngelScript</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+        
+        <!--
+        -->
+        <module>../allbinary_src/cache/AllBinaryCacheLibraryAngelScriptM</module>
+        <module>../allbinary_src/PermutationsJavaLibraryAngelScriptM</module>
+        <module>../allbinary_src/logic/BasePreloaderFileJavaLibraryAngelScriptM</module>
+        <module>../allbinary_src/logic/data/file/FileJavaLibraryAngelScriptM</module>
+        <module>../allbinary_src/logic/data/file/FileJ2SEJavaLibraryAngelScriptM</module>
+        <!--<module>../allbinary_src/data/DataJavaLibraryAngelScriptM</module>-->
+        <!--<module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryAngelScriptM</module>-->
+        <!--<module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryAngelScriptM</module>-->
+        <!--<module>../allbinary_src/PreLoaderJavaLibraryAngelScriptM</module>-->
+        <!--<module>../allbinary_src/FileInitInfoJavaLibraryAngelScriptM</module>-->
+        <!--<module>../allbinary_src/PreLoaderFileJavaLibraryAngelScriptM</module>-->
+        <!--<module>../allbinary_src/PreLoaderLicenseJavaLibraryAngelScriptM</module>-->
+        <module>../j2me/PCResourceLibraryAngelScriptM</module>
+        <module>../j2me/ProgressJ2MEJavaLibraryAngelScriptM</module>
+        <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryAngelScriptM</module>
+        <!--<module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryAngelScriptM</module>-->
+        <!--<module>../allbinary_src/licensing/LicenseClientJavaLibraryAngelScriptM</module>-->
+
+        <!--
+        <module>../allbinary_src/PreLoaderLicenseJavaLibraryAngelScriptM</module>
+        -->
+    </modules>
+
+</project>
+

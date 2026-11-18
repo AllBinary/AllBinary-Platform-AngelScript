@@ -1,0 +1,55 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles
+
+class OpenGLFeatureUtil : JObjectBase
+{
+    
+
+    OpenGLFeatureUtil@ jinit_OpenGLFeatureUtil()
+    {
+        return this;
+    }
+    
+
+    bool isAnyThreed()
+    {
+        return false;
+    }
+}
+
+namespace OpenGLFeatureUtil
+{
+
+    bool jclinitDone;
+    void jclinit()
+    {
+        if (jclinitDone) { return; }
+        jclinitDone = true;
+        @jcell_instance = OpenGLFeatureUtil().jinit_OpenGLFeatureUtil();
+    }
+
+    OpenGLFeatureUtil@ jcell_instance;
+    OpenGLFeatureUtil@ get_instance() property { jclinit(); return jcell_instance; }
+    void set_instance(OpenGLFeatureUtil@ value) property { jclinit(); @jcell_instance = value; }
+    
+
+    OpenGLFeatureUtil@ getInstance()
+    {
+        return OpenGLFeatureUtil::instance;
+    }
+}
+

@@ -1,0 +1,70 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.image
+
+class AnimationFrameToImageUtil : JObjectBase
+{
+
+    AnimationFrameToImageUtil@ jinit_AnimationFrameToImageUtil()
+    {
+        return this;
+    }
+    
+
+    Image@ getInstanceTranslate(int width, int height, Animation@ animationInterface)
+    {
+        Image@ image = GameFeatureImageCacheFactory::getInstance().get(jClassName(AnimationFrameToImageUtil::instance), ((width * 3) >>> 1), ((height * 3) >>> 1));
+        Graphics@ graphics = image.getGraphics();
+        int tranlateX = (width >>> 2);
+        int tranlateY = (height >>> 2);
+        graphics.translate(tranlateX, tranlateY);
+        animationInterface.paintXY(graphics, 0, 0);
+        graphics.translate(-tranlateX, -tranlateY);
+        return image;
+    }
+    
+
+    Image@ getInstanceWH(int width, int height, Animation@ animationInterface)
+    {
+        Image@ image = GameFeatureImageCacheFactory::getInstance().get(jClassName(AnimationFrameToImageUtil::instance), width, height);
+        Graphics@ graphics = image.getGraphics();
+        animationInterface.paintXY(graphics, 0, 0);
+        return image;
+    }
+}
+
+namespace AnimationFrameToImageUtil
+{
+
+    bool jclinitDone;
+    void jclinit()
+    {
+        if (jclinitDone) { return; }
+        jclinitDone = true;
+        @jcell_instance = AnimationFrameToImageUtil().jinit_AnimationFrameToImageUtil();
+    }
+
+    AnimationFrameToImageUtil@ jcell_instance;
+    AnimationFrameToImageUtil@ get_instance() property { jclinit(); return jcell_instance; }
+    void set_instance(AnimationFrameToImageUtil@ value) property { jclinit(); @jcell_instance = value; }
+    
+
+    AnimationFrameToImageUtil@ getInstance()
+    {
+        return AnimationFrameToImageUtil::instance;
+    }
+}
+

@@ -1,0 +1,50 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.score
+
+class HighScoreCommandsFactory : HighScoreCommandsBaseFactory
+{
+    
+
+    HighScoreCommandsFactory@ jinit_HighScoreCommandsFactory()
+    {
+        this.jinit_HighScoreCommandsBaseFactory(array<Command@> = {HighScoreCommands::getInstance().PERSONAL, HighScoreCommands::getInstance().WORLD});
+        return this;
+    }
+}
+
+namespace HighScoreCommandsFactory
+{
+
+    bool jclinitDone;
+    void jclinit()
+    {
+        if (jclinitDone) { return; }
+        jclinitDone = true;
+        @jcell_instance = HighScoreCommandsFactory().jinit_HighScoreCommandsFactory();
+    }
+
+    HighScoreCommandsFactory@ jcell_instance;
+    HighScoreCommandsFactory@ get_instance() property { jclinit(); return jcell_instance; }
+    void set_instance(HighScoreCommandsFactory@ value) property { jclinit(); @jcell_instance = value; }
+    
+
+    HighScoreCommandsFactory@ getInstance()
+    {
+        return HighScoreCommandsFactory::instance;
+    }
+}
+

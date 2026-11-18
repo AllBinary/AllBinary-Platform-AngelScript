@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary.business</groupId>
+    <artifactId>BlisketJavaLibraryPAngelScript</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>BlisketJavaLibraryPAngelScript</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <modules>
+
+        <!--
+        <module>../../j2me/AllBinaryJ2MELibraryAngelScriptP</module>
+        -->
+        <!--
+        <module>../data/DataJavaLibraryAngelScriptM</module>
+        -->
+
+        <module>../licensing/TestServiceClientInfoJavaLibraryAngelScriptM</module>        
+
+        <module>../data/DataTableInterfacesAngelScriptM</module>
+        
+        <module>../QueueJavaLibraryAngelScriptM</module>
+        
+        <!--
+        <module>../TokenizerJavaLibraryAngelScriptM</module>
+        -->
+
+        <module>../logging/LogConfigTypeFreeblisketJavaLibraryAngelScriptM</module>
+
+        <module>../JavaUtilLibraryAngelScriptM</module>
+        <module>../NullInitInfoJavaLibraryAngelScriptM</module>        
+        <module>../InitInfoJavaLibraryAngelScriptM</module>
+        <module>../PreLoaderHttpJavaLibraryAngelScriptM</module>
+        
+        <module>../TagsBaseJavaLibraryAngelScriptM</module>
+        <module>../CustomLoaderJavaLibraryAngelScriptM</module>
+        
+        <!--
+        <module>../logic/data/file/FileJ2SEJavaLibraryAngelScriptM</module>
+        <module>../logic/data/file/FileJavaLibraryAngelScriptM</module>
+        -->
+
+        <module>../data/SQLAllBinaryJavaLibraryAngelScriptM</module>
+
+        <!--
+        <module>../licensing/FileLicenseInitInfoJavaLibraryAngelScriptM</module>
+        -->
+
+        <module>../DocumentObjectModelJavaLibraryAngelScriptM</module>
+
+        <module>../VisualStyleJavaLibraryAngelScriptM</module>
+
+        <module>../ConfigurationJavaLibraryAngelScriptM</module>
+
+        <module>../VisualTransformBaseJavaLibraryAngelScriptM</module>
+
+        <module>../CategoryBaseJavaLibraryAngelScriptM</module>
+        <module>../CategoryJavaLibraryAngelScriptM</module>
+
+        <module>../UserJavaLibraryAngelScriptM</module>
+
+        <module>../PaymentGatewayBaseJavaLibraryAngelScriptM</module>
+
+        <module>../data/vo/EntitiesBlisketVOJavaLibraryAngelScriptM</module>
+        <module>../PaymentGatewayJavaLibraryAngelScriptM</module>
+        <module>../data/vo/EntitiesOrderHistoryVOJavaLibraryAngelScriptM</module>
+        <module>../data/vo/EntityPaymentGatewayVOJavaLibraryAngelScriptM</module>
+        <module>../data/vo/EntityStoreFrontVOJavaLibraryAngelScriptM</module>
+
+        <module>../data/EntitiesBlisketBaseInterfacesJavaLibraryAngelScriptM</module>
+        <module>../data/EntitiesBlisketBaseJavaLibraryAngelScriptM</module>
+        
+        <module>../data/EntitiesAdvertisementBaseJavaLibraryAngelScriptM</module>
+        <module>../data/EntityOrderHistoryJavaLibraryAngelScriptM</module>
+        <module>../data/EntityPaymentGatewayJavaLibraryAngelScriptM</module>
+        <module>../data/EntityVisualTransformJavaLibraryAngelScriptM</module>
+        <module>../data/EntityUserJavaLibraryAngelScriptM</module>
+        <module>../data/EntityWorkflowJavaLibraryAngelScriptM</module>
+
+        <module>../SMTPConfigurationJavaLibraryAngelScriptM</module>
+        <module>../SMTPBaseJavaLibraryAngelScriptM</module>
+
+        <module>../VisualTransformJavaLibraryAngelScriptM</module>
+
+        <module>../../replace_these_stub_projects/allbinary_src/YourRuntimeEnvironmentJavaLibraryAngelScriptM</module>
+        <module>../GatewayJavaLibraryAngelScriptM</module>
+        
+        <module>../WorkflowBaseJavaLibraryAngelScriptM</module>
+        <module>../WorkflowJavaLibraryAngelScriptM</module>
+
+        <module>../IdGeneratorUsingFilesJavaLibraryAngelScriptM</module>
+        <module>../BlisketPreVOJavaLibraryAngelScriptM</module>
+
+        <!-- 
+        EntitiesOrderHistoryVOJavaLibrary
+        UserJavaLibrary
+        -->
+        
+        <module>../BlisketVOJavaLibraryAngelScriptM</module>
+
+        <module>../UserCommerceJavaLibraryAngelScriptM</module>
+
+        <module>../CustomizerValidatorsJavaLibraryAngelScriptM</module>
+
+        <!-- 
+        AllBinaryCacheForShiftOneJavaLibrary
+        AllBinaryJSECacheJavaLibrary
+        ColorJavaLibrary
+        ImageJavaLibrary
+        -->
+        
+        <module>../logic/data/file/FileMediaJ2SEJavaLibraryAngelScriptM</module>
+        <module>../BlisketBaseJavaLibraryAngelScriptM</module>
+
+        <module>../logging/LoggingGAEAllAngelScriptM</module>
+        <module>../BlisketJavaLibraryAngelScriptM</module>
+        
+    </modules>
+
+</project>
+

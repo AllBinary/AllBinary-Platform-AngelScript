@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>GameJ2MEOptionalLibraryPOMAngelScript</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>GameJ2MEOptionalLibraryPOMAngelScript</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+
+    <modules>
+        
+        <!--<module>../../ProgressLazyJ2MEJavaLibraryAngelScriptM</module>-->
+        <!--
+                <module>../../games/GameScoresBaseHTMLLibraryAngelScriptM</module>
+                <module>../../games/GameScoresJ2MEJavaLibraryAngelScriptM</module>
+                <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryAngelScriptM</module>
+                <module>../../games/GameScoresLocalLibraryAngelScriptM</module>
+                <module>../../games/GameScoresRemoteAndLocalLibraryAngelScriptM</module>
+        -->
+<!-- in GameJ2MELibraryPOM <module>../../media/graphics/ImageCacheJ2MEJavaLibraryAngelScriptM</module>-->
+        <!--<module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryAngelScriptM</module>-->
+        <!--        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryAngelScriptM</module>-->
+        <module>../../media/graphics/LazyGameResourceNoneJavaLibraryAngelScriptM</module>
+
+<!-- in GameJ2MELibraryPOM <module>../../../graphics/opengl/OpenGLNoneJavaLibraryAngelScriptM</module>-->
+
+        <!--
+                <module>../../../graphics/opengl/OpenGLESJavaLibraryAngelScriptM</module>
+        -->
+
+<!-- in GameJ2MELibraryPOM <module>../../input/JSEGyroSensorJavaLibraryAngelScriptM</module>-->
+        <!--        
+                <module>../../ProgressJ2MEJavaLibraryAngelScriptM</module>
+        -->
+        <!--        
+                //At some point the GameInput libraries were here
+        -->
+        
+        <!--
+        ../../
+        <module>../../../../workangelscript/j2me/media/graphics/FormJMEJavaLibraryAngelScriptM</module>
+        -->
+        <!--
+        ../../
+        <module>../../../../workangelscript/j2me/media/graphics/FormJSEJavaLibraryAngelScriptM</module>
+        -->
+
+        <!--<module>../../media/sound/J2SEMediaMIDPMinimalJavaLibraryAngelScriptM</module>-->
+<!--        <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryAngelScriptM</module>-->
+        <!--<module>../../media/sound/MediaMIDP2ForHTMLJavaLibraryAngelScriptM</module>-->
+
+        <!--
+                <module>../../../../workangelscript/j2me/ScreenCaptureAndroidJavaLibraryAngelScriptM</module>
+        -->
+    </modules>
+
+</project>
+

@@ -1,0 +1,192 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>GameJ2MELibraryPOMAngelScript</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>GameJ2MELibraryPOMAngelScript</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+
+    <modules>
+
+        <!--
+        NoGyroSensorLibrary
+
+        -->
+        <!--<module>../../android/AndroidUtilJavaLibraryAngelScriptM</module>-->
+
+        <module>../../../allbinary_src/security/SimpleCryptLibraryAngelScriptM</module>
+        <!--
+        <module>../../../../working_thirdpartyangelscript/security/BouncyCastleDESJavaLibraryAngelScriptM</module>
+        <module>../../../../working_thirdpartyangelscript/communication/XmlRpc/XmlRpcJavaLibraryAngelScriptM</module>
+        -->
+        <module>../../../allbinary_src/TokenizerJavaLibraryAngelScriptM</module>
+        <module>../../../allbinary_src/security/BasicSecurityJavaLibraryAngelScriptM</module>
+        <!--<module>../../../replace_these_stub_projects/security/YourCryptFileJavaLibraryAngelScriptM</module>-->
+        <module>../../../replace_these_stub_projects/security/YourSecurityJavaLibraryAngelScriptM</module>
+        <module>../../../replace_these_stub_projects/communication/YourXmlRpcJavaLibraryAngelScriptM</module>
+        <module>../../../replace_these_stub_projects/allbinary_src/J2MEOnlyJavaLibraryAngelScriptM</module>
+        <module>../../../replace_these_stub_projects/allbinary_src/J2MECompatibilityJavaLibraryAngelScriptM</module>
+        <module>../../../replace_these_stub_projects/allbinary_src/J2MEJsInteropCompatibilityJavaLibraryAngelScriptM</module>
+
+        <module>../../DebugJavaLibraryAngelScriptM</module>             
+        <module>../../ResourceLibraryAngelScriptM</module>
+        <module>../../ResourceJ2MEJavaLibraryAngelScriptM</module>
+        <!--<module>../../AndroidResourceLibraryAngelScriptM</module>-->
+        <!--<module>../../../allbinary_src/hardware/AndroidSystemJavaLibraryAngelScriptM</module>-->
+
+        <module>../../../game/behavior/ArtificialIntelligenceLibraryAngelScriptM</module>
+
+        <module>../../media/graphics/PlatformNullImageJavaLibraryAngelScriptM</module>
+        <module>../../media/graphics/ImageCacheBaseJ2MEJavaLibraryAngelScriptM</module>
+        <module>../../media/graphics/ImageCacheJ2MEJavaLibraryAngelScriptM</module>
+        <module>../../../graphics/opengl/OpenGLJ2MENoneJavaLibraryAngelScriptM</module>
+        <module>../../../graphics/opengl/OpenGLNoneJavaLibraryAngelScriptM</module>
+        <module>../../../graphics/opengl/OpenGLNoneOtherJavaLibraryAngelScriptM</module>
+        <module>../../../graphics/opengl/OpenGLNoneOther2JavaLibraryAngelScriptM</module>
+        <module>../../../graphics/opengl/OpenGLESBaseJ2MEJavaLibraryAngelScriptM</module>
+
+        <module>../../media/graphics/animation/AnimationLibraryAngelScriptM</module>
+        <module>../../media/graphics/animation/RotationAnimationJavaLibraryAngelScriptM</module>
+
+        <module>../../games/GameInputLibraryAngelScriptM</module>
+
+        <module>../../games/GameScoresBaseJavaLibraryAngelScriptM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryAngelScriptM</module>
+
+        <module>../../statistics/ApplicationStatisticsHTMLLibraryAngelScriptM</module>
+        <!--
+        <module>../../games/GameConfigurationHTMLJavaLibraryAngelScriptM</module>
+        -->
+        <module>../../games/GameConfigurationJ2MEJavaLibraryAngelScriptM</module>   
+        <module>../../games/GameConfigurationJavaLibraryAngelScriptM</module>
+
+        <module>../../games/GameIntermissionLibraryAngelScriptM</module>
+
+        <module>../../GroupLibraryAngelScriptM</module>
+
+        <module>../../input/NoSensorJavaLibraryAngelScriptM</module>
+
+        <module>../../input/AllBinarySensorJavaLibraryAngelScriptM</module>
+
+        <module>../../input/platform/me/GameInputMEJavaLibraryAngelScriptM</module>
+        <module>../../input/platform/me/GameInputMEKeyOnlyJavaLibraryAngelScriptM</module>
+        <module>../../input/platform/me/GameInputMEMotionJavaLibraryAngelScriptM</module>
+        <module>../../input/platform/pc/GameInputPCBaseJavaLibraryAngelScriptM</module>
+        <module>../../input/platform/pc/GameInputPCJavaLibraryAngelScriptM</module>
+        <module>../../input/platform/pc/GameInputPCKeyOnlyJavaLibraryAngelScriptM</module>
+        <module>../../input/platform/pc/GameInputPCMotionJavaLibraryAngelScriptM</module>
+        <module>../../input/platform/pc/GameInputSwtJavaLibraryAngelScriptM</module>
+
+        <module>../../input/AllBinaryGyroSensorJavaLibraryAngelScriptM</module>
+        <module>../../input/MotionGestureJavaLibraryAngelScriptM</module>
+        
+        <module>../../input/MotionGestureBaseJavaLibraryAngelScriptM</module>
+
+        <module>../../games/GameInputPersistanceLibraryAngelScriptM</module>
+        <module>../../games/GameInputNoPersistanceLibraryAngelScriptM</module>
+        
+        <module>../../lib/VectorThreeDimensionalLibraryAngelScriptM</module>
+        <module>../../input/AllBinaryAccelerometerSensorJavaLibraryAngelScriptM</module>
+        <module>../../input/NoGyroSensorJavaLibraryAngelScriptM</module>
+        <module>../../input/JSEGyroSensorJavaLibraryAngelScriptM</module>
+        <!--
+        <module>../../input/android/</module>
+        <module>../../input/platform/android/GameInputAndroidBaseJavaLibraryAngelScriptM</module>
+        -->
+
+        <module>../../media/sound/BasicPlayerJavaLibraryAngelScriptM</module>
+        <module>../../media/sound/BasicPlayerMIDP2JavaLibraryAngelScriptM</module>
+        <module>../../media/sound/NoPlayerJavaLibraryAngelScriptM</module>
+        <module>../../media/sound/SoundJ2MELibraryAngelScriptM</module>
+
+        <module>../../media/motion/AllBinaryVibrationJavaLibraryAngelScriptM</module>
+        <module>../../media/motion/NoVibrateJavaLibraryAngelScriptM</module>
+        <!--<module>../../media/motion/VibrateAndroidJavaLibraryAngelScriptM</module>-->
+
+        <module>../../media/graphics/NullCustomUIJavaLibraryAngelScriptM</module>
+        <module>../../media/graphics/NullCustomUIBaseJavaLibraryAngelScriptM</module>
+
+        <module>../../media/graphics/FormValidationJavaLibraryAngelScriptM</module>
+        
+        <module>../../media/graphics/FormJavaLibraryAngelScriptM</module>
+        <module>../../media/graphics/FormBaseJavaLibraryAngelScriptM</module>
+        <!--
+        <module>../../media/graphics/FormJMEJavaLibraryAngelScriptM</module>
+        -->
+        <module>../../../j2me/media/graphics/FormJMEJavaLibraryAngelScriptM</module>
+
+        <module>../../media/graphics/animation/AnimationResourceJavaLibraryAngelScriptM</module>
+        <module>../../media/graphics/animation/TransitionAnimationJavaLibraryAngelScriptM</module>
+        <module>../../media/graphics/animation/NoTransitionAnimationJavaLibraryAngelScriptM</module>
+        <!--
+        AndroidTransitionAnimationJavaLibraryM
+        -->
+        <module>../../media/graphics/animation/GameAnimationJavaLibraryAngelScriptM</module>
+        <module>../../games/GameResourceJavaLibraryAngelScriptM</module>
+        <module>../../games/GameSoundsJavaLibraryAngelScriptM</module>
+
+        <module>../../input/TouchInputLibraryAngelScriptP</module>
+
+        <module>../../media/MediaDataAngelScriptM</module>
+        <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryAngelScriptM</module>
+
+        <module>../../../allbinary_src/content/ContentNoneJavaLibraryAngelScriptM</module>
+        <!--<module>../../../allbinary_src/content/ContentAndroidJavaLibraryAngelScriptM</module>-->
+
+        <module>../../games/GameConfigurationFormJavaLibraryAngelScriptM</module>
+
+        <module>../../FullScreenNoneJavaLibraryAngelScriptM</module>
+        <!--
+        <module>../../FullScreenJavaLibraryAngelScriptM</module>
+        -->
+
+        <module>../../../physics/VelocityLibraryAngelScriptM</module>
+
+        <module>../../games/weapon/SoundsBasicWeaponsJavaLibraryAngelScriptM</module>
+
+        <module>../../lib/TrigJ2MELibraryAngelScriptM</module>
+
+        <module>../../media/graphics/geography/map/LayerPlacementLibraryAngelScriptM</module>
+        <module>../../media/graphics/layer/AllBinaryLayerJavaLibraryAngelScriptM</module>
+
+        <module>../../ScreenCaptureNoneJavaLibraryAngelScriptM</module>
+        
+        <module>../licensing/GameLicensingNullJavaLibraryAngelScriptM</module>
+        
+        <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryAngelScriptM</module>
+        <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryAngelScriptM</module>
+
+        <module>../GameNotificationJavaLibraryAngelScriptM</module>
+
+        <module>../../../graphics/opengl/NoSWTJavaLibraryAngelScriptM</module>
+        <module>../../../graphics/opengl/SWTWithoutJOGLJavaLibraryAngelScriptM</module>
+        <module>../SWTJavaLibraryAngelScriptM</module>
+        <module>../GameJ2MELibraryAngelScriptM</module>
+        
+        <!--
+        <module>../GameJ2MEOptionalLibraryPOAngelScriptM</module>
+        -->
+    
+    </modules>
+
+</project>
+

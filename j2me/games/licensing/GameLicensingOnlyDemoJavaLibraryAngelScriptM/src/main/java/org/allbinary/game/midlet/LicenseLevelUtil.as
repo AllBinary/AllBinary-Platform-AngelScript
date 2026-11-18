@@ -1,0 +1,54 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.midlet
+
+class LicenseLevelUtil : JObjectBase
+{
+
+    LicenseLevelUtil@ jinit_LicenseLevelUtil()
+    {
+        return this;
+    }
+    
+
+    int getMaxLevel(int maxLevel, int demoLevel)
+    {
+        return demoLevel;
+    }
+}
+
+namespace LicenseLevelUtil
+{
+
+    bool jclinitDone;
+    void jclinit()
+    {
+        if (jclinitDone) { return; }
+        jclinitDone = true;
+        @jcell_instance = LicenseLevelUtil().jinit_LicenseLevelUtil();
+    }
+
+    LicenseLevelUtil@ jcell_instance;
+    LicenseLevelUtil@ get_instance() property { jclinit(); return jcell_instance; }
+    void set_instance(LicenseLevelUtil@ value) property { jclinit(); @jcell_instance = value; }
+    
+
+    LicenseLevelUtil@ getInstance()
+    {
+        return LicenseLevelUtil::instance;
+    }
+}
+
