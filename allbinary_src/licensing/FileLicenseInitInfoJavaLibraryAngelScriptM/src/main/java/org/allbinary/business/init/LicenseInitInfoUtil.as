@@ -18,21 +18,21 @@
 class LicenseInitInfoUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    StringUtil@ stringUtil;
+    StringUtil@ stringUtil_LicenseInitInfoUtil;
     string INITFILENAME;
     string ABOUT;
     string PRIVACY_POLICY;
-    string filePath;
+    string filePath_LicenseInitInfoUtil;
 
     // Java field initializers run after the super constructor
     void jfields_LicenseInitInfoUtil()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.stringUtil = StringUtil::getInstance();
+    @this.stringUtil_LicenseInitInfoUtil = StringUtil::getInstance();
     this.INITFILENAME = "licenseinitdata.dat";
     this.ABOUT = "about";
     this.PRIVACY_POLICY = "privacy_policy";
-    this.filePath = this.stringUtil.EMPTY_STRING;
+    this.filePath_LicenseInitInfoUtil = this.stringUtil_LicenseInitInfoUtil.EMPTY_STRING;
     }
 
     LicenseInitInfoUtil@ jinit_LicenseInitInfoUtil()
@@ -44,18 +44,18 @@ class LicenseInitInfoUtil : JObjectBase
 
     void setFilePath(string filePath)
     {
-        this.filePath = filePath;
+        this.filePath_LicenseInitInfoUtil = filePath;
     }
     
 
     void write(LicenseInitInfo@ initData)
     {
-        if (this.filePath == this.stringUtil.EMPTY_STRING) {
-            this.filePath = URLGLOBALS::getMainPath() + PATH_GLOBALS::getInstance().INIT_PATH;
+        if (this.filePath_LicenseInitInfoUtil == this.stringUtil_LicenseInitInfoUtil.EMPTY_STRING) {
+            this.filePath_LicenseInitInfoUtil = URLGLOBALS::getMainPath() + PATH_GLOBALS::getInstance().INIT_PATH;
         }
         try {
             TsUtil@ tsUtil = TsUtil::getInstance();
-            AbDataOutputStream@ dataOutputStream = DataOutputStreamFactory::getInstance_jstatic().getInstance(this.filePath, this.INITFILENAME);
+            AbDataOutputStream@ dataOutputStream = DataOutputStreamFactory::getInstance_jstatic().getInstance(this.filePath_LicenseInitInfoUtil, this.INITFILENAME);
             int8[]@ licenseIdCrypted = tsUtil.getByteArray(WeakCrypt().jinit_WeakCrypt(1).encrypt(initData.getLicenseId()));
             dataOutputStream.writeUTF(DatabaseEncoder::encode(licenseIdCrypted));
             int numberOfLicenseServers = initData.getNumberOfServers();
@@ -70,7 +70,7 @@ class LicenseInitInfoUtil : JObjectBase
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
             this.logUtil.put("Command Failed: " + this.INITFILENAME, this, "write", e);
-            FileStreamFactory::getInstance().delete(this.filePath, this.INITFILENAME);
+            FileStreamFactory::getInstance().delete(this.filePath_LicenseInitInfoUtil, this.INITFILENAME);
             jthrow(e);
             }
             else { jthrow(jex0); }
@@ -87,13 +87,13 @@ class LicenseInitInfoUtil : JObjectBase
     LicenseInitInfo@ readAgain(int initializeCounter)
     {
         string METHOD_NAME = "readAgain";
-        if (this.filePath == this.stringUtil.EMPTY_STRING) {
-            this.filePath = URLGLOBALS::getMainPath() + PATH_GLOBALS::getInstance().INIT_PATH;
+        if (this.filePath_LicenseInitInfoUtil == this.stringUtil_LicenseInitInfoUtil.EMPTY_STRING) {
+            this.filePath_LicenseInitInfoUtil = URLGLOBALS::getMainPath() + PATH_GLOBALS::getInstance().INIT_PATH;
         }
         try {
             this.logUtil.putF("LicenseInitInfo File: " + this.INITFILENAME, this, METHOD_NAME);
             FileStreamFactory@ fileStreamFactory = FileStreamFactory::getInstance();
-            AbFileInputStream@ iFile = fileStreamFactory.getFileInputStreamInstance(this.filePath, this.INITFILENAME);
+            AbFileInputStream@ iFile = fileStreamFactory.getFileInputStreamInstance(this.filePath_LicenseInitInfoUtil, this.INITFILENAME);
             if (iFile !is null) {
                 AbDataInputStream@ iData = AbDataInputStream().jinit_AbDataInputStream(iFile);
                 LicenseInitInfo@ initInfo = LicenseInitInfo().jinit_LicenseInitInfo();
@@ -137,7 +137,7 @@ class LicenseInitInfoUtil : JObjectBase
 
     string getFilePath()
     {
-        return this.filePath;
+        return this.filePath_LicenseInitInfoUtil;
     }
 }
 

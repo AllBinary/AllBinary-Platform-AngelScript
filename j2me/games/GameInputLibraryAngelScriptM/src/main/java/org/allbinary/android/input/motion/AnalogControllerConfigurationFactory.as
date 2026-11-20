@@ -19,8 +19,8 @@ class AnalogControllerConfigurationFactory : JObjectBase
 {
     int SCALE_FACTOR;
     int SCALE_VALUE;
-    bool available;
-    AnalogControllerConfigurationEvent@ analogControllerConfigurationEvent;
+    bool available_AnalogControllerConfigurationFactory;
+    AnalogControllerConfigurationEvent@ analogControllerConfigurationEvent_AnalogControllerConfigurationFactory;
 
     // Java field initializers run after the super constructor
     void jfields_AnalogControllerConfigurationFactory()
@@ -28,7 +28,7 @@ class AnalogControllerConfigurationFactory : JObjectBase
     this.SCALE_FACTOR = ScaleFactorFactory::getInstance().DEFAULT_SCALE_FACTOR;
     this.SCALE_VALUE = ScaleFactorFactory::getInstance().DEFAULT_SCALE_VALUE;
     
-    @this.analogControllerConfigurationEvent = AnalogControllerConfigurationEvent().jinit_AnalogControllerConfigurationEvent(this);
+    @this.analogControllerConfigurationEvent_AnalogControllerConfigurationFactory = AnalogControllerConfigurationEvent().jinit_AnalogControllerConfigurationEvent(this);
     }
     
 
@@ -41,14 +41,14 @@ class AnalogControllerConfigurationFactory : JObjectBase
 
     bool isAvailable()
     {
-        return this.available;
+        return this.available_AnalogControllerConfigurationFactory;
     }
     
 
     void setAvailable(bool available)
     {
-        this.available = available;
-        AnalogControllerConfigurationEventHandler::getInstance().fireEvent(this.analogControllerConfigurationEvent);
+        this.available_AnalogControllerConfigurationFactory = available;
+        AnalogControllerConfigurationEventHandler::getInstance().fireEvent(this.analogControllerConfigurationEvent_AnalogControllerConfigurationFactory);
     }
 }
 

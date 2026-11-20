@@ -18,12 +18,12 @@
 //ActualPlatform
 class TimeStampUtil : JObjectBase
 {
-    SimpleDateFormat@ simpleDataFormat;
+    SimpleDateFormat@ simpleDataFormat_TimeStampUtil;
 
     // Java field initializers run after the super constructor
     void jfields_TimeStampUtil()
     {
-    @this.simpleDataFormat = SimpleDateFormat().jinit_SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    @this.simpleDataFormat_TimeStampUtil = SimpleDateFormat().jinit_SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
     }
     
 
@@ -38,7 +38,7 @@ class TimeStampUtil : JObjectBase
     {
         Calendar@ calendar = Calendar::getInstance();
         Date@ date = calendar.getTime();
-        return this.simpleDataFormat.format(date);
+        return this.simpleDataFormat_TimeStampUtil.format(date);
     }
 }
 

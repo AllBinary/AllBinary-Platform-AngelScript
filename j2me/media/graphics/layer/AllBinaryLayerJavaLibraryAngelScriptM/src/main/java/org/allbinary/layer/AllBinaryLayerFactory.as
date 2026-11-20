@@ -17,19 +17,19 @@
 
 class AllBinaryLayerFactory : JObjectBase, AllBinaryLayerFactoryInterface
 {
-    Rectangle@ rectangle;
+    Rectangle@ rectangle_AllBinaryLayerFactory;
     
 
     AllBinaryLayerFactory@ jinit_AllBinaryLayerFactory(Rectangle@ rectangle)
     {
-        @this.rectangle = rectangle;
+        @this.rectangle_AllBinaryLayerFactory = rectangle;
         return this;
     }
     
 
     AllBinaryLayer@ getInstance()
     {
-        return AllBinaryLayer().jinit_AllBinaryLayer(StringUtil::getInstance().EMPTY_STRING, this.rectangle, ViewPosition::getInstanceD());
+        return AllBinaryLayer().jinit_AllBinaryLayer(StringUtil::getInstance().EMPTY_STRING, this.rectangle_AllBinaryLayerFactory, ViewPosition::getInstanceD());
     }
 }
 

@@ -18,12 +18,12 @@
 class PrimitiveLongUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    int powerOfTen;
-    int maxValue;
-    int maxDigits;
-    uint16[]@ charArray;
-    int currentTotalDigits;
-    PrimitiveLongSingleton@ primitiveLongSingleton;
+    int powerOfTen_PrimitiveLongUtil;
+    int maxValue_PrimitiveLongUtil;
+    int maxDigits_PrimitiveLongUtil;
+    uint16[]@ charArray_PrimitiveLongUtil;
+    int currentTotalDigits_PrimitiveLongUtil;
+    PrimitiveLongSingleton@ primitiveLongSingleton_PrimitiveLongUtil;
 
     // Java field initializers run after the super constructor
     void jfields_PrimitiveLongUtil()
@@ -34,17 +34,17 @@ class PrimitiveLongUtil : JObjectBase
     
     
     
-    @this.primitiveLongSingleton = PrimitiveLongSingleton::getInstance();
+    @this.primitiveLongSingleton_PrimitiveLongUtil = PrimitiveLongSingleton::getInstance();
     }
     
 
     PrimitiveLongUtil@ jinit_PrimitiveLongUtil(int powerOfTen, JObject@ unused)
     {
         this.jfields_PrimitiveLongUtil();
-        this.maxDigits = MathUtil::getInstance().getTotalDigits(powerOfTen);
-        this.powerOfTen = powerOfTen;
-        this.maxValue = (powerOfTen * 10) - 1;
-        @this.charArray = array<uint16>(this.maxDigits);
+        this.maxDigits_PrimitiveLongUtil = MathUtil::getInstance().getTotalDigits(powerOfTen);
+        this.powerOfTen_PrimitiveLongUtil = powerOfTen;
+        this.maxValue_PrimitiveLongUtil = (powerOfTen * 10) - 1;
+        @this.charArray_PrimitiveLongUtil = array<uint16>(this.maxDigits_PrimitiveLongUtil);
         return this;
     }
     
@@ -53,46 +53,46 @@ class PrimitiveLongUtil : JObjectBase
     {
         if (value < 10) {
             this.setCurrentTotalDigits(1);
-            return this.primitiveLongSingleton.NUMBER_CHAR_ARRAYS[value];
+            return this.primitiveLongSingleton_PrimitiveLongUtil.NUMBER_CHAR_ARRAYS[value];
         }
-        if (value > this.maxValue) {
+        if (value > this.maxValue_PrimitiveLongUtil) {
             this.setCurrentTotalDigits(3);
-            return this.primitiveLongSingleton.UNK;
+            return this.primitiveLongSingleton_PrimitiveLongUtil.UNK;
         }
         int index = 0;
-        int div = this.powerOfTen;
+        int div = this.powerOfTen_PrimitiveLongUtil;
         int lastValue = 0;
         while (div >= 1) {
             int digit = (value - lastValue) / div;
             if (digit >= 0 && digit < 10) {
                 if (digit == 0 && index == 0) {
                 } else {
-                    this.charArray[index++] = this.primitiveLongSingleton.NUMBER_CHAR_ARRAY[digit];
+                    this.charArray_PrimitiveLongUtil[index++] = this.primitiveLongSingleton_PrimitiveLongUtil.NUMBER_CHAR_ARRAY[digit];
                 }
                 lastValue += digit * div;
             }
             div = div / 10;
         }
         this.setCurrentTotalDigits(index);
-        return this.charArray;
+        return this.charArray_PrimitiveLongUtil;
     }
     
 
     void setCurrentTotalDigits(int currentTotalDigits)
     {
-        this.currentTotalDigits = currentTotalDigits;
+        this.currentTotalDigits_PrimitiveLongUtil = currentTotalDigits;
     }
     
 
     int getCurrentTotalDigits()
     {
-        return this.currentTotalDigits;
+        return this.currentTotalDigits_PrimitiveLongUtil;
     }
     
 
     int getMaxDigits()
     {
-        return this.maxDigits;
+        return this.maxDigits_PrimitiveLongUtil;
     }
 }
 

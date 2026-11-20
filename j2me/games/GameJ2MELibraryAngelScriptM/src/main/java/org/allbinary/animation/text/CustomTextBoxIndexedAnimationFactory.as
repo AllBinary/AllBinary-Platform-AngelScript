@@ -19,7 +19,7 @@ class CustomTextBoxIndexedAnimationFactory : JObjectBase, AnimationInterfaceFact
 {
     LogUtil@ logUtil;
     ScaleProperties@ scaleProperties;
-    int maxLength;
+    int maxLength_CustomTextBoxIndexedAnimationFactory;
 
     // Java field initializers run after the super constructor
     void jfields_CustomTextBoxIndexedAnimationFactory()
@@ -35,7 +35,7 @@ class CustomTextBoxIndexedAnimationFactory : JObjectBase, AnimationInterfaceFact
         this.jfields_CustomTextBoxIndexedAnimationFactory();
         @this.scaleProperties = ScaleProperties().jinit_ScaleProperties();
         this.scaleProperties.scaleHeight = fontSize;
-        this.maxLength = maxLength;
+        this.maxLength_CustomTextBoxIndexedAnimationFactory = maxLength;
         return this;
     }
     
@@ -45,7 +45,7 @@ class CustomTextBoxIndexedAnimationFactory : JObjectBase, AnimationInterfaceFact
         ABToGBUtil@ abToGBUtil = ABToGBUtil::getInstance();
         AllBinaryGameCanvas@ abCanvas = cast<AllBinaryGameCanvas>(abToGBUtil.abCanvas);
         Font@ font = Font::getFont(Font::FACE_SYSTEM, Font::STYLE_PLAIN, this.scaleProperties.scaleHeight);
-        CustomTextBox@ customTextBox = CustomTextBox2().jinit_CustomTextBox2(abCanvas.getCustomCommandListener(), StringUtil::getInstance().EMPTY_STRING, StringUtil::getInstance().EMPTY_STRING, this.maxLength, TextField::ANY, font, abCanvas.getLayerManager().getBackgroundBasicColor(), abCanvas.getLayerManager().getForegroundBasicColor());
+        CustomTextBox@ customTextBox = CustomTextBox2().jinit_CustomTextBox2(abCanvas.getCustomCommandListener(), StringUtil::getInstance().EMPTY_STRING, StringUtil::getInstance().EMPTY_STRING, this.maxLength_CustomTextBoxIndexedAnimationFactory, TextField::ANY, font, abCanvas.getLayerManager().getBackgroundBasicColor(), abCanvas.getLayerManager().getForegroundBasicColor());
         return CustomTextBoxIndexedAnimation().jinit_CustomTextBoxIndexedAnimation(customTextBox);
     }
     

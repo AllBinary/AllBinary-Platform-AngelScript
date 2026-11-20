@@ -17,39 +17,39 @@
 
 class HighScore : JObjectBase
 {
-    int id;
-    string name;
-    GameInfo@ gameInfo;
-    int64 score;
-    string scoreString;
+    int id_HighScore;
+    string name_HighScore;
+    GameInfo@ gameInfo_HighScore;
+    int64 score_HighScore;
+    string scoreString_HighScore;
     
 
     HighScore@ jinit_HighScore(int id, string name, GameInfo@ gameInfo, int64 score)
     {
-        this.id = id;
-        this.name = name;
-        @this.gameInfo = gameInfo;
-        this.score = score;
-        this.scoreString = Long::toString(this.score);
+        this.id_HighScore = id;
+        this.name_HighScore = name;
+        @this.gameInfo_HighScore = gameInfo;
+        this.score_HighScore = score;
+        this.scoreString_HighScore = Long::toString(this.score_HighScore);
         return this;
     }
     
 
     int getId()
     {
-        return this.id;
+        return this.id_HighScore;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_HighScore;
     }
     
 
     int64 getScore()
     {
-        return this.score;
+        return this.score_HighScore;
     }
     
 
@@ -65,26 +65,26 @@ class HighScore : JObjectBase
 
     GameInfo@ getGameInfo()
     {
-        return this.gameInfo;
+        return this.gameInfo_HighScore;
     }
     
 
     string getScoreString()
     {
-        return this.scoreString;
+        return this.scoreString_HighScore;
     }
     
 
     void setName(string name)
     {
-        this.name = name;
+        this.name_HighScore = name;
     }
     
 
     string toString()
     {
         CommonSeps@ commonSeps = CommonSeps::getInstance();
-        return StringMaker().jinit_StringMaker().append(this.name).append(commonSeps.COLON).appendlong(this.score).append(commonSeps.FORWARD_SLASH).append(this.scoreString).toString();
+        return StringMaker().jinit_StringMaker().append(this.name_HighScore).append(commonSeps.COLON).appendlong(this.score_HighScore).append(commonSeps.FORWARD_SLASH).append(this.scoreString_HighScore).toString();
     }
 }
 

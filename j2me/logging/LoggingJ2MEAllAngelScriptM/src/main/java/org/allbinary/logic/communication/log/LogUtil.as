@@ -18,14 +18,14 @@
 //ActualPlatform
 class LogUtil : JObjectBase
 {
-    LogFormatUtil@ logFormatUtil;
-    string LOG_SUCCESS;
+    LogFormatUtil@ logFormatUtil_LogUtil;
+    string LOG_SUCCESS_LogUtil;
 
     // Java field initializers run after the super constructor
     void jfields_LogUtil()
     {
-    @this.logFormatUtil = LogFormatUtil::getInstance();
-    this.LOG_SUCCESS = "org.allbinary: ";
+    @this.logFormatUtil_LogUtil = LogFormatUtil::getInstance();
+    this.LOG_SUCCESS_LogUtil = "org.allbinary: ";
     }
     
 
@@ -52,16 +52,16 @@ class LogUtil : JObjectBase
         if (!jClassName(anyType).isEmpty()) {
             className = String::newString(StringMaker().jinit_StringMaker().append(jClassName(anyType)).append(CommonSeps::getInstance().COLON).append(Integer::toHexString(TsUtil::getInstance().hashCode(anyType))).toString());
         }
-        string message = this.logFormatUtil.getS(className, functionName, specialMessage);
-        System::out_print(this.LOG_SUCCESS);
+        string message = this.logFormatUtil_LogUtil.getS(className, functionName, specialMessage);
+        System::out_print(this.LOG_SUCCESS_LogUtil);
         System::out_println(message);
     }
     
 
     void putFS(string specialMessage, string className, string functionName)
     {
-        string message = this.logFormatUtil.getS(className, functionName, specialMessage);
-        System::out_print(this.LOG_SUCCESS);
+        string message = this.logFormatUtil_LogUtil.getS(className, functionName, specialMessage);
+        System::out_print(this.LOG_SUCCESS_LogUtil);
         System::out_println(message);
     }
     
@@ -74,8 +74,8 @@ class LogUtil : JObjectBase
             string hexString = Integer::toHexString(hashCodeValue);
             className = String::newString(StringMaker().jinit_StringMaker().append(jClassName(anyType)).append(CommonSeps::getInstance().COLON).append(hexString).toString());
         }
-        string message = this.logFormatUtil.get(className, functionName, specialMessage, exception);
-        System::out_print(this.LOG_SUCCESS);
+        string message = this.logFormatUtil_LogUtil.get(className, functionName, specialMessage, exception);
+        System::out_print(this.LOG_SUCCESS_LogUtil);
         System::out_println(message);
     }
 }

@@ -17,26 +17,26 @@
 
 class MotionGestureConfiguration : JObjectBase
 {
-    bool diagonalMotionGestureAllowed;
-    int diagonalTolerance;
-    int minimumMotionGesture;
-    string button;
-    BasicColor@ color;
-    bool executingActions;
-    int mouseButtonMask;
-    BasicArrayList@ activeCommands;
+    bool diagonalMotionGestureAllowed_MotionGestureConfiguration;
+    int diagonalTolerance_MotionGestureConfiguration;
+    int minimumMotionGesture_MotionGestureConfiguration;
+    string button_MotionGestureConfiguration;
+    BasicColor@ color_MotionGestureConfiguration;
+    bool executingActions_MotionGestureConfiguration;
+    int mouseButtonMask_MotionGestureConfiguration;
+    BasicArrayList@ activeCommands_MotionGestureConfiguration;
 
     // Java field initializers run after the super constructor
     void jfields_MotionGestureConfiguration()
     {
-    this.diagonalMotionGestureAllowed = true;
-    this.diagonalTolerance = 7;
-    this.minimumMotionGesture = 9;
-    this.button = StringUtil::getInstance().EMPTY_STRING;
-    @this.color = BasicColorFactory::getInstance().BLUE;
-    this.executingActions = true;
-    this.mouseButtonMask = 0;
-    @this.activeCommands = BasicArrayListD().jinit_BasicArrayListD();
+    this.diagonalMotionGestureAllowed_MotionGestureConfiguration = true;
+    this.diagonalTolerance_MotionGestureConfiguration = 7;
+    this.minimumMotionGesture_MotionGestureConfiguration = 9;
+    this.button_MotionGestureConfiguration = StringUtil::getInstance().EMPTY_STRING;
+    @this.color_MotionGestureConfiguration = BasicColorFactory::getInstance().BLUE;
+    this.executingActions_MotionGestureConfiguration = true;
+    this.mouseButtonMask_MotionGestureConfiguration = 0;
+    @this.activeCommands_MotionGestureConfiguration = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
@@ -49,103 +49,103 @@ class MotionGestureConfiguration : JObjectBase
 
     void addMotionGestureAction(BasicArrayList@ list, CompleteMotionGestureInputEvent@ commandAction)
     {
-        this.activeCommands.add(MotionGestureToMotionGestureActionAssociation().jinit_MotionGestureToMotionGestureActionAssociation(list, commandAction));
+        this.activeCommands_MotionGestureConfiguration.add(MotionGestureToMotionGestureActionAssociation().jinit_MotionGestureToMotionGestureActionAssociation(list, commandAction));
     }
     
 
     void clearMotionGestureAction()
     {
-        this.activeCommands.clear();
+        this.activeCommands_MotionGestureConfiguration.clear();
     }
     
 
     BasicArrayList@ getAssociateCommandActionsList()
     {
-        return this.activeCommands;
+        return this.activeCommands_MotionGestureConfiguration;
     }
     
 
     bool isDiagonalMotionGestureAllowed()
     {
-        return this.diagonalMotionGestureAllowed;
+        return this.diagonalMotionGestureAllowed_MotionGestureConfiguration;
     }
     
 
     bool isExecutingActionsAllowed()
     {
-        return this.executingActions;
+        return this.executingActions_MotionGestureConfiguration;
     }
     
 
     void setExecutingActionsAllowed(bool executingActionAllowed)
     {
-        this.executingActions = executingActionAllowed;
+        this.executingActions_MotionGestureConfiguration = executingActionAllowed;
     }
     
 
     void setDiagonalMotionGestureAllowed(bool diagonalMotionGestureAllowed)
     {
-        this.diagonalMotionGestureAllowed = diagonalMotionGestureAllowed;
+        this.diagonalMotionGestureAllowed_MotionGestureConfiguration = diagonalMotionGestureAllowed;
     }
     
 
     int getDiagonalTolerance()
     {
-        return this.diagonalTolerance;
+        return this.diagonalTolerance_MotionGestureConfiguration;
     }
     
 
     void setDiagonalTolerance(int diagonalTolerance)
     {
-        this.diagonalTolerance = diagonalTolerance;
+        this.diagonalTolerance_MotionGestureConfiguration = diagonalTolerance;
     }
     
 
     int getMinimumMotionGesture()
     {
-        return this.minimumMotionGesture;
+        return this.minimumMotionGesture_MotionGestureConfiguration;
     }
     
 
     void setMinimumMotionGesture(int minimumMotionGesture)
     {
-        this.minimumMotionGesture = minimumMotionGesture;
+        this.minimumMotionGesture_MotionGestureConfiguration = minimumMotionGesture;
     }
     
 
     string getButton()
     {
-        return this.button;
+        return this.button_MotionGestureConfiguration;
     }
     
 
     void setButton(string button)
     {
-        this.button = button;
+        this.button_MotionGestureConfiguration = button;
     }
     
 
     BasicColor@ getColor()
     {
-        return this.color;
+        return this.color_MotionGestureConfiguration;
     }
     
 
     void setColor(BasicColor@ color)
     {
-        @this.color = color;
+        @this.color_MotionGestureConfiguration = color;
     }
     
 
     int getMouseButtonMask()
     {
-        return this.mouseButtonMask;
+        return this.mouseButtonMask_MotionGestureConfiguration;
     }
     
 
     void setMouseButtonMask(int mouseButtonMask)
     {
-        this.mouseButtonMask = mouseButtonMask;
+        this.mouseButtonMask_MotionGestureConfiguration = mouseButtonMask;
     }
 }
 

@@ -20,8 +20,8 @@ class GameKeyEventFactory : JObjectBase
     LogUtil@ logUtil;
     int TOUCH_BUTTON_SOURCE_ID;
     int MOTION_GESTURE_SOURCE_ID;
-    int MAX_SOURCES;
-    GameKeyEvent@[]@[]@ ARRAY;
+    int MAX_SOURCES_GameKeyEventFactory;
+    GameKeyEvent@[]@[]@ ARRAY_GameKeyEventFactory;
 
     // Java field initializers run after the super constructor
     void jfields_GameKeyEventFactory()
@@ -29,8 +29,8 @@ class GameKeyEventFactory : JObjectBase
     @this.logUtil = LogUtil::getInstance();
     this.TOUCH_BUTTON_SOURCE_ID = 2;
     this.MOTION_GESTURE_SOURCE_ID = 3;
-    this.MAX_SOURCES = 4;
-    @this.ARRAY = GameKeyEventFactory::jnewArray2_GameKeyEvent(this.MAX_SOURCES, InputFactory::getInstance().MAX);
+    this.MAX_SOURCES_GameKeyEventFactory = 4;
+    @this.ARRAY_GameKeyEventFactory = GameKeyEventFactory::jnewArray2_GameKeyEvent(this.MAX_SOURCES_GameKeyEventFactory, InputFactory::getInstance().MAX);
     }
     
 
@@ -45,9 +45,9 @@ class GameKeyEventFactory : JObjectBase
     {
         NullUtil@ nullUtil = NullUtil::getInstance();
         int size = InputFactory::getInstance().MAX;
-        for (int index = this.MAX_SOURCES; --index >= 0; ) {
+        for (int index = this.MAX_SOURCES_GameKeyEventFactory; --index >= 0; ) {
             for (int index2 = size; --index2 >= 0; ) {
-                @this.ARRAY[index][index2] = GameKeyEvent::createEvent(nullUtil.NULL_OBJECT, index, index2);
+                @this.ARRAY_GameKeyEventFactory[index][index2] = GameKeyEvent::createEvent(nullUtil.NULL_OBJECT, index, index2);
             }
         }
     }
@@ -55,14 +55,14 @@ class GameKeyEventFactory : JObjectBase
 
     GameKeyEvent@ getInstanceForKey(GameKeyEventSourceInterface@ anyType, int key)
     {
-        GameKeyEvent@ gameKeyEvent = this.ARRAY[anyType.getSourceId()][key];
+        GameKeyEvent@ gameKeyEvent = this.ARRAY_GameKeyEventFactory[anyType.getSourceId()][key];
         return gameKeyEvent;
     }
     
 
     GameKeyEvent@ getInstanceForInput(GameKeyEventSourceInterface@ anyType, Input@ input)
     {
-        GameKeyEvent@ gameKeyEvent = this.ARRAY[anyType.getSourceId()][input.getId()];
+        GameKeyEvent@ gameKeyEvent = this.ARRAY_GameKeyEventFactory[anyType.getSourceId()][input.getId()];
         return gameKeyEvent;
     }
 }

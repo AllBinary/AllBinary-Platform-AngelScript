@@ -17,25 +17,25 @@
 
 class CountedLayerInterfaceFactoryPart : JObjectBase, PartInterface, UpdateMyFontInterface
 {
-    MyFontProcessor@ updateMyFontProcessor;
-    MyFontProcessor@ myFontProcessor;
-    Animation@ animationInterface;
-    int total;
-    uint16[]@ totalString;
-    int xOffset;
-    CountedPickedUpLayerInterfaceFactory@ countedPickedUpLayerInterfaceFactory;
-    PrimitiveLongUtil@ primitiveLongUtil;
+    MyFontProcessor@ updateMyFontProcessor_CountedLayerInterfaceFactoryPart;
+    MyFontProcessor@ myFontProcessor_CountedLayerInterfaceFactoryPart;
+    Animation@ animationInterface_CountedLayerInterfaceFactoryPart;
+    int total_CountedLayerInterfaceFactoryPart;
+    uint16[]@ totalString_CountedLayerInterfaceFactoryPart;
+    int xOffset_CountedLayerInterfaceFactoryPart;
+    CountedPickedUpLayerInterfaceFactory@ countedPickedUpLayerInterfaceFactory_CountedLayerInterfaceFactoryPart;
+    PrimitiveLongUtil@ primitiveLongUtil_CountedLayerInterfaceFactoryPart;
 
     // Java field initializers run after the super constructor
     void jfields_CountedLayerInterfaceFactoryPart()
     {
-    @this.updateMyFontProcessor = UpdateMyFontProcessor().jinit_UpdateMyFontProcessor(this);
-    @this.myFontProcessor = this.updateMyFontProcessor;
-    @this.animationInterface = NullAnimationFactory::getFactoryInstance().getInstance(0);
+    @this.updateMyFontProcessor_CountedLayerInterfaceFactoryPart = UpdateMyFontProcessor().jinit_UpdateMyFontProcessor(this);
+    @this.myFontProcessor_CountedLayerInterfaceFactoryPart = this.updateMyFontProcessor_CountedLayerInterfaceFactoryPart;
+    @this.animationInterface_CountedLayerInterfaceFactoryPart = NullAnimationFactory::getFactoryInstance().getInstance(0);
     
-    @this.totalString = NullUtil::getInstance().NULL_CHAR_ARRAY;
+    @this.totalString_CountedLayerInterfaceFactoryPart = NullUtil::getInstance().NULL_CHAR_ARRAY;
     
-    @this.countedPickedUpLayerInterfaceFactory = CountedPickedUpLayerInterfaceFactory::NULL_COUNTED_PICKUP_LAYER_FACTORY;
+    @this.countedPickedUpLayerInterfaceFactory_CountedLayerInterfaceFactoryPart = CountedPickedUpLayerInterfaceFactory::NULL_COUNTED_PICKUP_LAYER_FACTORY;
     
     }
     
@@ -43,7 +43,7 @@ class CountedLayerInterfaceFactoryPart : JObjectBase, PartInterface, UpdateMyFon
     CountedLayerInterfaceFactoryPart@ jinit_CountedLayerInterfaceFactoryPart(int total, CountedPickedUpLayerInterfaceFactory@ countedPickedUpLayerInterfaceFactory)
     {
         this.jfields_CountedLayerInterfaceFactoryPart();
-        @this.primitiveLongUtil = PrimitiveLongUtil::createPowerOfTen(1000);
+        @this.primitiveLongUtil_CountedLayerInterfaceFactoryPart = PrimitiveLongUtil::createPowerOfTen(1000);
         this.init(total, countedPickedUpLayerInterfaceFactory);
         return this;
     }
@@ -52,22 +52,22 @@ class CountedLayerInterfaceFactoryPart : JObjectBase, PartInterface, UpdateMyFon
     void updateMeasurement(Graphics@ graphics)
     {
         Font@ font = graphics.getFont();
-        this.setXOffset(font.charsWidth(this.totalString, 0, this.primitiveLongUtil.getCurrentTotalDigits()) + (font.getSize() >>> 1));
-        @this.myFontProcessor = MyFontProcessor::getInstance();
+        this.setXOffset(font.charsWidth(this.totalString_CountedLayerInterfaceFactoryPart, 0, this.primitiveLongUtil_CountedLayerInterfaceFactoryPart.getCurrentTotalDigits()) + (font.getSize() >>> 1));
+        @this.myFontProcessor_CountedLayerInterfaceFactoryPart = MyFontProcessor::getInstance();
     }
     
 
     void init(int total, CountedPickedUpLayerInterfaceFactory@ countedPickedUpLayerInterfaceFactory)
     {
         this.setCountedPickedUpLayerInterfaceFactory(countedPickedUpLayerInterfaceFactory);
-        this.total = total;
+        this.total_CountedLayerInterfaceFactoryPart = total;
     }
     
 
     AllBinaryLayer@ getInstance(ABHashtable@ hashtable, int x, int y, int z)
     {
-        if (this.total > 0) {
-            this.setTotal(this.total - 1);
+        if (this.total_CountedLayerInterfaceFactoryPart > 0) {
+            this.setTotal(this.total_CountedLayerInterfaceFactoryPart - 1);
             return this.getCountedPickedUpLayerInterfaceFactory().getNextInstance(hashtable, x, y, z);
         } else {
             jthrow(Exception().jinit_Exception("No more left. Could use a listener to automatically remove"));
@@ -78,21 +78,21 @@ class CountedLayerInterfaceFactoryPart : JObjectBase, PartInterface, UpdateMyFon
 
     int getTotal()
     {
-        return this.total;
+        return this.total_CountedLayerInterfaceFactoryPart;
     }
     
 
     void setTotal(int total)
     {
-        this.total = total;
-        @this.totalString = this.primitiveLongUtil.getCharArray(total);
-        @this.myFontProcessor = this.updateMyFontProcessor;
+        this.total_CountedLayerInterfaceFactoryPart = total;
+        @this.totalString_CountedLayerInterfaceFactoryPart = this.primitiveLongUtil_CountedLayerInterfaceFactoryPart.getCharArray(total);
+        @this.myFontProcessor_CountedLayerInterfaceFactoryPart = this.updateMyFontProcessor_CountedLayerInterfaceFactoryPart;
     }
     
 
     void paint(Graphics@ graphics)
     {
-        this.myFontProcessor.process(graphics);
+        this.myFontProcessor_CountedLayerInterfaceFactoryPart.process(graphics);
     }
     
 
@@ -103,43 +103,43 @@ class CountedLayerInterfaceFactoryPart : JObjectBase, PartInterface, UpdateMyFon
 
     Animation@ getAnimationInterface()
     {
-        return this.animationInterface;
+        return this.animationInterface_CountedLayerInterfaceFactoryPart;
     }
     
 
     void setAnimationInterface(Animation@ animationInterface)
     {
-        @this.animationInterface = animationInterface;
+        @this.animationInterface_CountedLayerInterfaceFactoryPart = animationInterface;
     }
     
 
     int getXOffset()
     {
-        return this.xOffset;
+        return this.xOffset_CountedLayerInterfaceFactoryPart;
     }
     
 
     void setXOffset(int totalStringWidth)
     {
-        this.xOffset = totalStringWidth;
+        this.xOffset_CountedLayerInterfaceFactoryPart = totalStringWidth;
     }
     
 
     uint16[]@ getTotalString()
     {
-        return this.totalString;
+        return this.totalString_CountedLayerInterfaceFactoryPart;
     }
     
 
     CountedPickedUpLayerInterfaceFactory@ getCountedPickedUpLayerInterfaceFactory()
     {
-        return this.countedPickedUpLayerInterfaceFactory;
+        return this.countedPickedUpLayerInterfaceFactory_CountedLayerInterfaceFactoryPart;
     }
     
 
     void setCountedPickedUpLayerInterfaceFactory(CountedPickedUpLayerInterfaceFactory@ countedPickedUpLayerInterfaceFactory)
     {
-        @this.countedPickedUpLayerInterfaceFactory = countedPickedUpLayerInterfaceFactory;
+        @this.countedPickedUpLayerInterfaceFactory_CountedLayerInterfaceFactoryPart = countedPickedUpLayerInterfaceFactory;
     }
 }
 

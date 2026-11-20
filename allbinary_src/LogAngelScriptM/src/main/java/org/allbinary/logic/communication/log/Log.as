@@ -17,16 +17,16 @@
 
 class Log : JObjectBase
 {
-    LogFormatUtil@ logFormatUtil;
-    string specialMessage;
-    JObject@ anyType;
-    string functionName;
-    JObject@ exception;
+    LogFormatUtil@ logFormatUtil_Log;
+    string specialMessage_Log;
+    JObject@ anyType_Log;
+    string functionName_Log;
+    JObject@ exception_Log;
 
     // Java field initializers run after the super constructor
     void jfields_Log()
     {
-    @this.logFormatUtil = LogFormatUtil::getInstance();
+    @this.logFormatUtil_Log = LogFormatUtil::getInstance();
     
     
     
@@ -37,46 +37,46 @@ class Log : JObjectBase
     Log@ jinit_Log(string specialMessage, JObject@ anyType, string functionName, JObject@ exception)
     {
         this.jfields_Log();
-        this.specialMessage = specialMessage;
-        @this.anyType = anyType;
-        this.functionName = functionName;
-        @this.exception = exception;
+        this.specialMessage_Log = specialMessage;
+        @this.anyType_Log = anyType;
+        this.functionName_Log = functionName;
+        @this.exception_Log = exception;
         return this;
     }
     
 
     string getSpecialMessage()
     {
-        return this.specialMessage;
+        return this.specialMessage_Log;
     }
     
 
     JObject@ getObject()
     {
-        return this.anyType;
+        return this.anyType_Log;
     }
     
 
     string getFunctionName()
     {
-        return this.functionName;
+        return this.functionName_Log;
     }
     
 
     JObject@ getThrowable()
     {
-        return this.exception;
+        return this.exception_Log;
     }
     
 
     string toString()
     {
         string className = CommonStrings::getInstance().EMPTY;
-        string clazz = jClassName(this.anyType);
+        string clazz = jClassName(this.anyType_Log);
         if (!clazz.isEmpty()) {
             className = clazz;
         }
-        return this.logFormatUtil.get(className, this.functionName, this.specialMessage, this.exception);
+        return this.logFormatUtil_Log.get(className, this.functionName_Log, this.specialMessage_Log, this.exception_Log);
     }
 }
 

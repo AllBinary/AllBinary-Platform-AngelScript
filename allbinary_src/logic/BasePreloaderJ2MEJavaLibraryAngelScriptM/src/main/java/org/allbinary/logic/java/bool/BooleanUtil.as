@@ -17,12 +17,12 @@
 
 class BooleanUtil : JObjectBase
 {
-    TsUtil@ tsUtil;
+    TsUtil@ tsUtil_BooleanUtil;
 
     // Java field initializers run after the super constructor
     void jfields_BooleanUtil()
     {
-    @this.tsUtil = TsUtil::getInstance();
+    @this.tsUtil_BooleanUtil = TsUtil::getInstance();
     }
     
 
@@ -41,9 +41,9 @@ class BooleanUtil : JObjectBase
             return false;
         }
         string booleanStringLowerCase = String::toLowerCase(booleanString);
-        if (this.tsUtil.compareTo(booleanStringLowerCase, booleanFactory.TRUE_STRING) == 0) {
+        if (this.tsUtil_BooleanUtil.compareTo(booleanStringLowerCase, booleanFactory.TRUE_STRING) == 0) {
             return true;
-        } else if (this.tsUtil.compareTo(booleanStringLowerCase, booleanFactory.FALSE_STRING) == 0) {
+        } else if (this.tsUtil_BooleanUtil.compareTo(booleanStringLowerCase, booleanFactory.FALSE_STRING) == 0) {
             return false;
         } else {
             jthrow(Exception().jinit_Exception("Invalid booleanString - Must be true or false"));

@@ -17,12 +17,12 @@
 
 class InitEmulatorFactory : JObjectBase
 {
-    bool initEmulator;
+    bool initEmulator_InitEmulatorFactory;
 
     // Java field initializers run after the super constructor
     void jfields_InitEmulatorFactory()
     {
-    this.initEmulator = false;
+    this.initEmulator_InitEmulatorFactory = false;
     }
 
     InitEmulatorFactory@ jinit_InitEmulatorFactory()
@@ -34,13 +34,13 @@ class InitEmulatorFactory : JObjectBase
 
     void setInitEmulator(bool initEmulator)
     {
-        this.initEmulator = initEmulator;
+        this.initEmulator_InitEmulatorFactory = initEmulator;
     }
     
 
     bool isInitEmulator()
     {
-        return this.initEmulator;
+        return this.initEmulator_InitEmulatorFactory;
     }
 }
 

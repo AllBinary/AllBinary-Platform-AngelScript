@@ -17,15 +17,15 @@
 
 class ResourceRelativeRelationshipFactory : JObjectBase, ResourceRelativeRelationshipFactoryInterface
 {
-    BasicArrayListUtil@ basicArrayListUtil;
-    ABHashtable@ hashtable;
-    bool initialized;
+    BasicArrayListUtil@ basicArrayListUtil_ResourceRelativeRelationshipFactory;
+    ABHashtable@ hashtable_ResourceRelativeRelationshipFactory;
+    bool initialized_ResourceRelativeRelationshipFactory;
 
     // Java field initializers run after the super constructor
     void jfields_ResourceRelativeRelationshipFactory()
     {
-    @this.basicArrayListUtil = BasicArrayListUtil::getInstance();
-    @this.hashtable = StdUtil::getInstance().createHashtable();
+    @this.basicArrayListUtil_ResourceRelativeRelationshipFactory = BasicArrayListUtil::getInstance();
+    @this.hashtable_ResourceRelativeRelationshipFactory = StdUtil::getInstance().createHashtable();
     
     }
 
@@ -44,9 +44,9 @@ class ResourceRelativeRelationshipFactory : JObjectBase, ResourceRelativeRelatio
 
     BasicArrayList@ getResourceRelativeRelationshipList(string resource)
     {
-        JObject@ listCanBeNull = this.hashtable.get(resource);
+        JObject@ listCanBeNull = this.hashtable_ResourceRelativeRelationshipFactory.get(resource);
         if (listCanBeNull is null) {
-            return this.basicArrayListUtil.getImmutableInstance();
+            return this.basicArrayListUtil_ResourceRelativeRelationshipFactory.getImmutableInstance();
         }
         return cast<BasicArrayList>(listCanBeNull);
     }
@@ -55,11 +55,11 @@ class ResourceRelativeRelationshipFactory : JObjectBase, ResourceRelativeRelatio
     void addResourceRelativeRelationship(string resource, RelativeRelationship@ hardPoint)
     {
         BasicArrayList@ list = this.getResourceRelativeRelationshipList(resource);
-        if (list is this.basicArrayListUtil.getImmutableInstance()) {
+        if (list is this.basicArrayListUtil_ResourceRelativeRelationshipFactory.getImmutableInstance()) {
             @list = BasicArrayListD().jinit_BasicArrayListD();
         }
         list.add(hardPoint);
-        this.hashtable.put(resource, list);
+        this.hashtable_ResourceRelativeRelationshipFactory.put(resource, list);
     }
     
 
@@ -77,13 +77,13 @@ class ResourceRelativeRelationshipFactory : JObjectBase, ResourceRelativeRelatio
 
     void setInitialized(bool initialized)
     {
-        this.initialized = initialized;
+        this.initialized_ResourceRelativeRelationshipFactory = initialized;
     }
     
 
     bool isInitialized()
     {
-        return this.initialized;
+        return this.initialized_ResourceRelativeRelationshipFactory;
     }
 }
 

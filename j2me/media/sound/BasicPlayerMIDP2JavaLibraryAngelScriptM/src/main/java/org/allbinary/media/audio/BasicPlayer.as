@@ -19,7 +19,7 @@
 class BasicPlayer : JObjectBase, Player, TimeBaseInterface, Controllable2
 {
     BasicArrayList@ listenersList;
-    TimeBase@ timeBase;
+    TimeBase@ timeBase_BasicPlayer;
     int stateP;
     int loopCountP;
 
@@ -105,13 +105,13 @@ class BasicPlayer : JObjectBase, Player, TimeBaseInterface, Controllable2
 
     TimeBase@ getTimeBase()
     {
-        return this.timeBase;
+        return this.timeBase_BasicPlayer;
     }
     
 
     void setTimeBase(TimeBase@ timeBase)
     {
-        @this.timeBase = timeBase;
+        @this.timeBase_BasicPlayer = timeBase;
     }
     
 

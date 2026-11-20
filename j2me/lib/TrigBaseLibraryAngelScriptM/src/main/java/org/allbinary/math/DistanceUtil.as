@@ -17,12 +17,12 @@
 
 class DistanceUtil : JObjectBase
 {
-    MathUtil@ mathUtil;
+    MathUtil@ mathUtil_DistanceUtil;
 
     // Java field initializers run after the super constructor
     void jfields_DistanceUtil()
     {
-    @this.mathUtil = MathUtil::getInstance();
+    @this.mathUtil_DistanceUtil = MathUtil::getInstance();
     }
 
     DistanceUtil@ jinit_DistanceUtil()
@@ -36,7 +36,7 @@ class DistanceUtil : JObjectBase
     {
         int dx = x1 - x2;
         int dy = y1 - y2;
-        return this.mathUtil.sqrt((dx * dx) + (dy * dy));
+        return this.mathUtil_DistanceUtil.sqrt((dx * dx) + (dy * dy));
     }
 }
 

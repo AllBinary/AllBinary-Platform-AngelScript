@@ -19,13 +19,13 @@
 class ExceptionUtil : JObjectBase
 {
     Exception@ PRETEND_EXCEPTION;
-    string NONE;
+    string NONE_ExceptionUtil;
 
     // Java field initializers run after the super constructor
     void jfields_ExceptionUtil()
     {
     @this.PRETEND_EXCEPTION = Exception().jinit_Exception("Not Really An Exception");
-    this.NONE = "No Stack Trace";
+    this.NONE_ExceptionUtil = "No Stack Trace";
     }
     
 

@@ -17,48 +17,48 @@
 
 class Life : JObjectBase, LifeInterface
 {
-    int16 lives;
-    int16 startLives;
-    int16 maxlives;
+    int16 lives_Life;
+    int16 startLives_Life;
+    int16 maxlives_Life;
     
 
     Life@ jinit_Life(int16 lives, int16 maxlives)
     {
-        this.maxlives = maxlives;
-        if (lives > this.maxlives) {
+        this.maxlives_Life = maxlives;
+        if (lives > this.maxlives_Life) {
             jthrow(Exception().jinit_Exception("To Many Lives"));
         }
-        this.lives = lives;
-        this.startLives = lives;
+        this.lives_Life = lives;
+        this.startLives_Life = lives;
         return this;
     }
     
 
     int16 get()
     {
-        return this.lives;
+        return this.lives_Life;
     }
     
 
     void set(int16 lives)
     {
-        this.lives = lives;
+        this.lives_Life = lives;
     }
     
 
     void reset()
     {
-        this.lives = this.startLives;
+        this.lives_Life = this.startLives_Life;
     }
     
 
     void add(int16 lives)
     {
         if (!this.reachedLimit()) {
-            if (this.lives + lives <= int(this.getMaxlives())) {
-                this.lives = int16((this.lives + lives));
+            if (this.lives_Life + lives <= int(this.getMaxlives())) {
+                this.lives_Life = int16((this.lives_Life + lives));
             } else {
-                this.lives = this.getMaxlives();
+                this.lives_Life = this.getMaxlives();
             }
         }
     }
@@ -66,7 +66,7 @@ class Life : JObjectBase, LifeInterface
 
     bool isAlive()
     {
-        if (int(this.lives) <= 0) {
+        if (int(this.lives_Life) <= 0) {
             return false;
         } else {
             return true;
@@ -77,13 +77,13 @@ class Life : JObjectBase, LifeInterface
 
     int16 getMaxlives()
     {
-        return this.maxlives;
+        return this.maxlives_Life;
     }
     
 
     bool reachedLimit()
     {
-        if (this.lives > this.maxlives || int(this.lives) < 0) {
+        if (this.lives_Life > this.maxlives_Life || int(this.lives_Life) < 0) {
             return true;
         } else {
             return false;
@@ -95,10 +95,10 @@ class Life : JObjectBase, LifeInterface
     void deaths(int16 lives)
     {
         if (!this.reachedLimit()) {
-            if (this.lives - lives >= 0) {
-                this.lives = int16((this.lives - lives));
+            if (this.lives_Life - lives >= 0) {
+                this.lives_Life = int16((this.lives_Life - lives));
             } else {
-                this.lives = 0;
+                this.lives_Life = 0;
             }
         }
     }
@@ -106,13 +106,13 @@ class Life : JObjectBase, LifeInterface
 
     int16 getStartLives()
     {
-        return this.startLives;
+        return this.startLives_Life;
     }
     
 
     void setStartLives(int16 startLives)
     {
-        this.startLives = startLives;
+        this.startLives_Life = startLives;
     }
 }
 

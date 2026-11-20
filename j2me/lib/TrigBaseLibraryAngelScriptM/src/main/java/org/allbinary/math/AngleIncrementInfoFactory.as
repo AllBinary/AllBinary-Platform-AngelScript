@@ -17,12 +17,12 @@
 
 class AngleIncrementInfoFactory : JObjectBase
 {
-    AngleIncrementInfo@[]@ angleIncrementInfo;
+    AngleIncrementInfo@[]@ angleIncrementInfo_AngleIncrementInfoFactory;
 
     // Java field initializers run after the super constructor
     void jfields_AngleIncrementInfoFactory()
     {
-    @this.angleIncrementInfo = array<AngleIncrementInfo@>(int(AngleFactory::getInstance().TOTAL_ANGLE));
+    @this.angleIncrementInfo_AngleIncrementInfoFactory = array<AngleIncrementInfo@>(int(AngleFactory::getInstance().TOTAL_ANGLE));
     }
 
     AngleIncrementInfoFactory@ jinit_AngleIncrementInfoFactory()
@@ -36,10 +36,10 @@ class AngleIncrementInfoFactory : JObjectBase
     {
         int halfAngleIncrement = (int(angleIncrement) >>> 1);
         AngleIncrementInfo@ angleIncrementInfo;
-        AngleIncrementInfo@ angleIncrementInfoCanBeNull = this.angleIncrementInfo[halfAngleIncrement];
+        AngleIncrementInfo@ angleIncrementInfoCanBeNull = this.angleIncrementInfo_AngleIncrementInfoFactory[halfAngleIncrement];
         if (angleIncrementInfoCanBeNull is null) {
             @angleIncrementInfo = AngleIncrementInfo().jinit_AngleIncrementInfo(angleIncrement);
-            @this.angleIncrementInfo[halfAngleIncrement] = angleIncrementInfo;
+            @this.angleIncrementInfo_AngleIncrementInfoFactory[halfAngleIncrement] = angleIncrementInfo;
             return angleIncrementInfo;
         } else {
             @angleIncrementInfo = angleIncrementInfoCanBeNull;

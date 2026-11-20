@@ -17,51 +17,51 @@
 
 class KeyValueDrawString : JObjectBase, UpdateMyFontInterface
 {
-    MyFontProcessor@ myFontProcessor;
-    string LABEL;
-    int labelX;
-    int valueX;
-    string value;
+    MyFontProcessor@ myFontProcessor_KeyValueDrawString;
+    string LABEL_KeyValueDrawString;
+    int labelX_KeyValueDrawString;
+    int valueX_KeyValueDrawString;
+    string value_KeyValueDrawString;
 
     // Java field initializers run after the super constructor
     void jfields_KeyValueDrawString()
     {
-    @this.myFontProcessor = UpdateMyFontProcessor().jinit_UpdateMyFontProcessor(this);
+    @this.myFontProcessor_KeyValueDrawString = UpdateMyFontProcessor().jinit_UpdateMyFontProcessor(this);
     
     
     
-    this.value = StringUtil::getInstance().EMPTY_STRING;
+    this.value_KeyValueDrawString = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
     KeyValueDrawString@ jinit_KeyValueDrawString(string label, int x)
     {
         this.jfields_KeyValueDrawString();
-        this.LABEL = label;
-        this.labelX = x;
+        this.LABEL_KeyValueDrawString = label;
+        this.labelX_KeyValueDrawString = x;
         return this;
     }
     
 
     void updateMeasurement(Graphics@ graphics)
     {
-        int labelWidth = graphics.getFont().stringWidth(this.LABEL) - int(this.LABEL.length());
-        this.valueX = labelWidth + this.labelX;
-        @this.myFontProcessor = MyFontProcessor::getInstance();
+        int labelWidth = graphics.getFont().stringWidth(this.LABEL_KeyValueDrawString) - int(this.LABEL_KeyValueDrawString.length());
+        this.valueX_KeyValueDrawString = labelWidth + this.labelX_KeyValueDrawString;
+        @this.myFontProcessor_KeyValueDrawString = MyFontProcessor::getInstance();
     }
     
 
     void paint(Graphics@ graphics, int y)
     {
-        this.myFontProcessor.process(graphics);
-        graphics.drawString(this.LABEL, this.labelX, y, 0);
-        graphics.drawString(this.value, this.valueX, y, 0);
+        this.myFontProcessor_KeyValueDrawString.process(graphics);
+        graphics.drawString(this.LABEL_KeyValueDrawString, this.labelX_KeyValueDrawString, y, 0);
+        graphics.drawString(this.value_KeyValueDrawString, this.valueX_KeyValueDrawString, y, 0);
     }
     
 
     void update(string value)
     {
-        this.value = value;
+        this.value_KeyValueDrawString = value;
     }
 }
 

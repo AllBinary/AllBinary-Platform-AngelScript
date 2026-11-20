@@ -17,28 +17,28 @@
 
 class CanvasDrawLineString : JObjectBase, UpdateMyFontInterface
 {
-    DrawStringUtil@ drawStringUtil;
-    MyFontProcessor@ myFontProcessor;
-    int x;
-    int y;
-    int fontHeight;
+    DrawStringUtil@ drawStringUtil_CanvasDrawLineString;
+    MyFontProcessor@ myFontProcessor_CanvasDrawLineString;
+    int x_CanvasDrawLineString;
+    int y_CanvasDrawLineString;
+    int fontHeight_CanvasDrawLineString;
 
     // Java field initializers run after the super constructor
     void jfields_CanvasDrawLineString()
     {
-    @this.drawStringUtil = DrawStringUtil::getInstance();
-    @this.myFontProcessor = UpdateMyFontProcessor().jinit_UpdateMyFontProcessor(this);
+    @this.drawStringUtil_CanvasDrawLineString = DrawStringUtil::getInstance();
+    @this.myFontProcessor_CanvasDrawLineString = UpdateMyFontProcessor().jinit_UpdateMyFontProcessor(this);
     
     
-    this.fontHeight = 0;
+    this.fontHeight_CanvasDrawLineString = 0;
     }
     
 
     CanvasDrawLineString@ jinit_CanvasDrawLineString(int x, int y)
     {
         this.jfields_CanvasDrawLineString();
-        this.x = x;
-        this.y = y;
+        this.x_CanvasDrawLineString = x;
+        this.y_CanvasDrawLineString = y;
         return this;
     }
     
@@ -46,15 +46,15 @@ class CanvasDrawLineString : JObjectBase, UpdateMyFontInterface
     void updateMeasurement(Graphics@ graphics)
     {
         Font@ font = graphics.getFont();
-        this.fontHeight = font.getHeight();
-        @this.myFontProcessor = MyFontProcessor::getInstance();
+        this.fontHeight_CanvasDrawLineString = font.getHeight();
+        @this.myFontProcessor_CanvasDrawLineString = MyFontProcessor::getInstance();
     }
     
 
     void paint(Graphics@ graphics, string string_, int line)
     {
-        this.myFontProcessor.process(graphics);
-        this.drawStringUtil.drawCenterString(graphics, string_, 0, int(string_.length()), this.x, this.y + (line * this.fontHeight));
+        this.myFontProcessor_CanvasDrawLineString.process(graphics);
+        this.drawStringUtil_CanvasDrawLineString.drawCenterString(graphics, string_, 0, int(string_.length()), this.x_CanvasDrawLineString, this.y_CanvasDrawLineString + (line * this.fontHeight_CanvasDrawLineString));
     }
 }
 

@@ -17,19 +17,19 @@
 
 class TouchScreenType : JObjectBase
 {
-    string name;
+    string name_TouchScreenType;
     
 
     TouchScreenType@ jinit_TouchScreenType(string name)
     {
-        this.name = name;
+        this.name_TouchScreenType = name;
         return this;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_TouchScreenType;
     }
     
 

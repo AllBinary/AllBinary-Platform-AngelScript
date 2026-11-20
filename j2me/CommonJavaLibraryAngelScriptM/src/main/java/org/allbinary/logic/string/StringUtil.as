@@ -22,7 +22,7 @@ class StringUtil : JObjectBase
     string EMPTY_STRING;
     string[]@ ONE_EMPTY_STRING_ARRAY;
     string[]@[]@ ONE_EMPTY_STRING_ARRAY_OF_ARRAYS;
-    string[]@ stringArray;
+    string[]@ stringArray_StringUtil;
 
     // Java field initializers run after the super constructor
     void jfields_StringUtil()
@@ -32,7 +32,7 @@ class StringUtil : JObjectBase
     this.EMPTY_STRING = "";
     @this.ONE_EMPTY_STRING_ARRAY = array<string> = {this.EMPTY_STRING};
     @this.ONE_EMPTY_STRING_ARRAY_OF_ARRAYS = jnewArray2_String(0, 0);
-    @this.stringArray = array<string>(0);
+    @this.stringArray_StringUtil = array<string>(0);
     }
     
 
@@ -51,7 +51,7 @@ class StringUtil : JObjectBase
 
     string[]@ getArrayInstance()
     {
-        return this.stringArray;
+        return this.stringArray_StringUtil;
     }
     
 

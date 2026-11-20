@@ -17,40 +17,40 @@
 
 class CombatBaseBehavior : JObjectBase
 {
-    DamageableBaseBehavior@ damageableBaseBehavior;
-    DestroyableBaseBehavior@ destroyableBaseBehavior;
-    bool readyForExplosion;
+    DamageableBaseBehavior@ damageableBaseBehavior_CombatBaseBehavior;
+    DestroyableBaseBehavior@ destroyableBaseBehavior_CombatBaseBehavior;
+    bool readyForExplosion_CombatBaseBehavior;
     
 
     CombatBaseBehavior@ jinit_CombatBaseBehavior(DamageableBaseBehavior@ damageableBaseBehavior, DestroyableBaseBehavior@ destroyableBaseBehavior)
     {
-        @this.damageableBaseBehavior = damageableBaseBehavior;
-        @this.destroyableBaseBehavior = destroyableBaseBehavior;
+        @this.damageableBaseBehavior_CombatBaseBehavior = damageableBaseBehavior;
+        @this.destroyableBaseBehavior_CombatBaseBehavior = destroyableBaseBehavior;
         return this;
     }
     
 
     DamageableBaseBehavior@ getDamageableBaseBehavior()
     {
-        return this.damageableBaseBehavior;
+        return this.damageableBaseBehavior_CombatBaseBehavior;
     }
     
 
     DestroyableBaseBehavior@ getDestroyableBaseBehavior()
     {
-        return this.destroyableBaseBehavior;
+        return this.destroyableBaseBehavior_CombatBaseBehavior;
     }
     
 
     bool isReadyForExplosion()
     {
-        return this.readyForExplosion;
+        return this.readyForExplosion_CombatBaseBehavior;
     }
     
 
     void setReadyForExplosion(bool readyForExplosion)
     {
-        this.readyForExplosion = readyForExplosion;
+        this.readyForExplosion_CombatBaseBehavior = readyForExplosion;
     }
 }
 

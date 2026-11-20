@@ -18,15 +18,15 @@
 class Features : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    BasicArrayList@ list;
-    BasicArrayList@ defaultList;
+    CommonStrings@ commonStrings_Features;
+    BasicArrayList@ list_Features;
+    BasicArrayList@ defaultList_Features;
 
     // Java field initializers run after the super constructor
     void jfields_Features()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
+    @this.commonStrings_Features = CommonStrings::getInstance();
     
     
     }
@@ -35,8 +35,8 @@ class Features : JObjectBase
     Features@ jinit_Features()
     {
         this.jfields_Features();
-        @this.list = BasicArrayListD().jinit_BasicArrayListD();
-        @this.defaultList = BasicArrayListD().jinit_BasicArrayListD();
+        @this.list_Features = BasicArrayListD().jinit_BasicArrayListD();
+        @this.defaultList_Features = BasicArrayListD().jinit_BasicArrayListD();
         this.init();
         return this;
     }
@@ -45,17 +45,17 @@ class Features : JObjectBase
     void addDefault(Feature@ gameFeature)
     {
         this.add(gameFeature);
-        if (!this.defaultList.contains(gameFeature)) {
-            this.defaultList.add(gameFeature);
+        if (!this.defaultList_Features.contains(gameFeature)) {
+            this.defaultList_Features.add(gameFeature);
         }
     }
     
 
     void add(Feature@ gameFeature)
     {
-        if (!this.list.contains(gameFeature)) {
-            this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, this.commonStrings.ADD);
-            this.list.add(gameFeature);
+        if (!this.list_Features.contains(gameFeature)) {
+            this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, this.commonStrings_Features.ADD);
+            this.list_Features.add(gameFeature);
             GameFeatureEventHandler::getInstance().fireEvent(GameFeatureEvent().jinit_GameFeatureEvent(gameFeature, gameFeature.toString()));
         }
     }
@@ -65,15 +65,15 @@ class Features : JObjectBase
     {
         this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault");
         this.remove(gameFeature);
-        this.defaultList.remove(gameFeature);
+        this.defaultList_Features.remove(gameFeature);
     }
     
 
     void remove(Feature@ gameFeature)
     {
-        if (this.list.contains(gameFeature)) {
-            this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.REMOVE);
-            this.list.remove(gameFeature);
+        if (this.list_Features.contains(gameFeature)) {
+            this.logUtil.putF(this.commonStrings_Features.START, this, this.commonStrings_Features.REMOVE);
+            this.list_Features.remove(gameFeature);
             GameFeatureEventHandler::getInstance().fireEvent(GameFeatureEvent().jinit_GameFeatureEvent(gameFeature, gameFeature.toString()));
         }
     }
@@ -109,7 +109,7 @@ class Features : JObjectBase
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
-            PreLogUtil::putOE(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            PreLogUtil::putOE(this.commonStrings_Features.EXCEPTION, this, this.commonStrings_Features.INIT, e);
             }
             else { jthrow(jex0); }
         }
@@ -118,13 +118,13 @@ class Features : JObjectBase
 
     bool isDefault(Feature@ gameFeature)
     {
-        return this.defaultList.contains(gameFeature);
+        return this.defaultList_Features.contains(gameFeature);
     }
     
 
     bool isFeature(Feature@ gameFeature)
     {
-        return this.list.contains(gameFeature);
+        return this.list_Features.contains(gameFeature);
     }
     
 

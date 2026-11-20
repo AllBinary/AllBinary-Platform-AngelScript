@@ -17,49 +17,49 @@
 
 class RelativeRelationship : JObjectBase
 {
-    BasicArrayList@ typesAllowedList;
-    int x;
-    int y;
-    int z;
+    BasicArrayList@ typesAllowedList_RelativeRelationship;
+    int x_RelativeRelationship;
+    int y_RelativeRelationship;
+    int z_RelativeRelationship;
     
 
     RelativeRelationship@ jinit_RelativeRelationship(GPoint@ point, BasicArrayList@ typesAllowedList)
     {
-        this.x = point.getX();
-        this.y = point.getY();
-        this.z = point.getZ();
-        @this.typesAllowedList = typesAllowedList;
+        this.x_RelativeRelationship = point.getX();
+        this.y_RelativeRelationship = point.getY();
+        this.z_RelativeRelationship = point.getZ();
+        @this.typesAllowedList_RelativeRelationship = typesAllowedList;
         return this;
     }
     
 
     int getX()
     {
-        return this.x;
+        return this.x_RelativeRelationship;
     }
     
 
     int getY()
     {
-        return this.y;
+        return this.y_RelativeRelationship;
     }
     
 
     int getZ()
     {
-        return this.z;
+        return this.z_RelativeRelationship;
     }
     
 
     BasicArrayList@ getTypesAllowedList()
     {
-        return this.typesAllowedList;
+        return this.typesAllowedList_RelativeRelationship;
     }
     
 
     void setTypesAllowedList(BasicArrayList@ typesAllowedList)
     {
-        @this.typesAllowedList = typesAllowedList;
+        @this.typesAllowedList_RelativeRelationship = typesAllowedList;
     }
 }
 

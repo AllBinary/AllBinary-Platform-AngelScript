@@ -24,7 +24,7 @@ class GestureOnlyMotionRecognizer : MotionRecognizer
     GestureOnlyMotionRecognizer@ jinit_GestureOnlyMotionRecognizer()
     {
         this.jinit_MotionRecognizer();
-        this.id_GestureOnlyMotionRecognizer = ((GestureOnlyMotionRecognizer::index = GestureOnlyMotionRecognizer::index + 1) - 1);
+        this.id_GestureOnlyMotionRecognizer = GestureOnlyMotionRecognizer::jpostAdd_index(1);
         @this.motionGestureRecognizer_GestureOnlyMotionRecognizer = MotionGestureRecognizer().jinit_MotionGestureRecognizer(this.id_GestureOnlyMotionRecognizer);
         return this;
     }
@@ -72,6 +72,7 @@ namespace GestureOnlyMotionRecognizer
     int jcell_index;
     int get_index() property { jclinit(); return jcell_index; }
     void set_index(int value) property { jclinit(); jcell_index = value; }
+    int jpostAdd_index(int delta) { jclinit(); int old = jcell_index; jcell_index = int(old + delta); return old; }
 
     GPointCircularPool@ jcell_pointCircularPool;
     GPointCircularPool@ get_pointCircularPool() property { jclinit(); return jcell_pointCircularPool; }

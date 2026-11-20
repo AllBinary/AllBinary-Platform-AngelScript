@@ -17,28 +17,28 @@
 
 class AbPath : JObjectBase
 {
-    CommonSeps@ commonSeps;
-    AbPathData@ abPathData;
-    PathUtil@ abPathUtil;
-    string EMPTY_STRING;
+    CommonSeps@ commonSeps_AbPath;
+    AbPathData@ abPathData_AbPath;
+    PathUtil@ abPathUtil_AbPath;
+    string EMPTY_STRING_AbPath;
     string schema;
-    string path;
+    string path_AbPath;
     string nameP;
-    bool hasSchemaP;
-    int numberOfSeps;
+    bool hasSchemaP_AbPath;
+    int numberOfSeps_AbPath;
 
     // Java field initializers run after the super constructor
     void jfields_AbPath()
     {
-    @this.commonSeps = CommonSeps::getInstance();
-    @this.abPathData = AbPathData::getInstance();
-    @this.abPathUtil = PathUtil::getInstance();
-    this.EMPTY_STRING = StringUtil::getInstance().EMPTY_STRING;
-    this.schema = this.EMPTY_STRING;
-    this.path = this.EMPTY_STRING;
-    this.nameP = this.EMPTY_STRING;
-    this.hasSchemaP = false;
-    this.numberOfSeps = 0;
+    @this.commonSeps_AbPath = CommonSeps::getInstance();
+    @this.abPathData_AbPath = AbPathData::getInstance();
+    @this.abPathUtil_AbPath = PathUtil::getInstance();
+    this.EMPTY_STRING_AbPath = StringUtil::getInstance().EMPTY_STRING;
+    this.schema = this.EMPTY_STRING_AbPath;
+    this.path_AbPath = this.EMPTY_STRING_AbPath;
+    this.nameP = this.EMPTY_STRING_AbPath;
+    this.hasSchemaP_AbPath = false;
+    this.numberOfSeps_AbPath = 0;
     }
     
 
@@ -49,7 +49,7 @@ class AbPath : JObjectBase
         if (!stringValidationUtil.isEmpty(aPath)) {
             this.schema = this.getSchema(aPath);
             this.nameP = name;
-            this.path = this.abPathUtil.adjustEnd(this.abPathUtil.adjust(this.getPathFromPath(aPath)));
+            this.path_AbPath = this.abPathUtil_AbPath.adjustEnd(this.abPathUtil_AbPath.adjust(this.getPathFromPath(aPath)));
         } else {
             this.init();
             if (!stringValidationUtil.isEmpty(name)) {
@@ -62,27 +62,27 @@ class AbPath : JObjectBase
 
     void init()
     {
-        this.schema = this.EMPTY_STRING;
-        this.setPath(this.abPathData.SEPARATOR);
-        this.nameP = this.EMPTY_STRING;
+        this.schema = this.EMPTY_STRING_AbPath;
+        this.setPath(this.abPathData_AbPath.SEPARATOR);
+        this.nameP = this.EMPTY_STRING_AbPath;
     }
     
 
     string getSchema(string aPath)
     {
-        int beginIndex = String::indexOf(aPath, this.commonSeps.COLON);
+        int beginIndex = String::indexOf(aPath, this.commonSeps_AbPath.COLON);
         if (beginIndex >= 0) {
-            this.hasSchemaP = true;
+            this.hasSchemaP_AbPath = true;
             return String::substring(aPath, 0, beginIndex);
         }
-        this.hasSchemaP = false;
-        return this.EMPTY_STRING;
+        this.hasSchemaP_AbPath = false;
+        return this.EMPTY_STRING_AbPath;
     }
     
 
     bool hasSchema()
     {
-        return this.hasSchemaP;
+        return this.hasSchemaP_AbPath;
     }
     
 
@@ -91,15 +91,15 @@ class AbPath : JObjectBase
         FilePathData@ filePathData = FilePathData::getInstance();
         string tempPath = aPath;
         if (!this.hasSchema()) {
-            tempPath = this.abPathUtil.adjustStart(tempPath);
+            tempPath = this.abPathUtil_AbPath.adjustStart(tempPath);
         } else {
-            int beginIndex = String::indexOf(tempPath, this.commonSeps.COLON);
+            int beginIndex = String::indexOf(tempPath, this.commonSeps_AbPath.COLON);
             if (beginIndex >= 0) {
                 beginIndex++;
-                while (String::charAt(tempPath, beginIndex) == this.abPathData.SEPARATORCHAR || String::charAt(tempPath, beginIndex) == filePathData.SEPARATORCHAR) {
+                while (String::charAt(tempPath, beginIndex) == this.abPathData_AbPath.SEPARATORCHAR || String::charAt(tempPath, beginIndex) == filePathData.SEPARATORCHAR) {
                     beginIndex++;
-                    this.numberOfSeps++;
-                    if (this.numberOfSeps > 2) {
+                    this.numberOfSeps_AbPath++;
+                    if (this.numberOfSeps_AbPath > 2) {
                         jthrow(Exception().jinit_Exception("Should Not Have More Than Two Seps"));
                     }
                 }
@@ -141,7 +141,7 @@ class AbPath : JObjectBase
             FilePathData@ filePathData = FilePathData::getInstance();
             StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
             stringBuffer.append(this.schema);
-            stringBuffer.append(this.commonSeps.COLON);
+            stringBuffer.append(this.commonSeps_AbPath.COLON);
             stringBuffer.append(filePathData.PATH_START);
             stringBuffer.append(FilePathUtil::adjust(this.getPath()));
             stringBuffer.append(this.nameP);
@@ -155,13 +155,13 @@ class AbPath : JObjectBase
 
     string getPath()
     {
-        return this.path;
+        return this.path_AbPath;
     }
     
 
     void setPath(string path)
     {
-        this.path = path;
+        this.path_AbPath = path;
     }
 }
 

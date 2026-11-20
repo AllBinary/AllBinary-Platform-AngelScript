@@ -18,18 +18,18 @@
 class GameMotionGestureListener : JObjectBase, MotionGestureEventListener
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    BasicArrayList@ motionGestureCollection;
-    BasicArrayList@ touchGestureCollection;
-    CompleteMotionGestureListenerInterface@ signed;
+    CommonStrings@ commonStrings_GameMotionGestureListener;
+    BasicArrayList@ motionGestureCollection_GameMotionGestureListener;
+    BasicArrayList@ touchGestureCollection_GameMotionGestureListener;
+    CompleteMotionGestureListenerInterface@ signed_GameMotionGestureListener;
 
     // Java field initializers run after the super constructor
     void jfields_GameMotionGestureListener()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.motionGestureCollection = BasicArrayListD().jinit_BasicArrayListD();
-    @this.touchGestureCollection = BasicArrayListD().jinit_BasicArrayListD();
+    @this.commonStrings_GameMotionGestureListener = CommonStrings::getInstance();
+    @this.motionGestureCollection_GameMotionGestureListener = BasicArrayListD().jinit_BasicArrayListD();
+    @this.touchGestureCollection_GameMotionGestureListener = BasicArrayListD().jinit_BasicArrayListD();
     
     }
     
@@ -37,15 +37,15 @@ class GameMotionGestureListener : JObjectBase, MotionGestureEventListener
     GameMotionGestureListener@ jinit_GameMotionGestureListener(CompleteMotionGestureListenerInterface@ signed)
     {
         this.jfields_GameMotionGestureListener();
-        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
-        @this.signed = signed;
+        this.logUtil.putF(this.commonStrings_GameMotionGestureListener.START, this, this.commonStrings_GameMotionGestureListener.CONSTRUCTOR);
+        @this.signed_GameMotionGestureListener = signed;
         return this;
     }
     
 
     void onEvent(AllBinaryEventObject@ eventObject)
     {
-        ForcedLogUtil::log(this.commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil::log(this.commonStrings_GameMotionGestureListener.NOT_IMPLEMENTED, this);
     }
     
 
@@ -99,22 +99,22 @@ class GameMotionGestureListener : JObjectBase, MotionGestureEventListener
 
     void onPressedMotionGestureEvent(MotionGestureEvent@ ev)
     {
-        this.touchGestureCollection.add(ev.getMotionGesture());
+        this.touchGestureCollection_GameMotionGestureListener.add(ev.getMotionGesture());
     }
     
 
     void released(MotionGestureEvent@ ev)
     {
         try {
-            this.touchGestureCollection.add(ev.getMotionGesture());
-            this.signed.onMotionGestureCompleted(this.touchGestureCollection);
-            this.touchGestureCollection.clear();
+            this.touchGestureCollection_GameMotionGestureListener.add(ev.getMotionGesture());
+            this.signed_GameMotionGestureListener.onMotionGestureCompleted(this.touchGestureCollection_GameMotionGestureListener);
+            this.touchGestureCollection_GameMotionGestureListener.clear();
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
             StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
-            stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
+            stringBuffer.append(this.commonStrings_GameMotionGestureListener.EXCEPTION_LABEL);
             stringBuffer.append(StringUtil::getInstance().toString(ev.getMotionGesture()));
             this.logUtil.put(stringBuffer.toString(), this, "release", e);
             }
@@ -137,17 +137,17 @@ class GameMotionGestureListener : JObjectBase, MotionGestureEventListener
             } else if (motionGestureInput is TouchMotionGestureFactory::getInstance().RELEASED) {
                 this.released(ev);
             } else {
-                this.motionGestureCollection.add(motionGestureInput);
-                this.signed.onMotionGestureCompleted(this.motionGestureCollection);
-                this.motionGestureCollection.clear();
-                this.touchGestureCollection.clear();
+                this.motionGestureCollection_GameMotionGestureListener.add(motionGestureInput);
+                this.signed_GameMotionGestureListener.onMotionGestureCompleted(this.motionGestureCollection_GameMotionGestureListener);
+                this.motionGestureCollection_GameMotionGestureListener.clear();
+                this.touchGestureCollection_GameMotionGestureListener.clear();
             }
         } catch {
             Throwable@ jex1 = jcatch();
             if (cast<Exception>(jex1) !is null) {
                 Exception@ e = cast<Exception>(jex1);
             StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
-            stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
+            stringBuffer.append(this.commonStrings_GameMotionGestureListener.EXCEPTION_LABEL);
             stringBuffer.append(StringUtil::getInstance().toString(ev.getMotionGesture()));
             this.logUtil.put(stringBuffer.toString(), this, "onMotionGestureEvent", e);
             }

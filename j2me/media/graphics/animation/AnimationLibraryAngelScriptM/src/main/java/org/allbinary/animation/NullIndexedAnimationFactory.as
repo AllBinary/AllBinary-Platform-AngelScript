@@ -17,12 +17,12 @@
 
 class NullIndexedAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
-    Animation@ NULL_ANIMATION;
+    Animation@ NULL_ANIMATION_NullIndexedAnimationFactory;
 
     // Java field initializers run after the super constructor
     void jfields_NullIndexedAnimationFactory()
     {
-    @this.NULL_ANIMATION = NullIndexedAnimationInner().jinit_NullIndexedAnimationInner();
+    @this.NULL_ANIMATION_NullIndexedAnimationFactory = NullIndexedAnimationInner().jinit_NullIndexedAnimationInner();
     }
     
 
@@ -35,13 +35,13 @@ class NullIndexedAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterf
 
     Animation@ getInstance(int instanceId)
     {
-        return this.NULL_ANIMATION;
+        return this.NULL_ANIMATION_NullIndexedAnimationFactory;
     }
     
 
     Animation@ getInstanceAnimation(Animation@ animationInterface)
     {
-        return this.NULL_ANIMATION;
+        return this.NULL_ANIMATION_NullIndexedAnimationFactory;
     }
     
 

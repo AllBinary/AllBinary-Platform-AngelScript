@@ -17,13 +17,13 @@
 
 class ThirdPartyStore : JObjectBase
 {
-    bool authorized;
-    string name;
+    bool authorized_ThirdPartyStore;
+    string name_ThirdPartyStore;
     
 
     ThirdPartyStore@ jinit_ThirdPartyStore(string name)
     {
-        this.name = name;
+        this.name_ThirdPartyStore = name;
         return this;
     }
     
@@ -35,19 +35,19 @@ class ThirdPartyStore : JObjectBase
 
     bool isAuthorized()
     {
-        return this.authorized;
+        return this.authorized_ThirdPartyStore;
     }
     
 
     void setAuthorized(bool authorized)
     {
-        this.authorized = authorized;
+        this.authorized_ThirdPartyStore = authorized;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_ThirdPartyStore;
     }
 }
 

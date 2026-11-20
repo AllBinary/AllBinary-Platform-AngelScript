@@ -17,14 +17,14 @@
 
 class StringValidationUtil : JObjectBase
 {
-    StringUtil@ stringUtil;
-    TsUtil@ tsUtil;
+    StringUtil@ stringUtil_StringValidationUtil;
+    TsUtil@ tsUtil_StringValidationUtil;
 
     // Java field initializers run after the super constructor
     void jfields_StringValidationUtil()
     {
-    @this.stringUtil = StringUtil::getInstance();
-    @this.tsUtil = TsUtil::getInstance();
+    @this.stringUtil_StringValidationUtil = StringUtil::getInstance();
+    @this.tsUtil_StringValidationUtil = TsUtil::getInstance();
     }
     
 
@@ -107,7 +107,7 @@ class StringValidationUtil : JObjectBase
     bool isValidNotRequiredNumber(string value, int min, int max)
     {
         if (int(value.length()) > 0) {
-            if (this.tsUtil.compareTo(value, this.stringUtil.NULL_STRING) == 0 || int(value.length()) < min || int(value.length()) > max) {
+            if (this.tsUtil_StringValidationUtil.compareTo(value, this.stringUtil_StringValidationUtil.NULL_STRING) == 0 || int(value.length()) < min || int(value.length()) > max) {
                 return false;
             }
             if (!this.isNumber(value)) {
@@ -120,7 +120,7 @@ class StringValidationUtil : JObjectBase
 
     bool isEmpty(string string_)
     {
-        if (this.tsUtil.compareTo(string_, this.stringUtil.NULL_STRING) != 0 && this.tsUtil.compareTo(string_, this.stringUtil.EMPTY_STRING) != 0) {
+        if (this.tsUtil_StringValidationUtil.compareTo(string_, this.stringUtil_StringValidationUtil.NULL_STRING) != 0 && this.tsUtil_StringValidationUtil.compareTo(string_, this.stringUtil_StringValidationUtil.EMPTY_STRING) != 0) {
             return false;
         } else {
             return true;

@@ -17,37 +17,37 @@
 
 class Scoreable : JObjectBase, ScoreableInterface
 {
-    int points;
+    int points_Scoreable;
     
 
     Scoreable@ jinit_Scoreable(int points)
     {
-        this.points = points;
+        this.points_Scoreable = points;
         return this;
     }
     
 
     void addPoints(int points)
     {
-        this.points += points;
+        this.points_Scoreable += points;
     }
     
 
     void removePoints(int points)
     {
-        this.points -= points;
+        this.points_Scoreable -= points;
     }
     
 
     void setPoints(int points)
     {
-        this.points = points;
+        this.points_Scoreable = points;
     }
     
 
     int getPoints()
     {
-        return this.points;
+        return this.points_Scoreable;
     }
 }
 

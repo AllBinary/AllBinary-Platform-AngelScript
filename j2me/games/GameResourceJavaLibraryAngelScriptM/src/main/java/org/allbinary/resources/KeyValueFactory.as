@@ -34,10 +34,10 @@ class KeyValueFactory : JObjectBase
 
     string get(string key)
     {
-        if (!this.MAP.containsKey(key)) {
+        if (!this.MAP.containsKey(jbox(key))) {
             return key;
         }
-        return jstringOf(this.MAP.get(key));
+        return jstringOf(this.MAP.get(jbox(key)));
     }
 }
 

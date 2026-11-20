@@ -18,19 +18,19 @@
 class GameKeyEventHandler : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    PressGameKeyEventHandler@ pressGameKeyEventHandler;
-    UpGameKeyEventHandler@ upGameKeyEventHandler;
-    DownGameKeyEventHandler@ downGameKeyEventHandler;
+    CommonStrings@ commonStrings_GameKeyEventHandler;
+    PressGameKeyEventHandler@ pressGameKeyEventHandler_GameKeyEventHandler;
+    UpGameKeyEventHandler@ upGameKeyEventHandler_GameKeyEventHandler;
+    DownGameKeyEventHandler@ downGameKeyEventHandler_GameKeyEventHandler;
 
     // Java field initializers run after the super constructor
     void jfields_GameKeyEventHandler()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.pressGameKeyEventHandler = PressGameKeyEventHandler::getInstance();
-    @this.upGameKeyEventHandler = UpGameKeyEventHandler::getInstance();
-    @this.downGameKeyEventHandler = DownGameKeyEventHandler::getInstance();
+    @this.commonStrings_GameKeyEventHandler = CommonStrings::getInstance();
+    @this.pressGameKeyEventHandler_GameKeyEventHandler = PressGameKeyEventHandler::getInstance();
+    @this.upGameKeyEventHandler_GameKeyEventHandler = UpGameKeyEventHandler::getInstance();
+    @this.downGameKeyEventHandler_GameKeyEventHandler = DownGameKeyEventHandler::getInstance();
     }
 
     GameKeyEventHandler@ jinit_GameKeyEventHandler()
@@ -42,36 +42,36 @@ class GameKeyEventHandler : JObjectBase
 
     void removeAllListeners()
     {
-        this.pressGameKeyEventHandler.removeAllListeners();
-        this.upGameKeyEventHandler.removeAllListeners();
-        this.downGameKeyEventHandler.removeAllListeners();
+        this.pressGameKeyEventHandler_GameKeyEventHandler.removeAllListeners();
+        this.upGameKeyEventHandler_GameKeyEventHandler.removeAllListeners();
+        this.downGameKeyEventHandler_GameKeyEventHandler.removeAllListeners();
     }
     
 
     void addListenerForPlayer(EventListenerInterface@ eventListenerInterface, int playerInputId)
     {
-        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
-        this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
-        this.upGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
-        this.downGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings_GameKeyEventHandler.ADD_LISTENER);
+        this.pressGameKeyEventHandler_GameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        this.upGameKeyEventHandler_GameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
+        this.downGameKeyEventHandler_GameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
     }
     
 
     void addListener(EventListenerInterface@ eventListenerInterface)
     {
-        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
-        this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
-        this.upGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
-        this.downGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings_GameKeyEventHandler.ADD_LISTENER);
+        this.pressGameKeyEventHandler_GameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        this.upGameKeyEventHandler_GameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        this.downGameKeyEventHandler_GameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
     }
     
 
     void removeListener(EventListenerInterface@ eventListenerInterface)
     {
-        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.REMOVE_LISTENER);
-        this.pressGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
-        this.upGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
-        this.downGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings_GameKeyEventHandler.REMOVE_LISTENER);
+        this.pressGameKeyEventHandler_GameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
+        this.upGameKeyEventHandler_GameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
+        this.downGameKeyEventHandler_GameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
     }
 }
 

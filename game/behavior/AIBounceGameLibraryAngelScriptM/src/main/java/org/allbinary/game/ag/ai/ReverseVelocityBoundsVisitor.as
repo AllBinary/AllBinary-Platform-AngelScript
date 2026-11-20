@@ -19,7 +19,7 @@ class ReverseVelocityBoundsVisitor : JObjectBase, BoundsVisitorInterface
 {
     LogUtil@ logUtil;
     VelocityInterface@ velocityInterface;
-    LayerInterface@ layerInterface;
+    LayerInterface@ layerInterface_ReverseVelocityBoundsVisitor;
 
     // Java field initializers run after the super constructor
     void jfields_ReverseVelocityBoundsVisitor()
@@ -33,7 +33,7 @@ class ReverseVelocityBoundsVisitor : JObjectBase, BoundsVisitorInterface
     ReverseVelocityBoundsVisitor@ jinit_ReverseVelocityBoundsVisitor(LayerInterface@ layerInterface)
     {
         this.jfields_ReverseVelocityBoundsVisitor();
-        @this.layerInterface = layerInterface;
+        @this.layerInterface_ReverseVelocityBoundsVisitor = layerInterface;
         VelocityInterfaceCompositeInterface@ velocityInterfaceCompositeInterface = cast<VelocityInterfaceCompositeInterface>(layerInterface);
         @this.velocityInterface = cast<VelocityInterface>(velocityInterfaceCompositeInterface.getVelocityProperties());
         return this;
@@ -42,13 +42,13 @@ class ReverseVelocityBoundsVisitor : JObjectBase, BoundsVisitorInterface
 
     int getX()
     {
-        return this.layerInterface.getXP();
+        return this.layerInterface_ReverseVelocityBoundsVisitor.getXP();
     }
     
 
     int getY()
     {
-        return this.layerInterface.getYP();
+        return this.layerInterface_ReverseVelocityBoundsVisitor.getYP();
     }
     
 

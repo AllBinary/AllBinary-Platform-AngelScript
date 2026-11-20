@@ -17,15 +17,15 @@
 
 class PlayerQueue : JObjectBase
 {
-    CommonStrings@ commonStrings;
-    BasicArrayList@ list;
-    int max;
+    CommonStrings@ commonStrings_PlayerQueue;
+    BasicArrayList@ list_PlayerQueue;
+    int max_PlayerQueue;
 
     // Java field initializers run after the super constructor
     void jfields_PlayerQueue()
     {
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.commonStrings_PlayerQueue = CommonStrings::getInstance();
+    @this.list_PlayerQueue = BasicArrayListD().jinit_BasicArrayListD();
     
     }
     
@@ -33,7 +33,7 @@ class PlayerQueue : JObjectBase
     PlayerQueue@ jinit_PlayerQueue(int max)
     {
         this.jfields_PlayerQueue();
-        this.max = max;
+        this.max_PlayerQueue = max;
         return this;
     }
     
@@ -41,14 +41,14 @@ class PlayerQueue : JObjectBase
     void add(Sound@ sound)
     {
         try {
-            if (!this.list.contains(sound)) {
-                this.list.add(sound);
+            if (!this.list_PlayerQueue.contains(sound)) {
+                this.list_PlayerQueue.add(sound);
             }
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
-            PreLogUtil::put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD);
+            PreLogUtil::put(this.commonStrings_PlayerQueue.EXCEPTION, this, this.commonStrings_PlayerQueue.ADD);
             }
             else { jthrow(jex0); }
         }
@@ -60,13 +60,13 @@ class PlayerQueue : JObjectBase
         Sound@ sound = NoSound::getInstance();
         try {
             bool played = false;
-            if (this.list.size() > 0) {
-                @sound = cast<Sound>(this.list.removeAt(0));
+            if (this.list_PlayerQueue.size() > 0) {
+                @sound = cast<Sound>(this.list_PlayerQueue.removeAt(0));
                 if (sound !is null) {
                     sound.getPlayerP().start();
                 }
-                while (this.list.size() > this.max) {
-                    this.list.removeAt(0);
+                while (this.list_PlayerQueue.size() > this.max_PlayerQueue) {
+                    this.list_PlayerQueue.removeAt(0);
                 }
                 played = true;
             }
@@ -79,7 +79,7 @@ class PlayerQueue : JObjectBase
             if (sound !is null) {
                 resource = sound.getResource();
             }
-            PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(resource).toString(), this, this.commonStrings.PROCESS);
+            PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.commonStrings_PlayerQueue.EXCEPTION_LABEL).append(resource).toString(), this, this.commonStrings_PlayerQueue.PROCESS);
             return false;
             }
             else { jthrow(jex1); }
@@ -90,13 +90,13 @@ class PlayerQueue : JObjectBase
 
     void clear()
     {
-        this.list.clear();
+        this.list_PlayerQueue.clear();
     }
     
 
     string toString()
     {
-        return StringMaker().jinit_StringMaker().append(PlayerQueue::TOTAL).appendint(this.list.size()).toString();
+        return StringMaker().jinit_StringMaker().append(PlayerQueue::TOTAL).appendint(this.list_PlayerQueue.size()).toString();
     }
 }
 

@@ -17,25 +17,25 @@
 
 class LayerPlacementType : JObjectBase
 {
-    int type;
+    int type_LayerPlacementType;
     
 
     LayerPlacementType@ jinit_LayerPlacementType(int type)
     {
-        this.type = type;
+        this.type_LayerPlacementType = type;
         return this;
     }
     
 
     int getType()
     {
-        return this.type;
+        return this.type_LayerPlacementType;
     }
     
 
     void setType(int type)
     {
-        this.type = type;
+        this.type_LayerPlacementType = type;
     }
 }
 

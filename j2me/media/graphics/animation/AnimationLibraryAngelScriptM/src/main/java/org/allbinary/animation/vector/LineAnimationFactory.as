@@ -17,19 +17,19 @@
 
 class LineAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterface
 {
-    BasicColor@ basicColor;
+    BasicColor@ basicColor_LineAnimationFactory;
     
 
     LineAnimationFactory@ jinit_LineAnimationFactory(BasicColor@ basicColor)
     {
-        @this.basicColor = basicColor;
+        @this.basicColor_LineAnimationFactory = basicColor;
         return this;
     }
     
 
     Animation@ getInstance(int instanceId)
     {
-        return LineAnimation().jinit_LineAnimation(this.basicColor);
+        return LineAnimation().jinit_LineAnimation(this.basicColor_LineAnimationFactory);
     }
     
 

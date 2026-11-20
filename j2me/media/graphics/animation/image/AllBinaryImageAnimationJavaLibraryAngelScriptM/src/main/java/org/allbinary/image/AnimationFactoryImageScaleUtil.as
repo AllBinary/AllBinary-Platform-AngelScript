@@ -17,12 +17,12 @@
 
 class AnimationFactoryImageScaleUtil : JObjectBase
 {
-    ImageJ2MEScaleUtil@ imageScaleUtil;
+    ImageJ2MEScaleUtil@ imageScaleUtil_AnimationFactoryImageScaleUtil;
 
     // Java field initializers run after the super constructor
     void jfields_AnimationFactoryImageScaleUtil()
     {
-    @this.imageScaleUtil = ImageJ2MEScaleUtil::getInstance();
+    @this.imageScaleUtil_AnimationFactoryImageScaleUtil = ImageJ2MEScaleUtil::getInstance();
     }
 
     AnimationFactoryImageScaleUtil@ jinit_AnimationFactoryImageScaleUtil()
@@ -43,7 +43,7 @@ class AnimationFactoryImageScaleUtil : JObjectBase
             } else {
                 int scaledWidth = int(jdoubleToInt((scaleX * float(width))));
                 int scaledHeight = int(jdoubleToInt((scaleY * float(height))));
-                @scaledImage = this.imageScaleUtil.scale(image, scaledWidth, scaledHeight);
+                @scaledImage = this.imageScaleUtil_AnimationFactoryImageScaleUtil.scale(image, scaledWidth, scaledHeight);
             }
         } else {
             @scaledImage = image;

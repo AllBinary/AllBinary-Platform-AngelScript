@@ -17,19 +17,19 @@
 
 class CollisionType : JObjectBase
 {
-    string name;
+    string name_CollisionType;
     
 
     CollisionType@ jinit_CollisionType(string name)
     {
-        this.name = name;
+        this.name_CollisionType = name;
         return this;
     }
     
 
     string toString()
     {
-        return this.name;
+        return this.name_CollisionType;
     }
 }
 

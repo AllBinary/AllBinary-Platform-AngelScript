@@ -17,12 +17,12 @@
 
 class DemoLimitedCommandTextItemArrayFactory : JObjectBase
 {
-    CommandTextItemArrayFactory@ commandTextItemArrayFactory;
+    CommandTextItemArrayFactory@ commandTextItemArrayFactory_DemoLimitedCommandTextItemArrayFactory;
 
     // Java field initializers run after the super constructor
     void jfields_DemoLimitedCommandTextItemArrayFactory()
     {
-    @this.commandTextItemArrayFactory = CommandTextItemArrayFactory().jinit_CommandTextItemArrayFactory(LimitCommandsVisitor().jinit_LimitCommandsVisitor());
+    @this.commandTextItemArrayFactory_DemoLimitedCommandTextItemArrayFactory = CommandTextItemArrayFactory().jinit_CommandTextItemArrayFactory(LimitCommandsVisitor().jinit_LimitCommandsVisitor());
     }
 
     DemoLimitedCommandTextItemArrayFactory@ jinit_DemoLimitedCommandTextItemArrayFactory()
@@ -34,7 +34,7 @@ class DemoLimitedCommandTextItemArrayFactory : JObjectBase
 
     CommandTextItemArrayFactory@ getCommandTextItemArrayFactory()
     {
-        return this.commandTextItemArrayFactory;
+        return this.commandTextItemArrayFactory_DemoLimitedCommandTextItemArrayFactory;
     }
 }
 

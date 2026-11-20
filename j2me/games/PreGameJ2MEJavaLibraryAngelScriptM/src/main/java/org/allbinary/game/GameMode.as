@@ -17,12 +17,12 @@
 
 class GameMode : JObjectBase
 {
-    string name;
+    string name_GameMode;
 
     // Java field initializers run after the super constructor
     void jfields_GameMode()
     {
-    this.name = StringUtil::getInstance().EMPTY_STRING;
+    this.name_GameMode = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
@@ -36,13 +36,13 @@ class GameMode : JObjectBase
 
     void setName(string name)
     {
-        this.name = name;
+        this.name_GameMode = name;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_GameMode;
     }
     
 

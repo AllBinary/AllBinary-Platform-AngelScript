@@ -17,8 +17,8 @@
 
 class BasicAccelerationProperties : JObjectBase
 {
-    int forward;
-    int reverse;
+    int forward_BasicAccelerationProperties;
+    int reverse_BasicAccelerationProperties;
     
 
     BasicAccelerationProperties@ jinit_BasicAccelerationProperties(int forward, int reverse)
@@ -31,25 +31,25 @@ class BasicAccelerationProperties : JObjectBase
 
     void setReverse(int reverse)
     {
-        this.reverse = reverse;
+        this.reverse_BasicAccelerationProperties = reverse;
     }
     
 
     int getReverse()
     {
-        return this.reverse;
+        return this.reverse_BasicAccelerationProperties;
     }
     
 
     void setForward(int forward)
     {
-        this.forward = forward;
+        this.forward_BasicAccelerationProperties = forward;
     }
     
 
     int getForward()
     {
-        return this.forward;
+        return this.forward_BasicAccelerationProperties;
     }
 }
 

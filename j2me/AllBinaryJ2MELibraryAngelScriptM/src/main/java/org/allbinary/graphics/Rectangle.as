@@ -17,65 +17,65 @@
 
 class Rectangle : JObjectBase
 {
-    GPoint@ point;
-    int width;
-    int height;
+    GPoint@ point_Rectangle;
+    int width_Rectangle;
+    int height_Rectangle;
     
 
     Rectangle@ jinit_Rectangle(GPoint@ point, int width, int height)
     {
-        @this.point = point;
-        this.width = width;
-        this.height = height;
+        @this.point_Rectangle = point;
+        this.width_Rectangle = width;
+        this.height_Rectangle = height;
         return this;
     }
     
 
     GPoint@ getPoint()
     {
-        return this.point;
+        return this.point_Rectangle;
     }
     
 
     void setPoint(GPoint@ point)
     {
-        @this.point = point;
+        @this.point_Rectangle = point;
     }
     
 
     int getMaxX()
     {
-        return this.point.getX() + this.width;
+        return this.point_Rectangle.getX() + this.width_Rectangle;
     }
     
 
     int getMaxY()
     {
-        return this.point.getY() + this.height;
+        return this.point_Rectangle.getY() + this.height_Rectangle;
     }
     
 
     int getWidth()
     {
-        return this.width;
+        return this.width_Rectangle;
     }
     
 
     void setWidth(int width)
     {
-        this.width = width;
+        this.width_Rectangle = width;
     }
     
 
     int getHeight()
     {
-        return this.height;
+        return this.height_Rectangle;
     }
     
 
     void setHeight(int height)
     {
-        this.height = height;
+        this.height_Rectangle = height;
     }
     
 

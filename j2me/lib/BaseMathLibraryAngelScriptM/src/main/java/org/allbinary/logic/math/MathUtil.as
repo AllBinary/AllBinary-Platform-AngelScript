@@ -3,12 +3,12 @@
 
 class MathUtil : JObjectBase
 {
-    int ACCURACY;
+    int ACCURACY_MathUtil;
 
     // Java field initializers run after the super constructor
     void jfields_MathUtil()
     {
-    this.ACCURACY = 100;
+    this.ACCURACY_MathUtil = 100;
     }
 
     MathUtil@ jinit_MathUtil()
@@ -53,7 +53,7 @@ class MathUtil : JObjectBase
             return double(-1.0f);
         }
         double result = double(x);
-        for (int index = 0; index < this.ACCURACY; index++) {
+        for (int index = 0; index < this.ACCURACY_MathUtil; index++) {
             result = (result + (double(x) / result)) / 2.0;
         }
         return result;

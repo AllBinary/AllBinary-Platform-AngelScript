@@ -17,14 +17,14 @@
 
 class CachePolicy : JObjectBase
 {
-    string name;
-    int64 maxTime;
-    int64 maxSize;
+    string name_CachePolicy;
+    int64 maxTime_CachePolicy;
+    int64 maxSize_CachePolicy;
     
 
     CachePolicy@ jinit_CachePolicy(string name, int64 maxTime, int64 maxSize)
     {
-        this.name = name;
+        this.name_CachePolicy = name;
         this.setMaxTime(maxTime);
         this.setMaxSize(maxSize);
         return this;
@@ -33,31 +33,31 @@ class CachePolicy : JObjectBase
 
     int64 getMaxTime()
     {
-        return this.maxTime;
+        return this.maxTime_CachePolicy;
     }
     
 
     void setMaxTime(int64 maxTime)
     {
-        this.maxTime = maxTime;
+        this.maxTime_CachePolicy = maxTime;
     }
     
 
     int64 getMaxSize()
     {
-        return this.maxSize;
+        return this.maxSize_CachePolicy;
     }
     
 
     void setMaxSize(int64 maxSize)
     {
-        this.maxSize = maxSize;
+        this.maxSize_CachePolicy = maxSize;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_CachePolicy;
     }
 }
 

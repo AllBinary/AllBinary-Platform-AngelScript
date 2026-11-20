@@ -25,7 +25,7 @@ class OpenGLCapabilities : JObjectBase
     string VERSION_3_1;
     string VERSION_3_2;
     string VERSION_HIGHER_THAN_EXISTS;
-    string glVersion;
+    string glVersion_OpenGLCapabilities;
     int shaderVersion;
     string glInstanceVersion;
     int maxTextureSize;
@@ -41,7 +41,7 @@ class OpenGLCapabilities : JObjectBase
     this.VERSION_3_1 = "3.1";
     this.VERSION_3_2 = "3.2";
     this.VERSION_HIGHER_THAN_EXISTS = "999.999";
-    this.glVersion = StringUtil::getInstance().EMPTY_STRING;
+    this.glVersion_OpenGLCapabilities = StringUtil::getInstance().EMPTY_STRING;
     this.shaderVersion = 0;
     this.glInstanceVersion = StringUtil::getInstance().EMPTY_STRING;
     this.maxTextureSize = 64;
@@ -74,7 +74,7 @@ class OpenGLCapabilities : JObjectBase
 
     string getGlVersion()
     {
-        return this.glVersion;
+        return this.glVersion_OpenGLCapabilities;
     }
     
 

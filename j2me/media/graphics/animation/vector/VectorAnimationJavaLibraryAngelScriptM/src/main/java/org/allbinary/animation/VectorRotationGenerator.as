@@ -18,15 +18,15 @@
 class VectorRotationGenerator : JObjectBase
 {
     LogUtil@ logUtil;
-    VectorAnimationUtil@ vectorAnimationUtil;
-    AngleFactory@ angleFactory;
+    VectorAnimationUtil@ vectorAnimationUtil_VectorRotationGenerator;
+    AngleFactory@ angleFactory_VectorRotationGenerator;
 
     // Java field initializers run after the super constructor
     void jfields_VectorRotationGenerator()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.vectorAnimationUtil = VectorAnimationUtil::getInstance();
-    @this.angleFactory = AngleFactory::getInstance();
+    @this.vectorAnimationUtil_VectorRotationGenerator = VectorAnimationUtil::getInstance();
+    @this.angleFactory_VectorRotationGenerator = AngleFactory::getInstance();
     }
     
 
@@ -46,7 +46,7 @@ class VectorRotationGenerator : JObjectBase
     int[]@[]@[]@ getInstanceFrames(int width, int height, int[]@[]@ points, int frames)
     {
         try {
-            int16 totalAngle = this.angleFactory.TOTAL_ANGLE;
+            int16 totalAngle = this.angleFactory_VectorRotationGenerator.TOTAL_ANGLE;
             int angleIncrement = int(totalAngle) / frames;
             BasicArrayList@ pointsBasicArrayList = BasicArrayListS().jinit_BasicArrayListS(int(totalAngle) / angleIncrement);
             BasicArrayList@ pointBasicArrayList = BasicArrayListS().jinit_BasicArrayListS(int(points.length()));
@@ -57,10 +57,10 @@ class VectorRotationGenerator : JObjectBase
             }
             int index = 0;
             while (index < int(totalAngle)) {
-                pointsBasicArrayList.add(this.getListAtAngle(width, height, pointBasicArrayList, this.angleFactory.getAt(index)));
+                pointsBasicArrayList.add(this.getListAtAngle(width, height, pointBasicArrayList, this.angleFactory_VectorRotationGenerator.getAt(index)));
                 index += angleIncrement;
             }
-            int[]@[]@[]@ newPoints = this.vectorAnimationUtil.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, pointBasicArrayList.size());
+            int[]@[]@[]@ newPoints = this.vectorAnimationUtil_VectorRotationGenerator.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, pointBasicArrayList.size());
             return newPoints;
         } catch {
             Throwable@ jex0 = jcatch();

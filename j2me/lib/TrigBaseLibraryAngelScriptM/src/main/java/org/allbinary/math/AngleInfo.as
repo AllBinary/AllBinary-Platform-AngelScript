@@ -17,49 +17,49 @@
 
 class AngleInfo : JObjectBase
 {
-    AngleIncrementInfo@ angleIncrementInfo;
-    int16 angle;
-    FrameUtil@ frameUtil;
+    AngleIncrementInfo@ angleIncrementInfo_AngleInfo;
+    int16 angle_AngleInfo;
+    FrameUtil@ frameUtil_AngleInfo;
 
     // Java field initializers run after the super constructor
     void jfields_AngleInfo()
     {
     
-    this.angle = 0;
-    @this.frameUtil = FrameUtil::getInstance();
+    this.angle_AngleInfo = 0;
+    @this.frameUtil_AngleInfo = FrameUtil::getInstance();
     }
     
 
     AngleInfo@ jinit_AngleInfo(AngleIncrementInfo@ angleIncrementInfo)
     {
         this.jfields_AngleInfo();
-        @this.angleIncrementInfo = angleIncrementInfo;
+        @this.angleIncrementInfo_AngleInfo = angleIncrementInfo;
         return this;
     }
     
 
     void adjustAngle(int frame)
     {
-        int newAngle = int(this.angleIncrementInfo.getAngleIncrement()) * frame - 90;
-        this.setAngle(int16(this.frameUtil.adjustAngleToFrameAngle(newAngle)));
+        int newAngle = int(this.angleIncrementInfo_AngleInfo.getAngleIncrement()) * frame - 90;
+        this.setAngle(int16(this.frameUtil_AngleInfo.adjustAngleToFrameAngle(newAngle)));
     }
     
 
     int16 getAngle()
     {
-        return this.angle;
+        return this.angle_AngleInfo;
     }
     
 
     void setAngle(int16 angle)
     {
-        this.angle = angle;
+        this.angle_AngleInfo = angle;
     }
     
 
     AngleIncrementInfo@ getAngleIncrementInfo()
     {
-        return this.angleIncrementInfo;
+        return this.angleIncrementInfo_AngleInfo;
     }
     
 
@@ -67,7 +67,7 @@ class AngleInfo : JObjectBase
     {
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         stringBuffer.append(AngleInfo::ANGLE);
-        stringBuffer.appendshort(this.angle);
+        stringBuffer.appendshort(this.angle_AngleInfo);
         stringBuffer.append(CommonSeps::getInstance().SPACE);
         stringBuffer.append(StringUtil::getInstance().toString(this.getAngleIncrementInfo()));
         return stringBuffer.toString();

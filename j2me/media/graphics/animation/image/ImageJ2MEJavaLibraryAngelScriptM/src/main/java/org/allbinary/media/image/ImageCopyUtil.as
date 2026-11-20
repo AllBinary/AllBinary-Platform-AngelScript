@@ -18,23 +18,23 @@
 class ImageCopyUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    ImageCreationUtil@ imageCreationUtil;
-    int anchor;
-    GameFeatureFactory@ gameFeatureFactory;
-    Features@ features;
-    string NO_COPY;
+    CommonStrings@ commonStrings_ImageCopyUtil;
+    ImageCreationUtil@ imageCreationUtil_ImageCopyUtil;
+    int anchor_ImageCopyUtil;
+    GameFeatureFactory@ gameFeatureFactory_ImageCopyUtil;
+    Features@ features_ImageCopyUtil;
+    string NO_COPY_ImageCopyUtil;
 
     // Java field initializers run after the super constructor
     void jfields_ImageCopyUtil()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.imageCreationUtil = ImageCreationUtil::getInstance();
-    this.anchor = Anchor::TOP_LEFT;
-    @this.gameFeatureFactory = GameFeatureFactory::getInstance();
-    @this.features = Features::getInstance();
-    this.NO_COPY = "J2ME does not need to copy images after initial loading";
+    @this.commonStrings_ImageCopyUtil = CommonStrings::getInstance();
+    @this.imageCreationUtil_ImageCopyUtil = ImageCreationUtil::getInstance();
+    this.anchor_ImageCopyUtil = Anchor::TOP_LEFT;
+    @this.gameFeatureFactory_ImageCopyUtil = GameFeatureFactory::getInstance();
+    @this.features_ImageCopyUtil = Features::getInstance();
+    this.NO_COPY_ImageCopyUtil = "J2ME does not need to copy images after initial loading";
     }
     
 
@@ -53,13 +53,13 @@ class ImageCopyUtil : JObjectBase
 
     Image@ createImage(Image@ originalImage)
     {
-        if (!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, Exception().jinit_Exception());
+        if (!this.features_ImageCopyUtil.isFeature(this.gameFeatureFactory_ImageCopyUtil.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.put(this.NO_COPY_ImageCopyUtil, this, this.commonStrings_ImageCopyUtil.CONSTRUCTOR, Exception().jinit_Exception());
             return originalImage;
         }
-        Image@ image = this.imageCreationUtil.createImageWH(originalImage.getWidth(), originalImage.getHeight());
+        Image@ image = this.imageCreationUtil_ImageCopyUtil.createImageWH(originalImage.getWidth(), originalImage.getHeight());
         if (image.isMutable()) {
-            image.getGraphics().drawImage(originalImage, 0, 0, this.anchor);
+            image.getGraphics().drawImage(originalImage, 0, 0, this.anchor_ImageCopyUtil);
             return image;
         } else {
             jthrow(Exception().jinit_Exception("Not Mutable"));
@@ -70,8 +70,8 @@ class ImageCopyUtil : JObjectBase
 
     Image@ createImageScale(Image@ originalImage, float canvasScale, bool resize)
     {
-        if (!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
-            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, Exception().jinit_Exception());
+        if (!this.features_ImageCopyUtil.isFeature(this.gameFeatureFactory_ImageCopyUtil.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.put(this.NO_COPY_ImageCopyUtil, this, this.commonStrings_ImageCopyUtil.CONSTRUCTOR, Exception().jinit_Exception());
             return originalImage;
         }
         int newWidth = int((originalImage.getWidth() * canvasScale));
@@ -84,12 +84,12 @@ class ImageCopyUtil : JObjectBase
                 newHeight = newWidth;
             }
         }
-        Image@ image = this.imageCreationUtil.createImageWH(newWidth, newHeight);
+        Image@ image = this.imageCreationUtil_ImageCopyUtil.createImageWH(newWidth, newHeight);
         if (image.isMutable()) {
             int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
             int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
             Graphics@ graphics = image.getGraphics();
-            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, this.anchor);
+            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, this.anchor_ImageCopyUtil);
             return image;
         } else {
             jthrow(Exception().jinit_Exception("Not Mutable"));

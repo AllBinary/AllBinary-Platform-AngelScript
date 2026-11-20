@@ -18,16 +18,16 @@
 class Sounds : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    SoundStrings@ soundStrings;
-    SoundsFactoryInterface@ soundsFactoryInterface;
+    CommonStrings@ commonStrings_Sounds;
+    SoundStrings@ soundStrings_Sounds;
+    SoundsFactoryInterface@ soundsFactoryInterface_Sounds;
 
     // Java field initializers run after the super constructor
     void jfields_Sounds()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.soundStrings = SoundStrings::getInstance();
+    @this.commonStrings_Sounds = CommonStrings::getInstance();
+    @this.soundStrings_Sounds = SoundStrings::getInstance();
     
     }
     
@@ -35,18 +35,18 @@ class Sounds : JObjectBase
     Sounds@ jinit_Sounds(SoundsFactoryInterface@ soundsFactoryInterface)
     {
         this.jfields_Sounds();
-        @this.soundsFactoryInterface = soundsFactoryInterface;
+        @this.soundsFactoryInterface_Sounds = soundsFactoryInterface;
         return this;
     }
     
 
     void init()
     {
-        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
+        this.logUtil.putF(this.commonStrings_Sounds.START, this, this.commonStrings_Sounds.INIT);
         CommonLabels@ commonLabels = CommonLabels::getInstance();
         ProgressCanvas@ progressCanvas = ProgressCanvasFactory::getInstance();
-        this.soundsFactoryInterface.init();
-        Sound@[]@ soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
+        this.soundsFactoryInterface_Sounds.init();
+        Sound@[]@ soundInterfaceArray = this.soundsFactoryInterface_Sounds.getSoundInterfaceArray();
         SmallIntegerSingletonFactory@ smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();
         JInteger@ indexInteger;
         string indexString = "";
@@ -59,22 +59,22 @@ class Sounds : JObjectBase
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.append(indexString);
-                stringBuffer.append(this.soundStrings.SOUND);
+                stringBuffer.append(this.soundStrings_Sounds.SOUND);
                 stringBuffer.append(jClassName(soundInterface));
-                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
+                this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings_Sounds.INIT);
                 soundInterface.init();
-                progressCanvas.addNormalPortion(100, StringMaker().jinit_StringMaker().append(this.soundStrings.INIT_SOUND).append(indexString).toString());
+                progressCanvas.addNormalPortion(100, StringMaker().jinit_StringMaker().append(this.soundStrings_Sounds.INIT_SOUND).append(indexString).toString());
             }
         }
-        this.soundsFactoryInterface.setInitialized(true);
-        this.logUtil.putF(this.commonStrings.END, this, this.commonStrings.INIT);
+        this.soundsFactoryInterface_Sounds.setInitialized(true);
+        this.logUtil.putF(this.commonStrings_Sounds.END, this, this.commonStrings_Sounds.INIT);
     }
     
 
     void stopAll()
     {
-        this.logUtil.putF(this.commonStrings.START, this, this.soundStrings.STOP_ALL);
-        Sound@[]@ soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
+        this.logUtil.putF(this.commonStrings_Sounds.START, this, this.soundStrings_Sounds.STOP_ALL);
+        Sound@[]@ soundInterfaceArray = this.soundsFactoryInterface_Sounds.getSoundInterfaceArray();
         ProgressCanvas@ progressCanvas = ProgressCanvasFactory::getInstance();
         Player@ player;
         for (int index = 0; index < int(soundInterfaceArray.length()); index++) {
@@ -82,7 +82,7 @@ class Sounds : JObjectBase
                 @player = soundInterfaceArray[index].getPlayerP();
                 if (player !is null) {
                     player.stop();
-                    progressCanvas.addPortion(100, this.soundStrings.STOPPING_SOUND, index);
+                    progressCanvas.addPortion(100, this.soundStrings_Sounds.STOPPING_SOUND, index);
                 }
             }
         }
@@ -91,8 +91,8 @@ class Sounds : JObjectBase
 
     void closeAll()
     {
-        this.logUtil.putF(this.commonStrings.START, this, this.soundStrings.CLOSE_ALL);
-        Sound@[]@ soundInterfaceArray = this.soundsFactoryInterface.getSoundInterfaceArray();
+        this.logUtil.putF(this.commonStrings_Sounds.START, this, this.soundStrings_Sounds.CLOSE_ALL);
+        Sound@[]@ soundInterfaceArray = this.soundsFactoryInterface_Sounds.getSoundInterfaceArray();
         ProgressCanvas@ progressCanvas = ProgressCanvasFactory::getInstance();
         Player@ player;
         for (int index = 0; index < int(soundInterfaceArray.length()); index++) {
@@ -100,7 +100,7 @@ class Sounds : JObjectBase
                 @player = soundInterfaceArray[index].getPlayerP();
                 if (player !is null) {
                     player.close();
-                    progressCanvas.addPortion(100, this.soundStrings.CLOSING_SOUND, index);
+                    progressCanvas.addPortion(100, this.soundStrings_Sounds.CLOSING_SOUND, index);
                 }
             }
         }

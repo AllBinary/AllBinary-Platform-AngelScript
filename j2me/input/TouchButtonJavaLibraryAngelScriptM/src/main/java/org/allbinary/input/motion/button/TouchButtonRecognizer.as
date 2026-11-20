@@ -18,21 +18,21 @@
 class TouchButtonRecognizer : JObjectBase
 {
     LogUtil@ logUtil;
-    RectangleCollisionUtil@ rectangleCollisionUtil;
+    RectangleCollisionUtil@ rectangleCollisionUtil_TouchButtonRecognizer;
     UpGameKeyEventHandler@ upGameKeyEventHandler;
-    DownGameKeyEventHandler@ downGameKeyEventHandler;
-    TouchButtonInput@ lastPressedTouchButtonInput;
+    DownGameKeyEventHandler@ downGameKeyEventHandler_TouchButtonRecognizer;
+    TouchButtonInput@ lastPressedTouchButtonInput_TouchButtonRecognizer;
     CurrentlyPressedTouchButtonSingleton@ currentlyPressedTouchButtonSingleton;
-    ReleaseHelper@ releaseHelper;
+    ReleaseHelper@ releaseHelper_TouchButtonRecognizer;
 
     // Java field initializers run after the super constructor
     void jfields_TouchButtonRecognizer()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.rectangleCollisionUtil = RectangleCollisionUtil::getInstance();
+    @this.rectangleCollisionUtil_TouchButtonRecognizer = RectangleCollisionUtil::getInstance();
     @this.upGameKeyEventHandler = UpGameKeyEventHandler::getInstance();
-    @this.downGameKeyEventHandler = DownGameKeyEventHandler::getInstance();
-    @this.lastPressedTouchButtonInput = BasicTouchInputFactory::getInstance().NONE;
+    @this.downGameKeyEventHandler_TouchButtonRecognizer = DownGameKeyEventHandler::getInstance();
+    @this.lastPressedTouchButtonInput_TouchButtonRecognizer = BasicTouchInputFactory::getInstance().NONE;
     @this.currentlyPressedTouchButtonSingleton = CurrentlyPressedTouchButtonSingleton::getInstance();
     
     }
@@ -42,9 +42,9 @@ class TouchButtonRecognizer : JObjectBase
     {
         this.jfields_TouchButtonRecognizer();
         if (TouchScreenFactory::getInstance().isMultiTouch()) {
-            @this.releaseHelper = MultitouchReleaseHelper().jinit_MultitouchReleaseHelper(this);
+            @this.releaseHelper_TouchButtonRecognizer = MultitouchReleaseHelper().jinit_MultitouchReleaseHelper(this);
         } else {
-            @this.releaseHelper = ReleaseHelper().jinit_ReleaseHelper(this);
+            @this.releaseHelper_TouchButtonRecognizer = ReleaseHelper().jinit_ReleaseHelper(this);
         }
         return this;
     }
@@ -52,7 +52,7 @@ class TouchButtonRecognizer : JObjectBase
 
     void processRelease(TouchButtonInput@ touchButtonInput, int deviceId)
     {
-        this.releaseHelper.release(touchButtonInput, deviceId);
+        this.releaseHelper_TouchButtonRecognizer.release(touchButtonInput, deviceId);
         GameKeyEvent@ gameKeyEvent = touchButtonInput.getGameKeyEvent();
         this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
         this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
@@ -62,9 +62,9 @@ class TouchButtonRecognizer : JObjectBase
 
     bool releaseTouchButtonInput(int x, int y, int deviceId)
     {
-        TouchButtonInput@ touchButtonInput = this.lastPressedTouchButtonInput;
+        TouchButtonInput@ touchButtonInput = this.lastPressedTouchButtonInput_TouchButtonRecognizer;
         if (this.currentlyPressedTouchButtonSingleton.contains(touchButtonInput)) {
-            @this.lastPressedTouchButtonInput = BasicTouchInputFactory::getInstance().NONE;
+            @this.lastPressedTouchButtonInput_TouchButtonRecognizer = BasicTouchInputFactory::getInstance().NONE;
             this.processRelease(touchButtonInput, deviceId);
             return true;
         } else {
@@ -76,7 +76,7 @@ class TouchButtonRecognizer : JObjectBase
                 @touchButton = cast<TouchButton>(list.objectArray[index]);
                 @rectangle = touchButton.getRectangle();
                 @point = rectangle.getPoint();
-                if (this.rectangleCollisionUtil.isInside(point.getX(), point.getY(), rectangle.getMaxX(), rectangle.getMaxY(), x, y)) {
+                if (this.rectangleCollisionUtil_TouchButtonRecognizer.isInside(point.getX(), point.getY(), rectangle.getMaxX(), rectangle.getMaxY(), x, y)) {
                     @touchButtonInput = touchButton.getTouchButtonInput();
                     this.processRelease(touchButtonInput, deviceId);
                     return true;
@@ -99,15 +99,15 @@ class TouchButtonRecognizer : JObjectBase
             @touchButton = cast<TouchButton>(list.objectArray[index]);
             @rectangle = touchButton.getRectangle();
             @point = rectangle.getPoint();
-            if (this.rectangleCollisionUtil.isInside(point.getX(), point.getY(), rectangle.getMaxX(), rectangle.getMaxY(), x, y)) {
+            if (this.rectangleCollisionUtil_TouchButtonRecognizer.isInside(point.getX(), point.getY(), rectangle.getMaxX(), rectangle.getMaxY(), x, y)) {
                 @touchButtonInput = touchButton.getTouchButtonInput();
                 if (!this.currentlyPressedTouchButtonSingleton.contains(touchButtonInput)) {
-                    this.releaseHelper.release(touchButtonInput, deviceId);
-                    @this.lastPressedTouchButtonInput = touchButtonInput;
+                    this.releaseHelper_TouchButtonRecognizer.release(touchButtonInput, deviceId);
+                    @this.lastPressedTouchButtonInput_TouchButtonRecognizer = touchButtonInput;
                     this.currentlyPressedTouchButtonSingleton.add(touchButtonInput);
                     @gameKeyEvent = touchButtonInput.getGameKeyEvent();
-                    this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
-                    this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
+                    this.downGameKeyEventHandler_TouchButtonRecognizer.fireEvent(gameKeyEvent);
+                    this.downGameKeyEventHandler_TouchButtonRecognizer.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
                 }
                 return true;
             }

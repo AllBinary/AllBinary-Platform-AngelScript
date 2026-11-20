@@ -47,7 +47,7 @@ class ImageCache : ImageCacheBase
         string[]@ resourceStringArray = gdResources.resourceStringArray;
         int size = int(resourceStringArray.length());
         for (int index = 0; index < size; index++) {
-            if (resourceStringArray[index] == key) {
+            if (resourceStringArray[index] == jstringOf(key)) {
                 return index;
             }
         }

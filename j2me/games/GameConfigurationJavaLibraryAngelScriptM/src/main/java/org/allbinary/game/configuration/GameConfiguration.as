@@ -17,22 +17,22 @@
 
 class GameConfiguration : JObjectBase
 {
-    string name;
-    JInteger@ defaultValue;
-    JInteger@ value;
-    JInteger@ minValue;
-    JInteger@ maxValue;
-    JBoolean@ modifiable;
+    string name_GameConfiguration;
+    JInteger@ defaultValue_GameConfiguration;
+    JInteger@ value_GameConfiguration;
+    JInteger@ minValue_GameConfiguration;
+    JInteger@ maxValue_GameConfiguration;
+    JBoolean@ modifiable_GameConfiguration;
 
     // Java field initializers run after the super constructor
     void jfields_GameConfiguration()
     {
-    this.name = StringUtil::getInstance().EMPTY_STRING;
-    @this.defaultValue = SmallIntegerSingletonFactory::getInstance().getAt(0);
-    @this.value = GameConfiguration::MIN_VALUE;
-    @this.minValue = this.defaultValue;
-    @this.maxValue = this.defaultValue;
-    @this.modifiable = BooleanFactory::getInstance().TRUE;
+    this.name_GameConfiguration = StringUtil::getInstance().EMPTY_STRING;
+    @this.defaultValue_GameConfiguration = SmallIntegerSingletonFactory::getInstance().getAt(0);
+    @this.value_GameConfiguration = GameConfiguration::MIN_VALUE;
+    @this.minValue_GameConfiguration = this.defaultValue_GameConfiguration;
+    @this.maxValue_GameConfiguration = this.defaultValue_GameConfiguration;
+    @this.modifiable_GameConfiguration = BooleanFactory::getInstance().TRUE;
     }
     
 
@@ -41,7 +41,7 @@ class GameConfiguration : JObjectBase
         this.jfields_GameConfiguration();
         this.setName(name);
         this.setDefaultValue(defaultValue);
-        @this.value = this.getDefaultValue();
+        @this.value_GameConfiguration = this.getDefaultValue();
         this.setMinValue(minValue);
         this.setMaxValue(maxValue);
         GameConfigurationSingleton::getInstance().getHashtable().put(this.getName(), this);
@@ -51,65 +51,65 @@ class GameConfiguration : JObjectBase
 
     void setValue(JInteger@ value)
     {
-        if (this.value !is value) {
-            JInteger@ oldValue = this.value;
-            @this.value = value;
-            GameFeatureEventHandler::getInstance().fireEvent(GameFeatureEvent().jinit_GameFeatureEvent(this, StringMaker().jinit_StringMaker().append(this.name).append(" value: from: ").appendint(int(oldValue.intValue())).append(" to ").appendint(int(this.value.intValue())).toString()));
+        if (this.value_GameConfiguration !is value) {
+            JInteger@ oldValue = this.value_GameConfiguration;
+            @this.value_GameConfiguration = value;
+            GameFeatureEventHandler::getInstance().fireEvent(GameFeatureEvent().jinit_GameFeatureEvent(this, StringMaker().jinit_StringMaker().append(this.name_GameConfiguration).append(" value: from: ").appendint(int(oldValue.intValue())).append(" to ").appendint(int(this.value_GameConfiguration.intValue())).toString()));
         }
     }
     
 
     JInteger@ getValue()
     {
-        return this.value;
+        return this.value_GameConfiguration;
     }
     
 
     void setMaxValue(JInteger@ maxValue)
     {
-        @this.maxValue = maxValue;
+        @this.maxValue_GameConfiguration = maxValue;
     }
     
 
     JInteger@ getMaxValue()
     {
-        return this.maxValue;
+        return this.maxValue_GameConfiguration;
     }
     
 
     void setMinValue(JInteger@ minValue)
     {
-        @this.minValue = minValue;
+        @this.minValue_GameConfiguration = minValue;
     }
     
 
     JInteger@ getMinValue()
     {
-        return this.minValue;
+        return this.minValue_GameConfiguration;
     }
     
 
     void setName(string name)
     {
-        this.name = name;
+        this.name_GameConfiguration = name;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_GameConfiguration;
     }
     
 
     void setDefaultValue(JInteger@ defaultValue)
     {
-        @this.defaultValue = defaultValue;
+        @this.defaultValue_GameConfiguration = defaultValue;
     }
     
 
     JInteger@ getDefaultValue()
     {
-        return this.defaultValue;
+        return this.defaultValue_GameConfiguration;
     }
     
 
@@ -123,7 +123,7 @@ class GameConfiguration : JObjectBase
     {
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         stringBuffer.append("Name: ");
-        stringBuffer.append(this.name);
+        stringBuffer.append(this.name_GameConfiguration);
         stringBuffer.append(" Min: ");
         stringBuffer.appendint(int(this.getMinValue().intValue()));
         stringBuffer.append(" Max: ");
@@ -140,13 +140,13 @@ class GameConfiguration : JObjectBase
 
     void setModifiable(JBoolean@ modifiable)
     {
-        @this.modifiable = modifiable;
+        @this.modifiable_GameConfiguration = modifiable;
     }
     
 
     JBoolean@ isModifiable()
     {
-        return this.modifiable;
+        return this.modifiable_GameConfiguration;
     }
 }
 

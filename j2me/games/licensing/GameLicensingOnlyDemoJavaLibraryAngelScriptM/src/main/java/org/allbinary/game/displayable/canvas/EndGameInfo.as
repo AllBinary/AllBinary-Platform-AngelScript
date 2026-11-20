@@ -18,19 +18,19 @@
 class EndGameInfo : JObjectBase
 {
     string NORMAL_GAME_OVER_WIN;
-    string TEASER_DEMO_GAME_END_LAST_LEVEL;
-    string TEASER_DEMO_GAME_END;
-    string gameOverStr;
-    string winStr;
+    string TEASER_DEMO_GAME_END_LAST_LEVEL_EndGameInfo;
+    string TEASER_DEMO_GAME_END_EndGameInfo;
+    string gameOverStr_EndGameInfo;
+    string winStr_EndGameInfo;
 
     // Java field initializers run after the super constructor
     void jfields_EndGameInfo()
     {
     this.NORMAL_GAME_OVER_WIN = "You Won";
-    this.TEASER_DEMO_GAME_END_LAST_LEVEL = "End of Demo.";
-    this.TEASER_DEMO_GAME_END = "Demo Game Over.";
-    this.gameOverStr = StringUtil::getInstance().EMPTY_STRING;
-    this.winStr = this.gameOverStr;
+    this.TEASER_DEMO_GAME_END_LAST_LEVEL_EndGameInfo = "End of Demo.";
+    this.TEASER_DEMO_GAME_END_EndGameInfo = "Demo Game Over.";
+    this.gameOverStr_EndGameInfo = StringUtil::getInstance().EMPTY_STRING;
+    this.winStr_EndGameInfo = this.gameOverStr_EndGameInfo;
     }
 
     EndGameInfo@ jinit_EndGameInfo()
@@ -43,36 +43,36 @@ class EndGameInfo : JObjectBase
     void update(GameInfo@ gameInfo, MyCanvas@ myCanvas)
     {
         if (gameInfo.isLastLevel()) {
-            this.setWinStr(this.TEASER_DEMO_GAME_END_LAST_LEVEL);
-            this.setGameOverStr(this.TEASER_DEMO_GAME_END_LAST_LEVEL);
+            this.setWinStr(this.TEASER_DEMO_GAME_END_LAST_LEVEL_EndGameInfo);
+            this.setGameOverStr(this.TEASER_DEMO_GAME_END_LAST_LEVEL_EndGameInfo);
         } else {
             this.setWinStr(this.NORMAL_GAME_OVER_WIN);
-            this.setGameOverStr(this.TEASER_DEMO_GAME_END);
+            this.setGameOverStr(this.TEASER_DEMO_GAME_END_EndGameInfo);
         }
     }
     
 
     string getGameOverStr()
     {
-        return this.gameOverStr;
+        return this.gameOverStr_EndGameInfo;
     }
     
 
     void setGameOverStr(string gameOverStr)
     {
-        this.gameOverStr = gameOverStr;
+        this.gameOverStr_EndGameInfo = gameOverStr;
     }
     
 
     string getWinStr()
     {
-        return this.winStr;
+        return this.winStr_EndGameInfo;
     }
     
 
     void setWinStr(string winStr)
     {
-        this.winStr = winStr;
+        this.winStr_EndGameInfo = winStr;
     }
 }
 

@@ -17,13 +17,13 @@
 
 class CommandTextItemArrayFactory : JObjectBase
 {
-    BasicArrayList@ list;
-    Visitor@ visitorInterface;
+    BasicArrayList@ list_CommandTextItemArrayFactory;
+    Visitor@ visitorInterface_CommandTextItemArrayFactory;
 
     // Java field initializers run after the super constructor
     void jfields_CommandTextItemArrayFactory()
     {
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_CommandTextItemArrayFactory = BasicArrayListD().jinit_BasicArrayListD();
     
     }
     
@@ -31,7 +31,7 @@ class CommandTextItemArrayFactory : JObjectBase
     CommandTextItemArrayFactory@ jinit_CommandTextItemArrayFactory(Visitor@ visitorInterface)
     {
         this.jfields_CommandTextItemArrayFactory();
-        @this.visitorInterface = visitorInterface;
+        @this.visitorInterface_CommandTextItemArrayFactory = visitorInterface;
         return this;
     }
     
@@ -40,7 +40,7 @@ class CommandTextItemArrayFactory : JObjectBase
     {
         VectorUtil@ vectorUtil = VectorUtil::getInstance();
         int size = vectorUtil.getSize(vector);
-        this.list.clear();
+        this.list_CommandTextItemArrayFactory.clear();
         CommandTextItem@ textItem;
         int priorityLimit = 7;
         DisplayInfoSingleton@ displayInfo = DisplayInfoSingleton::getInstance();
@@ -52,17 +52,17 @@ class CommandTextItemArrayFactory : JObjectBase
         for (int index = 0; index < size; index++) {
             @command = cast<Command>(vectorUtil.elementAt(vector, index));
             if (command.getPriority() < priorityLimit) {
-                JBoolean@ aBoolean = cast<JBoolean>(this.visitorInterface.visit(command));
+                JBoolean@ aBoolean = cast<JBoolean>(this.visitorInterface_CommandTextItemArrayFactory.visit(command));
                 if (aBoolean.booleanValue()) {
                     @textItem = CommandTextItem().jinit_CommandTextItem(command, ImageItem::LAYOUT_DEFAULT, StringUtil::getInstance().EMPTY_STRING, backgroundBasicColor, foregroundBasicColor);
-                    this.list.add(textItem);
+                    this.list_CommandTextItemArrayFactory.add(textItem);
                 }
             }
         }
-        ABCustomItem@[]@ textItemArray = array<ABCustomItem@>(this.list.size());
+        ABCustomItem@[]@ textItemArray = array<ABCustomItem@>(this.list_CommandTextItemArrayFactory.size());
         int size2 = int(textItemArray.length());
         for (int index = 0; index < size2; index++) {
-            @textItemArray[index] = cast<ABCustomItem>(this.list.objectArray[index]);
+            @textItemArray[index] = cast<ABCustomItem>(this.list_CommandTextItemArrayFactory.objectArray[index]);
         }
         return textItemArray;
     }

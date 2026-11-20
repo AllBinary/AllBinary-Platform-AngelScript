@@ -18,13 +18,13 @@
 class BaseTouchInput : JObjectBase
 {
     CommonStrings@ commonStrings;
-    BasicArrayListUtil@ basicArrayListUtil;
+    BasicArrayListUtil@ basicArrayListUtil_BaseTouchInput;
 
     // Java field initializers run after the super constructor
     void jfields_BaseTouchInput()
     {
     @this.commonStrings = CommonStrings::getInstance();
-    @this.basicArrayListUtil = BasicArrayListUtil::getInstance();
+    @this.basicArrayListUtil_BaseTouchInput = BasicArrayListUtil::getInstance();
     }
     
 
@@ -37,7 +37,7 @@ class BaseTouchInput : JObjectBase
 
     BasicArrayList@ getList()
     {
-        return this.basicArrayListUtil.getImmutableInstance();
+        return this.basicArrayListUtil_BaseTouchInput.getImmutableInstance();
     }
     
 

@@ -18,13 +18,13 @@
 class PlatformFormInputMappingFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    InputToGameKeyMapping@ inputToGameKeyMapping;
+    InputToGameKeyMapping@ inputToGameKeyMapping_PlatformFormInputMappingFactory;
 
     // Java field initializers run after the super constructor
     void jfields_PlatformFormInputMappingFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.inputToGameKeyMapping = InputToGameKeyMapping::getNullInstance();
+    @this.inputToGameKeyMapping_PlatformFormInputMappingFactory = InputToGameKeyMapping::getNullInstance();
     }
 
     PlatformFormInputMappingFactory@ jinit_PlatformFormInputMappingFactory()
@@ -37,7 +37,7 @@ class PlatformFormInputMappingFactory : JObjectBase
     InputToGameKeyMapping@ getOrCreate()
     {
         try {
-            if (this.inputToGameKeyMapping is InputToGameKeyMapping::getNullInstance()) {
+            if (this.inputToGameKeyMapping_PlatformFormInputMappingFactory is InputToGameKeyMapping::getNullInstance()) {
                 PCKeyFactory@ pcKeyFactory = PCKeyFactory::getInstance();
                 InputToGameKeyMapping@ inputToGameKeyMapping = InputToGameKeyMapping().jinit_InputToGameKeyMapping();
                 GameKeyFactory@ gameKeyFactory = GameKeyFactory::getInstance();
@@ -51,7 +51,7 @@ class PlatformFormInputMappingFactory : JObjectBase
                 inputToGameKeyMapping.add(gameKeyFactory.LEFT, basicTouchInputFactory.LEFT);
                 inputToGameKeyMapping.add(gameKeyFactory.RIGHT, basicTouchInputFactory.RIGHT);
                 inputToGameKeyMapping.add(gameKeyFactory.DOWN, basicTouchInputFactory.DOWN);
-                @this.inputToGameKeyMapping = inputToGameKeyMapping;
+                @this.inputToGameKeyMapping_PlatformFormInputMappingFactory = inputToGameKeyMapping;
             }
         } catch {
             Throwable@ jex0 = jcatch();
@@ -62,7 +62,7 @@ class PlatformFormInputMappingFactory : JObjectBase
             }
             else { jthrow(jex0); }
         }
-        return this.inputToGameKeyMapping;
+        return this.inputToGameKeyMapping_PlatformFormInputMappingFactory;
     }
 }
 

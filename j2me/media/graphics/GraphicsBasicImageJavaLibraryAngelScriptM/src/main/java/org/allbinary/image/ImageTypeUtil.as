@@ -20,7 +20,7 @@ class ImageTypeUtil : JObjectBase
     string PNG;
     string JPG;
     string GIF;
-    BasicArrayList@ list;
+    BasicArrayList@ list_ImageTypeUtil;
 
     // Java field initializers run after the super constructor
     void jfields_ImageTypeUtil()
@@ -28,16 +28,16 @@ class ImageTypeUtil : JObjectBase
     this.PNG = "png";
     this.JPG = "jpg";
     this.GIF = "gif";
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_ImageTypeUtil = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
     ImageTypeUtil@ jinit_ImageTypeUtil()
     {
         this.jfields_ImageTypeUtil();
-        this.list.add(jbox(this.JPG));
-        this.list.add(jbox(this.GIF));
-        this.list.add(jbox(this.PNG));
+        this.list_ImageTypeUtil.add(jbox(this.JPG));
+        this.list_ImageTypeUtil.add(jbox(this.GIF));
+        this.list_ImageTypeUtil.add(jbox(this.PNG));
         return this;
     }
     
@@ -45,8 +45,8 @@ class ImageTypeUtil : JObjectBase
     bool isSupported(string mediaFileType)
     {
         mediaFileType = String::toLowerCase(mediaFileType);
-        for (int index = this.list.size() - 1; index >= 0; index--) {
-            string name = jstringOf(this.list.get(index));
+        for (int index = this.list_ImageTypeUtil.size() - 1; index >= 0; index--) {
+            string name = jstringOf(this.list_ImageTypeUtil.get(index));
             if (String::compareTo(mediaFileType, name) == 0) {
                 return true;
             }

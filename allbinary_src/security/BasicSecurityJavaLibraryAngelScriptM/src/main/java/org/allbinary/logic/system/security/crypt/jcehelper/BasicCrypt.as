@@ -17,13 +17,13 @@
 
 class BasicCrypt : JObjectBase, CryptInterface
 {
-    ByteUtil@ byteUtil;
-    int8[]@ key;
+    ByteUtil@ byteUtil_BasicCrypt;
+    int8[]@ key_BasicCrypt;
 
     // Java field initializers run after the super constructor
     void jfields_BasicCrypt()
     {
-    @this.byteUtil = ByteUtil::getInstance();
+    @this.byteUtil_BasicCrypt = ByteUtil::getInstance();
     
     }
     
@@ -43,7 +43,7 @@ class BasicCrypt : JObjectBase, CryptInterface
             }
             else { jthrow(jex0); }
         }
-        @this.key = key;
+        @this.key_BasicCrypt = key;
         return this;
     }
     
@@ -85,9 +85,9 @@ class BasicCrypt : JObjectBase, CryptInterface
     int8[]@ mutilate(int8[]@ array_)
     {
         int8 value = 0;
-        for (int index = 0; index < int(this.key.length()); index++) {
-            value = this.key[index];
-            @array_ = this.byteUtil.xor_(array_, value);
+        for (int index = 0; index < int(this.key_BasicCrypt.length()); index++) {
+            value = this.key_BasicCrypt[index];
+            @array_ = this.byteUtil_BasicCrypt.xor_(array_, value);
         }
         return array_;
     }

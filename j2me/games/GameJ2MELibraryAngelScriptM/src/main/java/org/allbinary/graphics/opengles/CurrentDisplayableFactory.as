@@ -17,46 +17,46 @@
 
 class CurrentDisplayableFactory : JObjectBase
 {
-    CommonStrings@ commonStrings;
-    CanvasStrings@ canvasStrings;
-    StringUtil@ stringUtil;
-    string SET_DISPLAYABLE;
-    string SET_RUNNABLE;
-    string CLEAR_RUNNABLE;
-    string SET_USED_RUNNABLE;
-    string RUNNABLE;
-    string RUNNABLE_WAS_ALREADY_IN_USE;
+    CommonStrings@ commonStrings_CurrentDisplayableFactory;
+    CanvasStrings@ canvasStrings_CurrentDisplayableFactory;
+    StringUtil@ stringUtil_CurrentDisplayableFactory;
+    string SET_DISPLAYABLE_CurrentDisplayableFactory;
+    string SET_RUNNABLE_CurrentDisplayableFactory;
+    string CLEAR_RUNNABLE_CurrentDisplayableFactory;
+    string SET_USED_RUNNABLE_CurrentDisplayableFactory;
+    string RUNNABLE_CurrentDisplayableFactory;
+    string RUNNABLE_WAS_ALREADY_IN_USE_CurrentDisplayableFactory;
     BasicArrayList@ DEFAULT_CHILD_NAME_LIST;
-    Displayable@ displayable;
-    Displayable@ openGlReadydisplayable;
-    GameRunnable@ runnable;
-    GameRunnable@ usedRunnable;
+    Displayable@ displayable_CurrentDisplayableFactory;
+    Displayable@ openGlReadydisplayable_CurrentDisplayableFactory;
+    GameRunnable@ runnable_CurrentDisplayableFactory;
+    GameRunnable@ usedRunnable_CurrentDisplayableFactory;
 
     // Java field initializers run after the super constructor
     void jfields_CurrentDisplayableFactory()
     {
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.canvasStrings = CanvasStrings::getInstance();
-    @this.stringUtil = StringUtil::getInstance();
-    this.SET_DISPLAYABLE = "setDisplayable";
-    this.SET_RUNNABLE = "setRunnable";
-    this.CLEAR_RUNNABLE = "clearRunnable";
-    this.SET_USED_RUNNABLE = "setUsedRunnable";
-    this.RUNNABLE = "Runnable: ";
-    this.RUNNABLE_WAS_ALREADY_IN_USE = "Runnable was already in use: ";
+    @this.commonStrings_CurrentDisplayableFactory = CommonStrings::getInstance();
+    @this.canvasStrings_CurrentDisplayableFactory = CanvasStrings::getInstance();
+    @this.stringUtil_CurrentDisplayableFactory = StringUtil::getInstance();
+    this.SET_DISPLAYABLE_CurrentDisplayableFactory = "setDisplayable";
+    this.SET_RUNNABLE_CurrentDisplayableFactory = "setRunnable";
+    this.CLEAR_RUNNABLE_CurrentDisplayableFactory = "clearRunnable";
+    this.SET_USED_RUNNABLE_CurrentDisplayableFactory = "setUsedRunnable";
+    this.RUNNABLE_CurrentDisplayableFactory = "Runnable: ";
+    this.RUNNABLE_WAS_ALREADY_IN_USE_CurrentDisplayableFactory = "Runnable was already in use: ";
     @this.DEFAULT_CHILD_NAME_LIST = BasicArrayListD().jinit_BasicArrayListD();
-    @this.displayable = NullDisplayable::getInstance();
-    @this.openGlReadydisplayable = NullDisplayable::getInstance();
-    @this.runnable = NullWaitGameRunnable::getInstance();
-    @this.usedRunnable = NullWaitGameRunnable::getInstance();
+    @this.displayable_CurrentDisplayableFactory = NullDisplayable::getInstance();
+    @this.openGlReadydisplayable_CurrentDisplayableFactory = NullDisplayable::getInstance();
+    @this.runnable_CurrentDisplayableFactory = NullWaitGameRunnable::getInstance();
+    @this.usedRunnable_CurrentDisplayableFactory = NullWaitGameRunnable::getInstance();
     }
     
 
     CurrentDisplayableFactory@ jinit_CurrentDisplayableFactory()
     {
         this.jfields_CurrentDisplayableFactory();
-        this.DEFAULT_CHILD_NAME_LIST.add(jbox(this.canvasStrings.ABOUT));
-        this.DEFAULT_CHILD_NAME_LIST.add(jbox(this.canvasStrings.OPTIONS));
+        this.DEFAULT_CHILD_NAME_LIST.add(jbox(this.canvasStrings_CurrentDisplayableFactory.ABOUT));
+        this.DEFAULT_CHILD_NAME_LIST.add(jbox(this.canvasStrings_CurrentDisplayableFactory.OPTIONS));
         this.DEFAULT_CHILD_NAME_LIST.add(jbox(GameInputMappingCanvas::NAME));
         this.DEFAULT_CHILD_NAME_LIST.add(jbox(GameInputMappingInstructionsCanvas::NAME));
         this.DEFAULT_CHILD_NAME_LIST.add(jbox(HighScoresCanvas::NAME));
@@ -66,9 +66,9 @@ class CurrentDisplayableFactory : JObjectBase
 
     void setMyCanvas(MyCanvas@ displayable)
     {
-        if ((cast<MyCanvas>(this.displayable) !is null)) {
-            if (displayable.hasChild(cast<MyCanvas>(this.displayable))) {
-                PreLogUtil::put(StringMaker().jinit_StringMaker().append("Child Displayable is already set for: ").append(this.stringUtil.toString(displayable)).toString(), this, this.SET_DISPLAYABLE);
+        if ((cast<MyCanvas>(this.displayable_CurrentDisplayableFactory) !is null)) {
+            if (displayable.hasChild(cast<MyCanvas>(this.displayable_CurrentDisplayableFactory))) {
+                PreLogUtil::put(StringMaker().jinit_StringMaker().append("Child Displayable is already set for: ").append(this.stringUtil_CurrentDisplayableFactory.toString(displayable)).toString(), this, this.SET_DISPLAYABLE_CurrentDisplayableFactory);
                 return;
             }
         }
@@ -78,39 +78,39 @@ class CurrentDisplayableFactory : JObjectBase
 
     void setDisplayable(Displayable@ displayable)
     {
-        @this.displayable = displayable;
+        @this.displayable_CurrentDisplayableFactory = displayable;
         this.setOpenGlReadydisplayable(displayable);
     }
     
 
     void setOpenGlReadydisplayable(Displayable@ openGlReadydisplayable)
     {
-        @this.openGlReadydisplayable = openGlReadydisplayable;
+        @this.openGlReadydisplayable_CurrentDisplayableFactory = openGlReadydisplayable;
         this.update();
     }
     
 
     Displayable@ getOpenGlReadydisplayable()
     {
-        return this.openGlReadydisplayable;
+        return this.openGlReadydisplayable_CurrentDisplayableFactory;
     }
     
 
     void setRunnable(GameRunnable@ runnable)
     {
-        PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(runnable)).toString(), this, this.SET_RUNNABLE);
-        @this.runnable = runnable;
-        if (this.usedRunnable !is this.runnable) {
+        PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.RUNNABLE_CurrentDisplayableFactory).append(this.stringUtil_CurrentDisplayableFactory.toString(runnable)).toString(), this, this.SET_RUNNABLE_CurrentDisplayableFactory);
+        @this.runnable_CurrentDisplayableFactory = runnable;
+        if (this.usedRunnable_CurrentDisplayableFactory !is this.runnable_CurrentDisplayableFactory) {
             this.update();
         } else {
-            PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.RUNNABLE_WAS_ALREADY_IN_USE).append(this.stringUtil.toString(runnable)).toString(), this, this.SET_RUNNABLE);
+            PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.RUNNABLE_WAS_ALREADY_IN_USE_CurrentDisplayableFactory).append(this.stringUtil_CurrentDisplayableFactory.toString(runnable)).toString(), this, this.SET_RUNNABLE_CurrentDisplayableFactory);
         }
     }
     
 
     void clearRunnable()
     {
-        PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(NullRunnable::getInstance())).toString(), this, this.CLEAR_RUNNABLE);
+        PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.RUNNABLE_CurrentDisplayableFactory).append(this.stringUtil_CurrentDisplayableFactory.toString(NullRunnable::getInstance())).toString(), this, this.CLEAR_RUNNABLE_CurrentDisplayableFactory);
         this.setUsedRunnable(NullWaitGameRunnable::getInstance());
     }
     
@@ -121,18 +121,18 @@ class CurrentDisplayableFactory : JObjectBase
             CommonSeps@ commonSeps = CommonSeps::getInstance();
             Features@ features = Features::getInstance();
             StringMaker@ stringMaker = StringMaker().jinit_StringMaker();
-            stringMaker.append(this.stringUtil.toString(this.openGlReadydisplayable));
+            stringMaker.append(this.stringUtil_CurrentDisplayableFactory.toString(this.openGlReadydisplayable_CurrentDisplayableFactory));
             if (SWTUtil::isSWT && !features.isDefault(OpenGLFeatureFactory::getInstance().OPENGL)) {
-                PreLogUtil::put(stringMaker.append(commonSeps.SPACE).append(SWTUtil::SWT).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString(NullRunnable::getInstance())).toString(), this, this.commonStrings.UPDATE);
+                PreLogUtil::put(stringMaker.append(commonSeps.SPACE).append(SWTUtil::SWT).append(commonSeps.SPACE).append(this.RUNNABLE_CurrentDisplayableFactory).append(this.stringUtil_CurrentDisplayableFactory.toString(NullRunnable::getInstance())).toString(), this, this.commonStrings_CurrentDisplayableFactory.UPDATE);
                 this.setUsedRunnable(NullWaitGameRunnable::getInstance());
             } else if (J2MEUtil::isHTML()) {
-                PreLogUtil::put(stringMaker.append(commonSeps.SPACE).append(GraphicsStrings::getInstance().HTML).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).toString(), this, this.commonStrings.UPDATE);
-                this.setUsedRunnable(this.runnable);
-            } else if ((cast<DemoCanvas>(this.openGlReadydisplayable) !is null) || (cast<AllBinaryGameCanvas>(this.openGlReadydisplayable) !is null) || features.isDefault(OpenGLFeatureFactory::getInstance().OPENGL)) {
-                PreLogUtil::put(stringMaker.append(commonSeps.SPACE).append(OpenGLFeatureFactory::getInstance().OPENGL.toString()).append(commonSeps.SPACE).append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).toString(), this, this.commonStrings.UPDATE);
-                this.setUsedRunnable(this.runnable);
+                PreLogUtil::put(stringMaker.append(commonSeps.SPACE).append(GraphicsStrings::getInstance().HTML).append(commonSeps.SPACE).append(this.RUNNABLE_CurrentDisplayableFactory).append(this.stringUtil_CurrentDisplayableFactory.toString(this.runnable_CurrentDisplayableFactory)).toString(), this, this.commonStrings_CurrentDisplayableFactory.UPDATE);
+                this.setUsedRunnable(this.runnable_CurrentDisplayableFactory);
+            } else if ((cast<DemoCanvas>(this.openGlReadydisplayable_CurrentDisplayableFactory) !is null) || (cast<AllBinaryGameCanvas>(this.openGlReadydisplayable_CurrentDisplayableFactory) !is null) || features.isDefault(OpenGLFeatureFactory::getInstance().OPENGL)) {
+                PreLogUtil::put(stringMaker.append(commonSeps.SPACE).append(OpenGLFeatureFactory::getInstance().OPENGL.toString()).append(commonSeps.SPACE).append(this.RUNNABLE_CurrentDisplayableFactory).append(this.stringUtil_CurrentDisplayableFactory.toString(this.runnable_CurrentDisplayableFactory)).toString(), this, this.commonStrings_CurrentDisplayableFactory.UPDATE);
+                this.setUsedRunnable(this.runnable_CurrentDisplayableFactory);
             } else {
-                PreLogUtil::put(stringMaker.append(this.RUNNABLE).append(this.stringUtil.toString(NullRunnable::getInstance())).toString(), this, this.commonStrings.UPDATE);
+                PreLogUtil::put(stringMaker.append(this.RUNNABLE_CurrentDisplayableFactory).append(this.stringUtil_CurrentDisplayableFactory.toString(NullRunnable::getInstance())).toString(), this, this.commonStrings_CurrentDisplayableFactory.UPDATE);
                 this.setUsedRunnable(NullWaitGameRunnable::getInstance());
             }
         }
@@ -141,20 +141,20 @@ class CurrentDisplayableFactory : JObjectBase
 
     Displayable@ getDisplayable()
     {
-        return this.displayable;
+        return this.displayable_CurrentDisplayableFactory;
     }
     
 
     GameRunnable@ getUsedRunnable()
     {
-        return this.usedRunnable;
+        return this.usedRunnable_CurrentDisplayableFactory;
     }
     
 
     void setUsedRunnable(GameRunnable@ usedRunnable)
     {
-        PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.RUNNABLE).append(this.stringUtil.toString(this.runnable)).append(CommonSeps::getInstance().COLON_SEP).append(this.stringUtil.toString(usedRunnable)).toString(), this, this.SET_USED_RUNNABLE);
-        @this.usedRunnable = usedRunnable;
+        PreLogUtil::put(StringMaker().jinit_StringMaker().append(this.RUNNABLE_CurrentDisplayableFactory).append(this.stringUtil_CurrentDisplayableFactory.toString(this.runnable_CurrentDisplayableFactory)).append(CommonSeps::getInstance().COLON_SEP).append(this.stringUtil_CurrentDisplayableFactory.toString(usedRunnable)).toString(), this, this.SET_USED_RUNNABLE_CurrentDisplayableFactory);
+        @this.usedRunnable_CurrentDisplayableFactory = usedRunnable;
     }
 }
 

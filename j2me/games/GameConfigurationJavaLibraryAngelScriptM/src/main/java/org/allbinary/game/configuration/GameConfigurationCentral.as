@@ -33,7 +33,7 @@ class GameConfigurationCentral : JObjectBase
     GameConfiguration@ SOUND_VOLUME;
     GameConfiguration@ MAX_GAME_OBJECTS;
     GameConfiguration@ MAX_LAYERS;
-    int gameControlFidelity;
+    int gameControlFidelity_GameConfigurationCentral;
 
     // Java field initializers run after the super constructor
     void jfields_GameConfigurationCentral()
@@ -54,7 +54,7 @@ class GameConfigurationCentral : JObjectBase
     
     
     
-    this.gameControlFidelity = 36;
+    this.gameControlFidelity_GameConfigurationCentral = 36;
     }
     
 
@@ -92,7 +92,7 @@ class GameConfigurationCentral : JObjectBase
             BasicArrayList@ list = keyValuePersistance.getIds();
             if (list.size() > 0) {
                 ABHashtable@ hashtable = keyValuePersistance.get(0);
-                JObject@ anyType = this.SCALE.getName();
+                JObject@ anyType = jbox(this.SCALE.getName());
                 string value = jstringOf(hashtable.get(anyType));
                 this.SCALE.setValue(smallIntegerSingletonFactory.getAt(Integer::valueOf(value).intValue()));
             } else {
@@ -111,13 +111,13 @@ class GameConfigurationCentral : JObjectBase
 
     void setGameControlFidelity(int gameControlFidelity)
     {
-        this.gameControlFidelity = gameControlFidelity;
+        this.gameControlFidelity_GameConfigurationCentral = gameControlFidelity;
     }
     
 
     int getGameControlFidelity()
     {
-        return this.gameControlFidelity;
+        return this.gameControlFidelity_GameConfigurationCentral;
     }
     
 

@@ -17,12 +17,12 @@
 
 class BufferedLineReader : JObjectBase
 {
-    BufferedReader@ tmpIn;
+    BufferedReader@ tmpIn_BufferedLineReader;
     
 
     BufferedLineReader@ jinit_BufferedLineReader(AbFile@ file)
     {
-        @this.tmpIn = BufferedReader().jinit_BufferedReader(FileReader().jinit_FileReader(AbFileNativeUtil::get(file)));
+        @this.tmpIn_BufferedLineReader = BufferedReader().jinit_BufferedReader(FileReader().jinit_FileReader(AbFileNativeUtil::get(file)));
         return this;
     }
     
@@ -34,13 +34,13 @@ class BufferedLineReader : JObjectBase
 
     string readLine()
     {
-        return this.tmpIn.readLine();
+        return this.tmpIn_BufferedLineReader.readLine();
     }
     
 
     bool ready()
     {
-        return this.tmpIn.ready();
+        return this.tmpIn_BufferedLineReader.ready();
     }
     
 

@@ -17,35 +17,35 @@
 
 class SoftwareInformation : JObjectBase
 {
-    string name;
-    string shortName;
-    string version;
+    string name_SoftwareInformation;
+    string shortName_SoftwareInformation;
+    string version_SoftwareInformation;
     
 
     SoftwareInformation@ jinit_SoftwareInformation(string name, string version, string shortName)
     {
-        this.name = name;
-        this.version = version;
-        this.shortName = StringMaker().jinit_StringMaker().append(shortName).append(KotlinUtil::getShortName()).toString();
+        this.name_SoftwareInformation = name;
+        this.version_SoftwareInformation = version;
+        this.shortName_SoftwareInformation = StringMaker().jinit_StringMaker().append(shortName).append(KotlinUtil::getShortName()).toString();
         return this;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_SoftwareInformation;
     }
     
 
     string getVersion()
     {
-        return this.version;
+        return this.version_SoftwareInformation;
     }
     
 
     string toShortString()
     {
-        return this.shortName;
+        return this.shortName_SoftwareInformation;
     }
     
 

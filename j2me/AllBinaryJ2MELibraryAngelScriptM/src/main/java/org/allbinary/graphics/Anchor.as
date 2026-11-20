@@ -38,5 +38,6 @@ namespace Anchor
     int jcell_TOP_LEFT;
     int get_TOP_LEFT() property { jclinit(); return jcell_TOP_LEFT; }
     void set_TOP_LEFT(int value) property { jclinit(); jcell_TOP_LEFT = value; }
+    int jpostAdd_TOP_LEFT(int delta) { jclinit(); int old = jcell_TOP_LEFT; jcell_TOP_LEFT = int(old + delta); return old; }
 }
 

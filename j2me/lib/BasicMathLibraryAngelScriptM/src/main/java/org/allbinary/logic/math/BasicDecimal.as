@@ -17,25 +17,25 @@
 
 class BasicDecimal : JObjectBase
 {
-    int64 units;
-    int scaled;
-    int factor;
-    int factorValue;
+    int64 units_BasicDecimal;
+    int scaled_BasicDecimal;
+    int factor_BasicDecimal;
+    int factorValue_BasicDecimal;
 
     // Java field initializers run after the super constructor
     void jfields_BasicDecimal()
     {
     
     
-    this.factor = ScaleFactorFactory::getInstance().DEFAULT_SCALE_FACTOR;
-    this.factorValue = ScaleFactorFactory::getInstance().DEFAULT_SCALE_VALUE;
+    this.factor_BasicDecimal = ScaleFactorFactory::getInstance().DEFAULT_SCALE_FACTOR;
+    this.factorValue_BasicDecimal = ScaleFactorFactory::getInstance().DEFAULT_SCALE_VALUE;
     }
     
 
     BasicDecimal@ jinit_BasicDecimal(int64 units)
     {
         this.jfields_BasicDecimal();
-        this.units = units;
+        this.units_BasicDecimal = units;
         this.updateScaled();
         return this;
     }
@@ -43,142 +43,142 @@ class BasicDecimal : JObjectBase
 
     void setint(int value)
     {
-        this.units = int64(value);
+        this.units_BasicDecimal = int64(value);
         this.updateScaled();
     }
     
 
     void setlong(int64 value)
     {
-        this.units = value;
+        this.units_BasicDecimal = value;
         this.updateScaled();
     }
     
 
     void set(BasicDecimal@ bigDecimal)
     {
-        this.units = bigDecimal.getUnscaled();
+        this.units_BasicDecimal = bigDecimal.getUnscaled();
         this.updateScaled();
     }
     
 
     void addint(int value)
     {
-        this.units = this.units + int64(value);
+        this.units_BasicDecimal = this.units_BasicDecimal + int64(value);
         this.updateScaled();
     }
     
 
     void addlong(int64 value)
     {
-        this.units = this.units + value;
+        this.units_BasicDecimal = this.units_BasicDecimal + value;
         this.updateScaled();
     }
     
 
     void add(BasicDecimal@ bigDecimal)
     {
-        this.units = this.units + bigDecimal.getUnscaled();
+        this.units_BasicDecimal = this.units_BasicDecimal + bigDecimal.getUnscaled();
         this.updateScaled();
     }
     
 
     void subtractint(int value)
     {
-        this.units = this.units - int64(value);
+        this.units_BasicDecimal = this.units_BasicDecimal - int64(value);
         this.updateScaled();
     }
     
 
     void subtractlong(int64 value)
     {
-        this.units = this.units - value;
+        this.units_BasicDecimal = this.units_BasicDecimal - value;
         this.updateScaled();
     }
     
 
     void subtract(BasicDecimal@ bigDecimal)
     {
-        this.units = this.units - bigDecimal.getUnscaled();
+        this.units_BasicDecimal = this.units_BasicDecimal - bigDecimal.getUnscaled();
         this.updateScaled();
     }
     
 
     void multiplyint(int value)
     {
-        this.units = this.units * int64(value);
+        this.units_BasicDecimal = this.units_BasicDecimal * int64(value);
         this.updateScaled();
     }
     
 
     void multiplylong(int64 value)
     {
-        this.units = this.units * value;
+        this.units_BasicDecimal = this.units_BasicDecimal * value;
         this.updateScaled();
     }
     
 
     void multiply(BasicDecimal@ bigDecimal)
     {
-        this.units = this.units * bigDecimal.getUnscaled();
+        this.units_BasicDecimal = this.units_BasicDecimal * bigDecimal.getUnscaled();
         this.updateScaled();
     }
     
 
     void divideint(int value)
     {
-        this.units = this.units / int64(value);
+        this.units_BasicDecimal = this.units_BasicDecimal / int64(value);
         this.updateScaled();
     }
     
 
     void dividelong(int64 value)
     {
-        this.units = this.units / value;
+        this.units_BasicDecimal = this.units_BasicDecimal / value;
         this.updateScaled();
     }
     
 
     void divide(BasicDecimal@ bigDecimal)
     {
-        this.units = this.units / bigDecimal.getUnscaled();
+        this.units_BasicDecimal = this.units_BasicDecimal / bigDecimal.getUnscaled();
         this.updateScaled();
     }
     
 
     int64 getUnscaled()
     {
-        return this.units;
+        return this.units_BasicDecimal;
     }
     
 
     void updateScaled()
     {
-        this.scaled = int((this.units / int64(this.factorValue)));
+        this.scaled_BasicDecimal = int((this.units_BasicDecimal / int64(this.factorValue_BasicDecimal)));
     }
     
 
     int getScaled()
     {
-        return this.scaled;
+        return this.scaled_BasicDecimal;
     }
     
 
     string toString()
     {
-        return Long::toString(this.units);
+        return Long::toString(this.units_BasicDecimal);
     }
     
 
     int getScaledFactor()
     {
-        return this.factor;
+        return this.factor_BasicDecimal;
     }
     
 
     int getScaledFactorValue()
     {
-        return this.factorValue;
+        return this.factorValue_BasicDecimal;
     }
 }
 

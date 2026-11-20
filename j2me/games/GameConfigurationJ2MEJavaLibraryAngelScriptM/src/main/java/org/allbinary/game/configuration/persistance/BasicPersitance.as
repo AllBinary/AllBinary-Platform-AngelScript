@@ -20,8 +20,8 @@ class BasicPersitance : JObjectBase
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
     PersistanceStrings@ persistanceStrings;
-    PlatformRecordIdUtil@ platformRecordIdUtil;
-    string recordId;
+    PlatformRecordIdUtil@ platformRecordIdUtil_BasicPersitance;
+    string recordId_BasicPersitance;
     BasicArrayList@ valueList;
     BasicArrayList@ idList;
 
@@ -31,7 +31,7 @@ class BasicPersitance : JObjectBase
     @this.logUtil = LogUtil::getInstance();
     @this.commonStrings = CommonStrings::getInstance();
     @this.persistanceStrings = PersistanceStrings::getInstance();
-    @this.platformRecordIdUtil = PlatformRecordIdUtil::getInstance();
+    @this.platformRecordIdUtil_BasicPersitance = PlatformRecordIdUtil::getInstance();
     
     @this.valueList = BasicArrayListD().jinit_BasicArrayListD();
     @this.idList = BasicArrayListD().jinit_BasicArrayListD();
@@ -41,7 +41,7 @@ class BasicPersitance : JObjectBase
     BasicPersitance@ jinit_BasicPersitance(string recordId)
     {
         this.jfields_BasicPersitance();
-        this.recordId = recordId;
+        this.recordId_BasicPersitance = recordId;
         return this;
     }
     
@@ -95,7 +95,7 @@ class BasicPersitance : JObjectBase
 
     string getRecordId(AbeClientInformationInterface@ abeClientInformation)
     {
-        return this.platformRecordIdUtil.getRecordId(abeClientInformation, this.recordId);
+        return this.platformRecordIdUtil_BasicPersitance.getRecordId(abeClientInformation, this.recordId_BasicPersitance);
     }
     
 

@@ -17,43 +17,43 @@
 
 class InputProbability : JObjectBase
 {
-    JInteger@[]@[]@ likelyhoodIntegerArray;
-    JInteger@[]@ repeatLikelyhoodIntegerArray;
-    int max;
-    TimeDelayHelper@ timeDelayHelper;
+    JInteger@[]@[]@ likelyhoodIntegerArray_InputProbability;
+    JInteger@[]@ repeatLikelyhoodIntegerArray_InputProbability;
+    int max_InputProbability;
+    TimeDelayHelper@ timeDelayHelper_InputProbability;
     
 
     InputProbability@ jinit_InputProbability(JInteger@[]@[]@ likelyhoodIntegerArray, JInteger@[]@ repeatLikelyhoodIntegerArray, int max, TimeDelayHelper@ timeDelayHelper)
     {
-        @this.likelyhoodIntegerArray = likelyhoodIntegerArray;
-        @this.repeatLikelyhoodIntegerArray = repeatLikelyhoodIntegerArray;
-        this.max = max;
-        @this.timeDelayHelper = timeDelayHelper;
+        @this.likelyhoodIntegerArray_InputProbability = likelyhoodIntegerArray;
+        @this.repeatLikelyhoodIntegerArray_InputProbability = repeatLikelyhoodIntegerArray;
+        this.max_InputProbability = max;
+        @this.timeDelayHelper_InputProbability = timeDelayHelper;
         return this;
     }
     
 
     JInteger@[]@[]@ getLikelyhoodIntegerArray()
     {
-        return this.likelyhoodIntegerArray;
+        return this.likelyhoodIntegerArray_InputProbability;
     }
     
 
     JInteger@[]@ getRepeatLikelyhoodIntegerArray()
     {
-        return this.repeatLikelyhoodIntegerArray;
+        return this.repeatLikelyhoodIntegerArray_InputProbability;
     }
     
 
     int getMax()
     {
-        return this.max;
+        return this.max_InputProbability;
     }
     
 
     TimeDelayHelper@ getTimeDelayHelper()
     {
-        return this.timeDelayHelper;
+        return this.timeDelayHelper_InputProbability;
     }
     
 

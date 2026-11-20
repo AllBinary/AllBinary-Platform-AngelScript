@@ -17,14 +17,14 @@
 
 class LicenseInitInfo : JObjectBase
 {
-    string id;
-    BasicArrayList@ serverVector;
+    string id_LicenseInitInfo;
+    BasicArrayList@ serverVector_LicenseInitInfo;
 
     // Java field initializers run after the super constructor
     void jfields_LicenseInitInfo()
     {
-    this.id = StringUtil::getInstance().EMPTY_STRING;
-    @this.serverVector = BasicArrayListD().jinit_BasicArrayListD();
+    this.id_LicenseInitInfo = StringUtil::getInstance().EMPTY_STRING;
+    @this.serverVector_LicenseInitInfo = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
@@ -37,56 +37,56 @@ class LicenseInitInfo : JObjectBase
 
     string getLicenseId()
     {
-        return this.id;
+        return this.id_LicenseInitInfo;
     }
     
 
     string getServer(int index)
     {
-        return jstringOf(this.serverVector.objectArray[index]);
+        return jstringOf(this.serverVector_LicenseInitInfo.objectArray[index]);
     }
     
 
     int getNumberOfServers()
     {
-        return this.serverVector.size();
+        return this.serverVector_LicenseInitInfo.size();
     }
     
 
     void setLicenseId(string value)
     {
-        this.id = value;
+        this.id_LicenseInitInfo = value;
     }
     
 
     void clearServers()
     {
-        @this.serverVector = BasicArrayListD().jinit_BasicArrayListD();
+        @this.serverVector_LicenseInitInfo = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
     void setServer(string value, int index)
     {
-        this.serverVector.addAt(index, jbox(value));
+        this.serverVector_LicenseInitInfo.addAt(index, jbox(value));
     }
     
 
     void addServer(string value)
     {
-        this.serverVector.add(jbox(value));
+        this.serverVector_LicenseInitInfo.add(jbox(value));
     }
     
 
     BasicArrayList@ getServerList()
     {
-        return this.serverVector;
+        return this.serverVector_LicenseInitInfo;
     }
     
 
     void setServerList(BasicArrayList@ servers)
     {
-        if (DebugFactory::getInstance() == NoDebug::getInstance()) {
-            @this.serverVector = servers;
+        if (DebugFactory::getInstance() is NoDebug::getInstance()) {
+            @this.serverVector_LicenseInitInfo = servers;
         }
     }
 }

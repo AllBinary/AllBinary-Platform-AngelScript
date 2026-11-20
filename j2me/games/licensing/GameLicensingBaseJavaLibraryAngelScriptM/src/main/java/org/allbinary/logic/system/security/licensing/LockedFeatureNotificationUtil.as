@@ -17,12 +17,12 @@
 
 class LockedFeatureNotificationUtil : JObjectBase
 {
-    GameNotificationEvent@ gameNotificationEvent;
+    GameNotificationEvent@ gameNotificationEvent_LockedFeatureNotificationUtil;
 
     // Java field initializers run after the super constructor
     void jfields_LockedFeatureNotificationUtil()
     {
-    @this.gameNotificationEvent = GameNotificationEvent().jinit_GameNotificationEvent(this, LicenseStrings::getInstance().LOCKED, SmallIntegerSingletonFactory::getInstance().getAt(3), BasicColorFactory::getInstance().RED, BooleanFactory::getInstance().FALSE);
+    @this.gameNotificationEvent_LockedFeatureNotificationUtil = GameNotificationEvent().jinit_GameNotificationEvent(this, LicenseStrings::getInstance().LOCKED, SmallIntegerSingletonFactory::getInstance().getAt(3), BasicColorFactory::getInstance().RED, BooleanFactory::getInstance().FALSE);
     }
 
     LockedFeatureNotificationUtil@ jinit_LockedFeatureNotificationUtil()
@@ -35,15 +35,15 @@ class LockedFeatureNotificationUtil : JObjectBase
     void fire()
     {
         PrimaryPlayerQueueFactory::getInstance().add(ErrorSound::getInstance());
-        GameNotificationEventHandler::getInstance().fireEvent(this.gameNotificationEvent);
+        GameNotificationEventHandler::getInstance().fireEvent(this.gameNotificationEvent_LockedFeatureNotificationUtil);
     }
     
 
     void fireWithColor(BasicColor@ basicColor)
     {
         PrimaryPlayerQueueFactory::getInstance().add(ErrorSound::getInstance());
-        this.gameNotificationEvent.setBasicColorP(basicColor);
-        GameNotificationEventHandler::getInstance().fireEvent(this.gameNotificationEvent);
+        this.gameNotificationEvent_LockedFeatureNotificationUtil.setBasicColorP(basicColor);
+        GameNotificationEventHandler::getInstance().fireEvent(this.gameNotificationEvent_LockedFeatureNotificationUtil);
     }
 }
 

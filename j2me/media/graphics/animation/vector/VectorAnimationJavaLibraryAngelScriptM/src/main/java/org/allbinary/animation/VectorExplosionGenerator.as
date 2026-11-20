@@ -19,16 +19,16 @@ class VectorExplosionGenerator : JObjectBase
 {
     VectorExplosionType@ RANDOM;
     VectorExplosionType@ ROTATION;
-    VectorAnimationUtil@ vectorAnimationUtil;
-    RandomRotationFactory@ randomRotationFactory;
+    VectorAnimationUtil@ vectorAnimationUtil_VectorExplosionGenerator;
+    RandomRotationFactory@ randomRotationFactory_VectorExplosionGenerator;
 
     // Java field initializers run after the super constructor
     void jfields_VectorExplosionGenerator()
     {
     @this.RANDOM = VectorExplosionType().jinit_VectorExplosionType();
     @this.ROTATION = VectorExplosionType().jinit_VectorExplosionType();
-    @this.vectorAnimationUtil = VectorAnimationUtil::getInstance();
-    @this.randomRotationFactory = RandomRotationFactory::getInstance();
+    @this.vectorAnimationUtil_VectorExplosionGenerator = VectorAnimationUtil::getInstance();
+    @this.randomRotationFactory_VectorExplosionGenerator = RandomRotationFactory::getInstance();
     }
     
 
@@ -57,7 +57,7 @@ class VectorExplosionGenerator : JObjectBase
     {
         BasicArrayList@ pointsBasicArrayList = this.getInstanceStartFrame(points, howMuch, type, true);
         BasicArrayList@ tempBasicArrayList = cast<BasicArrayList>(pointsBasicArrayList.objectArray[0]);
-        int[]@[]@[]@ newPoints = this.vectorAnimationUtil.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, tempBasicArrayList.size());
+        int[]@[]@[]@ newPoints = this.vectorAnimationUtil_VectorExplosionGenerator.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, tempBasicArrayList.size());
         return newPoints;
     }
     
@@ -108,7 +108,7 @@ class VectorExplosionGenerator : JObjectBase
             }
             @sectionBasicArrayList = RandomTranslation::getInstance(sectionBasicArrayList, howMuch);
             if (type is this.ROTATION) {
-                @sectionBasicArrayList = this.randomRotationFactory.getInstanceList(sectionBasicArrayList, howMuch);
+                @sectionBasicArrayList = this.randomRotationFactory_VectorExplosionGenerator.getInstanceList(sectionBasicArrayList, howMuch);
             }
             int size = sectionBasicArrayList.size();
             for (int index2 = 0; index2 < size; index2++) {

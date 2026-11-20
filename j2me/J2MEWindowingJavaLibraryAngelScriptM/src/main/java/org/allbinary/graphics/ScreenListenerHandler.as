@@ -17,12 +17,12 @@
 
 class ScreenListenerHandler : JObjectBase
 {
-    ScreenListenerInterface@ screenListenerInterface;
+    ScreenListenerInterface@ screenListenerInterface_ScreenListenerHandler;
 
     // Java field initializers run after the super constructor
     void jfields_ScreenListenerHandler()
     {
-    @this.screenListenerInterface = ScreenEmptyListener().jinit_ScreenEmptyListener();
+    @this.screenListenerInterface_ScreenListenerHandler = ScreenEmptyListener().jinit_ScreenEmptyListener();
     }
 
     ScreenListenerHandler@ jinit_ScreenListenerHandler()
@@ -34,19 +34,19 @@ class ScreenListenerHandler : JObjectBase
 
     void setListener(ScreenListenerInterface@ screenListenerInterface)
     {
-        @this.screenListenerInterface = screenListenerInterface;
+        @this.screenListenerInterface_ScreenListenerHandler = screenListenerInterface;
     }
     
 
     void fireWithState(bool isFullScreen)
     {
-        this.screenListenerInterface.onFullScreen(isFullScreen);
+        this.screenListenerInterface_ScreenListenerHandler.onFullScreen(isFullScreen);
     }
     
 
     void fire()
     {
-        this.screenListenerInterface.onFullScreenDisplay();
+        this.screenListenerInterface_ScreenListenerHandler.onFullScreenDisplay();
     }
 }
 

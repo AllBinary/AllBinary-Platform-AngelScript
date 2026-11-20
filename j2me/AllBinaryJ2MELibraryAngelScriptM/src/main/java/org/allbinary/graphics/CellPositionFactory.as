@@ -19,16 +19,16 @@ class CellPositionFactory : JObjectBase
 {
     LogUtil@ logUtil;
     CellPosition@ NONE;
-    CellPosition@[]@[]@ cellPositionArray;
-    int columns;
-    int rows;
+    CellPosition@[]@[]@ cellPositionArray_CellPositionFactory;
+    int columns_CellPositionFactory;
+    int rows_CellPositionFactory;
 
     // Java field initializers run after the super constructor
     void jfields_CellPositionFactory()
     {
     @this.logUtil = LogUtil::getInstance();
     @this.NONE = CellPosition().jinit_CellPosition(-1, -1, -1, -1);
-    @this.cellPositionArray = CellPositionFactory::jnewArray2_CellPosition(0, 0);
+    @this.cellPositionArray_CellPositionFactory = CellPositionFactory::jnewArray2_CellPosition(0, 0);
     
     
     }
@@ -50,9 +50,9 @@ class CellPositionFactory : JObjectBase
         stringBuffer.append(" rows: ");
         stringBuffer.appendint(rows);
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
-        @this.cellPositionArray = CellPositionFactory::jnewArray2_CellPosition(columns, rows);
-        this.columns = columns;
-        this.rows = rows;
+        @this.cellPositionArray_CellPositionFactory = CellPositionFactory::jnewArray2_CellPosition(columns, rows);
+        this.columns_CellPositionFactory = columns;
+        this.rows_CellPositionFactory = rows;
         for (int column = 0; column < columns; column++) {
             for (int row = 0; row < rows; row++) {
                 this.createInstance(column, row);
@@ -64,7 +64,7 @@ class CellPositionFactory : JObjectBase
     CellPosition@ getInstanceColRow(int i_column, int i_row)
     {
         try {
-            return this.cellPositionArray[i_column][i_row];
+            return this.cellPositionArray_CellPositionFactory[i_column][i_row];
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
@@ -81,10 +81,10 @@ class CellPositionFactory : JObjectBase
 
     CellPosition@ createInstance(int i_column, int i_row)
     {
-        CellPosition@ cellPositionCanBeNull = this.cellPositionArray[i_column][i_row];
+        CellPosition@ cellPositionCanBeNull = this.cellPositionArray_CellPositionFactory[i_column][i_row];
         if (cellPositionCanBeNull is null) {
-            @cellPositionCanBeNull = CellPosition().jinit_CellPosition(i_column, i_row, this.columns, this.rows);
-            @this.cellPositionArray[i_column][i_row] = cellPositionCanBeNull;
+            @cellPositionCanBeNull = CellPosition().jinit_CellPosition(i_column, i_row, this.columns_CellPositionFactory, this.rows_CellPositionFactory);
+            @this.cellPositionArray_CellPositionFactory[i_column][i_row] = cellPositionCanBeNull;
         }
         return cellPositionCanBeNull;
     }
@@ -92,13 +92,13 @@ class CellPositionFactory : JObjectBase
 
     int getColumns()
     {
-        return this.columns;
+        return this.columns_CellPositionFactory;
     }
     
 
     int getRows()
     {
-        return this.rows;
+        return this.rows_CellPositionFactory;
     }
 }
 

@@ -17,28 +17,28 @@
 
 class MotionEventCircularPool : JObjectBase
 {
-    int MIN;
-    AllBinaryEventCircularPool@ eventPool;
+    int MIN_MotionEventCircularPool;
+    AllBinaryEventCircularPool@ eventPool_MotionEventCircularPool;
 
     // Java field initializers run after the super constructor
     void jfields_MotionEventCircularPool()
     {
-    this.MIN = TouchMotionGestureFactory::getInstance().LAST_MOTION.getId();
-    @this.eventPool = AllBinaryEventCircularPool().jinit_AllBinaryEventCircularPool((InputFactory::getInstance().MAX - 1) - this.MIN);
+    this.MIN_MotionEventCircularPool = TouchMotionGestureFactory::getInstance().LAST_MOTION.getId();
+    @this.eventPool_MotionEventCircularPool = AllBinaryEventCircularPool().jinit_AllBinaryEventCircularPool((InputFactory::getInstance().MAX - 1) - this.MIN_MotionEventCircularPool);
     }
     
 
     MotionEventCircularPool@ jinit_MotionEventCircularPool(int id)
     {
         this.jfields_MotionEventCircularPool();
-        this.eventPool.initAllBinaryEventCircularPool(MotionEventFactory().jinit_MotionEventFactory(this.eventPool, id));
+        this.eventPool_MotionEventCircularPool.initAllBinaryEventCircularPool(MotionEventFactory().jinit_MotionEventFactory(this.eventPool_MotionEventCircularPool, id));
         return this;
     }
     
 
     MotionGestureEvent@ getInstance(MotionGestureInput@ motionGestureInput)
     {
-        return cast<MotionGestureEvent>(this.eventPool.getInstance(motionGestureInput.getId() - this.MIN));
+        return cast<MotionGestureEvent>(this.eventPool_MotionEventCircularPool.getInstance(motionGestureInput.getId() - this.MIN_MotionEventCircularPool));
     }
 }
 

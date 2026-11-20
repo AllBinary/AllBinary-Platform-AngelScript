@@ -17,19 +17,19 @@
 
 class CountedPickedUpLayerInterfaceFactoryPool : JObjectBase
 {
-    BasicArrayList@ list;
+    BasicArrayList@ list_CountedPickedUpLayerInterfaceFactoryPool;
     
 
     CountedPickedUpLayerInterfaceFactoryPool@ jinit_CountedPickedUpLayerInterfaceFactoryPool()
     {
-        @this.list = BasicArrayListD().jinit_BasicArrayListD();
+        @this.list_CountedPickedUpLayerInterfaceFactoryPool = BasicArrayListD().jinit_BasicArrayListD();
         return this;
     }
     
 
     BasicArrayList@ getList()
     {
-        return this.list;
+        return this.list_CountedPickedUpLayerInterfaceFactoryPool;
     }
 }
 

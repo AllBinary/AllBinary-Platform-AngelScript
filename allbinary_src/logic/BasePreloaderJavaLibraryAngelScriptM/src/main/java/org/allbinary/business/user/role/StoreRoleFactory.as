@@ -17,16 +17,16 @@
 
 class StoreRoleFactory : JObjectBase
 {
-    BasicArrayList@ roles;
-    BasicArrayList@ subscriberRoles;
-    BasicArrayList@ wholesaleRoles;
+    BasicArrayList@ roles_StoreRoleFactory;
+    BasicArrayList@ subscriberRoles_StoreRoleFactory;
+    BasicArrayList@ wholesaleRoles_StoreRoleFactory;
 
     // Java field initializers run after the super constructor
     void jfields_StoreRoleFactory()
     {
-    @this.roles = BasicArrayListD().jinit_BasicArrayListD();
-    @this.subscriberRoles = BasicArrayListD().jinit_BasicArrayListD();
-    @this.wholesaleRoles = BasicArrayListD().jinit_BasicArrayListD();
+    @this.roles_StoreRoleFactory = BasicArrayListD().jinit_BasicArrayListD();
+    @this.subscriberRoles_StoreRoleFactory = BasicArrayListD().jinit_BasicArrayListD();
+    @this.wholesaleRoles_StoreRoleFactory = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
@@ -34,30 +34,30 @@ class StoreRoleFactory : JObjectBase
     {
         this.jfields_StoreRoleFactory();
         BasicUserRoleFactory@ basicUserRoleFactory = BasicUserRoleFactory::getInstance();
-        this.roles.add(basicUserRoleFactory.CUSTOMER);
-        this.roles.add(basicUserRoleFactory.SUBSCRIBERCUSTOMER);
-        this.roles.add(basicUserRoleFactory.WHOLESALECUSTOMER);
-        this.subscriberRoles.add(basicUserRoleFactory.SUBSCRIBERCUSTOMER);
-        this.wholesaleRoles.add(basicUserRoleFactory.WHOLESALECUSTOMER);
+        this.roles_StoreRoleFactory.add(basicUserRoleFactory.CUSTOMER);
+        this.roles_StoreRoleFactory.add(basicUserRoleFactory.SUBSCRIBERCUSTOMER);
+        this.roles_StoreRoleFactory.add(basicUserRoleFactory.WHOLESALECUSTOMER);
+        this.subscriberRoles_StoreRoleFactory.add(basicUserRoleFactory.SUBSCRIBERCUSTOMER);
+        this.wholesaleRoles_StoreRoleFactory.add(basicUserRoleFactory.WHOLESALECUSTOMER);
         return this;
     }
     
 
     BasicArrayList@ getRoles()
     {
-        return this.roles;
+        return this.roles_StoreRoleFactory;
     }
     
 
     BasicArrayList@ getSubscriberRoles()
     {
-        return this.subscriberRoles;
+        return this.subscriberRoles_StoreRoleFactory;
     }
     
 
     BasicArrayList@ getWholesaleRoles()
     {
-        return this.wholesaleRoles;
+        return this.wholesaleRoles_StoreRoleFactory;
     }
 }
 

@@ -18,12 +18,12 @@
 //ActualPlatform
 class ExceptionUtil : JObjectBase
 {
-    string NONE;
+    string NONE_ExceptionUtil;
 
     // Java field initializers run after the super constructor
     void jfields_ExceptionUtil()
     {
-    this.NONE = "No Stack Trace";
+    this.NONE_ExceptionUtil = "No Stack Trace";
     }
     
 
@@ -37,7 +37,7 @@ class ExceptionUtil : JObjectBase
     string getStackTrace(Throwable@ e)
     {
         e.printStackTrace();
-        return this.NONE;
+        return this.NONE_ExceptionUtil;
     }
 }
 

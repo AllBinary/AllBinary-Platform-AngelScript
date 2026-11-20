@@ -18,38 +18,38 @@
 // This is the information sent to the license server
 class ClientInformation : JObjectBase, AbeClientInformationInterface
 {
-    GenericOperatingSystem@ operatingSystemInterface;
-    TsUtil@ tsUtil;
-    string name;
-    string shortName;
-    string version;
-    string specialName;
-    bool hardSale;
-    string licenseId;
-    BasicArrayList@ licenseServers;
+    GenericOperatingSystem@ operatingSystemInterface_ClientInformation;
+    TsUtil@ tsUtil_ClientInformation;
+    string name_ClientInformation;
+    string shortName_ClientInformation;
+    string version_ClientInformation;
+    string specialName_ClientInformation;
+    bool hardSale_ClientInformation;
+    string licenseId_ClientInformation;
+    BasicArrayList@ licenseServers_ClientInformation;
 
     // Java field initializers run after the super constructor
     void jfields_ClientInformation()
     {
-    @this.operatingSystemInterface = NoOperatingSystem::NO_OPERATING_SYSTEM;
-    @this.tsUtil = TsUtil::getInstance();
+    @this.operatingSystemInterface_ClientInformation = NoOperatingSystem::NO_OPERATING_SYSTEM;
+    @this.tsUtil_ClientInformation = TsUtil::getInstance();
     
     
     
     
-    this.hardSale = true;
-    this.licenseId = StringUtil::getInstance().EMPTY_STRING;
-    @this.licenseServers = BasicArrayListUtil::getInstance().getImmutableInstance();
+    this.hardSale_ClientInformation = true;
+    this.licenseId_ClientInformation = StringUtil::getInstance().EMPTY_STRING;
+    @this.licenseServers_ClientInformation = BasicArrayListUtil::getInstance().getImmutableInstance();
     }
     
 
     ClientInformation@ jinit_ClientInformation(string name, string version, string specialName, string shortName)
     {
         this.jfields_ClientInformation();
-        this.name = name;
-        this.version = version;
-        this.specialName = specialName;
-        this.shortName = StringMaker().jinit_StringMaker().append(shortName).append(CommonSeps::getInstance().UNDERSCORE).append(version).toString();
+        this.name_ClientInformation = name;
+        this.version_ClientInformation = version;
+        this.specialName_ClientInformation = specialName;
+        this.shortName_ClientInformation = StringMaker().jinit_StringMaker().append(shortName).append(CommonSeps::getInstance().UNDERSCORE).append(version).toString();
         this.init();
         return this;
     }
@@ -62,49 +62,49 @@ class ClientInformation : JObjectBase, AbeClientInformationInterface
 
     GenericOperatingSystem@ getOperatingSystemInterface()
     {
-        return this.operatingSystemInterface;
+        return this.operatingSystemInterface_ClientInformation;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_ClientInformation;
     }
     
 
     string getSpecialName()
     {
-        return this.specialName;
+        return this.specialName_ClientInformation;
     }
     
 
     string getVersion()
     {
-        return this.version;
+        return this.version_ClientInformation;
     }
     
 
     string getLicenseId()
     {
-        return this.licenseId;
+        return this.licenseId_ClientInformation;
     }
     
 
     BasicArrayList@ getLicenseServers()
     {
-        return this.licenseServers;
+        return this.licenseServers_ClientInformation;
     }
     
 
     string getLicenseServer(int index)
     {
-        return jstringOf(this.licenseServers.objectArray[index]);
+        return jstringOf(this.licenseServers_ClientInformation.objectArray[index]);
     }
     
 
     int getNumberOfLicenseServers()
     {
-        return this.licenseServers.size();
+        return this.licenseServers_ClientInformation.size();
     }
     
 
@@ -113,9 +113,9 @@ class ClientInformation : JObjectBase, AbeClientInformationInterface
         AbeClientInformationData@ abeClientInformationData = AbeClientInformationData::getInstance();
         GenericOperatingSystem@ genericOperatingSystem = this.getOperatingSystemInterface();
         ABHashtable@ clientInfoHashtable = StdUtil::getInstance().createHashtable();
-        clientInfoHashtable.put(abeClientInformationData.NAME, this.name);
-        clientInfoHashtable.put(abeClientInformationData.VERSION, this.version);
-        clientInfoHashtable.put(abeClientInformationData.SPECIALNAME, this.specialName);
+        clientInfoHashtable.put(abeClientInformationData.NAME, this.name_ClientInformation);
+        clientInfoHashtable.put(abeClientInformationData.VERSION, this.version_ClientInformation);
+        clientInfoHashtable.put(abeClientInformationData.SPECIALNAME, this.specialName_ClientInformation);
         clientInfoHashtable.put(abeClientInformationData.LICENSEID, this.getLicenseId());
         clientInfoHashtable.put(abeClientInformationData.OSNAME, genericOperatingSystem.getName());
         clientInfoHashtable.put(abeClientInformationData.OSARCH, genericOperatingSystem.getArch());
@@ -130,7 +130,7 @@ class ClientInformation : JObjectBase, AbeClientInformationInterface
 
     bool isSameId(string alicenseId)
     {
-        if (this.tsUtil.compareTo(this.getLicenseId(), alicenseId) == 0) {
+        if (this.tsUtil_ClientInformation.compareTo(this.getLicenseId(), alicenseId) == 0) {
             return true;
         } else {
             return false;
@@ -142,15 +142,15 @@ class ClientInformation : JObjectBase, AbeClientInformationInterface
     bool isLargerOrDifferentServerList(BasicArrayList@ list)
     {
         int size = list.size() - 1;
-        int currentSize = this.licenseServers.size() - 1;
+        int currentSize = this.licenseServers_ClientInformation.size() - 1;
         if (size > currentSize) {
             return true;
         }
         for (int index = size; index >= 0; index--) {
             string newServerName = jstringOf(list.objectArray[index]);
             for (int index2 = currentSize; index2 >= 0; index2--) {
-                string nextOldServerName = jstringOf(this.licenseServers.objectArray[index]);
-                if (this.tsUtil.compareTo(newServerName, nextOldServerName) != 0) {
+                string nextOldServerName = jstringOf(this.licenseServers_ClientInformation.objectArray[index]);
+                if (this.tsUtil_ClientInformation.compareTo(newServerName, nextOldServerName) != 0) {
                     return true;
                 }
             }
@@ -161,37 +161,37 @@ class ClientInformation : JObjectBase, AbeClientInformationInterface
 
     void setHardSale(bool hardSale)
     {
-        this.hardSale = hardSale;
+        this.hardSale_ClientInformation = hardSale;
     }
     
 
     bool isHardSale()
     {
-        return this.hardSale;
+        return this.hardSale_ClientInformation;
     }
     
 
     void setOperatingSystemInterface(GenericOperatingSystem@ operatingSystemInterface)
     {
-        @this.operatingSystemInterface = operatingSystemInterface;
+        @this.operatingSystemInterface_ClientInformation = operatingSystemInterface;
     }
     
 
     void setLicenseId(string licenseId)
     {
-        this.licenseId = licenseId;
+        this.licenseId_ClientInformation = licenseId;
     }
     
 
     void setLicenseServers(BasicArrayList@ licenseServers)
     {
-        @this.licenseServers = licenseServers;
+        @this.licenseServers_ClientInformation = licenseServers;
     }
     
 
     string toShortString()
     {
-        return this.shortName;
+        return this.shortName_ClientInformation;
     }
 }
 

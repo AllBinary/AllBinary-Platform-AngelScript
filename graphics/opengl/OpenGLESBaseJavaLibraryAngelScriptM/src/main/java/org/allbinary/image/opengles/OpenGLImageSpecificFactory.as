@@ -17,13 +17,13 @@
 
 class OpenGLImageSpecificFactory : JObjectBase
 {
-    OpenGLImageFactory@ imageFactory;
+    OpenGLImageFactory@ imageFactory_OpenGLImageSpecificFactory;
     bool updating;
 
     // Java field initializers run after the super constructor
     void jfields_OpenGLImageSpecificFactory()
     {
-    @this.imageFactory = OpenGLImageFactory::NULL_OPENGL_IMAGE_FACTORY;
+    @this.imageFactory_OpenGLImageSpecificFactory = OpenGLImageFactory::NULL_OPENGL_IMAGE_FACTORY;
     this.updating = false;
     }
 
@@ -36,14 +36,14 @@ class OpenGLImageSpecificFactory : JObjectBase
 
     void setImageFactory(OpenGLImageFactory@ imageFactory)
     {
-        @this.imageFactory = imageFactory;
-        PreLogUtil::put(StringMaker().jinit_StringMaker().append("Selected Image Factory: ").append(StringUtil::getInstance().toString(this.imageFactory)).toString(), this, "setImageFactory");
+        @this.imageFactory_OpenGLImageSpecificFactory = imageFactory;
+        PreLogUtil::put(StringMaker().jinit_StringMaker().append("Selected Image Factory: ").append(StringUtil::getInstance().toString(this.imageFactory_OpenGLImageSpecificFactory)).toString(), this, "setImageFactory");
     }
     
 
     OpenGLImageFactory@ getImageFactory()
     {
-        return this.imageFactory;
+        return this.imageFactory_OpenGLImageSpecificFactory;
     }
 }
 

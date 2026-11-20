@@ -17,12 +17,12 @@
 
 class BasicWeaponPartCircularPool : JObjectBase
 {
-    BasicWeaponPart@ basicWeaponPart;
+    BasicWeaponPart@ basicWeaponPart_BasicWeaponPartCircularPool;
 
     // Java field initializers run after the super constructor
     void jfields_BasicWeaponPartCircularPool()
     {
-    @this.basicWeaponPart = BasicWeaponPart::NULL_BASIC_WEAPON_PART;
+    @this.basicWeaponPart_BasicWeaponPartCircularPool = BasicWeaponPart::NULL_BASIC_WEAPON_PART;
     }
 
     BasicWeaponPartCircularPool@ jinit_BasicWeaponPartCircularPool()
@@ -34,14 +34,14 @@ class BasicWeaponPartCircularPool : JObjectBase
 
     void init(BasicWeaponPartFactoryInterface@ basicWeaponPartFactoryInterface)
     {
-        @this.basicWeaponPart = basicWeaponPartFactoryInterface.getInstance();
+        @this.basicWeaponPart_BasicWeaponPartCircularPool = basicWeaponPartFactoryInterface.getInstance();
     }
     
 
     BasicWeaponPart@ getInstance(AllBinaryLayer@ sourceLayerInterface, WeaponProperties@ weaponProperties, ScoreableInterface@ scoreableInterface, RelativeRelationship@ relativeRelationship)
     {
-        this.basicWeaponPart.init(sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
-        return this.basicWeaponPart;
+        this.basicWeaponPart_BasicWeaponPartCircularPool.init(sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
+        return this.basicWeaponPart_BasicWeaponPartCircularPool;
     }
 }
 

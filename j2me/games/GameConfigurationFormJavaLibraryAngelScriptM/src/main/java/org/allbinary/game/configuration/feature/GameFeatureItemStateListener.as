@@ -18,7 +18,7 @@
 class GameFeatureItemStateListener : JObjectBase, ItemStateListener
 {
     LogUtil@ logUtil;
-    GameOptionsForm@ gameOptionsForm;
+    GameOptionsForm@ gameOptionsForm_GameFeatureItemStateListener;
 
     // Java field initializers run after the super constructor
     void jfields_GameFeatureItemStateListener()
@@ -31,7 +31,7 @@ class GameFeatureItemStateListener : JObjectBase, ItemStateListener
     GameFeatureItemStateListener@ jinit_GameFeatureItemStateListener(GameOptionsForm@ gameOptionsForm)
     {
         this.jfields_GameFeatureItemStateListener();
-        @this.gameOptionsForm = gameOptionsForm;
+        @this.gameOptionsForm_GameFeatureItemStateListener = gameOptionsForm;
         GameFeatureFactory@ gameFeatureFactory = GameFeatureFactory::getInstance();
         GameFeatureItemStateListener::add(gameFeatureFactory.ARTIFICIAL_INTELLEGENCE_PROCESSOR);
         GameFeatureItemStateListener::add(gameFeatureFactory.COLLIDABLE_INTERFACE_LAYER_PROCESSOR);
@@ -51,7 +51,7 @@ class GameFeatureItemStateListener : JObjectBase, ItemStateListener
             string itemLabel = item.getLabel();
             this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
             if ((cast<GameConfigurationGauge>(item) !is null)) {
-                GameConfigurationUtil::getInstance().change(this.gameOptionsForm, cast<GameConfigurationGauge>(item));
+                GameConfigurationUtil::getInstance().change(this.gameOptionsForm_GameFeatureItemStateListener, cast<GameConfigurationGauge>(item));
             } else if ((cast<ChoiceGroup>(item) !is null)) {
                 GameFeatureUtil@ gameFeatureUtil = GameFeatureUtil::getInstance();
                 if (gameFeatureUtil.isExclusive(itemLabel)) {

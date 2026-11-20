@@ -17,16 +17,16 @@
 
 class TextNotificationUtil : JObjectBase
 {
-    JInteger@ TWO;
-    JBoolean@ FALSE;
-    GameNotificationEventHandler@ gameNotificationEventHandler;
+    JInteger@ TWO_TextNotificationUtil;
+    JBoolean@ FALSE_TextNotificationUtil;
+    GameNotificationEventHandler@ gameNotificationEventHandler_TextNotificationUtil;
 
     // Java field initializers run after the super constructor
     void jfields_TextNotificationUtil()
     {
-    @this.TWO = SmallIntegerSingletonFactory::getInstance().getAt(2);
-    @this.FALSE = BooleanFactory::getInstance().FALSE;
-    @this.gameNotificationEventHandler = GameNotificationEventHandler::getInstance();
+    @this.TWO_TextNotificationUtil = SmallIntegerSingletonFactory::getInstance().getAt(2);
+    @this.FALSE_TextNotificationUtil = BooleanFactory::getInstance().FALSE;
+    @this.gameNotificationEventHandler_TextNotificationUtil = GameNotificationEventHandler::getInstance();
     }
 
     TextNotificationUtil@ jinit_TextNotificationUtil()
@@ -59,8 +59,8 @@ class TextNotificationUtil : JObjectBase
 
     void fire(string message)
     {
-        GameNotificationEvent@ gameNotificationEvent = GameNotificationEvent().jinit_GameNotificationEvent(this, message, this.TWO, BasicColorFactory::getInstance().RED, this.FALSE);
-        this.gameNotificationEventHandler.fireEvent(gameNotificationEvent);
+        GameNotificationEvent@ gameNotificationEvent = GameNotificationEvent().jinit_GameNotificationEvent(this, message, this.TWO_TextNotificationUtil, BasicColorFactory::getInstance().RED, this.FALSE_TextNotificationUtil);
+        this.gameNotificationEventHandler_TextNotificationUtil.fireEvent(gameNotificationEvent);
     }
 }
 

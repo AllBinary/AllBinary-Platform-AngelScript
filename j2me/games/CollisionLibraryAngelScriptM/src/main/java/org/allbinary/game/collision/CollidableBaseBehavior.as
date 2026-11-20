@@ -20,7 +20,7 @@ class CollidableBaseBehavior : JObjectBase, CollidableInterface
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
     LayerCollisionUtil@ layerCollisionUtil;
-    bool collidable;
+    bool collidable_CollidableBaseBehavior;
 
     // Java field initializers run after the super constructor
     void jfields_CollidableBaseBehavior()
@@ -28,14 +28,14 @@ class CollidableBaseBehavior : JObjectBase, CollidableInterface
     @this.logUtil = LogUtil::getInstance();
     @this.commonStrings = CommonStrings::getInstance();
     @this.layerCollisionUtil = LayerCollisionUtil::getInstance();
-    this.collidable = true;
+    this.collidable_CollidableBaseBehavior = true;
     }
     
 
     CollidableBaseBehavior@ jinit_CollidableBaseBehavior(bool collidable)
     {
         this.jfields_CollidableBaseBehavior();
-        this.collidable = collidable;
+        this.collidable_CollidableBaseBehavior = collidable;
         return this;
     }
     
@@ -53,13 +53,13 @@ class CollidableBaseBehavior : JObjectBase, CollidableInterface
 
     void setCollidable(bool collidable)
     {
-        this.collidable = collidable;
+        this.collidable_CollidableBaseBehavior = collidable;
     }
     
 
     bool isCollidable(CollidableCompositeLayer@ ownerLayer)
     {
-        return this.collidable;
+        return this.collidable_CollidableBaseBehavior;
     }
     
 

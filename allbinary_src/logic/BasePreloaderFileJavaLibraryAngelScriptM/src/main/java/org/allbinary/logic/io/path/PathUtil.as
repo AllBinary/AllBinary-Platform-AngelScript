@@ -18,14 +18,14 @@
 //Used to correct user input for paths
 class PathUtil : JObjectBase
 {
-    AbPathData@ abPathData;
-    FilePathData@ filePathData;
+    AbPathData@ abPathData_PathUtil;
+    FilePathData@ filePathData_PathUtil;
 
     // Java field initializers run after the super constructor
     void jfields_PathUtil()
     {
-    @this.abPathData = AbPathData::getInstance();
-    @this.filePathData = FilePathData::getInstance();
+    @this.abPathData_PathUtil = AbPathData::getInstance();
+    @this.filePathData_PathUtil = FilePathData::getInstance();
     }
     
 
@@ -38,13 +38,13 @@ class PathUtil : JObjectBase
 
     string getExtensionWithAbFilePath(AbFilePath@ abFilePath)
     {
-        return this.abPathData.getExtension(abFilePath.toString());
+        return this.abPathData_PathUtil.getExtension(abFilePath.toString());
     }
     
 
     string getExtensionWithAbPath(AbPath@ abPath)
     {
-        return this.abPathData.getExtension(abPath.toString());
+        return this.abPathData_PathUtil.getExtension(abPath.toString());
     }
     
 
@@ -62,7 +62,7 @@ class PathUtil : JObjectBase
 
     string getWithoutExtension(string filePath)
     {
-        int indexOfFileExtensionDelmiter = this.abPathData.getExtensionIndex(filePath);
+        int indexOfFileExtensionDelmiter = this.abPathData_PathUtil.getExtensionIndex(filePath);
         string pathWithoutExtension = filePath;
         if (indexOfFileExtensionDelmiter >= 0) {
             pathWithoutExtension = String::substring(filePath, 0, indexOfFileExtensionDelmiter);
@@ -84,7 +84,7 @@ class PathUtil : JObjectBase
 
     bool isValidStart(string path)
     {
-        if (String::charAt(path, 0) == this.abPathData.SEPARATORCHAR || String::charAt(path, 0) == uint16('.')) {
+        if (String::charAt(path, 0) == this.abPathData_PathUtil.SEPARATORCHAR || String::charAt(path, 0) == uint16('.')) {
             return true;
         } else {
             return false;
@@ -99,7 +99,7 @@ class PathUtil : JObjectBase
         if (stringValidationUtil.isEmpty(path)) {
             return false;
         }
-        if (String::charAt(path, int(path.length()) - 1) == this.abPathData.SEPARATORCHAR) {
+        if (String::charAt(path, int(path.length()) - 1) == this.abPathData_PathUtil.SEPARATORCHAR) {
             return true;
         } else {
             return false;
@@ -111,7 +111,7 @@ class PathUtil : JObjectBase
     string adjustStart(string path)
     {
         if (!this.isValidStart(path)) {
-            path = this.abPathData.SEPARATOR + path;
+            path = this.abPathData_PathUtil.SEPARATOR + path;
         }
         return path;
     }
@@ -120,7 +120,7 @@ class PathUtil : JObjectBase
     string adjustEnd(string path)
     {
         if (!this.isValidEnd(path)) {
-            path = path + this.abPathData.SEPARATOR;
+            path = path + this.abPathData_PathUtil.SEPARATOR;
         }
         return path;
     }
@@ -130,10 +130,10 @@ class PathUtil : JObjectBase
     {
         StringValidationUtil@ stringValidationUtil = StringValidationUtil::getInstance();
         if (stringValidationUtil.isEmpty(path)) {
-            return this.abPathData.SEPARATOR;
+            return this.abPathData_PathUtil.SEPARATOR;
         }
         if (String::indexOf(path, "\\") >= 0) {
-            path = String::replace(path, uint16('\\'), this.abPathData.SEPARATORCHAR);
+            path = String::replace(path, uint16('\\'), this.abPathData_PathUtil.SEPARATORCHAR);
         }
         return path;
     }
@@ -141,9 +141,9 @@ class PathUtil : JObjectBase
 
     AbPath@ removeNameFromPath(string path)
     {
-        int endIndex = String::lastIndexOf(path, this.abPathData.SEPARATOR);
+        int endIndex = String::lastIndexOf(path, this.abPathData_PathUtil.SEPARATOR);
         if (endIndex < 0) {
-            endIndex = String::lastIndexOf(path, this.filePathData.SEPARATORCHAR);
+            endIndex = String::lastIndexOf(path, this.filePathData_PathUtil.SEPARATORCHAR);
         }
         if (endIndex < 0) {
             return AbPath::createAbPath();

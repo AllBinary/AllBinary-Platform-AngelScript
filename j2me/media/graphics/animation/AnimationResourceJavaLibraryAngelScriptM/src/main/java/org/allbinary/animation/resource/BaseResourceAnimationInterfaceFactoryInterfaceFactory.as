@@ -19,11 +19,11 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory : JObjectBase, Featu
 {
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
-    ABHashtable@ hashtable;
-    ABHashtable@ rectangleHashtable;
-    ABHashtable@ rectangleArrayOfArraysHashtable;
-    string name;
-    bool initialized;
+    ABHashtable@ hashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
+    ABHashtable@ rectangleHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
+    ABHashtable@ rectangleArrayOfArraysHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
+    string name_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
+    bool initialized_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
 
     // Java field initializers run after the super constructor
     void jfields_BaseResourceAnimationInterfaceFactoryInterfaceFactory()
@@ -41,24 +41,24 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory : JObjectBase, Featu
     BaseResourceAnimationInterfaceFactoryInterfaceFactory@ jinit_BaseResourceAnimationInterfaceFactoryInterfaceFactory(string name, ABHashtable@ hashtable, ABHashtable@ rectangleHashtable, ABHashtable@ rectangleArrayHashtable)
     {
         this.jfields_BaseResourceAnimationInterfaceFactoryInterfaceFactory();
-        @this.hashtable = hashtable;
-        @this.rectangleHashtable = rectangleHashtable;
-        @this.rectangleArrayOfArraysHashtable = rectangleArrayHashtable;
-        this.name = name;
+        @this.hashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory = hashtable;
+        @this.rectangleHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory = rectangleHashtable;
+        @this.rectangleArrayOfArraysHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory = rectangleArrayHashtable;
+        this.name_BaseResourceAnimationInterfaceFactoryInterfaceFactory = name;
         return this;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
     }
     
 
     void init(int level)
     {
         CommonStrings@ commonStrings = CommonStrings::getInstance();
-        this.logUtil.putF(StringMaker().jinit_StringMaker().append("Available List of Animations: ").append(this.hashtable.toString()).toString(), this, commonStrings.INIT);
+        this.logUtil.putF(StringMaker().jinit_StringMaker().append("Available List of Animations: ").append(this.hashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory.toString()).toString(), this, commonStrings.INIT);
         this.setInitialized(true);
     }
     
@@ -70,16 +70,16 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory : JObjectBase, Featu
 
     void add(string resource, BasicAnimationInterfaceFactoryInterface@ animationInterfaceFactoryInterface)
     {
-        if (this.hashtable.containsKey(resource)) {
+        if (this.hashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory.containsKey(jbox(resource))) {
             jthrow(Exception().jinit_Exception(StringMaker().jinit_StringMaker().append("Resource Already Created: ").append(resource).toString()));
         }
-        this.hashtable.put(resource, animationInterfaceFactoryInterface);
+        this.hashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory.put(resource, animationInterfaceFactoryInterface);
     }
     
 
     BasicAnimationInterfaceFactoryInterface@ getBasicAnimationInterfaceFactoryInstance(string resource)
     {
-        JObject@ basicAnimationInterfaceFactoryInterfaceCanBeNull = this.hashtable.get(resource);
+        JObject@ basicAnimationInterfaceFactoryInterfaceCanBeNull = this.hashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory.get(resource);
         if (basicAnimationInterfaceFactoryInterfaceCanBeNull is null) {
             return NullAnimationFactory::NULL_NOT_FOR_USE_ANIMATION_FACTORY;
         }
@@ -89,7 +89,7 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory : JObjectBase, Featu
 
     Rectangle@ getRectangle(string resource)
     {
-        JObject@ rectangleCanBeNull = this.rectangleHashtable.get(resource);
+        JObject@ rectangleCanBeNull = this.rectangleHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory.get(resource);
         if (rectangleCanBeNull is null) {
             return RectangleFactory::SINGLETON;
         }
@@ -99,15 +99,15 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory : JObjectBase, Featu
 
     void addRectangle(string resource, Rectangle@ rectangle)
     {
-        this.rectangleHashtable.put(resource, rectangle);
+        this.rectangleHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory.put(resource, rectangle);
     }
     
 
     Rectangle@[]@[]@ getRectangleArrayOfArrays(string resource)
     {
-        JObject@ valueCanBeNull = this.rectangleArrayOfArraysHashtable.get(resource);
+        JObject@ valueCanBeNull = this.rectangleArrayOfArraysHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory.get(resource);
         if (valueCanBeNull !is null) {
-            Rectangle@[]@[]@ rectangleArrayOfArrays = jarrayOf_Rectangle(valueCanBeNull);
+            Rectangle@[]@[]@ rectangleArrayOfArrays = cast<array<Rectangle@[]@>>(jrefOf(valueCanBeNull));
             return rectangleArrayOfArrays;
         } else {
             return RectangleFactory::ARRAY_OF_ARRAYS;
@@ -118,7 +118,7 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory : JObjectBase, Featu
 
     void addRectangleArrayOfArrays(string resource, Rectangle@[]@[]@ rectangleArrayOfArrays)
     {
-        this.rectangleArrayOfArraysHashtable.put(resource, jbox(rectangleArrayOfArrays));
+        this.rectangleArrayOfArraysHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory.put(resource, jboxRef(ref(@rectangleArrayOfArrays)));
     }
     
 
@@ -142,37 +142,37 @@ class BaseResourceAnimationInterfaceFactoryInterfaceFactory : JObjectBase, Featu
 
     string toString()
     {
-        return StringMaker().jinit_StringMaker().append(jClassName(this)).append(CommonSeps::getInstance().SEMICOLON).append(CommonSeps::getInstance().SPACE).append(this.name).toString();
+        return StringMaker().jinit_StringMaker().append(jClassName(this)).append(CommonSeps::getInstance().SEMICOLON).append(CommonSeps::getInstance().SPACE).append(this.name_BaseResourceAnimationInterfaceFactoryInterfaceFactory).toString();
     }
     
 
     ABHashtable@ getHashtable()
     {
-        return this.hashtable;
+        return this.hashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
     }
     
 
     ABHashtable@ getRectangleHashtable()
     {
-        return this.rectangleHashtable;
+        return this.rectangleHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
     }
     
 
     ABHashtable@ getRectangleArrayOfArraysHashtable()
     {
-        return this.rectangleArrayOfArraysHashtable;
+        return this.rectangleArrayOfArraysHashtable_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
     }
     
 
     void setInitialized(bool initialized)
     {
-        this.initialized = initialized;
+        this.initialized_BaseResourceAnimationInterfaceFactoryInterfaceFactory = initialized;
     }
     
 
     bool isInitialized()
     {
-        return this.initialized;
+        return this.initialized_BaseResourceAnimationInterfaceFactoryInterfaceFactory;
     }
 }
 

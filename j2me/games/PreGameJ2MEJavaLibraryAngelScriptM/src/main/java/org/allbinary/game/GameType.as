@@ -17,19 +17,19 @@
 
 class GameType : JObjectBase
 {
-    string name;
+    string name_GameType;
     
 
     GameType@ jinit_GameType(string name)
     {
-        this.name = name;
+        this.name_GameType = name;
         return this;
     }
     
 
     string toString()
     {
-        return this.name;
+        return this.name_GameType;
     }
 }
 

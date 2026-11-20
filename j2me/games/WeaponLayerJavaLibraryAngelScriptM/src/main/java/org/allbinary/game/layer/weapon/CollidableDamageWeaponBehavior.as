@@ -41,7 +41,7 @@ class CollidableDamageWeaponBehavior : CollidableDestroyableDamageableBehavior
     bool isCollision(CollidableCompositeLayer@ ownerLayer, CollidableCompositeLayer@ collisionLayer)
     {
         if (this.collisionHelper.isCollidable(collisionLayer)) {
-            if (ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0]) {
+            if (ownerLayer.getGroupInterface()[0] !is collisionLayer.getGroupInterface()[0]) {
                 return CollidableDestroyableDamageableBehavior::isCollision(ownerLayer, collisionLayer);
             }
         }
@@ -60,7 +60,7 @@ class CollidableDamageWeaponBehavior : CollidableDestroyableDamageableBehavior
     {
         if (this.collisionHelper.isCollidable(cast<CollidableCompositeLayer>(collidableInterfaceCompositeInterface))) {
             AllBinaryLayer@ layerInterface = cast<AllBinaryLayer>(collidableInterfaceCompositeInterface);
-            if (ownerLayer.getGroupInterface()[0] != layerInterface.getGroupInterface()[0]) {
+            if (ownerLayer.getGroupInterface()[0] !is layerInterface.getGroupInterface()[0]) {
                 if (this.layerCollisionUtil.isCollision(ownerLayer, layerInterface)) {
                     return true;
                 }

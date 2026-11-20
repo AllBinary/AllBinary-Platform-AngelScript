@@ -17,12 +17,12 @@
 
 class J2MEKeyFactory : JObjectBase
 {
-    GameKeyFactory@ gameKeyFactory;
+    GameKeyFactory@ gameKeyFactory_J2MEKeyFactory;
 
     // Java field initializers run after the super constructor
     void jfields_J2MEKeyFactory()
     {
-    @this.gameKeyFactory = GameKeyFactory::getInstance();
+    @this.gameKeyFactory_J2MEKeyFactory = GameKeyFactory::getInstance();
     }
     
 
@@ -35,7 +35,7 @@ class J2MEKeyFactory : JObjectBase
 
     void init()
     {
-        GameKey@[]@ gameKeyArray = array<GameKey@> = {this.gameKeyFactory.DOWN, this.gameKeyFactory.FIRE, this.gameKeyFactory.GAME_A, this.gameKeyFactory.GAME_B, this.gameKeyFactory.GAME_C, this.gameKeyFactory.GAME_D, this.gameKeyFactory.KEY_NUM0, this.gameKeyFactory.KEY_NUM1, this.gameKeyFactory.KEY_NUM2, this.gameKeyFactory.KEY_NUM3, this.gameKeyFactory.KEY_NUM4, this.gameKeyFactory.KEY_NUM5, this.gameKeyFactory.KEY_NUM6, this.gameKeyFactory.KEY_NUM7, this.gameKeyFactory.KEY_NUM8, this.gameKeyFactory.KEY_NUM9, this.gameKeyFactory.KEY_POUND, this.gameKeyFactory.KEY_STAR, this.gameKeyFactory.LEFT, this.gameKeyFactory.LEVEL_DOWN, this.gameKeyFactory.LEVEL_UP, this.gameKeyFactory.NONE, this.gameKeyFactory.RIGHT, this.gameKeyFactory.UP};
+        GameKey@[]@ gameKeyArray = array<GameKey@> = {this.gameKeyFactory_J2MEKeyFactory.DOWN, this.gameKeyFactory_J2MEKeyFactory.FIRE, this.gameKeyFactory_J2MEKeyFactory.GAME_A, this.gameKeyFactory_J2MEKeyFactory.GAME_B, this.gameKeyFactory_J2MEKeyFactory.GAME_C, this.gameKeyFactory_J2MEKeyFactory.GAME_D, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM0, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM1, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM2, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM3, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM4, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM5, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM6, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM7, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM8, this.gameKeyFactory_J2MEKeyFactory.KEY_NUM9, this.gameKeyFactory_J2MEKeyFactory.KEY_POUND, this.gameKeyFactory_J2MEKeyFactory.KEY_STAR, this.gameKeyFactory_J2MEKeyFactory.LEFT, this.gameKeyFactory_J2MEKeyFactory.LEVEL_DOWN, this.gameKeyFactory_J2MEKeyFactory.LEVEL_UP, this.gameKeyFactory_J2MEKeyFactory.NONE, this.gameKeyFactory_J2MEKeyFactory.RIGHT, this.gameKeyFactory_J2MEKeyFactory.UP};
         InputFactory@ inputFactory = InputFactory::getInstance();
         for (int index = int(gameKeyArray.length()); --index >= 0; ) {
             inputFactory.add(gameKeyArray[index].getId(), gameKeyArray[index]);
@@ -45,7 +45,7 @@ class J2MEKeyFactory : JObjectBase
 
     bool isSubmission(Input@ input)
     {
-        if (input is this.gameKeyFactory.FIRE) {
+        if (input is this.gameKeyFactory_J2MEKeyFactory.FIRE) {
             return true;
         }
         return false;
@@ -54,7 +54,7 @@ class J2MEKeyFactory : JObjectBase
 
     bool isDelete(Input@ input)
     {
-        if (input is this.gameKeyFactory.GAME_D) {
+        if (input is this.gameKeyFactory_J2MEKeyFactory.GAME_D) {
             return true;
         }
         return false;
@@ -69,7 +69,7 @@ class J2MEKeyFactory : JObjectBase
 
     bool isUp(Input@ input)
     {
-        if (input is this.gameKeyFactory.UP) {
+        if (input is this.gameKeyFactory_J2MEKeyFactory.UP) {
             return true;
         }
         return false;
@@ -78,7 +78,7 @@ class J2MEKeyFactory : JObjectBase
 
     bool isDown(Input@ input)
     {
-        if (input is this.gameKeyFactory.DOWN) {
+        if (input is this.gameKeyFactory_J2MEKeyFactory.DOWN) {
             return true;
         }
         return false;
@@ -87,7 +87,7 @@ class J2MEKeyFactory : JObjectBase
 
     bool isLeft(Input@ input)
     {
-        if (input is this.gameKeyFactory.LEFT) {
+        if (input is this.gameKeyFactory_J2MEKeyFactory.LEFT) {
             return true;
         }
         return false;
@@ -96,7 +96,7 @@ class J2MEKeyFactory : JObjectBase
 
     bool isRight(Input@ input)
     {
-        if (input is this.gameKeyFactory.RIGHT) {
+        if (input is this.gameKeyFactory_J2MEKeyFactory.RIGHT) {
             return true;
         }
         return false;
@@ -105,7 +105,7 @@ class J2MEKeyFactory : JObjectBase
 
     bool isEnter(Input@ input)
     {
-        if (input is this.gameKeyFactory.FIRE) {
+        if (input is this.gameKeyFactory_J2MEKeyFactory.FIRE) {
             return true;
         }
         return false;

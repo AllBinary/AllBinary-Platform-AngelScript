@@ -42,7 +42,7 @@ class AllMotionRecognizer : MotionRecognizer
     {
         this.jinit_MotionRecognizer();
         this.jfields_AllMotionRecognizer();
-        this.id_AllMotionRecognizer = ((AllMotionRecognizer::index = AllMotionRecognizer::index + 1) - 1);
+        this.id_AllMotionRecognizer = AllMotionRecognizer::jpostAdd_index(1);
         @this.motionGestureRecognizer_AllMotionRecognizer = MotionGestureRecognizer().jinit_MotionGestureRecognizer(this.id_AllMotionRecognizer);
         @this.touchButtonRecognizer_AllMotionRecognizer = TouchButtonRecognizer().jinit_TouchButtonRecognizer();
         return this;
@@ -136,6 +136,7 @@ namespace AllMotionRecognizer
     int jcell_index;
     int get_index() property { jclinit(); return jcell_index; }
     void set_index(int value) property { jclinit(); jcell_index = value; }
+    int jpostAdd_index(int delta) { jclinit(); int old = jcell_index; jcell_index = int(old + delta); return old; }
 
     GPointCircularPool@ jcell_pointCircularPool;
     GPointCircularPool@ get_pointCircularPool() property { jclinit(); return jcell_pointCircularPool; }

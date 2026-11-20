@@ -17,19 +17,19 @@
 
 class GameState : JObjectBase
 {
-    string name;
+    string name_GameState;
     
 
     GameState@ jinit_GameState(string name, int state)
     {
-        this.name = name;
+        this.name_GameState = name;
         return this;
     }
     
 
     string toString()
     {
-        return this.name;
+        return this.name_GameState;
     }
 }
 

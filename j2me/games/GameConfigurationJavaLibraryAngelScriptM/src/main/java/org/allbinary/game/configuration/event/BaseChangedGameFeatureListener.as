@@ -20,7 +20,7 @@ class BaseChangedGameFeatureListener : JObjectBase, GameFeatureListenerInterface
     LogUtil@ logUtil;
     GameFeatureUtil@ gameFeatureUtil;
     BasicArrayList@ list;
-    bool changed;
+    bool changed_BaseChangedGameFeatureListener;
 
     // Java field initializers run after the super constructor
     void jfields_BaseChangedGameFeatureListener()
@@ -28,7 +28,7 @@ class BaseChangedGameFeatureListener : JObjectBase, GameFeatureListenerInterface
     @this.logUtil = LogUtil::getInstance();
     @this.gameFeatureUtil = GameFeatureUtil::getInstance();
     @this.list = BasicArrayListD().jinit_BasicArrayListD();
-    this.changed = true;
+    this.changed_BaseChangedGameFeatureListener = true;
     }
 
     BaseChangedGameFeatureListener@ jinit_BaseChangedGameFeatureListener()
@@ -66,7 +66,7 @@ class BaseChangedGameFeatureListener : JObjectBase, GameFeatureListenerInterface
 
     void setChanged(bool initialized)
     {
-        this.changed = initialized;
+        this.changed_BaseChangedGameFeatureListener = initialized;
         if (!this.isChanged()) {
             this.list.clear();
         }
@@ -90,7 +90,7 @@ class BaseChangedGameFeatureListener : JObjectBase, GameFeatureListenerInterface
 
     bool isChanged()
     {
-        return this.changed;
+        return this.changed_BaseChangedGameFeatureListener;
     }
 }
 

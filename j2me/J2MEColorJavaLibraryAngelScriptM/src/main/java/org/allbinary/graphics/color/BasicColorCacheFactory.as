@@ -17,12 +17,12 @@
 
 class BasicColorCacheFactory : JObjectBase
 {
-    ABHashtable@ hashtable;
+    ABHashtable@ hashtable_BasicColorCacheFactory;
 
     // Java field initializers run after the super constructor
     void jfields_BasicColorCacheFactory()
     {
-    @this.hashtable = StdUtil::getInstance().createHashtable();
+    @this.hashtable_BasicColorCacheFactory = StdUtil::getInstance().createHashtable();
     }
     
 
@@ -35,16 +35,16 @@ class BasicColorCacheFactory : JObjectBase
 
     void add(BasicColor@ basicDefaultColor)
     {
-        this.hashtable.put(JInteger().jinit_JInteger(basicDefaultColor.intValue()), basicDefaultColor);
+        this.hashtable_BasicColorCacheFactory.put(JInteger().jinit_JInteger(basicDefaultColor.intValue()), basicDefaultColor);
     }
     
 
     BasicColor@ getAndOrCreate(JInteger@ integer)
     {
-        BasicColor@ basicColor = cast<BasicColor>(this.hashtable.get(integer));
+        BasicColor@ basicColor = cast<BasicColor>(this.hashtable_BasicColorCacheFactory.get(integer));
         if (basicColor is null) {
             @basicColor = BasicColorFactory::getInstance().createInstance(integer.intValue());
-            this.hashtable.put(integer, basicColor);
+            this.hashtable_BasicColorCacheFactory.put(integer, basicColor);
         }
         return basicColor;
     }

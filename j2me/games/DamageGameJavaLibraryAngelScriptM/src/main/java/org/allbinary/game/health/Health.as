@@ -17,16 +17,16 @@
 
 class Health : JObjectBase, HealthInterface
 {
-    int health;
-    int maxHealth;
-    HealthListenerInterface@ healthListenerInterface;
+    int health_Health;
+    int maxHealth_Health;
+    HealthListenerInterface@ healthListenerInterface_Health;
 
     // Java field initializers run after the super constructor
     void jfields_Health()
     {
     
     
-    @this.healthListenerInterface = NullHealthListener::NULL_HEALTH_LISTENER;
+    @this.healthListenerInterface_Health = NullHealthListener::NULL_HEALTH_LISTENER;
     }
     
 
@@ -96,40 +96,40 @@ class Health : JObjectBase, HealthInterface
 
     int getMaxHealth()
     {
-        return this.maxHealth;
+        return this.maxHealth_Health;
     }
     
 
     void setMaxHealth(int maxHealth)
     {
-        this.maxHealth = maxHealth;
+        this.maxHealth_Health = maxHealth;
     }
     
 
     void setHealth(int health)
     {
         if (health > this.getMaxHealth()) {
-            this.health = this.getMaxHealth();
+            this.health_Health = this.getMaxHealth();
         } else if (health < 0) {
-            this.health = 0;
+            this.health_Health = 0;
         } else {
-            this.health = health;
+            this.health_Health = health;
         }
-        if (this.healthListenerInterface !is null) {
-            this.healthListenerInterface.onHealthChange();
+        if (this.healthListenerInterface_Health !is null) {
+            this.healthListenerInterface_Health.onHealthChange();
         }
     }
     
 
     int getHealth()
     {
-        return this.health;
+        return this.health_Health;
     }
     
 
     void addListener(HealthListenerInterface@ healthGraphic)
     {
-        @this.healthListenerInterface = healthGraphic;
+        @this.healthListenerInterface_Health = healthGraphic;
     }
     
 
@@ -137,9 +137,9 @@ class Health : JObjectBase, HealthInterface
     {
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         stringBuffer.append(Health::HEALTH_LABEL);
-        stringBuffer.appendint(this.health);
+        stringBuffer.appendint(this.health_Health);
         stringBuffer.append(Health::MAX_HEALTH_LABEL);
-        stringBuffer.appendint(this.maxHealth);
+        stringBuffer.appendint(this.maxHealth_Health);
         return stringBuffer.toString();
     }
 }

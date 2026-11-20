@@ -29,8 +29,8 @@ class BasicTouchInputFactory : JObjectBase
     TouchButtonInput@ RIGHT;
     TouchButtonInput@ DOWN;
     TouchButtonInput@ NONE;
-    bool initialized;
-    BasicArrayList@ list;
+    bool initialized_BasicTouchInputFactory;
+    BasicArrayList@ list_BasicTouchInputFactory;
 
     // Java field initializers run after the super constructor
     void jfields_BasicTouchInputFactory()
@@ -47,8 +47,8 @@ class BasicTouchInputFactory : JObjectBase
     @this.RIGHT = TouchButtonInput().jinit_TouchButtonInput(InputFactory::getInstance().MAX - 38, "Right Button");
     @this.DOWN = TouchButtonInput().jinit_TouchButtonInput(InputFactory::getInstance().MAX - 39, "Down Button");
     @this.NONE = TouchButtonInput().jinit_TouchButtonInput(InputFactory::getInstance().MAX - 40, "No Button");
-    this.initialized = false;
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    this.initialized_BasicTouchInputFactory = false;
+    @this.list_BasicTouchInputFactory = BasicArrayListD().jinit_BasicArrayListD();
     }
 
     BasicTouchInputFactory@ jinit_BasicTouchInputFactory()
@@ -60,19 +60,19 @@ class BasicTouchInputFactory : JObjectBase
 
     void init(InputToGameKeyMapping@ inputToGameKeyMapping)
     {
-        if (!this.initialized) {
-            this.initialized = true;
-            this.list.add(this.UP);
-            this.list.add(this.LEFT);
-            this.list.add(this.RIGHT);
-            this.list.add(this.DOWN);
-            this.list.add(this.SPECIAL_BUTTON_TWO);
-            this.list.add(this.SPECIAL_BUTTON_FOUR);
-            this.list.add(this.SPECIAL_BUTTON_THREE);
-            this.list.add(this.SPECIAL_BUTTON_ONE);
-            this.list.add(this.SPECIAL_BUTTON_FIVE);
-            this.list.add(this.SPECIAL_BUTTON_SIX);
-            this.updateAllList(this.list, inputToGameKeyMapping);
+        if (!this.initialized_BasicTouchInputFactory) {
+            this.initialized_BasicTouchInputFactory = true;
+            this.list_BasicTouchInputFactory.add(this.UP);
+            this.list_BasicTouchInputFactory.add(this.LEFT);
+            this.list_BasicTouchInputFactory.add(this.RIGHT);
+            this.list_BasicTouchInputFactory.add(this.DOWN);
+            this.list_BasicTouchInputFactory.add(this.SPECIAL_BUTTON_TWO);
+            this.list_BasicTouchInputFactory.add(this.SPECIAL_BUTTON_FOUR);
+            this.list_BasicTouchInputFactory.add(this.SPECIAL_BUTTON_THREE);
+            this.list_BasicTouchInputFactory.add(this.SPECIAL_BUTTON_ONE);
+            this.list_BasicTouchInputFactory.add(this.SPECIAL_BUTTON_FIVE);
+            this.list_BasicTouchInputFactory.add(this.SPECIAL_BUTTON_SIX);
+            this.updateAllList(this.list_BasicTouchInputFactory, inputToGameKeyMapping);
         }
     }
     
@@ -95,7 +95,7 @@ class BasicTouchInputFactory : JObjectBase
 
     BasicArrayList@ getList()
     {
-        return this.list;
+        return this.list_BasicTouchInputFactory;
     }
 }
 

@@ -17,17 +17,13 @@
 
 class TouchScreenTypeFactory : JObjectBase
 {
+    
 
     TouchScreenTypeFactory@ jinit_TouchScreenTypeFactory()
     {
-        return this;
-    }
-    
-
-    void TouchScreenTypeFactory_jmethod()
-    {
         TouchScreenFactory@ touchScreenFactory = TouchScreenFactory::getInstance();
         touchScreenFactory.setTouch(false);
+        return this;
     }
 }
 

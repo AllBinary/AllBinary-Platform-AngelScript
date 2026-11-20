@@ -18,15 +18,15 @@
 class BasicCryptUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    TsUtil@ tsUtil;
-    string XML_START;
+    TsUtil@ tsUtil_BasicCryptUtil;
+    string XML_START_BasicCryptUtil;
 
     // Java field initializers run after the super constructor
     void jfields_BasicCryptUtil()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.tsUtil = TsUtil::getInstance();
-    this.XML_START = "<?xml";
+    @this.tsUtil_BasicCryptUtil = TsUtil::getInstance();
+    this.XML_START_BasicCryptUtil = "<?xml";
     }
 
     BasicCryptUtil@ jinit_BasicCryptUtil()
@@ -49,11 +49,11 @@ class BasicCryptUtil : JObjectBase
         }
         int8[]@ decrypted = cryptInterface.decrypt(buffer.toByteArray());
         string decryptedString = String::newString(decrypted);
-        int index = String::indexOf(decryptedString, this.XML_START);
+        int index = String::indexOf(decryptedString, this.XML_START_BasicCryptUtil);
         if (index > 0) {
             decryptedString = String::substring(decryptedString, index);
         }
-        return ByteArrayInputStream().jinit_ByteArrayInputStream(this.tsUtil.getByteArray(decryptedString));
+        return ByteArrayInputStream().jinit_ByteArrayInputStream(this.tsUtil_BasicCryptUtil.getByteArray(decryptedString));
     }
 }
 

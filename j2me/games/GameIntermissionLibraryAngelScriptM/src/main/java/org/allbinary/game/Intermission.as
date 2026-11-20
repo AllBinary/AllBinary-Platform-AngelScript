@@ -17,16 +17,16 @@
 
 class Intermission : JObjectBase, IntermissionInterface
 {
-    bool enabled;
-    TimeDelayHelper@ timeElapsedHelper;
-    IntermissionEnableListenerInterface@ intermissionEnableListener;
+    bool enabled_Intermission;
+    TimeDelayHelper@ timeElapsedHelper_Intermission;
+    IntermissionEnableListenerInterface@ intermissionEnableListener_Intermission;
 
     // Java field initializers run after the super constructor
     void jfields_Intermission()
     {
     
-    @this.timeElapsedHelper = TimeDelayHelper().jinit_TimeDelayHelper(0);
-    @this.intermissionEnableListener = NullIntermissionEnableListener::getInstance();
+    @this.timeElapsedHelper_Intermission = TimeDelayHelper().jinit_TimeDelayHelper(0);
+    @this.intermissionEnableListener_Intermission = NullIntermissionEnableListener::getInstance();
     }
     
 
@@ -39,29 +39,29 @@ class Intermission : JObjectBase, IntermissionInterface
 
     void setListener(IntermissionEnableListenerInterface@ enableListener)
     {
-        @this.intermissionEnableListener = enableListener;
+        @this.intermissionEnableListener_Intermission = enableListener;
     }
     
 
     TimeDelayHelper@ getTimeDelayHelper()
     {
-        return this.timeElapsedHelper;
+        return this.timeElapsedHelper_Intermission;
     }
     
 
     void setEnabled(bool enabled)
     {
-        this.enabled = enabled;
+        this.enabled_Intermission = enabled;
         if (this.isEnabled()) {
             this.getTimeDelayHelper().setStartTimeTNT();
         }
-        this.intermissionEnableListener.notifyIntermission(enabled);
+        this.intermissionEnableListener_Intermission.notifyIntermission(enabled);
     }
     
 
     bool isEnabled()
     {
-        return this.enabled;
+        return this.enabled_Intermission;
     }
 }
 

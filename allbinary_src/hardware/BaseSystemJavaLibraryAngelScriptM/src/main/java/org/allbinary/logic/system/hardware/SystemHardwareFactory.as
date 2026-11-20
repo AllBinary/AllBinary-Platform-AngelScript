@@ -18,15 +18,15 @@
 class SystemHardwareFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    HardwareInterface@ hardwareInterface;
+    CommonStrings@ commonStrings_SystemHardwareFactory;
+    HardwareInterface@ hardwareInterface_SystemHardwareFactory;
 
     // Java field initializers run after the super constructor
     void jfields_SystemHardwareFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.hardwareInterface = NoHardware::getInstance();
+    @this.commonStrings_SystemHardwareFactory = CommonStrings::getInstance();
+    @this.hardwareInterface_SystemHardwareFactory = NoHardware::getInstance();
     }
     
 
@@ -40,19 +40,19 @@ class SystemHardwareFactory : JObjectBase
     HardwareInterface@ getInstance(GenericOperatingSystem@ operatingSystemInterface)
     {
         try {
-            if (this.hardwareInterface is NoHardware::getInstance()) {
-                @this.hardwareInterface = HardwareFactory::getInstance_jstatic().getInstance(operatingSystemInterface);
+            if (this.hardwareInterface_SystemHardwareFactory is NoHardware::getInstance()) {
+                @this.hardwareInterface_SystemHardwareFactory = HardwareFactory::getInstance_jstatic().getInstance(operatingSystemInterface);
             }
-            this.logUtil.putF("Found Hardware", this, this.commonStrings.CONSTRUCTOR);
+            this.logUtil.putF("Found Hardware", this, this.commonStrings_SystemHardwareFactory.CONSTRUCTOR);
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(this.commonStrings_SystemHardwareFactory.EXCEPTION, this, this.commonStrings_SystemHardwareFactory.CONSTRUCTOR, e);
             }
             else { jthrow(jex0); }
         }
-        return this.hardwareInterface;
+        return this.hardwareInterface_SystemHardwareFactory;
     }
 }
 
@@ -83,8 +83,8 @@ namespace SystemHardwareFactory
         SystemHardwareFactory@ systemHardwareFactory = SystemHardwareFactory::getInstance_jstatic();
         StringMaker@ osBuffer = StringMaker().jinit_StringMaker();
         osBuffer.append("Hardware Info: \n");
-        if (systemHardwareFactory.hardwareInterface !is null) {
-            osBuffer.append(systemHardwareFactory.hardwareInterface.toString());
+        if (systemHardwareFactory.hardwareInterface_SystemHardwareFactory !is null) {
+            osBuffer.append(systemHardwareFactory.hardwareInterface_SystemHardwareFactory.toString());
         } else {
             osBuffer.append(StringUtil::getInstance().NULL_STRING);
         }

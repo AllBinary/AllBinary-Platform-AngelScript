@@ -17,18 +17,18 @@
 
 class BufferedWriterUtil : JObjectBase
 {
-    LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    CommonLabels@ commonLabels;
-    string REMOVING_OLD;
+    LogUtil@ logUtil_BufferedWriterUtil;
+    CommonStrings@ commonStrings_BufferedWriterUtil;
+    CommonLabels@ commonLabels_BufferedWriterUtil;
+    string REMOVING_OLD_BufferedWriterUtil;
 
     // Java field initializers run after the super constructor
     void jfields_BufferedWriterUtil()
     {
-    @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.commonLabels = CommonLabels::getInstance();
-    this.REMOVING_OLD = "Remove old for overwriting: ";
+    @this.logUtil_BufferedWriterUtil = LogUtil::getInstance();
+    @this.commonStrings_BufferedWriterUtil = CommonStrings::getInstance();
+    @this.commonLabels_BufferedWriterUtil = CommonLabels::getInstance();
+    this.REMOVING_OLD_BufferedWriterUtil = "Remove old for overwriting: ";
     }
 
     BufferedWriterUtil@ jinit_BufferedWriterUtil()
@@ -42,7 +42,7 @@ class BufferedWriterUtil : JObjectBase
     {
         AbFile@ abFile = AbFile::createAbFile(path);
         if (abFile.exists()) {
-            this.logUtil.putF(this.REMOVING_OLD + path, this, this.commonStrings.CREATE);
+            this.logUtil_BufferedWriterUtil.putF(this.REMOVING_OLD_BufferedWriterUtil + path, this, this.commonStrings_BufferedWriterUtil.CREATE);
             abFile.delete();
         } else {
             string name = AbPathData::getInstance().removeNameFromPath(path);
@@ -50,10 +50,10 @@ class BufferedWriterUtil : JObjectBase
             if (abFileDirectory.exists()) {
             } else {
                 StringMaker@ stringBuilder = StringMaker().jinit_StringMaker();
-                this.logUtil.putF(stringBuilder.append(this.commonStrings.CREATE).append(this.commonLabels.COLON_SEP).append(name).toString(), this, this.commonStrings.CREATE);
+                this.logUtil_BufferedWriterUtil.putF(stringBuilder.append(this.commonStrings_BufferedWriterUtil.CREATE).append(this.commonLabels_BufferedWriterUtil.COLON_SEP).append(name).toString(), this, this.commonStrings_BufferedWriterUtil.CREATE);
                 bool result = abFileDirectory.mkdirs();
                 stringBuilder.delete(0, stringBuilder.length());
-                this.logUtil.putF(stringBuilder.append(this.commonLabels.RESULT_).appendboolean(result).toString(), this, this.commonStrings.CREATE);
+                this.logUtil_BufferedWriterUtil.putF(stringBuilder.append(this.commonLabels_BufferedWriterUtil.RESULT_).appendboolean(result).toString(), this, this.commonStrings_BufferedWriterUtil.CREATE);
             }
         }
         this.write(abFile, data);
@@ -63,7 +63,7 @@ class BufferedWriterUtil : JObjectBase
     void overwrite(AbFile@ abFile, string data)
     {
         if (abFile.exists()) {
-            this.logUtil.putF(this.REMOVING_OLD + abFile.getPath(), this, this.commonStrings.CREATE);
+            this.logUtil_BufferedWriterUtil.putF(this.REMOVING_OLD_BufferedWriterUtil + abFile.getPath(), this, this.commonStrings_BufferedWriterUtil.CREATE);
             abFile.delete();
         } else {
             string name = AbPathData::getInstance().removeNameFromPath(abFile.getAbsolutePath());
@@ -71,10 +71,10 @@ class BufferedWriterUtil : JObjectBase
             if (abFileDirectory.exists()) {
             } else {
                 StringMaker@ stringBuilder = StringMaker().jinit_StringMaker();
-                this.logUtil.putF(stringBuilder.append(this.commonStrings.CREATE).append(this.commonLabels.COLON_SEP).append(name).toString(), this, this.commonStrings.CREATE);
+                this.logUtil_BufferedWriterUtil.putF(stringBuilder.append(this.commonStrings_BufferedWriterUtil.CREATE).append(this.commonLabels_BufferedWriterUtil.COLON_SEP).append(name).toString(), this, this.commonStrings_BufferedWriterUtil.CREATE);
                 bool result = abFileDirectory.mkdirs();
                 stringBuilder.delete(0, stringBuilder.length());
-                this.logUtil.putF(stringBuilder.append(this.commonLabels.RESULT_).appendboolean(result).toString(), this, this.commonStrings.CREATE);
+                this.logUtil_BufferedWriterUtil.putF(stringBuilder.append(this.commonLabels_BufferedWriterUtil.RESULT_).appendboolean(result).toString(), this, this.commonStrings_BufferedWriterUtil.CREATE);
             }
         }
         this.write(abFile, data);

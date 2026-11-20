@@ -17,61 +17,61 @@
 
 class TouchButtonLocationHelper : JObjectBase
 {
-    int totalColumns;
-    int totalRows;
-    int columnsRemainder;
-    int rowsRemainder;
-    int columnsRemainderHalf;
-    int rowsRemainderHalf;
+    int totalColumns_TouchButtonLocationHelper;
+    int totalRows_TouchButtonLocationHelper;
+    int columnsRemainder_TouchButtonLocationHelper;
+    int rowsRemainder_TouchButtonLocationHelper;
+    int columnsRemainderHalf_TouchButtonLocationHelper;
+    int rowsRemainderHalf_TouchButtonLocationHelper;
     
 
     TouchButtonLocationHelper@ jinit_TouchButtonLocationHelper()
     {
         int buttonSize = CommonButtons::getInstance().STANDARD_BUTTON_SIZE;
         DisplayInfoSingleton@ displayInfo = DisplayInfoSingleton::getInstance();
-        this.totalColumns = Math::round(float(displayInfo.getLastWidth()) / float(buttonSize));
-        this.totalRows = Math::round(float(displayInfo.getLastHeight()) / float(buttonSize));
-        this.columnsRemainder = displayInfo.getLastWidth() % buttonSize;
-        this.columnsRemainderHalf = (this.columnsRemainder >>> 1);
-        this.rowsRemainder = displayInfo.getLastHeight() % buttonSize;
-        this.rowsRemainderHalf = (this.rowsRemainder >>> 1);
+        this.totalColumns_TouchButtonLocationHelper = Math::round(float(displayInfo.getLastWidth()) / float(buttonSize));
+        this.totalRows_TouchButtonLocationHelper = Math::round(float(displayInfo.getLastHeight()) / float(buttonSize));
+        this.columnsRemainder_TouchButtonLocationHelper = displayInfo.getLastWidth() % buttonSize;
+        this.columnsRemainderHalf_TouchButtonLocationHelper = (this.columnsRemainder_TouchButtonLocationHelper >>> 1);
+        this.rowsRemainder_TouchButtonLocationHelper = displayInfo.getLastHeight() % buttonSize;
+        this.rowsRemainderHalf_TouchButtonLocationHelper = (this.rowsRemainder_TouchButtonLocationHelper >>> 1);
         return this;
     }
     
 
     int getTotalColumns()
     {
-        return this.totalColumns;
+        return this.totalColumns_TouchButtonLocationHelper;
     }
     
 
     int getTotalRows()
     {
-        return this.totalRows;
+        return this.totalRows_TouchButtonLocationHelper;
     }
     
 
     int getColumnsRemainder()
     {
-        return this.columnsRemainder;
+        return this.columnsRemainder_TouchButtonLocationHelper;
     }
     
 
     int getRowsRemainder()
     {
-        return this.rowsRemainder;
+        return this.rowsRemainder_TouchButtonLocationHelper;
     }
     
 
     int getColumnsRemainderHalf()
     {
-        return this.columnsRemainderHalf;
+        return this.columnsRemainderHalf_TouchButtonLocationHelper;
     }
     
 
     int getRowsRemainderHalf()
     {
-        return this.rowsRemainderHalf;
+        return this.rowsRemainderHalf_TouchButtonLocationHelper;
     }
     
 
@@ -79,17 +79,17 @@ class TouchButtonLocationHelper : JObjectBase
     {
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         stringBuffer.append("totalColumns: ");
-        stringBuffer.appendint(this.totalColumns);
+        stringBuffer.appendint(this.totalColumns_TouchButtonLocationHelper);
         stringBuffer.append(" totalRows: ");
-        stringBuffer.appendint(this.totalRows);
+        stringBuffer.appendint(this.totalRows_TouchButtonLocationHelper);
         stringBuffer.append(" columnsRemainder: ");
-        stringBuffer.appendint(this.columnsRemainder);
+        stringBuffer.appendint(this.columnsRemainder_TouchButtonLocationHelper);
         stringBuffer.append(" rowsRemainder: ");
-        stringBuffer.appendint(this.rowsRemainder);
+        stringBuffer.appendint(this.rowsRemainder_TouchButtonLocationHelper);
         stringBuffer.append(" columnsRemainderHalf: ");
-        stringBuffer.appendint(this.columnsRemainderHalf);
+        stringBuffer.appendint(this.columnsRemainderHalf_TouchButtonLocationHelper);
         stringBuffer.append(" rowsRemainderHalf: ");
-        stringBuffer.appendint(this.rowsRemainderHalf);
+        stringBuffer.appendint(this.rowsRemainderHalf_TouchButtonLocationHelper);
         return stringBuffer.toString();
     }
 }

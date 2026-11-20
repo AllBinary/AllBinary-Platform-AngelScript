@@ -17,14 +17,14 @@
 
 class LayerPlacer : JObjectBase
 {
-    EnumerationUtil@ enumerationUtil;
+    EnumerationUtil@ enumerationUtil_LayerPlacer;
     LayerInterfaceVisitor@ layerInterfaceVisitor;
-    GPoint@ dimension;
+    GPoint@ dimension_LayerPlacer;
 
     // Java field initializers run after the super constructor
     void jfields_LayerPlacer()
     {
-    @this.enumerationUtil = EnumerationUtil::getInstance();
+    @this.enumerationUtil_LayerPlacer = EnumerationUtil::getInstance();
     
     
     }
@@ -34,7 +34,7 @@ class LayerPlacer : JObjectBase
     {
         this.jfields_LayerPlacer();
         @this.layerInterfaceVisitor = layerInterfaceVisitor;
-        @this.dimension = dimension;
+        @this.dimension_LayerPlacer = dimension;
         return this;
     }
     
@@ -62,8 +62,8 @@ class LayerPlacer : JObjectBase
         int y = 0;
         int z = 0;
         AllBinaryLayer@ layerInterface;
-        while (this.enumerationUtil.hasMoreElements(enumeration)) {
-            @point = cast<GPoint>(this.enumerationUtil.nextElement(enumeration));
+        while (this.enumerationUtil_LayerPlacer.hasMoreElements(enumeration)) {
+            @point = cast<GPoint>(this.enumerationUtil_LayerPlacer.nextElement(enumeration));
             @layerHashtable = cast<ABHashtable>(hashtable.get(point));
             x = point.getX() + relativePoint.getX();
             y = point.getY() + relativePoint.getY();
@@ -81,13 +81,13 @@ class LayerPlacer : JObjectBase
         if (layerPlacementType is LayerPlacementTypeFactory::getInstance().MAP) {
             int width = layerPlacementInterface.getWidth();
             int height = layerPlacementInterface.getHeight();
-            int x = ((this.dimension.getX() - width) / 2);
-            int y = ((this.dimension.getY() - height) / 2);
+            int x = ((this.dimension_LayerPlacer.getX() - width) / 2);
+            int y = ((this.dimension_LayerPlacer.getY() - height) / 2);
             return pointFactory.createXY(x, y);
         } else if (layerPlacementType is LayerPlacementTypeFactory::getInstance().UP) {
             int width = layerPlacementInterface.getWidth();
             int height = layerPlacementInterface.getHeight();
-            int x = ((this.dimension.getX() - width) / 2);
+            int x = ((this.dimension_LayerPlacer.getX() - width) / 2);
             int y = -height;
             return pointFactory.createXY(x, y);
         } else {

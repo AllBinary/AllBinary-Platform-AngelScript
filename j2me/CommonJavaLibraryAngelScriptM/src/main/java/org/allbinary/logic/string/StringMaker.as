@@ -3,13 +3,13 @@
 
 class StringMaker : JObjectBase
 {
-    uint16[]@ charArray;
-    int currentLength;
+    uint16[]@ charArray_StringMaker;
+    int currentLength_StringMaker;
     
 
     StringMaker@ jinit_StringMaker()
     {
-        @this.charArray = array<uint16>(20);
+        @this.charArray_StringMaker = array<uint16>(20);
         return this;
     }
     
@@ -17,26 +17,26 @@ class StringMaker : JObjectBase
     StringMaker@ append(string string_)
     {
         int stringLength = int(string_.length());
-        this.ensureCapacity(this.currentLength + stringLength);
-        String::getChars(string_, 0, stringLength, this.charArray, this.currentLength);
-        this.currentLength += stringLength;
+        this.ensureCapacity(this.currentLength_StringMaker + stringLength);
+        String::getChars(string_, 0, stringLength, this.charArray_StringMaker, this.currentLength_StringMaker);
+        this.currentLength_StringMaker += stringLength;
         return this;
     }
     
 
     StringMaker@ appendchar(uint16 c)
     {
-        this.ensureCapacity(this.currentLength + 1);
-        this.charArray[this.currentLength++] = c;
+        this.ensureCapacity(this.currentLength_StringMaker + 1);
+        this.charArray_StringMaker[this.currentLength_StringMaker++] = c;
         return this;
     }
     
 
     StringMaker@ appendCharArray(uint16[]@ charArray, int start, int end)
     {
-        this.ensureCapacity(this.currentLength + (end - start));
+        this.ensureCapacity(this.currentLength_StringMaker + (end - start));
         for (int index = start; index < end; index++) {
-            this.charArray[this.currentLength++] = charArray[index];
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = charArray[index];
         }
         return this;
     }
@@ -80,18 +80,18 @@ class StringMaker : JObjectBase
     StringMaker@ appendboolean(bool bool_)
     {
         if (bool_) {
-            this.ensureCapacity(this.currentLength + 4);
-            this.charArray[this.currentLength++] = uint16('t');
-            this.charArray[this.currentLength++] = uint16('r');
-            this.charArray[this.currentLength++] = uint16('u');
-            this.charArray[this.currentLength++] = uint16('e');
+            this.ensureCapacity(this.currentLength_StringMaker + 4);
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = uint16('t');
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = uint16('r');
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = uint16('u');
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = uint16('e');
         } else {
-            this.ensureCapacity(this.currentLength + 5);
-            this.charArray[this.currentLength++] = uint16('f');
-            this.charArray[this.currentLength++] = uint16('a');
-            this.charArray[this.currentLength++] = uint16('l');
-            this.charArray[this.currentLength++] = uint16('s');
-            this.charArray[this.currentLength++] = uint16('e');
+            this.ensureCapacity(this.currentLength_StringMaker + 5);
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = uint16('f');
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = uint16('a');
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = uint16('l');
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = uint16('s');
+            this.charArray_StringMaker[this.currentLength_StringMaker++] = uint16('e');
         }
         return this;
     }
@@ -99,16 +99,16 @@ class StringMaker : JObjectBase
 
     void ensureCapacity(int minSize)
     {
-        int oldCapacity = int(this.charArray.length());
+        int oldCapacity = int(this.charArray_StringMaker.length());
         if (minSize > oldCapacity) {
             int newCapacity = oldCapacity * 3;
             if (newCapacity < minSize) {
                 newCapacity = minSize;
             }
             uint16[]@ copy = array<uint16>(newCapacity);
-            int min = this.min(int(this.charArray.length()), newCapacity);
-            System::arraycopy(@this.charArray, 0, @copy, 0, min);
-            @this.charArray = copy;
+            int min = this.min(int(this.charArray_StringMaker.length()), newCapacity);
+            System::arraycopy(@this.charArray_StringMaker, 0, @copy, 0, min);
+            @this.charArray_StringMaker = copy;
         }
     }
     
@@ -121,20 +121,20 @@ class StringMaker : JObjectBase
 
     StringMaker@ delete(int start, int end)
     {
-        this.currentLength -= (end - start);
+        this.currentLength_StringMaker -= (end - start);
         return this;
     }
     
 
     int length()
     {
-        return this.currentLength;
+        return this.currentLength_StringMaker;
     }
     
 
     string toString()
     {
-        return String::newString(this.charArray, 0, this.currentLength);
+        return String::newString(this.charArray_StringMaker, 0, this.currentLength_StringMaker);
     }
 }
 

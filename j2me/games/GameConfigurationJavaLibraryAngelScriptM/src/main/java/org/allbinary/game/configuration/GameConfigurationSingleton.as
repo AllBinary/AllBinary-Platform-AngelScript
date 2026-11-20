@@ -17,39 +17,39 @@
 
 class GameConfigurationSingleton : JObjectBase
 {
-    BasicArrayList@ list;
-    ABHashtable@ hashtable;
+    BasicArrayList@ list_GameConfigurationSingleton;
+    ABHashtable@ hashtable_GameConfigurationSingleton;
     
 
     GameConfigurationSingleton@ jinit_GameConfigurationSingleton()
     {
-        @this.list = BasicArrayListD().jinit_BasicArrayListD();
-        @this.hashtable = StdUtil::getInstance().createHashtable();
+        @this.list_GameConfigurationSingleton = BasicArrayListD().jinit_BasicArrayListD();
+        @this.hashtable_GameConfigurationSingleton = StdUtil::getInstance().createHashtable();
         return this;
     }
     
 
     GameConfiguration@ getInstanceByName(string name)
     {
-        return cast<GameConfiguration>(this.hashtable.get(name));
+        return cast<GameConfiguration>(this.hashtable_GameConfigurationSingleton.get(name));
     }
     
 
     BasicArrayList@ getOptionsBasicArrayList()
     {
-        return this.list;
+        return this.list_GameConfigurationSingleton;
     }
     
 
     void add(GameConfiguration@ gameConfiguration)
     {
-        this.list.add(gameConfiguration);
+        this.list_GameConfigurationSingleton.add(gameConfiguration);
     }
     
 
     ABHashtable@ getHashtable()
     {
-        return this.hashtable;
+        return this.hashtable_GameConfigurationSingleton;
     }
 }
 

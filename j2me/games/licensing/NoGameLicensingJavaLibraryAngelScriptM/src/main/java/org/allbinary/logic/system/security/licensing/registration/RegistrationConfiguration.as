@@ -17,13 +17,13 @@
 
 class RegistrationConfiguration : JObjectBase
 {
-    string registrationCode;
+    string registrationCode_RegistrationConfiguration;
     string NAME;
 
     // Java field initializers run after the super constructor
     void jfields_RegistrationConfiguration()
     {
-    this.registrationCode = "No Registration Code";
+    this.registrationCode_RegistrationConfiguration = "No Registration Code";
     this.NAME = "registrationid";
     }
     
@@ -53,13 +53,13 @@ class RegistrationConfiguration : JObjectBase
 
     void setRegistrationCode(string registrationCode)
     {
-        this.registrationCode = registrationCode;
+        this.registrationCode_RegistrationConfiguration = registrationCode;
     }
     
 
     string getRegistrationCode()
     {
-        return this.registrationCode;
+        return this.registrationCode_RegistrationConfiguration;
     }
 }
 

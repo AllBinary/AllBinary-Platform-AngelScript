@@ -17,12 +17,12 @@
 
 class ColorTemperatureUtil : JObjectBase
 {
-    BasicColorFactory@ basicColorFactory;
+    BasicColorFactory@ basicColorFactory_ColorTemperatureUtil;
 
     // Java field initializers run after the super constructor
     void jfields_ColorTemperatureUtil()
     {
-    @this.basicColorFactory = BasicColorFactory::getInstance();
+    @this.basicColorFactory_ColorTemperatureUtil = BasicColorFactory::getInstance();
     }
 
     ColorTemperatureUtil@ jinit_ColorTemperatureUtil()
@@ -34,21 +34,21 @@ class ColorTemperatureUtil : JObjectBase
 
     BasicColor@ getBasicColor(int thirdTemp)
     {
-        BasicColor@ basicColor = this.basicColorFactory.RED;
+        BasicColor@ basicColor = this.basicColorFactory_ColorTemperatureUtil.RED;
         if (thirdTemp > 3700) {
-            @basicColor = this.basicColorFactory.PURPLE;
+            @basicColor = this.basicColorFactory_ColorTemperatureUtil.PURPLE;
         } else if (thirdTemp > 3200) {
-            @basicColor = this.basicColorFactory.BLUE;
+            @basicColor = this.basicColorFactory_ColorTemperatureUtil.BLUE;
         } else if (thirdTemp > 2700) {
-            @basicColor = this.basicColorFactory.PUCE;
+            @basicColor = this.basicColorFactory_ColorTemperatureUtil.PUCE;
         } else if (thirdTemp > 2200) {
-            @basicColor = this.basicColorFactory.WHITE;
+            @basicColor = this.basicColorFactory_ColorTemperatureUtil.WHITE;
         } else if (thirdTemp > 1700) {
-            @basicColor = this.basicColorFactory.GREEN;
+            @basicColor = this.basicColorFactory_ColorTemperatureUtil.GREEN;
         } else if (thirdTemp > 1200) {
-            @basicColor = this.basicColorFactory.YELLOW;
+            @basicColor = this.basicColorFactory_ColorTemperatureUtil.YELLOW;
         } else if (thirdTemp > 700) {
-            @basicColor = this.basicColorFactory.ORANGE;
+            @basicColor = this.basicColorFactory_ColorTemperatureUtil.ORANGE;
         }
         return basicColor;
     }

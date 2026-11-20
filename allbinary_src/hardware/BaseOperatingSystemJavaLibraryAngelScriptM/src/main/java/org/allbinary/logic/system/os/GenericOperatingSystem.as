@@ -17,10 +17,10 @@
 
 class GenericOperatingSystem : JObjectBase, OperatingSystemInterface
 {
-    string osName;
-    string osArch;
-    string osVersion;
-    CharacterSet@ characterSet;
+    string osName_GenericOperatingSystem;
+    string osArch_GenericOperatingSystem;
+    string osVersion_GenericOperatingSystem;
+    CharacterSet@ characterSet_GenericOperatingSystem;
     bool scalable;
 
     // Java field initializers run after the super constructor
@@ -29,7 +29,7 @@ class GenericOperatingSystem : JObjectBase, OperatingSystemInterface
     
     
     
-    @this.characterSet = CharacterSet().jinit_CharacterSet();
+    @this.characterSet_GenericOperatingSystem = CharacterSet().jinit_CharacterSet();
     this.scalable = false;
     }
     
@@ -41,19 +41,19 @@ class GenericOperatingSystem : JObjectBase, OperatingSystemInterface
         StringValidationUtil@ stringValidationUtil = StringValidationUtil::getInstance();
         string EMPTY_STRING = StringUtil::getInstance().EMPTY_STRING;
         if (stringValidationUtil.isEmpty(systemProperties.getName())) {
-            this.osName = EMPTY_STRING;
+            this.osName_GenericOperatingSystem = EMPTY_STRING;
         } else {
-            this.osName = systemProperties.getName();
+            this.osName_GenericOperatingSystem = systemProperties.getName();
         }
         if (stringValidationUtil.isEmpty(systemProperties.getArch())) {
-            this.osArch = EMPTY_STRING;
+            this.osArch_GenericOperatingSystem = EMPTY_STRING;
         } else {
-            this.osArch = systemProperties.getArch();
+            this.osArch_GenericOperatingSystem = systemProperties.getArch();
         }
         if (stringValidationUtil.isEmpty(systemProperties.getVersion())) {
-            this.osVersion = EMPTY_STRING;
+            this.osVersion_GenericOperatingSystem = EMPTY_STRING;
         } else {
-            this.osVersion = systemProperties.getVersion();
+            this.osVersion_GenericOperatingSystem = systemProperties.getVersion();
         }
         return this;
     }
@@ -61,25 +61,25 @@ class GenericOperatingSystem : JObjectBase, OperatingSystemInterface
 
     string getName()
     {
-        return this.osName;
+        return this.osName_GenericOperatingSystem;
     }
     
 
     string getVersion()
     {
-        return this.osVersion;
+        return this.osVersion_GenericOperatingSystem;
     }
     
 
     string getArch()
     {
-        return this.osArch;
+        return this.osArch_GenericOperatingSystem;
     }
     
 
     CharacterSet@ getCharacterSet()
     {
-        return this.characterSet;
+        return this.characterSet_GenericOperatingSystem;
     }
     
 

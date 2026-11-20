@@ -17,14 +17,14 @@
 
 class MotionEventFactory : JObjectBase, AllBinaryEventObjectFactoryInterface
 {
-    JObject@ source;
-    int id;
+    JObject@ source_MotionEventFactory;
+    int id_MotionEventFactory;
     
 
     MotionEventFactory@ jinit_MotionEventFactory(JObject@ source, int id)
     {
-        @this.source = source;
-        this.id = id;
+        @this.source_MotionEventFactory = source;
+        this.id_MotionEventFactory = id;
         MotionEventFactory::index = TouchMotionGestureFactory::getInstance().LAST_MOTION.getId();
         return this;
     }
@@ -33,11 +33,11 @@ class MotionEventFactory : JObjectBase, AllBinaryEventObjectFactoryInterface
     AllBinaryEventObject@ getInstance()
     {
         InputFactory@ inputFactory = InputFactory::getInstance();
-        Input@ input = inputFactory.getInstanceById(((MotionEventFactory::index = MotionEventFactory::index + 1) - 1));
+        Input@ input = inputFactory.getInstanceById(MotionEventFactory::jpostAdd_index(1));
         if (input is inputFactory.NO_INPUT) {
-            return MotionGestureEvent().jinit_MotionGestureEvent(this.source, this.id, cast<MotionGestureInput>(TouchMotionGestureFactory::getInstance().NO_MOTION));
+            return MotionGestureEvent().jinit_MotionGestureEvent(this.source_MotionEventFactory, this.id_MotionEventFactory, cast<MotionGestureInput>(TouchMotionGestureFactory::getInstance().NO_MOTION));
         } else {
-            return MotionGestureEvent().jinit_MotionGestureEvent(this.source, this.id, cast<MotionGestureInput>(input));
+            return MotionGestureEvent().jinit_MotionGestureEvent(this.source_MotionEventFactory, this.id_MotionEventFactory, cast<MotionGestureInput>(input));
         }
         return null;
     }
@@ -57,5 +57,6 @@ namespace MotionEventFactory
     int jcell_index;
     int get_index() property { jclinit(); return jcell_index; }
     void set_index(int value) property { jclinit(); jcell_index = value; }
+    int jpostAdd_index(int delta) { jclinit(); int old = jcell_index; jcell_index = int(old + delta); return old; }
 }
 

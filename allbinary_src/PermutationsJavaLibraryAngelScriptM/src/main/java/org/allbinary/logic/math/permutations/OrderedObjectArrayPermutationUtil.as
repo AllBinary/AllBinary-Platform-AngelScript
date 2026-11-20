@@ -17,14 +17,14 @@
 
 class OrderedObjectArrayPermutationUtil : JObjectBase
 {
-    string TOTAL_ITERATIONS_TABLE;
-    string FINISHED;
+    string TOTAL_ITERATIONS_TABLE_OrderedObjectArrayPermutationUtil;
+    string FINISHED_OrderedObjectArrayPermutationUtil;
 
     // Java field initializers run after the super constructor
     void jfields_OrderedObjectArrayPermutationUtil()
     {
-    this.TOTAL_ITERATIONS_TABLE = "Total Iterations: ";
-    this.FINISHED = "\nFINISHED";
+    this.TOTAL_ITERATIONS_TABLE_OrderedObjectArrayPermutationUtil = "Total Iterations: ";
+    this.FINISHED_OrderedObjectArrayPermutationUtil = "\nFINISHED";
     }
     
 
@@ -81,13 +81,13 @@ class OrderedObjectArrayPermutationUtil : JObjectBase
     void generate(JObject@[]@ data, Visitor@ visitor)
     {
         int64 iterations = this.factorial(int(data.length()));
-        System::out_print(this.TOTAL_ITERATIONS_TABLE);
+        System::out_print(this.TOTAL_ITERATIONS_TABLE_OrderedObjectArrayPermutationUtil);
         System::out_println(jstr(iterations));
         for (int64 count = 0; count < iterations - 1; count++) {
             this.getNext(data);
             visitor.visit(this);
         }
-        System::out_println(this.FINISHED);
+        System::out_println(this.FINISHED_OrderedObjectArrayPermutationUtil);
     }
 }
 

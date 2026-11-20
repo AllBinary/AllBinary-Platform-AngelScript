@@ -17,7 +17,7 @@
 
 class PlayerStateUtil : JObjectBase
 {
-    CommonStrings@ commonStrings;
+    CommonStrings@ commonStrings_PlayerStateUtil;
     string UNREALIZED;
     string REALIZED;
     string PREFETCHED;
@@ -27,7 +27,7 @@ class PlayerStateUtil : JObjectBase
     // Java field initializers run after the super constructor
     void jfields_PlayerStateUtil()
     {
-    @this.commonStrings = CommonStrings::getInstance();
+    @this.commonStrings_PlayerStateUtil = CommonStrings::getInstance();
     this.UNREALIZED = "UNREALIZED";
     this.REALIZED = "REALIZED";
     this.PREFETCHED = "PREFETCHED";
@@ -55,7 +55,7 @@ class PlayerStateUtil : JObjectBase
         } else if (state == Player::CLOSED) {
             return this.CLOSED;
         }
-        return this.commonStrings.UNKNOWN;
+        return this.commonStrings_PlayerStateUtil.UNKNOWN;
     }
 }
 

@@ -20,7 +20,7 @@ class GameGraphicsResourceUtil : JObjectBase
     LogUtil@ logUtil;
     string SPRITE;
     string QUARTER;
-    string name;
+    string name_GameGraphicsResourceUtil;
 
     // Java field initializers run after the super constructor
     void jfields_GameGraphicsResourceUtil()
@@ -28,7 +28,7 @@ class GameGraphicsResourceUtil : JObjectBase
     @this.logUtil = LogUtil::getInstance();
     this.SPRITE = "_sprite";
     this.QUARTER = "_quarter";
-    this.name = StringUtil::getInstance().EMPTY_STRING;
+    this.name_GameGraphicsResourceUtil = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
@@ -36,7 +36,7 @@ class GameGraphicsResourceUtil : JObjectBase
     {
         this.jfields_GameGraphicsResourceUtil();
         try {
-            this.name = this.getString();
+            this.name_GameGraphicsResourceUtil = this.getString();
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
@@ -96,7 +96,7 @@ class GameGraphicsResourceUtil : JObjectBase
 
     string getName()
     {
-        return this.name;
+        return this.name_GameGraphicsResourceUtil;
     }
 }
 

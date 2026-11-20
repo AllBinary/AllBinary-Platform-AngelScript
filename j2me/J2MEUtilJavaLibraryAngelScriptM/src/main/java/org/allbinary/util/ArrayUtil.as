@@ -3,12 +3,12 @@
 
 class ArrayUtil : JObjectBase
 {
-    MathUtil@ mathUtil;
+    MathUtil@ mathUtil_ArrayUtil;
 
     // Java field initializers run after the super constructor
     void jfields_ArrayUtil()
     {
-    @this.mathUtil = MathUtil::getInstance();
+    @this.mathUtil_ArrayUtil = MathUtil::getInstance();
     }
 
     ArrayUtil@ jinit_ArrayUtil()
@@ -27,7 +27,7 @@ class ArrayUtil : JObjectBase
     JObject@[]@ copyOfType(JObject@[]@ original, int newLength, string newType)
     {
         JObject@[]@ copy = array<JObject@>(newLength);
-        System::arraycopy(@original, 0, @copy, 0, this.mathUtil.min(int(original.length()), newLength));
+        System::arraycopy(@original, 0, @copy, 0, this.mathUtil_ArrayUtil.min(int(original.length()), newLength));
         return copy;
     }
     
@@ -35,7 +35,7 @@ class ArrayUtil : JObjectBase
     int8[]@ copyOfbyte(int8[]@ original, int newLength)
     {
         int8[]@ copy = array<int8>(newLength);
-        System::arraycopy(@original, 0, @copy, 0, this.mathUtil.min(int(original.length()), newLength));
+        System::arraycopy(@original, 0, @copy, 0, this.mathUtil_ArrayUtil.min(int(original.length()), newLength));
         return copy;
     }
     
@@ -43,7 +43,7 @@ class ArrayUtil : JObjectBase
     int16[]@ copyOfshort(int16[]@ original, int newLength)
     {
         int16[]@ copy = array<int16>(newLength);
-        System::arraycopy(@original, 0, @copy, 0, this.mathUtil.min(int(original.length()), newLength));
+        System::arraycopy(@original, 0, @copy, 0, this.mathUtil_ArrayUtil.min(int(original.length()), newLength));
         return copy;
     }
     
@@ -51,7 +51,7 @@ class ArrayUtil : JObjectBase
     int[]@ copyOfint(int[]@ original, int newLength)
     {
         int[]@ copy = array<int>(newLength);
-        System::arraycopy(@original, 0, @copy, 0, this.mathUtil.min(int(original.length()), newLength));
+        System::arraycopy(@original, 0, @copy, 0, this.mathUtil_ArrayUtil.min(int(original.length()), newLength));
         return copy;
     }
     
@@ -59,7 +59,7 @@ class ArrayUtil : JObjectBase
     int64[]@ copyOflong(int64[]@ original, int newLength)
     {
         int64[]@ copy = array<int64>(newLength);
-        System::arraycopy(@original, 0, @copy, 0, this.mathUtil.min(int(original.length()), newLength));
+        System::arraycopy(@original, 0, @copy, 0, this.mathUtil_ArrayUtil.min(int(original.length()), newLength));
         return copy;
     }
     
@@ -67,7 +67,7 @@ class ArrayUtil : JObjectBase
     uint16[]@ copyOfchar(uint16[]@ original, int newLength)
     {
         uint16[]@ copy = array<uint16>(newLength);
-        System::arraycopy(@original, 0, @copy, 0, this.mathUtil.min(int(original.length()), newLength));
+        System::arraycopy(@original, 0, @copy, 0, this.mathUtil_ArrayUtil.min(int(original.length()), newLength));
         return copy;
     }
     
@@ -75,7 +75,7 @@ class ArrayUtil : JObjectBase
     float[]@ copyOffloat(float[]@ original, int newLength)
     {
         float[]@ copy = array<float>(newLength);
-        System::arraycopy(@original, 0, @copy, 0, this.mathUtil.min(int(original.length()), newLength));
+        System::arraycopy(@original, 0, @copy, 0, this.mathUtil_ArrayUtil.min(int(original.length()), newLength));
         return copy;
     }
     
@@ -83,7 +83,7 @@ class ArrayUtil : JObjectBase
     double[]@ copyOfdouble(double[]@ original, int newLength)
     {
         double[]@ copy = array<double>(newLength);
-        System::arraycopy(@original, 0, @copy, 0, this.mathUtil.min(int(original.length()), newLength));
+        System::arraycopy(@original, 0, @copy, 0, this.mathUtil_ArrayUtil.min(int(original.length()), newLength));
         return copy;
     }
     
@@ -91,7 +91,7 @@ class ArrayUtil : JObjectBase
     bool[]@ copyOfboolean(bool[]@ original, int newLength)
     {
         bool[]@ copy = array<bool>(newLength);
-        System::arraycopy(@original, 0, @copy, 0, this.mathUtil.min(int(original.length()), newLength));
+        System::arraycopy(@original, 0, @copy, 0, this.mathUtil_ArrayUtil.min(int(original.length()), newLength));
         return copy;
     }
     

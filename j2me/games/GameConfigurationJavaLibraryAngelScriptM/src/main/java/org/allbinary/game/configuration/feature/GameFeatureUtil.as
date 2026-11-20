@@ -18,8 +18,8 @@
 class GameFeatureUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    TsUtil@ tsUtil;
-    EnumerationUtil@ enumerationUtil;
+    TsUtil@ tsUtil_GameFeatureUtil;
+    EnumerationUtil@ enumerationUtil_GameFeatureUtil;
     string ON_GAME_FEATURE_CHANGE;
     string GAME_FEATURE_CHANGED;
 
@@ -27,8 +27,8 @@ class GameFeatureUtil : JObjectBase
     void jfields_GameFeatureUtil()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.tsUtil = TsUtil::getInstance();
-    @this.enumerationUtil = EnumerationUtil::getInstance();
+    @this.tsUtil_GameFeatureUtil = TsUtil::getInstance();
+    @this.enumerationUtil_GameFeatureUtil = EnumerationUtil::getInstance();
     this.ON_GAME_FEATURE_CHANGE = "onGameFeatureChange";
     this.GAME_FEATURE_CHANGED = "Game Feature Changed: ";
     }
@@ -135,9 +135,9 @@ class GameFeatureUtil : JObjectBase
     {
         Enumeration@ enumeration = GameFeatureChoiceGroups::getExclusiveInstance().get().keys();
         string name = "";
-        while (this.enumerationUtil.hasMoreElements(enumeration)) {
-            name = jstringOf(this.enumerationUtil.nextElement(enumeration));
-            if (this.tsUtil.compareTo(itemLabel, name) == 0) {
+        while (this.enumerationUtil_GameFeatureUtil.hasMoreElements(enumeration)) {
+            name = jstringOf(this.enumerationUtil_GameFeatureUtil.nextElement(enumeration));
+            if (this.tsUtil_GameFeatureUtil.compareTo(itemLabel, name) == 0) {
                 return true;
             }
         }

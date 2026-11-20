@@ -17,19 +17,19 @@
 
 class MineLayerFactory : JObjectBase, AllBinaryLayerFactoryInterface
 {
-    ViewPositionFactoryInterface@ viewPositionFactoryInterface;
+    ViewPositionFactoryInterface@ viewPositionFactoryInterface_MineLayerFactory;
     
 
     MineLayerFactory@ jinit_MineLayerFactory(ViewPositionFactoryInterface@ viewPositionFactoryInterface)
     {
-        @this.viewPositionFactoryInterface = viewPositionFactoryInterface;
+        @this.viewPositionFactoryInterface_MineLayerFactory = viewPositionFactoryInterface;
         return this;
     }
     
 
     AllBinaryLayer@ getInstance()
     {
-        return MineLayer().jinit_MineLayer(this.viewPositionFactoryInterface.getInstance());
+        return MineLayer().jinit_MineLayer(this.viewPositionFactoryInterface_MineLayerFactory.getInstance());
     }
 }
 

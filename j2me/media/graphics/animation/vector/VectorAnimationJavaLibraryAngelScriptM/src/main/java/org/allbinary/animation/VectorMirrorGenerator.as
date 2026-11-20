@@ -18,13 +18,13 @@
 class VectorMirrorGenerator : JObjectBase
 {
     LogUtil@ logUtil;
-    VectorAnimationUtil@ vectorAnimationUtil;
+    VectorAnimationUtil@ vectorAnimationUtil_VectorMirrorGenerator;
 
     // Java field initializers run after the super constructor
     void jfields_VectorMirrorGenerator()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.vectorAnimationUtil = VectorAnimationUtil::getInstance();
+    @this.vectorAnimationUtil_VectorMirrorGenerator = VectorAnimationUtil::getInstance();
     }
     
 
@@ -56,7 +56,7 @@ class VectorMirrorGenerator : JObjectBase
             for (int index = 0; index < int(points.length()); index++) {
                 pointsBasicArrayList.add(this.getInstance(cast<BasicArrayList>(pointsBasicArrayList.objectArray[index]), width));
             }
-            int[]@[]@[]@ newPoints = this.vectorAnimationUtil.toAnimationArrayFromListOfPointList(pointsBasicArrayList);
+            int[]@[]@[]@ newPoints = this.vectorAnimationUtil_VectorMirrorGenerator.toAnimationArrayFromListOfPointList(pointsBasicArrayList);
             return newPoints;
         } catch {
             Throwable@ jex0 = jcatch();

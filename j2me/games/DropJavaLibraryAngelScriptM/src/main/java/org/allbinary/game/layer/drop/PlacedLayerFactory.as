@@ -3,14 +3,14 @@
 
 class PlacedLayerFactory : JObjectBase
 {
-    BasicArrayList@ list;
-    BasicArrayListUtil@ basicArrayListUtil;
+    BasicArrayList@ list_PlacedLayerFactory;
+    BasicArrayListUtil@ basicArrayListUtil_PlacedLayerFactory;
 
     // Java field initializers run after the super constructor
     void jfields_PlacedLayerFactory()
     {
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
-    @this.basicArrayListUtil = BasicArrayListUtil::getInstance();
+    @this.list_PlacedLayerFactory = BasicArrayListD().jinit_BasicArrayListD();
+    @this.basicArrayListUtil_PlacedLayerFactory = BasicArrayListUtil::getInstance();
     }
     
 
@@ -23,25 +23,25 @@ class PlacedLayerFactory : JObjectBase
 
     void clear()
     {
-        this.list.clear();
+        this.list_PlacedLayerFactory.clear();
     }
     
 
     int getSize()
     {
-        return this.list.size();
+        return this.list_PlacedLayerFactory.size();
     }
     
 
     AllBinaryLayerFactoryInterface@ getRandomInstance()
     {
-        return cast<AllBinaryLayerFactoryInterface>(this.basicArrayListUtil.getRandom(this.list));
+        return cast<AllBinaryLayerFactoryInterface>(this.basicArrayListUtil_PlacedLayerFactory.getRandom(this.list_PlacedLayerFactory));
     }
     
 
     void add(AllBinaryLayerFactoryInterface@ layerInterfaceFactoryInterface)
     {
-        this.list.add(layerInterfaceFactoryInterface);
+        this.list_PlacedLayerFactory.add(layerInterfaceFactoryInterface);
     }
 }
 

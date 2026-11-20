@@ -32,7 +32,7 @@ class TestingInputSingleton : AllBinaryGameLayer, GameInputInterface
     {
         this.jinit_AllBinaryGameLayer(StringUtil::getInstance().EMPTY_STRING, RectangleFactory::SINGLETON, ViewPosition::getInstanceD());
         this.jfields_TestingInputSingleton();
-        GameInputProcessorUtil::init(jbox(this.inputProcessorArray));
+        GameInputProcessorUtil::init(this.inputProcessorArray);
         return this;
     }
     
@@ -46,13 +46,13 @@ class TestingInputSingleton : AllBinaryGameLayer, GameInputInterface
     {
         TestInputInterface@ testInputInterface = aTestInputInterface;
         @this.testInputPaintable_TestingInputSingleton = testInputInterface;
-        @this.inputProcessorArray[Canvas::UP] = TestingInputSingleton_j1().jinit_TestingInputSingleton_j1(this);
-        @this.inputProcessorArray[Canvas::DOWN] = TestingInputSingleton_j2().jinit_TestingInputSingleton_j2(this);
-        @this.inputProcessorArray[Canvas::LEFT] = TestingInputSingleton_j3().jinit_TestingInputSingleton_j3(this);
-        @this.inputProcessorArray[Canvas::RIGHT] = TestingInputSingleton_j4().jinit_TestingInputSingleton_j4(this);
-        @this.inputProcessorArray[Canvas::KEY_NUM7] = TestingInputSingleton_j5().jinit_TestingInputSingleton_j5(this);
-        @this.inputProcessorArray[Canvas::KEY_NUM9] = TestingInputSingleton_j6().jinit_TestingInputSingleton_j6(this);
-        GameInputProcessorUtil::init(jbox(this.inputProcessorArray));
+        @this.inputProcessorArray[Canvas::UP] = TestingInputSingleton_j1().jinit_TestingInputSingleton_j1(this, testInputInterface);
+        @this.inputProcessorArray[Canvas::DOWN] = TestingInputSingleton_j2().jinit_TestingInputSingleton_j2(this, testInputInterface);
+        @this.inputProcessorArray[Canvas::LEFT] = TestingInputSingleton_j3().jinit_TestingInputSingleton_j3(this, testInputInterface);
+        @this.inputProcessorArray[Canvas::RIGHT] = TestingInputSingleton_j4().jinit_TestingInputSingleton_j4(this, testInputInterface);
+        @this.inputProcessorArray[Canvas::KEY_NUM7] = TestingInputSingleton_j5().jinit_TestingInputSingleton_j5(this, testInputInterface);
+        @this.inputProcessorArray[Canvas::KEY_NUM9] = TestingInputSingleton_j6().jinit_TestingInputSingleton_j6(this, testInputInterface);
+        GameInputProcessorUtil::init(this.inputProcessorArray);
     }
     
 
@@ -113,10 +113,12 @@ namespace TestingInputSingleton
 class TestingInputSingleton_j1 : GameInputProcessor
 {
     TestingInputSingleton@ jouter;
+    TestInputInterface@ testInputInterface;
 
-    TestingInputSingleton_j1@ jinit_TestingInputSingleton_j1(TestingInputSingleton@ jouter)
+    TestingInputSingleton_j1@ jinit_TestingInputSingleton_j1(TestingInputSingleton@ jouter, TestInputInterface@ testInputInterface)
     {
         @this.jouter = jouter;
+        @this.testInputInterface = testInputInterface;
         this.jinit_GameInputProcessor();
         return this;
     }
@@ -131,10 +133,12 @@ class TestingInputSingleton_j1 : GameInputProcessor
 class TestingInputSingleton_j2 : GameInputProcessor
 {
     TestingInputSingleton@ jouter;
+    TestInputInterface@ testInputInterface;
 
-    TestingInputSingleton_j2@ jinit_TestingInputSingleton_j2(TestingInputSingleton@ jouter)
+    TestingInputSingleton_j2@ jinit_TestingInputSingleton_j2(TestingInputSingleton@ jouter, TestInputInterface@ testInputInterface)
     {
         @this.jouter = jouter;
+        @this.testInputInterface = testInputInterface;
         this.jinit_GameInputProcessor();
         return this;
     }
@@ -149,10 +153,12 @@ class TestingInputSingleton_j2 : GameInputProcessor
 class TestingInputSingleton_j3 : GameInputProcessor
 {
     TestingInputSingleton@ jouter;
+    TestInputInterface@ testInputInterface;
 
-    TestingInputSingleton_j3@ jinit_TestingInputSingleton_j3(TestingInputSingleton@ jouter)
+    TestingInputSingleton_j3@ jinit_TestingInputSingleton_j3(TestingInputSingleton@ jouter, TestInputInterface@ testInputInterface)
     {
         @this.jouter = jouter;
+        @this.testInputInterface = testInputInterface;
         this.jinit_GameInputProcessor();
         return this;
     }
@@ -167,10 +173,12 @@ class TestingInputSingleton_j3 : GameInputProcessor
 class TestingInputSingleton_j4 : GameInputProcessor
 {
     TestingInputSingleton@ jouter;
+    TestInputInterface@ testInputInterface;
 
-    TestingInputSingleton_j4@ jinit_TestingInputSingleton_j4(TestingInputSingleton@ jouter)
+    TestingInputSingleton_j4@ jinit_TestingInputSingleton_j4(TestingInputSingleton@ jouter, TestInputInterface@ testInputInterface)
     {
         @this.jouter = jouter;
+        @this.testInputInterface = testInputInterface;
         this.jinit_GameInputProcessor();
         return this;
     }
@@ -185,10 +193,12 @@ class TestingInputSingleton_j4 : GameInputProcessor
 class TestingInputSingleton_j5 : GameInputProcessor
 {
     TestingInputSingleton@ jouter;
+    TestInputInterface@ testInputInterface;
 
-    TestingInputSingleton_j5@ jinit_TestingInputSingleton_j5(TestingInputSingleton@ jouter)
+    TestingInputSingleton_j5@ jinit_TestingInputSingleton_j5(TestingInputSingleton@ jouter, TestInputInterface@ testInputInterface)
     {
         @this.jouter = jouter;
+        @this.testInputInterface = testInputInterface;
         this.jinit_GameInputProcessor();
         return this;
     }
@@ -203,10 +213,12 @@ class TestingInputSingleton_j5 : GameInputProcessor
 class TestingInputSingleton_j6 : GameInputProcessor
 {
     TestingInputSingleton@ jouter;
+    TestInputInterface@ testInputInterface;
 
-    TestingInputSingleton_j6@ jinit_TestingInputSingleton_j6(TestingInputSingleton@ jouter)
+    TestingInputSingleton_j6@ jinit_TestingInputSingleton_j6(TestingInputSingleton@ jouter, TestInputInterface@ testInputInterface)
     {
         @this.jouter = jouter;
+        @this.testInputInterface = testInputInterface;
         this.jinit_GameInputProcessor();
         return this;
     }

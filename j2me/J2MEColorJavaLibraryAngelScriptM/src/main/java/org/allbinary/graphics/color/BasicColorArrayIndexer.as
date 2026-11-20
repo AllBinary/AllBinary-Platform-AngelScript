@@ -17,33 +17,33 @@
 
 class BasicColorArrayIndexer : JObjectBase
 {
-    BasicColor@[]@ basicColorArray;
-    CircularIndexUtil@ circularIndexUtil;
+    BasicColor@[]@ basicColorArray_BasicColorArrayIndexer;
+    CircularIndexUtil@ circularIndexUtil_BasicColorArrayIndexer;
     
 
     BasicColorArrayIndexer@ jinit_BasicColorArrayIndexer(BasicColor@[]@ basicColorArray)
     {
-        @this.basicColorArray = basicColorArray;
-        @this.circularIndexUtil = CircularIndexUtil::createInstance(int(this.basicColorArray.length()));
+        @this.basicColorArray_BasicColorArrayIndexer = basicColorArray;
+        @this.circularIndexUtil_BasicColorArrayIndexer = CircularIndexUtil::createInstance(int(this.basicColorArray_BasicColorArrayIndexer.length()));
         return this;
     }
     
 
     void next()
     {
-        this.circularIndexUtil.next();
+        this.circularIndexUtil_BasicColorArrayIndexer.next();
     }
     
 
     BasicColor@ get()
     {
-        return this.basicColorArray[this.circularIndexUtil.getIndex()];
+        return this.basicColorArray_BasicColorArrayIndexer[this.circularIndexUtil_BasicColorArrayIndexer.getIndex()];
     }
     
 
     BasicColor@[]@ getBasicColorArray()
     {
-        return this.basicColorArray;
+        return this.basicColorArray_BasicColorArrayIndexer;
     }
 }
 

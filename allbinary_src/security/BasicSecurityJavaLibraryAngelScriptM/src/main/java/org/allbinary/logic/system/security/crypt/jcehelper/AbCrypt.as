@@ -17,15 +17,15 @@
 
 class AbCrypt : JObjectBase, CryptInterface
 {
-    TsUtil@ tsUtil;
-    BaseSecretComposite@ secretComposite;
-    string algorithm;
+    TsUtil@ tsUtil_AbCrypt;
+    BaseSecretComposite@ secretComposite_AbCrypt;
+    string algorithm_AbCrypt;
 
     // Java field initializers run after the super constructor
     void jfields_AbCrypt()
     {
-    @this.tsUtil = TsUtil::getInstance();
-    @this.secretComposite = BaseSecretComposite::NULL_SECRET_COMPOSITE;
+    @this.tsUtil_AbCrypt = TsUtil::getInstance();
+    @this.secretComposite_AbCrypt = BaseSecretComposite::NULL_SECRET_COMPOSITE;
     
     }
     
@@ -33,7 +33,7 @@ class AbCrypt : JObjectBase, CryptInterface
     AbCrypt@ jinit_AbCrypt(string algorithm)
     {
         this.jfields_AbCrypt();
-        this.algorithm = algorithm;
+        this.algorithm_AbCrypt = algorithm;
         return this;
     }
     
@@ -52,12 +52,12 @@ class AbCrypt : JObjectBase, CryptInterface
                 }
                 else { jthrow(jex1); }
             }
-            int8[]@ key = this.tsUtil.getByteArray(keyAsString);
-            KeySpec@ keySpec = KeySpecFactory::getInstance_jstatic().getInstance(this.algorithm, key);
-            SecretKeyFactory@ keyFactory = SecretKeyFactory::getInstance(this.algorithm);
+            int8[]@ key = this.tsUtil_AbCrypt.getByteArray(keyAsString);
+            KeySpec@ keySpec = KeySpecFactory::getInstance_jstatic().getInstance(this.algorithm_AbCrypt, key);
+            SecretKeyFactory@ keyFactory = SecretKeyFactory::getInstance(this.algorithm_AbCrypt);
             SecretKey@ secretKey = keyFactory.generateSecret(keySpec);
-            Cipher@ cipher = Cipher::getInstance(this.algorithm);
-            @this.secretComposite = SecretComposite().jinit_SecretComposite(secretKey, cipher, key);
+            Cipher@ cipher = Cipher::getInstance(this.algorithm_AbCrypt);
+            @this.secretComposite_AbCrypt = SecretComposite().jinit_SecretComposite(secretKey, cipher, key);
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
@@ -72,7 +72,7 @@ class AbCrypt : JObjectBase, CryptInterface
     int8[]@ encrypt(int8[]@ array_)
     {
         try {
-            return this.secretComposite.encrypt(array_);
+            return this.secretComposite_AbCrypt.encrypt(array_);
         } catch {
             Throwable@ jex2 = jcatch();
             if (cast<Exception>(jex2) !is null) {
@@ -89,7 +89,7 @@ class AbCrypt : JObjectBase, CryptInterface
     int8[]@ decrypt(int8[]@ array_)
     {
         try {
-            return this.secretComposite.decrypt(array_);
+            return this.secretComposite_AbCrypt.decrypt(array_);
         } catch {
             Throwable@ jex3 = jcatch();
             if (cast<Exception>(jex3) !is null) {

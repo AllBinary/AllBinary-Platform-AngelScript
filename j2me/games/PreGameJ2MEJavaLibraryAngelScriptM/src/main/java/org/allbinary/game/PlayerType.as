@@ -17,35 +17,35 @@
 
 class PlayerType : JObjectBase
 {
-    int id;
-    string name;
+    int id_PlayerType;
+    string name_PlayerType;
 
     // Java field initializers run after the super constructor
     void jfields_PlayerType()
     {
     
-    this.name = StringUtil::getInstance().EMPTY_STRING;
+    this.name_PlayerType = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
     PlayerType@ jinit_PlayerType(string name, int value)
     {
         this.jfields_PlayerType();
-        this.name = name;
-        this.id = value;
+        this.name_PlayerType = name;
+        this.id_PlayerType = value;
         return this;
     }
     
 
     int getId()
     {
-        return this.id;
+        return this.id_PlayerType;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_PlayerType;
     }
     
 

@@ -18,36 +18,36 @@
 //ActualPlatform
 class LogFormatUtil : JObjectBase
 {
-    TimeStampUtil@ timeStampUtil;
-    CommonSeps@ commonSeps;
-    string NONE;
-    string LOG_ERROR;
-    string EMPTY;
-    string STACK_TRACE;
-    string TIME;
-    string CLASS_NAME;
-    string FUNCTION_CALL;
-    string SPECIAL_MESSAGE;
-    StringUtil@ stringUtil;
-    ExceptionUtil@ exceptionUtil;
-    NullUtil@ nullUtil;
+    TimeStampUtil@ timeStampUtil_LogFormatUtil;
+    CommonSeps@ commonSeps_LogFormatUtil;
+    string NONE_LogFormatUtil;
+    string LOG_ERROR_LogFormatUtil;
+    string EMPTY_LogFormatUtil;
+    string STACK_TRACE_LogFormatUtil;
+    string TIME_LogFormatUtil;
+    string CLASS_NAME_LogFormatUtil;
+    string FUNCTION_CALL_LogFormatUtil;
+    string SPECIAL_MESSAGE_LogFormatUtil;
+    StringUtil@ stringUtil_LogFormatUtil;
+    ExceptionUtil@ exceptionUtil_LogFormatUtil;
+    NullUtil@ nullUtil_LogFormatUtil;
 
     // Java field initializers run after the super constructor
     void jfields_LogFormatUtil()
     {
-    @this.timeStampUtil = TimeStampUtil::getInstance();
-    @this.commonSeps = CommonSeps::getInstance();
-    this.NONE = "None";
-    this.LOG_ERROR = "\nLog-Error: ";
-    this.EMPTY = "Empty";
-    this.STACK_TRACE = "\nStack Trace: ";
-    this.TIME = "Time: ";
-    this.CLASS_NAME = this.commonSeps.SPACE;
-    this.FUNCTION_CALL = CommonLabels::getInstance().COLON_SEP;
-    this.SPECIAL_MESSAGE = "> ";
-    @this.stringUtil = StringUtil::getInstance();
-    @this.exceptionUtil = ExceptionUtil::getInstance();
-    @this.nullUtil = NullUtil::getInstance();
+    @this.timeStampUtil_LogFormatUtil = TimeStampUtil::getInstance();
+    @this.commonSeps_LogFormatUtil = CommonSeps::getInstance();
+    this.NONE_LogFormatUtil = "None";
+    this.LOG_ERROR_LogFormatUtil = "\nLog-Error: ";
+    this.EMPTY_LogFormatUtil = "Empty";
+    this.STACK_TRACE_LogFormatUtil = "\nStack Trace: ";
+    this.TIME_LogFormatUtil = "Time: ";
+    this.CLASS_NAME_LogFormatUtil = this.commonSeps_LogFormatUtil.SPACE;
+    this.FUNCTION_CALL_LogFormatUtil = CommonLabels::getInstance().COLON_SEP;
+    this.SPECIAL_MESSAGE_LogFormatUtil = "> ";
+    @this.stringUtil_LogFormatUtil = StringUtil::getInstance();
+    @this.exceptionUtil_LogFormatUtil = ExceptionUtil::getInstance();
+    @this.nullUtil_LogFormatUtil = NullUtil::getInstance();
     }
     
 
@@ -62,9 +62,9 @@ class LogFormatUtil : JObjectBase
     {
         StringMaker@ stringBuffer = this.getF(className, functionName);
         stringBuffer.append(this.getO(exception));
-        stringBuffer.append(this.SPECIAL_MESSAGE);
+        stringBuffer.append(this.SPECIAL_MESSAGE_LogFormatUtil);
         stringBuffer.append(specialMessage);
-        stringBuffer.append(this.commonSeps.NEW_LINE);
+        stringBuffer.append(this.commonSeps_LogFormatUtil.NEW_LINE);
         return stringBuffer.toString();
     }
     
@@ -72,9 +72,9 @@ class LogFormatUtil : JObjectBase
     string getS(string className, string functionName, string specialMessage)
     {
         StringMaker@ stringBuffer = this.getF(className, functionName);
-        stringBuffer.append(this.SPECIAL_MESSAGE);
+        stringBuffer.append(this.SPECIAL_MESSAGE_LogFormatUtil);
         stringBuffer.append(specialMessage);
-        stringBuffer.append(this.commonSeps.NEW_LINE);
+        stringBuffer.append(this.commonSeps_LogFormatUtil.NEW_LINE);
         return stringBuffer.toString();
     }
     
@@ -82,11 +82,11 @@ class LogFormatUtil : JObjectBase
     StringMaker@ getF(string className, string functionName)
     {
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
-        stringBuffer.append(this.TIME);
-        stringBuffer.append(this.timeStampUtil.getAsString());
-        stringBuffer.append(this.CLASS_NAME);
+        stringBuffer.append(this.TIME_LogFormatUtil);
+        stringBuffer.append(this.timeStampUtil_LogFormatUtil.getAsString());
+        stringBuffer.append(this.CLASS_NAME_LogFormatUtil);
         stringBuffer.append(className);
-        stringBuffer.append(this.FUNCTION_CALL);
+        stringBuffer.append(this.FUNCTION_CALL_LogFormatUtil);
         stringBuffer.append(functionName);
         return stringBuffer;
     }
@@ -94,16 +94,16 @@ class LogFormatUtil : JObjectBase
 
     string getO(JObject@ exception)
     {
-        if (exception !is this.nullUtil.NULL_OBJECT) {
+        if (exception !is this.nullUtil_LogFormatUtil.NULL_OBJECT) {
             StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
-            stringBuffer.append(this.LOG_ERROR);
+            stringBuffer.append(this.LOG_ERROR_LogFormatUtil);
             string exceptionAsString = exception.toString();
             stringBuffer.append(exceptionAsString);
-            stringBuffer.append(this.STACK_TRACE);
-            if (exception !is this.nullUtil.NULL_OBJECT) {
-                stringBuffer.append(this.exceptionUtil.getStackTrace(cast<Throwable>(exception)));
+            stringBuffer.append(this.STACK_TRACE_LogFormatUtil);
+            if (exception !is this.nullUtil_LogFormatUtil.NULL_OBJECT) {
+                stringBuffer.append(this.exceptionUtil_LogFormatUtil.getStackTrace(cast<Throwable>(exception)));
             } else {
-                stringBuffer.append(this.stringUtil.NULL_STRING);
+                stringBuffer.append(this.stringUtil_LogFormatUtil.NULL_STRING);
             }
             return stringBuffer.toString();
         } else {

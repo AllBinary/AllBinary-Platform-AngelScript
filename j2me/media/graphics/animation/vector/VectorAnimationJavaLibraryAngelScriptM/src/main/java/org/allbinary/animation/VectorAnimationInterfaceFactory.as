@@ -17,15 +17,15 @@
 
 class VectorAnimationInterfaceFactory : JObjectBase, AnimationInterfaceFactoryInterface
 {
-    int[]@[]@[]@ currentPoints;
-    BasicColor@ basicColor;
+    int[]@[]@[]@ currentPoints_VectorAnimationInterfaceFactory;
+    BasicColor@ basicColor_VectorAnimationInterfaceFactory;
     AnimationBehaviorFactory@ animationBehaviorFactory;
 
     // Java field initializers run after the super constructor
     void jfields_VectorAnimationInterfaceFactory()
     {
     
-    @this.basicColor = BasicColorFactory::getInstance().WHITE;
+    @this.basicColor_VectorAnimationInterfaceFactory = BasicColorFactory::getInstance().WHITE;
     
     }
     
@@ -33,7 +33,7 @@ class VectorAnimationInterfaceFactory : JObjectBase, AnimationInterfaceFactoryIn
     VectorAnimationInterfaceFactory@ jinit_VectorAnimationInterfaceFactory(int[]@[]@[]@ currentPoints, BasicColor@ basicColor, AnimationBehaviorFactory@ animationBehaviorFactory)
     {
         this.jfields_VectorAnimationInterfaceFactory();
-        @this.currentPoints = currentPoints;
+        @this.currentPoints_VectorAnimationInterfaceFactory = currentPoints;
         this.setBasicColorP(basicColor);
         @this.animationBehaviorFactory = animationBehaviorFactory;
         return this;
@@ -42,19 +42,19 @@ class VectorAnimationInterfaceFactory : JObjectBase, AnimationInterfaceFactoryIn
 
     Animation@ getInstance(int instanceId)
     {
-        return VectorAnimation().jinit_VectorAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
+        return VectorAnimation().jinit_VectorAnimation(this.currentPoints_VectorAnimationInterfaceFactory, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
     }
     
 
     void setBasicColorP(BasicColor@ basicColor)
     {
-        @this.basicColor = basicColor;
+        @this.basicColor_VectorAnimationInterfaceFactory = basicColor;
     }
     
 
     BasicColor@ getBasicColorP()
     {
-        return this.basicColor;
+        return this.basicColor_VectorAnimationInterfaceFactory;
     }
     
 

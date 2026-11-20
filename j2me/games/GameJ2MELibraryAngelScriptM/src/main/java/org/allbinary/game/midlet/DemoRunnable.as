@@ -19,8 +19,8 @@ class DemoRunnable : JObjectBase, Runnable
 {
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
-    DemoGameMidlet@ demoGameMidlet;
-    DemoGameMidletEvent@ startDemoGameMidletEvent;
+    DemoGameMidlet@ demoGameMidlet_DemoRunnable;
+    DemoGameMidletEvent@ startDemoGameMidletEvent_DemoRunnable;
 
     // Java field initializers run after the super constructor
     void jfields_DemoRunnable()
@@ -35,8 +35,8 @@ class DemoRunnable : JObjectBase, Runnable
     DemoRunnable@ jinit_DemoRunnable(DemoGameMidlet@ demoGameMidlet)
     {
         this.jfields_DemoRunnable();
-        @this.demoGameMidlet = demoGameMidlet;
-        @this.startDemoGameMidletEvent = DemoGameMidletEvent().jinit_DemoGameMidletEvent(this.demoGameMidlet, DemoGameMidletStateFactory::getInstance().START_DEMO);
+        @this.demoGameMidlet_DemoRunnable = demoGameMidlet;
+        @this.startDemoGameMidletEvent_DemoRunnable = DemoGameMidletEvent().jinit_DemoGameMidletEvent(this.demoGameMidlet_DemoRunnable, DemoGameMidletStateFactory::getInstance().START_DEMO);
         return this;
     }
     
@@ -45,12 +45,12 @@ class DemoRunnable : JObjectBase, Runnable
     {
         try {
             this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(), this, this.commonStrings.RUN);
-            this.demoGameMidlet.commandAction(MyCommandsFactory::getInstance().SET_DISPLAYABLE, ProgressCanvasFactory::getInstance());
-            this.demoGameMidlet.setGameCanvasRunnableInterface(this.demoGameMidlet.createDemoGameCanvasRunnableInterface());
-            this.demoGameMidlet.demoSetup();
-            DemoGameMidletEventHandler::getInstance().fireEvent(this.startDemoGameMidletEvent);
-            this.demoGameMidlet.startGameCanvasRunnableInterface();
-            this.demoGameMidlet.postDemoSetup();
+            this.demoGameMidlet_DemoRunnable.commandAction(MyCommandsFactory::getInstance().SET_DISPLAYABLE, ProgressCanvasFactory::getInstance());
+            this.demoGameMidlet_DemoRunnable.setGameCanvasRunnableInterface(this.demoGameMidlet_DemoRunnable.createDemoGameCanvasRunnableInterface());
+            this.demoGameMidlet_DemoRunnable.demoSetup();
+            DemoGameMidletEventHandler::getInstance().fireEvent(this.startDemoGameMidletEvent_DemoRunnable);
+            this.demoGameMidlet_DemoRunnable.startGameCanvasRunnableInterface();
+            this.demoGameMidlet_DemoRunnable.postDemoSetup();
             this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
         } catch {
             Throwable@ jex0 = jcatch();

@@ -3,12 +3,12 @@
 
 class AnalogLocationInputFactory : JObjectBase
 {
-    BasicArrayList@ list;
+    BasicArrayList@ list_AnalogLocationInputFactory;
 
     // Java field initializers run after the super constructor
     void jfields_AnalogLocationInputFactory()
     {
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_AnalogLocationInputFactory = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
@@ -22,25 +22,25 @@ class AnalogLocationInputFactory : JObjectBase
     void addPlayer(int playerInputId)
     {
         AnalogLocationInput@ analogLocationInput = AnalogLocationInput::NULL_ANALOG_LOCATION_INPUT;
-        if (playerInputId < this.list.size()) {
-            @analogLocationInput = cast<AnalogLocationInput>(this.list.get(playerInputId));
+        if (playerInputId < this.list_AnalogLocationInputFactory.size()) {
+            @analogLocationInput = cast<AnalogLocationInput>(this.list_AnalogLocationInputFactory.get(playerInputId));
         }
         if (analogLocationInput is AnalogLocationInput::NULL_ANALOG_LOCATION_INPUT) {
             @analogLocationInput = AnalogLocationInput().jinit_AnalogLocationInput(playerInputId);
-            this.list.add(analogLocationInput);
+            this.list_AnalogLocationInputFactory.add(analogLocationInput);
         }
     }
     
 
     AnalogLocationInput@ getInstanceForPlayer(int playerInputId)
     {
-        return cast<AnalogLocationInput>(this.list.get(playerInputId));
+        return cast<AnalogLocationInput>(this.list_AnalogLocationInputFactory.get(playerInputId));
     }
     
 
     BasicArrayList@ getList()
     {
-        return this.list;
+        return this.list_AnalogLocationInputFactory;
     }
 }
 

@@ -18,18 +18,18 @@
 //ActualPlatform
 class SystemProperties : JObjectBase
 {
-    string OS_NAME;
-    string OS_ARCH;
-    string OS_VERSION;
-    string USER_HOME;
+    string OS_NAME_SystemProperties;
+    string OS_ARCH_SystemProperties;
+    string OS_VERSION_SystemProperties;
+    string USER_HOME_SystemProperties;
 
     // Java field initializers run after the super constructor
     void jfields_SystemProperties()
     {
-    this.OS_NAME = "os.name";
-    this.OS_ARCH = "os.arch";
-    this.OS_VERSION = "os.version";
-    this.USER_HOME = "user.home";
+    this.OS_NAME_SystemProperties = "os.name";
+    this.OS_ARCH_SystemProperties = "os.arch";
+    this.OS_VERSION_SystemProperties = "os.version";
+    this.USER_HOME_SystemProperties = "user.home";
     }
     
 
@@ -42,25 +42,25 @@ class SystemProperties : JObjectBase
 
     string getName()
     {
-        return System::getProperty(this.OS_NAME);
+        return System::getProperty(this.OS_NAME_SystemProperties);
     }
     
 
     string getArch()
     {
-        return System::getProperty(this.OS_ARCH);
+        return System::getProperty(this.OS_ARCH_SystemProperties);
     }
     
 
     string getVersion()
     {
-        return System::getProperty(this.OS_VERSION);
+        return System::getProperty(this.OS_VERSION_SystemProperties);
     }
     
 
     string getUserHomePath()
     {
-        return System::getProperty(this.USER_HOME);
+        return System::getProperty(this.USER_HOME_SystemProperties);
     }
 }
 

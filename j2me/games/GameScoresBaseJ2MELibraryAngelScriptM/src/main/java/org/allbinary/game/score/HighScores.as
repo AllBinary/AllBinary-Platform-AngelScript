@@ -17,19 +17,19 @@
 
 class HighScores : JObjectBase, HighScoresInterface
 {
-    BasicArrayList@ orderedHighScoresList;
-    string name;
-    string heading;
-    string columnOneHeading;
-    string columnTwoHeading;
+    BasicArrayList@ orderedHighScoresList_HighScores;
+    string name_HighScores;
+    string heading_HighScores;
+    string columnOneHeading_HighScores;
+    string columnTwoHeading_HighScores;
 
     // Java field initializers run after the super constructor
     void jfields_HighScores()
     {
-    @this.orderedHighScoresList = BasicArrayListD().jinit_BasicArrayListD();
+    @this.orderedHighScoresList_HighScores = BasicArrayListD().jinit_BasicArrayListD();
     
     
-    this.columnOneHeading = "Name";
+    this.columnOneHeading_HighScores = "Name";
     
     }
     
@@ -37,28 +37,28 @@ class HighScores : JObjectBase, HighScoresInterface
     HighScores@ jinit_HighScores(string name, string heading, string columnTwoHeading)
     {
         this.jfields_HighScores();
-        this.name = name;
-        this.heading = heading;
-        this.columnTwoHeading = columnTwoHeading;
+        this.name_HighScores = name;
+        this.heading_HighScores = heading;
+        this.columnTwoHeading_HighScores = columnTwoHeading;
         return this;
     }
     
 
     void setList(BasicArrayList@ orderedHighScoresList)
     {
-        @this.orderedHighScoresList = orderedHighScoresList;
+        @this.orderedHighScoresList_HighScores = orderedHighScoresList;
     }
     
 
     BasicArrayList@ getList()
     {
-        return this.orderedHighScoresList;
+        return this.orderedHighScoresList_HighScores;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_HighScores;
     }
     
 
@@ -70,25 +70,25 @@ class HighScores : JObjectBase, HighScoresInterface
 
     void addHighScore(HighScore@ newHighScore)
     {
-        this.orderedHighScoresList.add(newHighScore);
+        this.orderedHighScoresList_HighScores.add(newHighScore);
     }
     
 
     string getHeading()
     {
-        return this.heading;
+        return this.heading_HighScores;
     }
     
 
     string getColumnOneHeading()
     {
-        return this.columnOneHeading;
+        return this.columnOneHeading_HighScores;
     }
     
 
     string getColumnTwoHeading()
     {
-        return this.columnTwoHeading;
+        return this.columnTwoHeading_HighScores;
     }
     
 
@@ -102,10 +102,10 @@ class HighScores : JObjectBase, HighScoresInterface
     {
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         stringBuffer.append("HighScores: ");
-        stringBuffer.append(this.heading);
+        stringBuffer.append(this.heading_HighScores);
         stringBuffer.append(CommonSeps::getInstance().SPACE);
         stringBuffer.append(CommonLabels::getInstance().TOTAL_LABEL);
-        stringBuffer.appendint(this.orderedHighScoresList.size());
+        stringBuffer.appendint(this.orderedHighScoresList_HighScores.size());
         return stringBuffer.toString();
     }
 }

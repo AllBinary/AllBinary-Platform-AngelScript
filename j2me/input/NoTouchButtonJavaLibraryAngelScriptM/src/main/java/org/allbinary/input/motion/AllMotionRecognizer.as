@@ -17,12 +17,12 @@
 
 class AllMotionRecognizer : JObjectBase
 {
-    int id;
+    int id_AllMotionRecognizer;
     
 
     AllMotionRecognizer@ jinit_AllMotionRecognizer()
     {
-        this.id = ((AllMotionRecognizer::index = AllMotionRecognizer::index + 1) - 1);
+        this.id_AllMotionRecognizer = AllMotionRecognizer::jpostAdd_index(1);
         return this;
     }
     
@@ -54,7 +54,7 @@ class AllMotionRecognizer : JObjectBase
 
     int getId()
     {
-        return this.id;
+        return this.id_AllMotionRecognizer;
     }
 }
 
@@ -72,5 +72,6 @@ namespace AllMotionRecognizer
     int jcell_index;
     int get_index() property { jclinit(); return jcell_index; }
     void set_index(int value) property { jclinit(); jcell_index = value; }
+    int jpostAdd_index(int delta) { jclinit(); int old = jcell_index; jcell_index = int(old + delta); return old; }
 }
 

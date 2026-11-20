@@ -18,29 +18,29 @@
 class CompositeGroup : JObjectBase
 {
     LogUtil@ logUtil;
-    Group@ groupInterface;
-    BasicArrayList@ list;
+    Group@ groupInterface_CompositeGroup;
+    BasicArrayList@ list_CompositeGroup;
 
     // Java field initializers run after the super constructor
     void jfields_CompositeGroup()
     {
     @this.logUtil = LogUtil::getInstance();
     
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_CompositeGroup = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
     CompositeGroup@ jinit_CompositeGroup(Group@ groupInterface)
     {
         this.jfields_CompositeGroup();
-        @this.groupInterface = groupInterface;
+        @this.groupInterface_CompositeGroup = groupInterface;
         return this;
     }
     
 
     void clear()
     {
-        this.list.clear();
+        this.list_CompositeGroup.clear();
     }
     
 
@@ -52,15 +52,15 @@ class CompositeGroup : JObjectBase
         stringBuffer.append(groupCommonFactory.ADDING_LABEL);
         stringBuffer.append(groupInterface.toString());
         stringBuffer.append(groupCommonFactory.TO_LABEL);
-        stringBuffer.append(StringUtil::getInstance().toString(this.groupInterface));
+        stringBuffer.append(StringUtil::getInstance().toString(this.groupInterface_CompositeGroup));
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.ADD);
-        this.list.add(groupInterface);
+        this.list_CompositeGroup.add(groupInterface);
     }
     
 
     bool isInGroup(Group@ groupInterface)
     {
-        if (this.list.contains(groupInterface)) {
+        if (this.list_CompositeGroup.contains(groupInterface)) {
             return true;
         } else {
             return false;
@@ -71,7 +71,7 @@ class CompositeGroup : JObjectBase
 
     Group@ getGroup()
     {
-        return this.groupInterface;
+        return this.groupInterface_CompositeGroup;
     }
 }
 

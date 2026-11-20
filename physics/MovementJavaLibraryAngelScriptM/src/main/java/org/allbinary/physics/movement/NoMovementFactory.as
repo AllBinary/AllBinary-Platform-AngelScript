@@ -17,12 +17,12 @@
 
 class NoMovementFactory : JObjectBase
 {
-    Movement@ movement;
+    Movement@ movement_NoMovementFactory;
 
     // Java field initializers run after the super constructor
     void jfields_NoMovementFactory()
     {
-    @this.movement = Movement().jinit_Movement();
+    @this.movement_NoMovementFactory = Movement().jinit_Movement();
     }
 
     NoMovementFactory@ jinit_NoMovementFactory()
@@ -34,7 +34,7 @@ class NoMovementFactory : JObjectBase
 
     Movement@ getMovmentInstance()
     {
-        return this.movement;
+        return this.movement_NoMovementFactory;
     }
 }
 

@@ -18,13 +18,13 @@
 class RepaintBehavior : JObjectBase
 {
     LogUtil@ logUtil;
-    string NAME;
+    string NAME_RepaintBehavior;
 
     // Java field initializers run after the super constructor
     void jfields_RepaintBehavior()
     {
     @this.logUtil = LogUtil::getInstance();
-    this.NAME = "RepaintBehavior";
+    this.NAME_RepaintBehavior = "RepaintBehavior";
     }
 
     RepaintBehavior@ jinit_RepaintBehavior()
@@ -46,7 +46,7 @@ class RepaintBehavior : JObjectBase
         if (features.isFeature(openGLFeatureFactory.OPENGL)) {
             DisplayInfoSingleton::getInstance().process();
         } else {
-            Thread@ thread = Thread().jinit_Thread(RepaintRunnable().jinit_RepaintRunnable(canvas), this.NAME);
+            Thread@ thread = Thread().jinit_Thread(RepaintRunnable().jinit_RepaintRunnable(canvas), this.NAME_RepaintBehavior);
             thread.start();
         }
     }

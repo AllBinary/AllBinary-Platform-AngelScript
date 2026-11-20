@@ -21,18 +21,18 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
     CommonStrings@ commonStrings;
     CanvasStrings@ canvasStrings;
     BasicColorSetUtil@ basicSetColorUtil;
-    DisplayInfoSingleton@ displayInfo;
+    DisplayInfoSingleton@ displayInfo_BasicHud;
     MyFontProcessor@ updateMyFontProcessor;
     MyFontProcessor@ myFontProcessor;
-    int location;
-    int direction;
-    int bufferZone;
-    int bufferZoneY;
-    HudGraphicsPosition@ hudGraphicsPosition;
-    int x;
-    int y;
-    BasicColor@ basicColor;
-    int color;
+    int location_BasicHud;
+    int direction_BasicHud;
+    int bufferZone_BasicHud;
+    int bufferZoneY_BasicHud;
+    HudGraphicsPosition@ hudGraphicsPosition_BasicHud;
+    int x_BasicHud;
+    int y_BasicHud;
+    BasicColor@ basicColor_BasicHud;
+    int color_BasicHud;
     int updateMaxWidth;
     int updateMaxHeight;
     int offsetY;
@@ -44,17 +44,17 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
     @this.commonStrings = CommonStrings::getInstance();
     @this.canvasStrings = CanvasStrings::getInstance();
     @this.basicSetColorUtil = BasicColorSetUtil::getInstance();
-    @this.displayInfo = DisplayInfoSingleton::getInstance();
+    @this.displayInfo_BasicHud = DisplayInfoSingleton::getInstance();
     @this.updateMyFontProcessor = UpdateMyFontProcessor().jinit_UpdateMyFontProcessor(this);
     @this.myFontProcessor = this.updateMyFontProcessor;
     
     
     
     
-    @this.hudGraphicsPosition = HudGraphicsPosition::NULL_HUD_GRAPHICS_POSITION;
+    @this.hudGraphicsPosition_BasicHud = HudGraphicsPosition::NULL_HUD_GRAPHICS_POSITION;
     
     
-    @this.basicColor = BasicColorFactory::getInstance().BLACK;
+    @this.basicColor_BasicHud = BasicColorFactory::getInstance().BLACK;
     
     
     
@@ -70,7 +70,7 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
         this.setBufferZone(bufferZone);
         this.onDisplayChangeEvent(DisplayInfoSingleton::getInstance().displayChangeEvent);
         this.setBasicColorP(basicColor);
-        this.color = basicColor.intValue();
+        this.color_BasicHud = basicColor.intValue();
         return this;
     }
     
@@ -78,9 +78,9 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
     void updateMeasurement(Graphics@ graphics)
     {
         try {
-            @this.hudGraphicsPosition = this.getHudGraphicsPositionWH(this.displayInfo.getLastWidth(), this.displayInfo.getLastHeight(), this.updateMaxWidth, this.updateMaxHeight);
-            this.x = this.hudGraphicsPosition.getPoint().getX();
-            this.setY(this.hudGraphicsPosition.getPoint().getY());
+            @this.hudGraphicsPosition_BasicHud = this.getHudGraphicsPositionWH(this.displayInfo_BasicHud.getLastWidth(), this.displayInfo_BasicHud.getLastHeight(), this.updateMaxWidth, this.updateMaxHeight);
+            this.x_BasicHud = this.hudGraphicsPosition_BasicHud.getPoint().getX();
+            this.setY(this.hudGraphicsPosition_BasicHud.getPoint().getY());
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
@@ -96,13 +96,13 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
 
     int getLocation()
     {
-        return this.location;
+        return this.location_BasicHud;
     }
     
 
     int getDirection()
     {
-        return this.direction;
+        return this.direction_BasicHud;
     }
     
 
@@ -113,28 +113,28 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
         int anchor = 0;
         BasicHudFactory@ basicHudFactory = BasicHudFactory::getInstance();
         if (basicHudFactory.BOTTOMLEFT == this.getLocation()) {
-            x = this.bufferZone + 2;
-            y = height - maxHeight - this.bufferZone;
+            x = this.bufferZone_BasicHud + 2;
+            y = height - maxHeight - this.bufferZone_BasicHud;
             anchor = Graphics::BOTTOM & Graphics::LEFT;
         } else if (basicHudFactory.BOTTOMRIGHT == this.getLocation()) {
             x = width - maxWidth;
-            y = height - maxHeight - this.bufferZone;
+            y = height - maxHeight - this.bufferZone_BasicHud;
             anchor = Graphics::BOTTOM & Graphics::RIGHT;
         } else if (basicHudFactory.TOPLEFT == this.getLocation()) {
-            x = this.bufferZone + 2;
-            y = this.bufferZoneY;
+            x = this.bufferZone_BasicHud + 2;
+            y = this.bufferZoneY_BasicHud;
             anchor = Anchor::TOP_LEFT;
         } else if (basicHudFactory.TOPRIGHT == this.getLocation()) {
             x = width - maxWidth;
-            y = this.bufferZoneY;
+            y = this.bufferZoneY_BasicHud;
             anchor = Graphics::TOP & Graphics::RIGHT;
         } else if (basicHudFactory.TOPCENTER == this.getLocation()) {
             x = ((width - maxWidth) / 2);
-            y = this.bufferZoneY;
+            y = this.bufferZoneY_BasicHud;
             anchor = Graphics::TOP & Graphics::HCENTER;
         } else if (basicHudFactory.BOTTOMCENTER == this.getLocation()) {
             x = ((width - maxWidth) / 2);
-            y = height - maxHeight - this.bufferZone;
+            y = height - maxHeight - this.bufferZone_BasicHud;
             anchor = Graphics::BOTTOM & Graphics::HCENTER;
         } else if (basicHudFactory.ABSOLUTE == this.getLocation()) {
             x = maxHeight;
@@ -165,78 +165,78 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
 
     int getBufferZone()
     {
-        return this.bufferZone;
+        return this.bufferZone_BasicHud;
     }
     
 
     void setBufferZone(int bufferZone)
     {
-        this.bufferZone = bufferZone;
+        this.bufferZone_BasicHud = bufferZone;
         if (J2MEUtil::isHTML()) {
-            this.bufferZoneY = this.bufferZone;
+            this.bufferZoneY_BasicHud = this.bufferZone_BasicHud;
         } else {
-            this.bufferZoneY = this.bufferZone + 5;
+            this.bufferZoneY_BasicHud = this.bufferZone_BasicHud + 5;
         }
     }
     
 
     void setLocation(int location)
     {
-        this.location = location;
+        this.location_BasicHud = location;
     }
     
 
     void setDirection(int direction)
     {
-        this.direction = direction;
+        this.direction_BasicHud = direction;
     }
     
 
     HudGraphicsPosition@ getHudGraphicsPosition()
     {
-        return this.hudGraphicsPosition;
+        return this.hudGraphicsPosition_BasicHud;
     }
     
 
     int getColor()
     {
-        return this.color;
+        return this.color_BasicHud;
     }
     
 
     int getX()
     {
-        return this.x;
+        return this.x_BasicHud;
     }
     
 
     void setX(int x)
     {
-        this.x = x;
+        this.x_BasicHud = x;
     }
     
 
     void setBasicColorP(BasicColor@ basicColor)
     {
-        @this.basicColor = basicColor;
+        @this.basicColor_BasicHud = basicColor;
     }
     
 
     BasicColor@ getBasicColorP()
     {
-        return this.basicColor;
+        return this.basicColor_BasicHud;
     }
     
 
     void setY(int y)
     {
-        this.y = y;
+        this.y_BasicHud = y;
     }
     
 
     int getY()
     {
-        return this.y;
+        return this.y_BasicHud;
     }
     
 
@@ -244,8 +244,8 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
     {
         this.myFontProcessor.process(graphics);
         this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
-        graphics.drawString(string_, this.x, this.getY(), this.hudGraphicsPosition.getAnchor());
-        graphics.drawString(string2, this.x + offset, this.getY(), this.hudGraphicsPosition.getAnchor());
+        graphics.drawString(string_, this.x_BasicHud, this.getY(), this.hudGraphicsPosition_BasicHud.getAnchor());
+        graphics.drawString(string2, this.x_BasicHud + offset, this.getY(), this.hudGraphicsPosition_BasicHud.getAnchor());
     }
     
 
@@ -253,8 +253,8 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
     {
         this.myFontProcessor.process(graphics);
         graphics.setColor(this.getColor());
-        graphics.drawString(string_, this.x + offset, this.getY(), this.hudGraphicsPosition.getAnchor());
-        graphics.drawString(string2, this.x + offset2, this.getY(), this.hudGraphicsPosition.getAnchor());
+        graphics.drawString(string_, this.x_BasicHud + offset, this.getY(), this.hudGraphicsPosition_BasicHud.getAnchor());
+        graphics.drawString(string2, this.x_BasicHud + offset2, this.getY(), this.hudGraphicsPosition_BasicHud.getAnchor());
     }
     
 
@@ -263,8 +263,8 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
         this.myFontProcessor.process(graphics);
         this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
         int y = this.getY();
-        graphics.drawChars(charArray, offset, len, this.x + xOffset, y, this.hudGraphicsPosition.getAnchor());
-        graphics.drawChars(charArray2, offset2, len2, this.x + xOffset2, y, this.hudGraphicsPosition.getAnchor());
+        graphics.drawChars(charArray, offset, len, this.x_BasicHud + xOffset, y, this.hudGraphicsPosition_BasicHud.getAnchor());
+        graphics.drawChars(charArray2, offset2, len2, this.x_BasicHud + xOffset2, y, this.hudGraphicsPosition_BasicHud.getAnchor());
     }
     
 
@@ -273,8 +273,8 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
         this.myFontProcessor.process(graphics);
         this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
         int y = this.getY();
-        graphics.drawChars(charArray, offset, len, this.x, y, this.hudGraphicsPosition.getAnchor());
-        graphics.drawChars(charArray2, offset2, len2, this.x + xOffset, y, this.hudGraphicsPosition.getAnchor());
+        graphics.drawChars(charArray, offset, len, this.x_BasicHud, y, this.hudGraphicsPosition_BasicHud.getAnchor());
+        graphics.drawChars(charArray2, offset2, len2, this.x_BasicHud + xOffset, y, this.hudGraphicsPosition_BasicHud.getAnchor());
     }
     
 
@@ -283,7 +283,7 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
         this.myFontProcessor.process(graphics);
         this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
         int y = this.getY();
-        graphics.drawChars(charArray, offset, len, this.x, y, this.hudGraphicsPosition.getAnchor());
+        graphics.drawChars(charArray, offset, len, this.x_BasicHud, y, this.hudGraphicsPosition_BasicHud.getAnchor());
     }
     
 
@@ -292,7 +292,7 @@ class BasicHud : JObjectBase, UpdateMyFontInterface
         this.myFontProcessor.process(graphics);
         this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
         int y = this.getY() + this.offsetY;
-        graphics.drawString(string_, this.x, y, this.hudGraphicsPosition.getAnchor());
+        graphics.drawString(string_, this.x_BasicHud, y, this.hudGraphicsPosition_BasicHud.getAnchor());
     }
 }
 

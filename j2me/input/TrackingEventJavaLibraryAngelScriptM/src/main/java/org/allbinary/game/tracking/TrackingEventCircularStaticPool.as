@@ -17,12 +17,12 @@
 
 class TrackingEventCircularStaticPool : JObjectBase
 {
-    AllBinaryEventCircularPool@ EVENT_POOL;
+    AllBinaryEventCircularPool@ EVENT_POOL_TrackingEventCircularStaticPool;
 
     // Java field initializers run after the super constructor
     void jfields_TrackingEventCircularStaticPool()
     {
-    @this.EVENT_POOL = AllBinaryEventCircularPool().jinit_AllBinaryEventCircularPool(20);
+    @this.EVENT_POOL_TrackingEventCircularStaticPool = AllBinaryEventCircularPool().jinit_AllBinaryEventCircularPool(20);
     }
 
     TrackingEventCircularStaticPool@ jinit_TrackingEventCircularStaticPool()
@@ -34,13 +34,13 @@ class TrackingEventCircularStaticPool : JObjectBase
 
     void init()
     {
-        this.EVENT_POOL.initAllBinaryEventCircularPool(TrackingEventFactory().jinit_TrackingEventFactory());
+        this.EVENT_POOL_TrackingEventCircularStaticPool.initAllBinaryEventCircularPool(TrackingEventFactory().jinit_TrackingEventFactory());
     }
     
 
     TrackingEvent@ getNextInstance(AllBinaryLayer@ layerInterface)
     {
-        TrackingEvent@ trackingEvent = cast<TrackingEvent>(this.EVENT_POOL.getNextInstance());
+        TrackingEvent@ trackingEvent = cast<TrackingEvent>(this.EVENT_POOL_TrackingEventCircularStaticPool.getNextInstance());
         trackingEvent.setLayerInterfaceForCircularStaticPool(layerInterface);
         return trackingEvent;
     }

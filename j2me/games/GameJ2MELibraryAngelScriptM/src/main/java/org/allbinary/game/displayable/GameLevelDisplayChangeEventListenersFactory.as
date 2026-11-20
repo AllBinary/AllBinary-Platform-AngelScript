@@ -17,12 +17,12 @@
 
 class GameLevelDisplayChangeEventListenersFactory : JObjectBase
 {
-    BasicArrayList@ list;
+    BasicArrayList@ list_GameLevelDisplayChangeEventListenersFactory;
 
     // Java field initializers run after the super constructor
     void jfields_GameLevelDisplayChangeEventListenersFactory()
     {
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_GameLevelDisplayChangeEventListenersFactory = BasicArrayListD().jinit_BasicArrayListD();
     }
 
     GameLevelDisplayChangeEventListenersFactory@ jinit_GameLevelDisplayChangeEventListenersFactory()
@@ -34,7 +34,7 @@ class GameLevelDisplayChangeEventListenersFactory : JObjectBase
 
     void add(DisplayChangeEventListener@ displayChangeEventListener)
     {
-        this.list.add(displayChangeEventListener);
+        this.list_GameLevelDisplayChangeEventListenersFactory.add(displayChangeEventListener);
         DisplayChangeEventHandler::getInstance().addListenerInterface(displayChangeEventListener);
     }
     
@@ -43,11 +43,11 @@ class GameLevelDisplayChangeEventListenersFactory : JObjectBase
     {
         BasicEventHandler@ displayChangeEventHandler = DisplayChangeEventHandler::getInstance();
         DisplayChangeEventListener@ displayChangeEventListener;
-        for (int index = this.list.size(); --index >= 0; ) {
-            @displayChangeEventListener = cast<DisplayChangeEventListener>(this.list.objectArray[index]);
+        for (int index = this.list_GameLevelDisplayChangeEventListenersFactory.size(); --index >= 0; ) {
+            @displayChangeEventListener = cast<DisplayChangeEventListener>(this.list_GameLevelDisplayChangeEventListenersFactory.objectArray[index]);
             displayChangeEventHandler.removeListener(displayChangeEventListener);
         }
-        this.list.clear();
+        this.list_GameLevelDisplayChangeEventListenersFactory.clear();
     }
 }
 

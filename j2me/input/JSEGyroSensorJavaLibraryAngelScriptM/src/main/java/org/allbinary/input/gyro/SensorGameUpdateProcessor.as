@@ -17,7 +17,7 @@
 
 class SensorGameUpdateProcessor : JObjectBase
 {
-    AllBinarySensor@ inputSensor;
+    AllBinarySensor@ inputSensor_SensorGameUpdateProcessor;
 
     SensorGameUpdateProcessor@ jinit_SensorGameUpdateProcessor()
     {
@@ -27,13 +27,13 @@ class SensorGameUpdateProcessor : JObjectBase
 
     void setInputSensor(AllBinarySensor@ inputSensor)
     {
-        @this.inputSensor = inputSensor;
+        @this.inputSensor_SensorGameUpdateProcessor = inputSensor;
     }
     
 
     AllBinarySensor@ getInputSensor()
     {
-        return this.inputSensor;
+        return this.inputSensor_SensorGameUpdateProcessor;
     }
     
 
@@ -49,7 +49,7 @@ class SensorGameUpdateProcessor : JObjectBase
 
     bool isAnySensor()
     {
-        if (this.inputSensor is NoAllBinarySensor::getInstance()) {
+        if (this.inputSensor_SensorGameUpdateProcessor is NoAllBinarySensor::getInstance()) {
             return false;
         } else {
             return true;

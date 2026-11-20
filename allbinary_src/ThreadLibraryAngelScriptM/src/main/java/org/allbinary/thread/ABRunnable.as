@@ -17,12 +17,12 @@
 
 class ABRunnable : JObjectBase, RunnableInterface
 {
-    bool running;
+    bool running_ABRunnable;
 
     // Java field initializers run after the super constructor
     void jfields_ABRunnable()
     {
-    this.running = false;
+    this.running_ABRunnable = false;
     }
 
     ABRunnable@ jinit_ABRunnable()
@@ -39,13 +39,13 @@ class ABRunnable : JObjectBase, RunnableInterface
 
     bool isRunning()
     {
-        return this.running;
+        return this.running_ABRunnable;
     }
     
 
     void setRunning(bool running)
     {
-        this.running = running;
+        this.running_ABRunnable = running;
     }
     
 

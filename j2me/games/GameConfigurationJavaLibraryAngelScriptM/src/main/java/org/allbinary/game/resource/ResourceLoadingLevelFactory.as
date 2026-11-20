@@ -23,7 +23,7 @@ class ResourceLoadingLevelFactory : JObjectBase
     ResourceLoadingLevel@ LEVEL;
     ResourceLoadingLevel@ MAX_LEVEL;
     ResourceLoadingLevel@ LOAD_ALL;
-    ResourceLoadingLevel@[]@ RESOURCE_LOADING_LEVEL_ARRAY;
+    ResourceLoadingLevel@[]@ RESOURCE_LOADING_LEVEL_ARRAY_ResourceLoadingLevelFactory;
 
     // Java field initializers run after the super constructor
     void jfields_ResourceLoadingLevelFactory()
@@ -34,7 +34,7 @@ class ResourceLoadingLevelFactory : JObjectBase
     @this.LEVEL = ResourceLoadingLevel().jinit_ResourceLoadingLevel("Level", Integer::MAX_VALUE - 99);
     @this.MAX_LEVEL = ResourceLoadingLevel().jinit_ResourceLoadingLevel("Max Level", Integer::MAX_VALUE - 100);
     @this.LOAD_ALL = ResourceLoadingLevel().jinit_ResourceLoadingLevel("Load All", -1);
-    @this.RESOURCE_LOADING_LEVEL_ARRAY = array<ResourceLoadingLevel@> = {this.LOAD_ALL, this.MAX_LEVEL, this.LEVEL, this.LOAD_GAME, this.LOAD_TOUCH, this.LOAD_EARLY};
+    @this.RESOURCE_LOADING_LEVEL_ARRAY_ResourceLoadingLevelFactory = array<ResourceLoadingLevel@> = {this.LOAD_ALL, this.MAX_LEVEL, this.LEVEL, this.LOAD_GAME, this.LOAD_TOUCH, this.LOAD_EARLY};
     }
 
     ResourceLoadingLevelFactory@ jinit_ResourceLoadingLevelFactory()
@@ -46,9 +46,9 @@ class ResourceLoadingLevelFactory : JObjectBase
 
     string getLevelString(int level)
     {
-        for (int index = 0; index < int(this.RESOURCE_LOADING_LEVEL_ARRAY.length()); index++) {
-            if (level == this.RESOURCE_LOADING_LEVEL_ARRAY[index].getLevel()) {
-                return this.RESOURCE_LOADING_LEVEL_ARRAY[index].getName();
+        for (int index = 0; index < int(this.RESOURCE_LOADING_LEVEL_ARRAY_ResourceLoadingLevelFactory.length()); index++) {
+            if (level == this.RESOURCE_LOADING_LEVEL_ARRAY_ResourceLoadingLevelFactory[index].getLevel()) {
+                return this.RESOURCE_LOADING_LEVEL_ARRAY_ResourceLoadingLevelFactory[index].getName();
             }
         }
         return Integer::toString(level);

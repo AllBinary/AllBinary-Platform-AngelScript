@@ -19,14 +19,14 @@ class AllBinarySensorManager : JObjectBase
 {
     string ORIENTATION_SENSOR_INPUT;
     string ORIENTATION_TYPE;
-    BasicArrayList@ list;
+    BasicArrayList@ list_AllBinarySensorManager;
 
     // Java field initializers run after the super constructor
     void jfields_AllBinarySensorManager()
     {
     this.ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
     this.ORIENTATION_TYPE = "Orientation Type";
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_AllBinarySensorManager = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
@@ -44,7 +44,7 @@ class AllBinarySensorManager : JObjectBase
 
     BasicArrayList@ getSensorNamesList()
     {
-        return this.list;
+        return this.list_AllBinarySensorManager;
     }
     
 

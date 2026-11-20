@@ -17,12 +17,12 @@
 
 class BasicColor : JObjectBase
 {
-    string name;
-    int value;
-    float redComponent;
-    float greenComponent;
-    float blueComponent;
-    float alphaComponent;
+    string name_BasicColor;
+    int value_BasicColor;
+    float redComponent_BasicColor;
+    float greenComponent_BasicColor;
+    float blueComponent_BasicColor;
+    float alphaComponent_BasicColor;
     int16 red;
     int16 green;
     int16 blue;
@@ -31,7 +31,7 @@ class BasicColor : JObjectBase
 
     BasicColor@ jinit_BasicColor(int alphaValue, int value, string name)
     {
-        this.name = name;
+        this.name_BasicColor = name;
         int tempValue = 0;
         BasicColorUtil@ basicColorUtil = BasicColorUtil::getInstance();
         if (basicColorUtil.isAlpha) {
@@ -45,30 +45,30 @@ class BasicColor : JObjectBase
         }
         int alphaInt = ((tempValue >>> 24) & 255);
         this.alpha = int16(alphaInt);
-        this.alphaComponent = (float(alphaInt)) / 255.0f;
+        this.alphaComponent_BasicColor = (float(alphaInt)) / 255.0f;
         int redInt = ((tempValue >>> 16) & 255);
         this.red = int16(redInt);
-        this.redComponent = (float(redInt)) / 255.0f;
+        this.redComponent_BasicColor = (float(redInt)) / 255.0f;
         int greenInt = ((tempValue >>> 8) & 255);
         this.green = int16(greenInt);
-        this.greenComponent = (float(greenInt)) / 255.0f;
+        this.greenComponent_BasicColor = (float(greenInt)) / 255.0f;
         int blueInt = ((tempValue) & 255);
         this.blue = int16(blueInt);
-        this.blueComponent = (float(blueInt)) / 255.0f;
-        this.value = tempValue;
+        this.blueComponent_BasicColor = (float(blueInt)) / 255.0f;
+        this.value_BasicColor = tempValue;
         return this;
     }
     
 
     int intValue()
     {
-        return this.value;
+        return this.value_BasicColor;
     }
     
 
     int toInt()
     {
-        return this.value;
+        return this.value_BasicColor;
     }
     
 
@@ -85,38 +85,38 @@ class BasicColor : JObjectBase
         stringBuffer.append(" Blue: ");
         stringBuffer.appendshort(this.blue);
         stringBuffer.append(" Value: ");
-        stringBuffer.appendint(this.value);
+        stringBuffer.appendint(this.value_BasicColor);
         return stringBuffer.toString();
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_BasicColor;
     }
     
 
     float getRedComponent()
     {
-        return this.redComponent;
+        return this.redComponent_BasicColor;
     }
     
 
     float getGreenComponent()
     {
-        return this.greenComponent;
+        return this.greenComponent_BasicColor;
     }
     
 
     float getBlueComponent()
     {
-        return this.blueComponent;
+        return this.blueComponent_BasicColor;
     }
     
 
     float getAlphaComponent()
     {
-        return this.alphaComponent;
+        return this.alphaComponent_BasicColor;
     }
 }
 

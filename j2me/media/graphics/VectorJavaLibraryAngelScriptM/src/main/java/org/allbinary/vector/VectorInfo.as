@@ -17,67 +17,67 @@
 
 class VectorInfo : JObjectBase
 {
-    int width;
-    int height;
-    int[]@[]@ points;
-    int totalFrames;
+    int width_VectorInfo;
+    int height_VectorInfo;
+    int[]@[]@ points_VectorInfo;
+    int totalFrames_VectorInfo;
     
 
     VectorInfo@ jinit_VectorInfo(int width, int height, int[]@[]@ points, int totalFrames)
     {
-        this.width = width;
-        this.height = height;
-        @this.points = points;
-        this.totalFrames = totalFrames;
+        this.width_VectorInfo = width;
+        this.height_VectorInfo = height;
+        @this.points_VectorInfo = points;
+        this.totalFrames_VectorInfo = totalFrames;
         return this;
     }
     
 
     int getWidth()
     {
-        return this.width;
+        return this.width_VectorInfo;
     }
     
 
     void setWidth(int width)
     {
-        this.width = width;
+        this.width_VectorInfo = width;
     }
     
 
     int getHeight()
     {
-        return this.height;
+        return this.height_VectorInfo;
     }
     
 
     void setHeight(int height)
     {
-        this.height = height;
+        this.height_VectorInfo = height;
     }
     
 
     int[]@[]@ getPoints()
     {
-        return this.points;
+        return this.points_VectorInfo;
     }
     
 
     void setPoints(int[]@[]@ points)
     {
-        @this.points = points;
+        @this.points_VectorInfo = points;
     }
     
 
     int getTotalFrames()
     {
-        return this.totalFrames;
+        return this.totalFrames_VectorInfo;
     }
     
 
     void setTotalFrames(int totalFrames)
     {
-        this.totalFrames = totalFrames;
+        this.totalFrames_VectorInfo = totalFrames;
     }
 }
 

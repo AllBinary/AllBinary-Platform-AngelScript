@@ -108,7 +108,7 @@ class GroupLayerManagerListener : LayerManagerEventListener
         Group@ groupInterface;
         int groupId = 0;
         for (int index = size - 1; index >= 0; index--) {
-            @groupInterfaceArray = jarrayOf_Group(excludeGroupList.objectArray[index]);
+            @groupInterfaceArray = cast<array<Group@>>(jrefOf(excludeGroupList.objectArray[index]));
             int size2 = int(groupInterfaceArray.length());
             for (int index2 = 0; index2 < size2; index2++) {
                 @groupInterface = groupInterfaceArray[index2];

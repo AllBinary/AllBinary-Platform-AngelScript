@@ -17,75 +17,75 @@
 
 class ImageArrayRotationAnimationInfo : JObjectBase
 {
-    Image@[]@ imageArray;
-    int angleIncrement;
-    int totalAngle;
-    int dx;
-    int dy;
+    Image@[]@ imageArray_ImageArrayRotationAnimationInfo;
+    int angleIncrement_ImageArrayRotationAnimationInfo;
+    int totalAngle_ImageArrayRotationAnimationInfo;
+    int dx_ImageArrayRotationAnimationInfo;
+    int dy_ImageArrayRotationAnimationInfo;
     
 
     ImageArrayRotationAnimationInfo@ jinit_ImageArrayRotationAnimationInfo(Image@[]@ imageArray, int angleIncrement, int totalAngle, int dx, int dy)
     {
-        @this.imageArray = imageArray;
-        this.angleIncrement = angleIncrement;
-        this.totalAngle = totalAngle;
-        this.dx = dx;
-        this.dy = dy;
+        @this.imageArray_ImageArrayRotationAnimationInfo = imageArray;
+        this.angleIncrement_ImageArrayRotationAnimationInfo = angleIncrement;
+        this.totalAngle_ImageArrayRotationAnimationInfo = totalAngle;
+        this.dx_ImageArrayRotationAnimationInfo = dx;
+        this.dy_ImageArrayRotationAnimationInfo = dy;
         return this;
     }
     
 
     void setImageArray(Image@[]@ imageArray)
     {
-        @this.imageArray = imageArray;
+        @this.imageArray_ImageArrayRotationAnimationInfo = imageArray;
     }
     
 
     Image@[]@ getImageArray()
     {
-        return this.imageArray;
+        return this.imageArray_ImageArrayRotationAnimationInfo;
     }
     
 
     AngleInfo@ getAngleInfoP()
     {
-        return AngleInfo::getInstance(int16(this.angleIncrement));
+        return AngleInfo::getInstance(int16(this.angleIncrement_ImageArrayRotationAnimationInfo));
     }
     
 
     void setTotalAngle(int totalAngle)
     {
-        this.totalAngle = totalAngle;
+        this.totalAngle_ImageArrayRotationAnimationInfo = totalAngle;
     }
     
 
     int getTotalAngle()
     {
-        return this.totalAngle;
+        return this.totalAngle_ImageArrayRotationAnimationInfo;
     }
     
 
     void setDx(int dx)
     {
-        this.dx = dx;
+        this.dx_ImageArrayRotationAnimationInfo = dx;
     }
     
 
     int getDx()
     {
-        return this.dx;
+        return this.dx_ImageArrayRotationAnimationInfo;
     }
     
 
     void setDy(int dy)
     {
-        this.dy = dy;
+        this.dy_ImageArrayRotationAnimationInfo = dy;
     }
     
 
     int getDy()
     {
-        return this.dy;
+        return this.dy_ImageArrayRotationAnimationInfo;
     }
 }
 

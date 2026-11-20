@@ -3,19 +3,19 @@
 
 class XmlRpcClient : JObjectBase, XmlRpcHandler
 {
-    URL@ url;
+    URL@ url_XmlRpcClient;
     
 
     XmlRpcClient@ jinit_XmlRpcClient(string url)
     {
-        this.url = URL().jinit_URL(url);
+        this.url_XmlRpcClient = URL().jinit_URL(url);
         return this;
     }
     
 
     URL@ getURL()
     {
-        return this.url;
+        return this.url_XmlRpcClient;
     }
     
 

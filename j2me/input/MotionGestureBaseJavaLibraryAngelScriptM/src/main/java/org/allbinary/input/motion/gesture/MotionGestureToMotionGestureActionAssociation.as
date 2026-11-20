@@ -17,50 +17,50 @@
 
 class MotionGestureToMotionGestureActionAssociation : JObjectBase
 {
-    BasicArrayList@ list;
-    CompleteMotionGestureInputEvent@ motionGestureAction;
+    BasicArrayList@ list_MotionGestureToMotionGestureActionAssociation;
+    CompleteMotionGestureInputEvent@ motionGestureAction_MotionGestureToMotionGestureActionAssociation;
     
 
     MotionGestureToMotionGestureActionAssociation@ jinit_MotionGestureToMotionGestureActionAssociation(BasicArrayList@ list, CompleteMotionGestureInputEvent@ commandAction)
     {
-        @this.list = list;
-        @this.motionGestureAction = commandAction;
+        @this.list_MotionGestureToMotionGestureActionAssociation = list;
+        @this.motionGestureAction_MotionGestureToMotionGestureActionAssociation = commandAction;
         return this;
     }
     
 
     BasicArrayList@ getMotionGesture()
     {
-        return this.list;
+        return this.list_MotionGestureToMotionGestureActionAssociation;
     }
     
 
     void setMotionGestures(BasicArrayList@ list)
     {
-        @this.list = list;
+        @this.list_MotionGestureToMotionGestureActionAssociation = list;
     }
     
 
     CompleteMotionGestureInputEvent@ getCommandAction()
     {
-        return this.motionGestureAction;
+        return this.motionGestureAction_MotionGestureToMotionGestureActionAssociation;
     }
     
 
     void setMotionGestureAction(CompleteMotionGestureInputEvent@ commandAction)
     {
-        @this.motionGestureAction = commandAction;
+        @this.motionGestureAction_MotionGestureToMotionGestureActionAssociation = commandAction;
     }
     
 
     bool isMotionGestureArrayEquals(BasicArrayList@ aList)
     {
         int size = aList.size();
-        if (this.list.size() != size) {
+        if (this.list_MotionGestureToMotionGestureActionAssociation.size() != size) {
             return false;
         }
         for (int i = size - 1; i >= 0; i--) {
-            if (aList.objectArray[i] != this.list.objectArray[i]) {
+            if (aList.objectArray[i] !is this.list_MotionGestureToMotionGestureActionAssociation.objectArray[i]) {
                 return false;
             }
         }

@@ -17,12 +17,12 @@
 
 class GameFeatureChoiceGroups : JObjectBase
 {
-    ABHashtable@ hashtable;
+    ABHashtable@ hashtable_GameFeatureChoiceGroups;
 
     // Java field initializers run after the super constructor
     void jfields_GameFeatureChoiceGroups()
     {
-    @this.hashtable = StdUtil::getInstance().createHashtable();
+    @this.hashtable_GameFeatureChoiceGroups = StdUtil::getInstance().createHashtable();
     }
     
 
@@ -35,13 +35,13 @@ class GameFeatureChoiceGroups : JObjectBase
 
     ABHashtable@ get()
     {
-        return this.hashtable;
+        return this.hashtable_GameFeatureChoiceGroups;
     }
     
 
     void add(string name, BasicArrayList@ list)
     {
-        this.hashtable.put(name, list);
+        this.hashtable_GameFeatureChoiceGroups.put(name, list);
     }
 }
 

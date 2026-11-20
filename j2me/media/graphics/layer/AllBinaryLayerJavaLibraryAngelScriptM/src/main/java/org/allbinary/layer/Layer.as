@@ -21,9 +21,9 @@ class ABLayer : JObjectBase
     int x;
     int y;
     int z;
-    int width;
-    int height;
-    bool visible;
+    int width_Layer;
+    int height_Layer;
+    bool visible_Layer;
 
     // Java field initializers run after the super constructor
     void jfields_ABLayer()
@@ -34,7 +34,7 @@ class ABLayer : JObjectBase
     this.z = 3;
     
     
-    this.visible = true;
+    this.visible_Layer = true;
     }
     
 
@@ -90,13 +90,13 @@ class ABLayer : JObjectBase
 
     int getWidth()
     {
-        return this.width;
+        return this.width_Layer;
     }
     
 
     int getHeight()
     {
-        return this.height;
+        return this.height_Layer;
     }
     
 
@@ -108,13 +108,13 @@ class ABLayer : JObjectBase
 
     void setVisible(bool visible)
     {
-        this.visible = visible;
+        this.visible_Layer = visible;
     }
     
 
     bool isVisible()
     {
-        return this.visible;
+        return this.visible_Layer;
     }
     
 
@@ -131,7 +131,7 @@ class ABLayer : JObjectBase
         if (width < 0) {
             jthrow(IllegalArgumentException().jinit_IllegalArgumentException());
         }
-        this.width = width;
+        this.width_Layer = width;
     }
     
 
@@ -140,7 +140,7 @@ class ABLayer : JObjectBase
         if (height < 0) {
             jthrow(IllegalArgumentException().jinit_IllegalArgumentException());
         }
-        this.height = height;
+        this.height_Layer = height;
     }
     
 

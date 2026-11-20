@@ -17,12 +17,12 @@
 
 class AndroidInfoFactory : JObjectBase
 {
-    int version;
+    int version_AndroidInfoFactory;
 
     // Java field initializers run after the super constructor
     void jfields_AndroidInfoFactory()
     {
-    this.version = 8;
+    this.version_AndroidInfoFactory = 8;
     }
 
     AndroidInfoFactory@ jinit_AndroidInfoFactory()
@@ -34,7 +34,7 @@ class AndroidInfoFactory : JObjectBase
 
     int getVersion()
     {
-        return this.version;
+        return this.version_AndroidInfoFactory;
     }
 }
 

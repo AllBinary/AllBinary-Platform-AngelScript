@@ -19,16 +19,16 @@ class InputMapping : JObjectBase
 {
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
-    ABHashtable@ hashtable;
-    BasicArrayList@ mappedList;
+    ABHashtable@ hashtable_InputMapping;
+    BasicArrayList@ mappedList_InputMapping;
 
     // Java field initializers run after the super constructor
     void jfields_InputMapping()
     {
     @this.logUtil = LogUtil::getInstance();
     @this.commonStrings = CommonStrings::getInstance();
-    @this.hashtable = StdUtil::getInstance().createHashtable();
-    @this.mappedList = BasicArrayListD().jinit_BasicArrayListD();
+    @this.hashtable_InputMapping = StdUtil::getInstance().createHashtable();
+    @this.mappedList_InputMapping = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
@@ -41,7 +41,7 @@ class InputMapping : JObjectBase
 
     int getTotalMapped()
     {
-        return this.hashtable.size();
+        return this.hashtable_InputMapping.size();
     }
     
 
@@ -59,8 +59,8 @@ class InputMapping : JObjectBase
 
     void removeAll()
     {
-        this.hashtable.clear();
-        this.mappedList.clear();
+        this.hashtable_InputMapping.clear();
+        this.mappedList_InputMapping.clear();
     }
     
 
@@ -76,7 +76,7 @@ class InputMapping : JObjectBase
         BasicArrayList@ list = this.getMappedInput(input);
         if (list.contains(mappedToInput)) {
             list.remove(mappedToInput);
-            this.mappedList.remove(mappedToInput);
+            this.mappedList_InputMapping.remove(mappedToInput);
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append("Removed: ");
             stringBuffer.append(stringUtil.toString(input));
@@ -105,23 +105,23 @@ class InputMapping : JObjectBase
         BasicArrayList@ list = this.getMappedInput(input);
         if (!list.contains(mappedToInput)) {
             list.add(mappedToInput);
-            this.mappedList.add(mappedToInput);
+            this.mappedList_InputMapping.add(mappedToInput);
         }
     }
     
 
     bool isMapped(Input@ input)
     {
-        return this.mappedList.contains(input);
+        return this.mappedList_InputMapping.contains(input);
     }
     
 
     BasicArrayList@ getMappedInput(Input@ id)
     {
-        JObject@ mappingInputCanBeNullList = this.hashtable.get(id);
+        JObject@ mappingInputCanBeNullList = this.hashtable_InputMapping.get(id);
         if (mappingInputCanBeNullList is null) {
             BasicArrayList@ list = BasicArrayListD().jinit_BasicArrayListD();
-            this.hashtable.put(id, list);
+            this.hashtable_InputMapping.put(id, list);
             return list;
         }
         return cast<BasicArrayList>(mappingInputCanBeNullList);
@@ -130,7 +130,7 @@ class InputMapping : JObjectBase
 
     ABHashtable@ getHashtable()
     {
-        return this.hashtable;
+        return this.hashtable_InputMapping;
     }
 }
 

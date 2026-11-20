@@ -17,20 +17,20 @@
 
 class AnimationFactorySpriteScaleUtil : JObjectBase
 {
-    ImageCache@ imageCache;
-    ImageScaleUtil@ imageScaleUtil;
-    OpenGLUtil@ openGLUtil;
-    J2SEMath@ j2seMath;
-    OpenGLESImageExclusionUtil@ openGLESImageExclusionUtil;
+    ImageCache@ imageCache_AnimationFactorySpriteScaleUtil;
+    ImageScaleUtil@ imageScaleUtil_AnimationFactorySpriteScaleUtil;
+    OpenGLUtil@ openGLUtil_AnimationFactorySpriteScaleUtil;
+    J2SEMath@ j2seMath_AnimationFactorySpriteScaleUtil;
+    OpenGLESImageExclusionUtil@ openGLESImageExclusionUtil_AnimationFactorySpriteScaleUtil;
 
     // Java field initializers run after the super constructor
     void jfields_AnimationFactorySpriteScaleUtil()
     {
-    @this.imageCache = ImageCacheFactory::getInstance();
-    @this.imageScaleUtil = ImageScaleUtil::getInstance();
-    @this.openGLUtil = OpenGLUtil::getInstance();
-    @this.j2seMath = J2SEMath::getInstance();
-    @this.openGLESImageExclusionUtil = OpenGLESImageExclusionUtil::getInstance();
+    @this.imageCache_AnimationFactorySpriteScaleUtil = ImageCacheFactory::getInstance();
+    @this.imageScaleUtil_AnimationFactorySpriteScaleUtil = ImageScaleUtil::getInstance();
+    @this.openGLUtil_AnimationFactorySpriteScaleUtil = OpenGLUtil::getInstance();
+    @this.j2seMath_AnimationFactorySpriteScaleUtil = J2SEMath::getInstance();
+    @this.openGLESImageExclusionUtil_AnimationFactorySpriteScaleUtil = OpenGLESImageExclusionUtil::getInstance();
     }
 
     AnimationFactorySpriteScaleUtil@ jinit_AnimationFactorySpriteScaleUtil()
@@ -49,12 +49,12 @@ class AnimationFactorySpriteScaleUtil : JObjectBase
             float scaleX = (float(scaleWidth)) / (float(width));
             float scaleY = (float(scaleHeight)) / (float(height));
             if ((scaleX == 1.0f && scaleY == 1.0f) || (scaleX == 0.0f || scaleY == 0.0f)) {
-                @scaledImage = this.openGLUtil.addImage(image);
+                @scaledImage = this.openGLUtil_AnimationFactorySpriteScaleUtil.addImage(image);
                 @sprite = spriteFactory.createSprite(scaledImage, width, height);
             } else {
-                if (this.openGLESImageExclusionUtil.isCustomScaling(image)) {
-                    int width2 = this.j2seMath.round(float((scaleWidth)) - 0.5f);
-                    int height2 = this.j2seMath.round(float((scaleHeight)) - 0.5f);
+                if (this.openGLESImageExclusionUtil_AnimationFactorySpriteScaleUtil.isCustomScaling(image)) {
+                    int width2 = this.j2seMath_AnimationFactorySpriteScaleUtil.round(float((scaleWidth)) - 0.5f);
+                    int height2 = this.j2seMath_AnimationFactorySpriteScaleUtil.round(float((scaleHeight)) - 0.5f);
                     int multiplesOf16Width = width2 / 16;
                     int by16Width = multiplesOf16Width * 16;
                     scaleX = (float(by16Width)) / float(width);
@@ -68,11 +68,11 @@ class AnimationFactorySpriteScaleUtil : JObjectBase
                         scaleY = scaleY * 2.35f;
                     }
                 }
-                @scaledImage = this.imageScaleUtil.createImage2(this.imageCache, image, scaleX, 1.0f, scaleY, 1.0f, true);
+                @scaledImage = this.imageScaleUtil_AnimationFactorySpriteScaleUtil.createImage2(this.imageCache_AnimationFactorySpriteScaleUtil, image, scaleX, 1.0f, scaleY, 1.0f, true);
                 @sprite = spriteFactory.createSprite(scaledImage, int(jdoubleToInt((float(width) * scaleX))), int(jdoubleToInt((float(height) * scaleY))));
             }
         } else {
-            @scaledImage = this.openGLUtil.addImage(image);
+            @scaledImage = this.openGLUtil_AnimationFactorySpriteScaleUtil.addImage(image);
             @sprite = spriteFactory.createSprite(scaledImage, width, height);
         }
         return sprite;

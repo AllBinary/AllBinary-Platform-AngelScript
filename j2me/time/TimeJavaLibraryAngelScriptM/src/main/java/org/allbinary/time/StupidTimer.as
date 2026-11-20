@@ -6,7 +6,7 @@ class StupidTimer : JObjectBase
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
     NullUtil@ nullUtil;
-    ThreadObjectUtil@ threadObjectUtil;
+    ThreadObjectUtil@ threadObjectUtil_StupidTimer;
 
     // Java field initializers run after the super constructor
     void jfields_StupidTimer()
@@ -14,7 +14,7 @@ class StupidTimer : JObjectBase
     @this.logUtil = LogUtil::getInstance();
     @this.commonStrings = CommonStrings::getInstance();
     @this.nullUtil = NullUtil::getInstance();
-    @this.threadObjectUtil = ThreadObjectUtil::getInstance();
+    @this.threadObjectUtil_StupidTimer = ThreadObjectUtil::getInstance();
     }
 
     StupidTimer@ jinit_StupidTimer()
@@ -44,7 +44,7 @@ class StupidTimer : JObjectBase
             }
             index++;
             {
-                this.threadObjectUtil.waitObjectFor(this, 1800);
+                this.threadObjectUtil_StupidTimer.waitObjectFor(this, 1800);
             }
             if (timeDelayHelper.isTimeTNT()) {
                 tookTooLong = true;
@@ -62,7 +62,7 @@ class StupidTimer : JObjectBase
     void stopWaiting()
     {
         {
-            this.threadObjectUtil.notifyObject(this);
+            this.threadObjectUtil_StupidTimer.notifyObject(this);
         }
     }
 }

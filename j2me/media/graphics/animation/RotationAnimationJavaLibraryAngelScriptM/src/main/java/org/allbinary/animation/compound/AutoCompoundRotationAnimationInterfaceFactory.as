@@ -28,13 +28,25 @@ class AutoCompoundRotationAnimationInterfaceFactory : CompoundAnimationInterface
 
     Animation@[]@ createArray(int size)
     {
-        return array<RotationAnimation@>(size);
+        return array<Animation@>(size);
     }
     
 
     Animation@ createAnimation(Animation@[]@ animationInterfaceArray)
     {
-        return AutoCompoundRotationAnimation().jinit_AutoCompoundRotationAnimation(jarrayOf_RotationAnimation(animationInterfaceArray), this.animationBehaviorFactory.getOrCreateInstance());
+        return AutoCompoundRotationAnimation().jinit_AutoCompoundRotationAnimation(AutoCompoundRotationAnimationInterfaceFactory::jarrayCast_RotationAnimation_Animation(animationInterfaceArray), this.animationBehaviorFactory.getOrCreateInstance());
+    }
+}
+
+namespace AutoCompoundRotationAnimationInterfaceFactory
+{
+
+    RotationAnimation@[]@ jarrayCast_RotationAnimation_Animation(Animation@[]@ source)
+    {
+        if (source is null) { return null; }
+        RotationAnimation@[]@ result = array<RotationAnimation@>(source.length());
+        for (uint i = 0; i < source.length(); i++) { @result[i] = cast<RotationAnimation>(source[i]); }
+        return result;
     }
 }
 

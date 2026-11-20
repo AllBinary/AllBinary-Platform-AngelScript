@@ -17,12 +17,12 @@
 
 class LockableFeatureFactory : JObjectBase
 {
-    BasicArrayList@ list;
+    BasicArrayList@ list_LockableFeatureFactory;
 
     // Java field initializers run after the super constructor
     void jfields_LockableFeatureFactory()
     {
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_LockableFeatureFactory = BasicArrayListD().jinit_BasicArrayListD();
     }
 
     LockableFeatureFactory@ jinit_LockableFeatureFactory()
@@ -34,7 +34,7 @@ class LockableFeatureFactory : JObjectBase
 
     BasicArrayList@ getList()
     {
-        return this.list;
+        return this.list_LockableFeatureFactory;
     }
 }
 

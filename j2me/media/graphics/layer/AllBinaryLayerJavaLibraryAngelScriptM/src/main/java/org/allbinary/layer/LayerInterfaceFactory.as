@@ -18,15 +18,15 @@
 class LayerInterfaceFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    BasicArrayList@ list;
-    string HASHTABLE_LABEL;
+    BasicArrayList@ list_LayerInterfaceFactory;
+    string HASHTABLE_LABEL_LayerInterfaceFactory;
 
     // Java field initializers run after the super constructor
     void jfields_LayerInterfaceFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.list = BasicArrayListUtil::getInstance().getImmutableInstance();
-    this.HASHTABLE_LABEL = "Hashtable: ";
+    @this.list_LayerInterfaceFactory = BasicArrayListUtil::getInstance().getImmutableInstance();
+    this.HASHTABLE_LABEL_LayerInterfaceFactory = "Hashtable: ";
     }
 
     LayerInterfaceFactory@ jinit_LayerInterfaceFactory()
@@ -38,23 +38,23 @@ class LayerInterfaceFactory : JObjectBase
 
     void init()
     {
-        @this.list = BasicArrayListD().jinit_BasicArrayListD();
+        @this.list_LayerInterfaceFactory = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
     AllBinaryLayer@ getNexInstance(ABHashtable@ hashtable, int x, int y, int z)
     {
         CommonStrings@ commonStrings = CommonStrings::getInstance();
-        this.logUtil.putF(StringMaker().jinit_StringMaker().append(this.HASHTABLE_LABEL).append(StringUtil::getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
+        this.logUtil.putF(StringMaker().jinit_StringMaker().append(this.HASHTABLE_LABEL_LayerInterfaceFactory).append(StringUtil::getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
         JInteger@ typeInteger = cast<JInteger>(hashtable.get(ABLayer::ID));
-        LayerInterfaceFactoryInterface@ layerInterfaceFactoryInterface = cast<LayerInterfaceFactoryInterface>(this.list.objectArray[typeInteger.intValue() - 1]);
+        LayerInterfaceFactoryInterface@ layerInterfaceFactoryInterface = cast<LayerInterfaceFactoryInterface>(this.list_LayerInterfaceFactory.objectArray[typeInteger.intValue() - 1]);
         return layerInterfaceFactoryInterface.getNextInstance(hashtable, x, y, z);
     }
     
 
     void add(LayerInterfaceFactoryInterface@ layerInterfaceFactoryInterface)
     {
-        this.list.add(layerInterfaceFactoryInterface);
+        this.list_LayerInterfaceFactory.add(layerInterfaceFactoryInterface);
     }
 }
 

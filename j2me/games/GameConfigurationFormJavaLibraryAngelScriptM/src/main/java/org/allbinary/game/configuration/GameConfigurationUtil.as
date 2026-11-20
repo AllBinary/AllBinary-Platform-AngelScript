@@ -18,21 +18,21 @@
 class GameConfigurationUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    string GAUGE_UPDATE;
-    string FROM;
-    string TO;
-    int COMPETITION_VALUE;
+    CommonStrings@ commonStrings_GameConfigurationUtil;
+    string GAUGE_UPDATE_GameConfigurationUtil;
+    string FROM_GameConfigurationUtil;
+    string TO_GameConfigurationUtil;
+    int COMPETITION_VALUE_GameConfigurationUtil;
 
     // Java field initializers run after the super constructor
     void jfields_GameConfigurationUtil()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    this.GAUGE_UPDATE = "Gauge Update: ";
-    this.FROM = " from: ";
-    this.TO = " to: ";
-    this.COMPETITION_VALUE = 1;
+    @this.commonStrings_GameConfigurationUtil = CommonStrings::getInstance();
+    this.GAUGE_UPDATE_GameConfigurationUtil = "Gauge Update: ";
+    this.FROM_GameConfigurationUtil = " from: ";
+    this.TO_GameConfigurationUtil = " to: ";
+    this.COMPETITION_VALUE_GameConfigurationUtil = 1;
     }
 
     GameConfigurationUtil@ jinit_GameConfigurationUtil()
@@ -58,13 +58,13 @@ class GameConfigurationUtil : JObjectBase
         SmallIntegerSingletonFactory@ smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();
         JInteger@ value = smallIntegerSingletonFactory.getAt(gauge.getValue() + gameConfiguration.getMinValue().intValue());
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
-        stringBuffer.append(this.GAUGE_UPDATE);
+        stringBuffer.append(this.GAUGE_UPDATE_GameConfigurationUtil);
         stringBuffer.append(gameConfiguration.getName());
-        stringBuffer.append(this.FROM);
+        stringBuffer.append(this.FROM_GameConfigurationUtil);
         stringBuffer.appendint(int(gameConfiguration.getValue().intValue()));
-        stringBuffer.append(this.TO);
+        stringBuffer.append(this.TO_GameConfigurationUtil);
         stringBuffer.appendint(int(value.intValue()));
-        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.UPDATE);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings_GameConfigurationUtil.UPDATE);
         gameConfiguration.setValue(value);
     }
     
@@ -76,7 +76,7 @@ class GameConfigurationUtil : JObjectBase
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         stringBuffer.append("Gauge Default: ");
         stringBuffer.append(gameConfiguration.getName());
-        stringBuffer.append(this.TO);
+        stringBuffer.append(this.TO_GameConfigurationUtil);
         stringBuffer.appendint(int(gameConfiguration.getDefaultValue().intValue()));
         this.logUtil.putF(stringBuffer.toString(), this, "setDefault");
         gauge.setValue(gameConfiguration.getDefaultValue().intValue() - gameConfiguration.getMinValue().intValue());
@@ -89,7 +89,7 @@ class GameConfigurationUtil : JObjectBase
         GameConfigurationSingleton@ gameConfigurationSingleton = GameConfigurationSingleton::getInstance();
         GameConfigurationCentral@ gameConfigurationCentral = GameConfigurationCentral::getInstance();
         if (gameConfiguration is gameConfigurationCentral.CHALLENGE_LEVEL) {
-            this.logUtil.putF(this.commonStrings.START, this, "updateChallange");
+            this.logUtil.putF(this.commonStrings_GameConfigurationUtil.START, this, "updateChallange");
             gameConfigurationCentral.COLLIDE_DAMAGE.setValue(gameConfiguration.getValue());
             gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.setValue(gameConfiguration.getValue());
             gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.setValue(gameConfiguration.getValue());
@@ -118,16 +118,16 @@ class GameConfigurationUtil : JObjectBase
 
     void updateCompetitionValue()
     {
-        this.logUtil.putF(this.commonStrings.START, this, "updateCompetitionValue");
+        this.logUtil.putF(this.commonStrings_GameConfigurationUtil.START, this, "updateCompetitionValue");
         GameConfigurationCentral@ gameConfigurationCentral = GameConfigurationCentral::getInstance();
-        this.COMPETITION_VALUE = gameConfigurationCentral.COLLIDE_DAMAGE.getValue().intValue() + gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.getValue().intValue() + gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.getValue().intValue() + gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.getValue().intValue();
-        this.COMPETITION_VALUE = (this.COMPETITION_VALUE >>> 2);
+        this.COMPETITION_VALUE_GameConfigurationUtil = gameConfigurationCentral.COLLIDE_DAMAGE.getValue().intValue() + gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.getValue().intValue() + gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.getValue().intValue() + gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.getValue().intValue();
+        this.COMPETITION_VALUE_GameConfigurationUtil = (this.COMPETITION_VALUE_GameConfigurationUtil >>> 2);
     }
     
 
     int getCompetitionValue()
     {
-        return this.COMPETITION_VALUE;
+        return this.COMPETITION_VALUE_GameConfigurationUtil;
     }
 }
 

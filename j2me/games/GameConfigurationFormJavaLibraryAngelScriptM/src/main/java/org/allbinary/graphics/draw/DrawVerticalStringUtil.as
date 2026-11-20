@@ -17,20 +17,20 @@
 
 class DrawVerticalStringUtil : JObjectBase
 {
-    string EMPTY_STRING;
-    int anchor;
-    int charHeight;
-    int offsetY;
-    int[]@ offsetXArray;
+    string EMPTY_STRING_DrawVerticalStringUtil;
+    int anchor_DrawVerticalStringUtil;
+    int charHeight_DrawVerticalStringUtil;
+    int offsetY_DrawVerticalStringUtil;
+    int[]@ offsetXArray_DrawVerticalStringUtil;
 
     // Java field initializers run after the super constructor
     void jfields_DrawVerticalStringUtil()
     {
-    this.EMPTY_STRING = StringUtil::getInstance().EMPTY_STRING;
-    this.anchor = Anchor::TOP_LEFT;
+    this.EMPTY_STRING_DrawVerticalStringUtil = StringUtil::getInstance().EMPTY_STRING;
+    this.anchor_DrawVerticalStringUtil = Anchor::TOP_LEFT;
     
     
-    @this.offsetXArray = NullUtil::getInstance().NULL_INT_ARRAY;
+    @this.offsetXArray_DrawVerticalStringUtil = NullUtil::getInstance().NULL_INT_ARRAY;
     }
 
     DrawVerticalStringUtil@ jinit_DrawVerticalStringUtil()
@@ -44,15 +44,15 @@ class DrawVerticalStringUtil : JObjectBase
     {
         OpenGLFeatureUtil@ openGLFeatureUtil = OpenGLFeatureUtil::getInstance();
         Font@ font = graphics.getFont();
-        this.charHeight = font.getHeight();
-        this.offsetY = 0;
+        this.charHeight_DrawVerticalStringUtil = font.getHeight();
+        this.offsetY_DrawVerticalStringUtil = 0;
         if (J2MEUtil::isHTML()) {
-            this.charHeight += 1;
+            this.charHeight_DrawVerticalStringUtil += 1;
         } else if (openGLFeatureUtil.isAnyThreed()) {
-            this.charHeight += 2;
+            this.charHeight_DrawVerticalStringUtil += 2;
             if (AndroidUtil::isAndroid()) {
             } else {
-                this.offsetY = 2 + (this.charHeight * 2 / 3);
+                this.offsetY_DrawVerticalStringUtil = 2 + (this.charHeight_DrawVerticalStringUtil * 2 / 3);
             }
         }
         int size = int(string_.length());
@@ -64,7 +64,7 @@ class DrawVerticalStringUtil : JObjectBase
                 offsetXArray[index] = font.charWidth(aChar) / 2;
             }
         }
-        @this.offsetXArray = offsetXArray;
+        @this.offsetXArray_DrawVerticalStringUtil = offsetXArray;
     }
     
 
@@ -74,7 +74,7 @@ class DrawVerticalStringUtil : JObjectBase
         uint16 aChar = 0;
         for (int index = size - 1; index >= 0; index--) {
             aChar = String::charAt(string_, index);
-            graphics.drawChar(aChar, x + this.offsetXArray[index], y + (this.charHeight * index) + this.offsetY, anchor);
+            graphics.drawChar(aChar, x + this.offsetXArray_DrawVerticalStringUtil[index], y + (this.charHeight_DrawVerticalStringUtil * index) + this.offsetY_DrawVerticalStringUtil, anchor);
         }
     }
     
@@ -83,7 +83,7 @@ class DrawVerticalStringUtil : JObjectBase
     {
         int width = (graphics.getFont().substringWidth(string_, offset, length) >>> 1);
         try {
-            graphics.drawSubstring(string_, offset, length, x - width, y, this.anchor);
+            graphics.drawSubstring(string_, offset, length, x - width, y, this.anchor_DrawVerticalStringUtil);
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
@@ -100,7 +100,7 @@ class DrawVerticalStringUtil : JObjectBase
         int extraLines = 0;
         for (int index = 0; index < int(stringArray.length()); index++) {
             string string_ = stringArray[index];
-            if (string_ != this.EMPTY_STRING) {
+            if (string_ != this.EMPTY_STRING_DrawVerticalStringUtil) {
                 int width = graphics.getFont().stringWidth(string_);
                 int minTotalLines = 1;
                 if (width > maxWidth) {
@@ -122,7 +122,7 @@ class DrawVerticalStringUtil : JObjectBase
                             currentLength = linePortion;
                         }
                     }
-                    this.drawCenterString(graphics, string_, offset, currentLength, x, y + ((index + extraLines++) * this.charHeight));
+                    this.drawCenterString(graphics, string_, offset, currentLength, x, y + ((index + extraLines++) * this.charHeight_DrawVerticalStringUtil));
                     offset = offset + currentLength;
                     currentLength = linePortion;
                 }

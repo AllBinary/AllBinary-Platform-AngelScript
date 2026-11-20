@@ -19,8 +19,8 @@ class GameInput : JObjectBase
 {
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
-    BasicArrayList@ gameKeyEventList;
-    BasicArrayList@ removalGameKeyEventList;
+    BasicArrayList@ gameKeyEventList_GameInput;
+    BasicArrayList@ removalGameKeyEventList_GameInput;
     bool isRemoveDuplicateKeyPresses;
 
     // Java field initializers run after the super constructor
@@ -37,8 +37,8 @@ class GameInput : JObjectBase
     GameInput@ jinit_GameInput(BasicArrayList@ gameKeyEventList, BasicArrayList@ removalGameKeyEventList)
     {
         this.jfields_GameInput();
-        @this.gameKeyEventList = gameKeyEventList;
-        @this.removalGameKeyEventList = removalGameKeyEventList;
+        @this.gameKeyEventList_GameInput = gameKeyEventList;
+        @this.removalGameKeyEventList_GameInput = removalGameKeyEventList;
         this.isRemoveDuplicateKeyPresses = Features::getInstance().isFeature(InputFeatureFactory::getInstance().REMOVE_DUPLICATE_KEY_PRESSES);
         return this;
     }
@@ -46,11 +46,11 @@ class GameInput : JObjectBase
 
     void add(GameKeyEvent@ gameKeyEvent)
     {
-        if (this.isRemoveDuplicateKeyPresses && this.gameKeyEventList.contains(gameKeyEvent)) {
+        if (this.isRemoveDuplicateKeyPresses && this.gameKeyEventList_GameInput.contains(gameKeyEvent)) {
             return;
         }
         if (gameKeyEvent !is null) {
-            this.gameKeyEventList.add(gameKeyEvent);
+            this.gameKeyEventList_GameInput.add(gameKeyEvent);
         } else {
             this.logUtil.putF("Danger Passed Null GameKeyEvent", this, this.commonStrings.ADD);
         }
@@ -59,25 +59,25 @@ class GameInput : JObjectBase
 
     void addForRemoval(GameKeyEvent@ gameKeyEvent)
     {
-        this.removalGameKeyEventList.add(gameKeyEvent);
+        this.removalGameKeyEventList_GameInput.add(gameKeyEvent);
     }
     
 
     bool isForRemoval(GameKeyEvent@ gameKeyEvent)
     {
-        return this.removalGameKeyEventList.contains(gameKeyEvent);
+        return this.removalGameKeyEventList_GameInput.contains(gameKeyEvent);
     }
     
 
     void clear()
     {
-        this.gameKeyEventList.clear();
+        this.gameKeyEventList_GameInput.clear();
     }
     
 
     void removeNonAIInputGameKeyEvents()
     {
-        BasicArrayList@ list = this.gameKeyEventList;
+        BasicArrayList@ list = this.gameKeyEventList_GameInput;
         GameKeyEvent@ gameKeyEvent;
         for (int index = list.size(); --index >= 0; ) {
             @gameKeyEvent = cast<GameKeyEvent>(list.objectArray[index]);
@@ -90,8 +90,8 @@ class GameInput : JObjectBase
 
     void update()
     {
-        BasicArrayList@ removeList = this.removalGameKeyEventList;
-        BasicArrayList@ list = this.gameKeyEventList;
+        BasicArrayList@ removeList = this.removalGameKeyEventList_GameInput;
+        BasicArrayList@ list = this.gameKeyEventList_GameInput;
         int size = removeList.size();
         for (int index = 0; index < size; index++) {
             JObject@ anyType = removeList.objectArray[index];
@@ -107,13 +107,13 @@ class GameInput : JObjectBase
 
     BasicArrayList@ getRemovalGameKeyEventList()
     {
-        return this.removalGameKeyEventList;
+        return this.removalGameKeyEventList_GameInput;
     }
     
 
     BasicArrayList@ getGameKeyEventList()
     {
-        return this.gameKeyEventList;
+        return this.gameKeyEventList_GameInput;
     }
 }
 

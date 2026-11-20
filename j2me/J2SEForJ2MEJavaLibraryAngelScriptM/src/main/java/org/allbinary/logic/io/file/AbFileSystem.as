@@ -18,14 +18,14 @@
 //J2SEForJ2ME
 class AbFileSystem : JObjectBase
 {
-    LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
+    LogUtil@ logUtil_AbFileSystem;
+    CommonStrings@ commonStrings_AbFileSystem;
 
     // Java field initializers run after the super constructor
     void jfields_AbFileSystem()
     {
-    @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
+    @this.logUtil_AbFileSystem = LogUtil::getInstance();
+    @this.commonStrings_AbFileSystem = CommonStrings::getInstance();
     }
 
     AbFileSystem@ jinit_AbFileSystem()
@@ -84,7 +84,7 @@ class AbFileSystem : JObjectBase
                     Throwable@ jex0 = jcatch();
                     if (cast<Exception>(jex0) !is null) {
                         Exception@ e = cast<Exception>(jex0);
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, "readAsString", e);
+            this.logUtil_AbFileSystem.put(this.commonStrings_AbFileSystem.EXCEPTION, this, "readAsString", e);
                     }
                     else { jthrow(jex0); }
                 }
@@ -110,7 +110,7 @@ class AbFileSystem : JObjectBase
             Throwable@ jex1 = jcatch();
             if (cast<Exception>(jex1) !is null) {
                 Exception@ e = cast<Exception>(jex1);
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CLOSE, e);
+            this.logUtil_AbFileSystem.put(this.commonStrings_AbFileSystem.EXCEPTION, this, this.commonStrings_AbFileSystem.CLOSE, e);
             return false;
             }
             else { jthrow(jex1); }

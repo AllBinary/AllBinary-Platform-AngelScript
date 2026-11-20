@@ -18,20 +18,20 @@
 class ReleaseControlledMotionGestureListener : JObjectBase, MotionGestureEventListener
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    MotionGestureInput@ currentMotionGesture;
-    bool isMouseGestureOccurring;
-    BasicArrayList@ motionGestureCollection;
-    CompleteMotionGestureListenerInterface@ signed;
+    CommonStrings@ commonStrings_ReleaseControlledMotionGestureListener;
+    MotionGestureInput@ currentMotionGesture_ReleaseControlledMotionGestureListener;
+    bool isMouseGestureOccurring_ReleaseControlledMotionGestureListener;
+    BasicArrayList@ motionGestureCollection_ReleaseControlledMotionGestureListener;
+    CompleteMotionGestureListenerInterface@ signed_ReleaseControlledMotionGestureListener;
 
     // Java field initializers run after the super constructor
     void jfields_ReleaseControlledMotionGestureListener()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.currentMotionGesture = TouchMotionGestureFactory::getInstance().NO_MOTION;
-    this.isMouseGestureOccurring = false;
-    @this.motionGestureCollection = BasicArrayListD().jinit_BasicArrayListD();
+    @this.commonStrings_ReleaseControlledMotionGestureListener = CommonStrings::getInstance();
+    @this.currentMotionGesture_ReleaseControlledMotionGestureListener = TouchMotionGestureFactory::getInstance().NO_MOTION;
+    this.isMouseGestureOccurring_ReleaseControlledMotionGestureListener = false;
+    @this.motionGestureCollection_ReleaseControlledMotionGestureListener = BasicArrayListD().jinit_BasicArrayListD();
     
     }
     
@@ -39,15 +39,15 @@ class ReleaseControlledMotionGestureListener : JObjectBase, MotionGestureEventLi
     ReleaseControlledMotionGestureListener@ jinit_ReleaseControlledMotionGestureListener(CompleteMotionGestureListenerInterface@ signed)
     {
         this.jfields_ReleaseControlledMotionGestureListener();
-        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
-        @this.signed = signed;
+        this.logUtil.putF(this.commonStrings_ReleaseControlledMotionGestureListener.START, this, this.commonStrings_ReleaseControlledMotionGestureListener.CONSTRUCTOR);
+        @this.signed_ReleaseControlledMotionGestureListener = signed;
         return this;
     }
     
 
     void onEvent(AllBinaryEventObject@ eventObject)
     {
-        ForcedLogUtil::log(this.commonStrings.NOT_IMPLEMENTED, this);
+        ForcedLogUtil::log(this.commonStrings_ReleaseControlledMotionGestureListener.NOT_IMPLEMENTED, this);
     }
     
 
@@ -101,8 +101,8 @@ class ReleaseControlledMotionGestureListener : JObjectBase, MotionGestureEventLi
 
     void onPressedMotionGestureEvent(MotionGestureEvent@ ev)
     {
-        this.isMouseGestureOccurring = true;
-        @this.currentMotionGesture = TouchMotionGestureFactory::getInstance().NO_MOTION;
+        this.isMouseGestureOccurring_ReleaseControlledMotionGestureListener = true;
+        @this.currentMotionGesture_ReleaseControlledMotionGestureListener = TouchMotionGestureFactory::getInstance().NO_MOTION;
         this.onMotionGestureEvent(ev);
     }
     
@@ -115,17 +115,17 @@ class ReleaseControlledMotionGestureListener : JObjectBase, MotionGestureEventLi
     void released(MotionGestureEvent@ ev)
     {
         try {
-            if (this.isMouseGestureOccurring == false) {
+            if (this.isMouseGestureOccurring_ReleaseControlledMotionGestureListener == false) {
                 return;
             }
-            this.isMouseGestureOccurring = false;
-            this.signed.onMotionGestureCompleted(this.motionGestureCollection);
-            this.motionGestureCollection.clear();
+            this.isMouseGestureOccurring_ReleaseControlledMotionGestureListener = false;
+            this.signed_ReleaseControlledMotionGestureListener.onMotionGestureCompleted(this.motionGestureCollection_ReleaseControlledMotionGestureListener);
+            this.motionGestureCollection_ReleaseControlledMotionGestureListener.clear();
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
-            this.logUtil.put(StringMaker().jinit_StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(StringUtil::getInstance().toString(ev.getMotionGesture())).toString(), this, "release", e);
+            this.logUtil.put(StringMaker().jinit_StringMaker().append(this.commonStrings_ReleaseControlledMotionGestureListener.EXCEPTION_LABEL).append(StringUtil::getInstance().toString(ev.getMotionGesture())).toString(), this, "release", e);
             }
             else { jthrow(jex0); }
         }
@@ -134,7 +134,7 @@ class ReleaseControlledMotionGestureListener : JObjectBase, MotionGestureEventLi
 
     void onMotionGestureEvent(MotionGestureEvent@ ev)
     {
-        if (this.isMouseGestureOccurring == false) {
+        if (this.isMouseGestureOccurring_ReleaseControlledMotionGestureListener == false) {
             return;
         }
         MotionGestureInput@ motionGestureInput = ev.getMotionGesture();
@@ -143,9 +143,9 @@ class ReleaseControlledMotionGestureListener : JObjectBase, MotionGestureEventLi
         } else if (motionGestureInput is TouchMotionGestureFactory::getInstance().RELEASED) {
             this.released(ev);
         } else {
-            if (this.currentMotionGesture !is motionGestureInput) {
-                @this.currentMotionGesture = motionGestureInput;
-                this.motionGestureCollection.add(ev.getMotionGesture());
+            if (this.currentMotionGesture_ReleaseControlledMotionGestureListener !is motionGestureInput) {
+                @this.currentMotionGesture_ReleaseControlledMotionGestureListener = motionGestureInput;
+                this.motionGestureCollection_ReleaseControlledMotionGestureListener.add(ev.getMotionGesture());
             }
         }
     }

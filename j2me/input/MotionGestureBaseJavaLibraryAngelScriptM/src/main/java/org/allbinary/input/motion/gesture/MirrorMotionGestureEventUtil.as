@@ -17,19 +17,19 @@
 
 class MirrorMotionGestureEventUtil : JObjectBase
 {
-    MotionEventCircularPool@ motionEventCircularPool;
+    MotionEventCircularPool@ motionEventCircularPool_MirrorMotionGestureEventUtil;
     
 
     MirrorMotionGestureEventUtil@ jinit_MirrorMotionGestureEventUtil()
     {
-        @this.motionEventCircularPool = MotionEventCircularPool::createPool(Integer::MAX_VALUE);
+        @this.motionEventCircularPool_MirrorMotionGestureEventUtil = MotionEventCircularPool::createPool(Integer::MAX_VALUE);
         return this;
     }
     
 
     MotionGestureEvent@ mirrorVerticle(MotionGestureEvent@ motionGestureEvent, int halfWidth)
     {
-        MotionGestureEvent@ event = this.motionEventCircularPool.getInstance(motionGestureEvent.getMotionGesture());
+        MotionGestureEvent@ event = this.motionEventCircularPool_MirrorMotionGestureEventUtil.getInstance(motionGestureEvent.getMotionGesture());
         int previousNewX = this.getNewX(motionGestureEvent.getPreviousPoint().getX(), halfWidth);
         int currentNewX = this.getNewX(motionGestureEvent.getCurrentPoint().getX(), halfWidth);
         PointFactory@ pointFactory = PointFactory::getInstance();

@@ -17,14 +17,14 @@
 
 class HudGraphicsPosition : JObjectBase
 {
-    int anchor;
-    GPoint@ point;
+    int anchor_HudGraphicsPosition;
+    GPoint@ point_HudGraphicsPosition;
 
     // Java field initializers run after the super constructor
     void jfields_HudGraphicsPosition()
     {
     
-    @this.point = PointFactory::getInstance().ZERO_ZERO;
+    @this.point_HudGraphicsPosition = PointFactory::getInstance().ZERO_ZERO;
     }
     
 
@@ -39,25 +39,25 @@ class HudGraphicsPosition : JObjectBase
 
     int getAnchor()
     {
-        return this.anchor;
+        return this.anchor_HudGraphicsPosition;
     }
     
 
     void setAnchor(int anchor)
     {
-        this.anchor = anchor;
+        this.anchor_HudGraphicsPosition = anchor;
     }
     
 
     GPoint@ getPoint()
     {
-        return this.point;
+        return this.point_HudGraphicsPosition;
     }
     
 
     void setPoint(GPoint@ point)
     {
-        @this.point = point;
+        @this.point_HudGraphicsPosition = point;
     }
 }
 

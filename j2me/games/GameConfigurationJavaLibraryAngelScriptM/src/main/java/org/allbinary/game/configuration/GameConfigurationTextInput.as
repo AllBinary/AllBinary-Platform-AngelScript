@@ -17,14 +17,14 @@
 
 class GameConfigurationTextInput : JObjectBase
 {
-    string label;
-    string text;
+    string label_GameConfigurationTextInput;
+    string text_GameConfigurationTextInput;
 
     // Java field initializers run after the super constructor
     void jfields_GameConfigurationTextInput()
     {
-    this.label = StringUtil::getInstance().EMPTY_STRING;
-    this.text = StringUtil::getInstance().EMPTY_STRING;
+    this.label_GameConfigurationTextInput = StringUtil::getInstance().EMPTY_STRING;
+    this.text_GameConfigurationTextInput = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
@@ -40,25 +40,25 @@ class GameConfigurationTextInput : JObjectBase
 
     void setText(string text)
     {
-        this.text = text;
+        this.text_GameConfigurationTextInput = text;
     }
     
 
     string getText()
     {
-        return this.text;
+        return this.text_GameConfigurationTextInput;
     }
     
 
     void setLabel(string label)
     {
-        this.label = label;
+        this.label_GameConfigurationTextInput = label;
     }
     
 
     string getLabel()
     {
-        return this.label;
+        return this.label_GameConfigurationTextInput;
     }
 }
 
@@ -90,7 +90,7 @@ namespace GameConfigurationTextInput
 
     void update(TextField@ textField)
     {
-        JObject@ anyType = textField.getLabel();
+        JObject@ anyType = jbox(textField.getLabel());
         GameConfigurationTextInput@ gameConfigurationTextInput = cast<GameConfigurationTextInput>(GameConfigurationTextInput::hashtable.get(anyType));
         gameConfigurationTextInput.setText(textField.getString());
     }

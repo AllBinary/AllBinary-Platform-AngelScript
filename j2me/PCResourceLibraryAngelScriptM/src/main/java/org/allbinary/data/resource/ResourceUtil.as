@@ -19,15 +19,15 @@
 class ResourceUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    string path;
-    string ext;
+    string path_ResourceUtil;
+    string ext_ResourceUtil;
 
     // Java field initializers run after the super constructor
     void jfields_ResourceUtil()
     {
     @this.logUtil = LogUtil::getInstance();
-    this.path = StringUtil::getInstance().EMPTY_STRING;
-    this.ext = StringUtil::getInstance().EMPTY_STRING;
+    this.path_ResourceUtil = StringUtil::getInstance().EMPTY_STRING;
+    this.ext_ResourceUtil = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
@@ -40,8 +40,8 @@ class ResourceUtil : JObjectBase
 
     void setLoadingPaths(string path, string ext)
     {
-        this.path = path;
-        this.ext = ext;
+        this.path_ResourceUtil = path;
+        this.ext_ResourceUtil = ext;
     }
     
 
@@ -65,7 +65,7 @@ class ResourceUtil : JObjectBase
 
     InputStream@ getResourceAsStreamAtStart(string resource, int startIndex)
     {
-        InputStream@ inputStream = FileInputStream().jinit_FileInputStream(StringMaker().jinit_StringMaker().append(this.path).append(resource).append(this.ext).toString());
+        InputStream@ inputStream = FileInputStream().jinit_FileInputStream(StringMaker().jinit_StringMaker().append(this.path_ResourceUtil).append(resource).append(this.ext_ResourceUtil).toString());
         if (inputStream !is null) {
             int8[]@ byteArray = array<int8>(inputStream.available());
             StreamUtil::getInstance().getByteArray(inputStream, ByteArrayOutputStream().jinit_ByteArrayOutputStream(), byteArray);

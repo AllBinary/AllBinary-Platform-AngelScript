@@ -20,14 +20,14 @@ class AngleFactory : JObjectBase
     LogUtil@ logUtil;
     int16 TOTAL_ANGLE;
     int16 QUARTER_TOTAL_ANGLE;
-    Angle@[]@ angleArray;
-    int16 NEGATIVE_ONE;
+    Angle@[]@ angleArray_AngleFactory;
+    int16 NEGATIVE_ONE_AngleFactory;
     NamedAngle@ NOT_ANGLE;
     NamedAngle@ DOWN;
     NamedAngle@ UP;
     NamedAngle@ LEFT;
     NamedAngle@ RIGHT;
-    FrameUtil@ frameUtil;
+    FrameUtil@ frameUtil_AngleFactory;
 
     // Java field initializers run after the super constructor
     void jfields_AngleFactory()
@@ -35,14 +35,14 @@ class AngleFactory : JObjectBase
     @this.logUtil = LogUtil::getInstance();
     this.TOTAL_ANGLE = 360;
     this.QUARTER_TOTAL_ANGLE = 90;
-    @this.angleArray = array<Angle@>(int(this.TOTAL_ANGLE));
-    this.NEGATIVE_ONE = int16(-1);
-    @this.NOT_ANGLE = NamedAngle().jinit_NamedAngle(this.NEGATIVE_ONE, CommonStrings::getInstance().EMPTY);
+    @this.angleArray_AngleFactory = array<Angle@>(int(this.TOTAL_ANGLE));
+    this.NEGATIVE_ONE_AngleFactory = int16(-1);
+    @this.NOT_ANGLE = NamedAngle().jinit_NamedAngle(this.NEGATIVE_ONE_AngleFactory, CommonStrings::getInstance().EMPTY);
     
     
     
     
-    @this.frameUtil = FrameUtil::getInstance();
+    @this.frameUtil_AngleFactory = FrameUtil::getInstance();
     }
     
 
@@ -50,26 +50,26 @@ class AngleFactory : JObjectBase
     {
         this.jfields_AngleFactory();
         CommonPhoneStrings@ commonPhoneStrings = CommonPhoneStrings::getInstance();
-        int16 total = int16(int(this.angleArray.length()));
+        int16 total = int16(int(this.angleArray_AngleFactory.length()));
         @this.UP = NamedAngle().jinit_NamedAngle(int16(0), commonPhoneStrings.UP);
-        @this.angleArray[0] = this.UP;
+        @this.angleArray_AngleFactory[0] = this.UP;
         for (int index = 1; index < 90; index++) {
-            @this.angleArray[index] = Angle().jinit_Angle(int16(index));
+            @this.angleArray_AngleFactory[index] = Angle().jinit_Angle(int16(index));
         }
         @this.RIGHT = NamedAngle().jinit_NamedAngle(int16(90), commonPhoneStrings.RIGHT);
-        @this.angleArray[90] = this.RIGHT;
+        @this.angleArray_AngleFactory[90] = this.RIGHT;
         for (int index = 91; index < 180; index++) {
-            @this.angleArray[index] = Angle().jinit_Angle(int16(index));
+            @this.angleArray_AngleFactory[index] = Angle().jinit_Angle(int16(index));
         }
         @this.DOWN = NamedAngle().jinit_NamedAngle(int16(180), commonPhoneStrings.DOWN);
-        @this.angleArray[180] = this.DOWN;
+        @this.angleArray_AngleFactory[180] = this.DOWN;
         for (int index = 181; index < 270; index++) {
-            @this.angleArray[index] = Angle().jinit_Angle(int16(index));
+            @this.angleArray_AngleFactory[index] = Angle().jinit_Angle(int16(index));
         }
         @this.LEFT = NamedAngle().jinit_NamedAngle(int16(270), commonPhoneStrings.LEFT);
-        @this.angleArray[270] = this.LEFT;
+        @this.angleArray_AngleFactory[270] = this.LEFT;
         for (int index = 271; index < int(total); index++) {
-            @this.angleArray[index] = Angle().jinit_Angle(int16(index));
+            @this.angleArray_AngleFactory[index] = Angle().jinit_Angle(int16(index));
         }
         return this;
     }
@@ -77,8 +77,8 @@ class AngleFactory : JObjectBase
 
     Angle@ getAt(int index)
     {
-        int adjustedIndex = this.frameUtil.adjustAngleToFrameAngle(index);
-        return this.angleArray[adjustedIndex];
+        int adjustedIndex = this.frameUtil_AngleFactory.adjustAngleToFrameAngle(index);
+        return this.angleArray_AngleFactory[adjustedIndex];
     }
     
 

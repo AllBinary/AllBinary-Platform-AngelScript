@@ -4,17 +4,17 @@
 class ApplicationConfiguration : JObjectBase
 {
     LogUtil@ logUtil;
-    bool fullscreen;
-    bool showTitleBar;
-    bool progressBarView;
+    bool fullscreen_ApplicationConfiguration;
+    bool showTitleBar_ApplicationConfiguration;
+    bool progressBarView_ApplicationConfiguration;
 
     // Java field initializers run after the super constructor
     void jfields_ApplicationConfiguration()
     {
     @this.logUtil = LogUtil::getInstance();
-    this.fullscreen = true;
-    this.showTitleBar = false;
-    this.progressBarView = false;
+    this.fullscreen_ApplicationConfiguration = true;
+    this.showTitleBar_ApplicationConfiguration = false;
+    this.progressBarView_ApplicationConfiguration = false;
     }
     
 
@@ -71,37 +71,37 @@ class ApplicationConfiguration : JObjectBase
 
     void setFullscreen(bool fullscreen)
     {
-        this.fullscreen = fullscreen;
+        this.fullscreen_ApplicationConfiguration = fullscreen;
     }
     
 
     bool isFullscreen()
     {
-        return this.fullscreen;
+        return this.fullscreen_ApplicationConfiguration;
     }
     
 
     void setShowTitleBar(bool showTitleBar)
     {
-        this.showTitleBar = showTitleBar;
+        this.showTitleBar_ApplicationConfiguration = showTitleBar;
     }
     
 
     bool isShowTitleBar()
     {
-        return this.showTitleBar;
+        return this.showTitleBar_ApplicationConfiguration;
     }
     
 
     void setProgressBarView(bool progressBarView)
     {
-        this.progressBarView = progressBarView;
+        this.progressBarView_ApplicationConfiguration = progressBarView;
     }
     
 
     bool isProgressBarView()
     {
-        return this.progressBarView;
+        return this.progressBarView_ApplicationConfiguration;
     }
     
 

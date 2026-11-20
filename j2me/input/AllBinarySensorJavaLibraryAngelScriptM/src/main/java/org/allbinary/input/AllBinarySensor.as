@@ -82,6 +82,7 @@ namespace AllBinarySensor
     int jcell_max;
     int get_max() property { jclinit(); return jcell_max; }
     void set_max(int value) property { jclinit(); jcell_max = value; }
+    int jpostAdd_max(int delta) { jclinit(); int old = jcell_max; jcell_max = int(old + delta); return old; }
     
 
     void setMax(int max)

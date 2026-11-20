@@ -28,7 +28,7 @@ class OperatingSystems : JObjectBase
     string WINDOWS_XP;
     string ANDROID;
     string HARMONY;
-    bool unknownSpecificOSAllowed;
+    bool unknownSpecificOSAllowed_OperatingSystems;
 
     // Java field initializers run after the super constructor
     void jfields_OperatingSystems()
@@ -44,7 +44,7 @@ class OperatingSystems : JObjectBase
     this.WINDOWS_XP = "Windows XP";
     this.ANDROID = this.LINUX;
     this.HARMONY = "HarmonyOS";
-    this.unknownSpecificOSAllowed = true;
+    this.unknownSpecificOSAllowed_OperatingSystems = true;
     }
     
 
@@ -57,13 +57,13 @@ class OperatingSystems : JObjectBase
 
     bool isUnknownSpecificOSAllowed()
     {
-        return this.unknownSpecificOSAllowed;
+        return this.unknownSpecificOSAllowed_OperatingSystems;
     }
     
 
     void setUnknownSpecificOSAllowed(bool aUnknownSpecificOSAllowed)
     {
-        this.unknownSpecificOSAllowed = aUnknownSpecificOSAllowed;
+        this.unknownSpecificOSAllowed_OperatingSystems = aUnknownSpecificOSAllowed;
     }
 }
 

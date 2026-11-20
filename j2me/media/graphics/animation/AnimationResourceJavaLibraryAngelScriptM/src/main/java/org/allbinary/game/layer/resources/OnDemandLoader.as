@@ -17,16 +17,16 @@
 
 class OnDemandLoader : JObjectBase
 {
-    OnDemandResourcesFactory@ onDemandResourcesFactory;
-    GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory@ gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
-    BaseResourceAnimationInterfaceFactoryInterfaceFactory@ resourceAnimationInterfaceFactoryInterfaceFactory;
+    OnDemandResourcesFactory@ onDemandResourcesFactory_OnDemandLoader;
+    GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory@ gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory_OnDemandLoader;
+    BaseResourceAnimationInterfaceFactoryInterfaceFactory@ resourceAnimationInterfaceFactoryInterfaceFactory_OnDemandLoader;
     
 
     OnDemandLoader@ jinit_OnDemandLoader(OnDemandResourcesFactory@ onDemandResourcesFactory, GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory@ gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory, BaseResourceAnimationInterfaceFactoryInterfaceFactory@ resourceAnimationInterfaceFactoryInterfaceFactory)
     {
-        @this.onDemandResourcesFactory = onDemandResourcesFactory;
-        @this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory = gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
-        @this.resourceAnimationInterfaceFactoryInterfaceFactory = resourceAnimationInterfaceFactoryInterfaceFactory;
+        @this.onDemandResourcesFactory_OnDemandLoader = onDemandResourcesFactory;
+        @this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory_OnDemandLoader = gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
+        @this.resourceAnimationInterfaceFactoryInterfaceFactory_OnDemandLoader = resourceAnimationInterfaceFactoryInterfaceFactory;
         return this;
     }
     
@@ -35,12 +35,12 @@ class OnDemandLoader : JObjectBase
     {
         ResourceLoadingLevelFactory@ resourceLoadingLevelFactory = ResourceLoadingLevelFactory::getInstance();
         if (Features::getInstance().isFeature(MainFeatureFactory::getInstance().LOAD_ALL)) {
-            if (this.resourceAnimationInterfaceFactoryInterfaceFactory.isInitialized()) {
+            if (this.resourceAnimationInterfaceFactoryInterfaceFactory_OnDemandLoader.isInitialized()) {
                 return;
             }
             this.initAll(imageCache, loadingString);
         } else if (level != resourceLoadingLevelFactory.LOAD_ALL.getLevel()) {
-            LayerPlacementInterfaceBasicArrayListFactoryInterface@ layerPlacementInterfaceBasicArrayListFactoryInterface = this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory.getInstance(level);
+            LayerPlacementInterfaceBasicArrayListFactoryInterface@ layerPlacementInterfaceBasicArrayListFactoryInterface = this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory_OnDemandLoader.getInstance(level);
             this.initLevel(layerPlacementInterfaceBasicArrayListFactoryInterface, imageCache, level, loadingString);
         }
     }
@@ -51,10 +51,10 @@ class OnDemandLoader : JObjectBase
         int index = 0;
         int portion = 120;
         OnDemandResources@ onDemandResources;
-        for (int onDemandIndex = this.onDemandResourcesFactory.size(); --onDemandIndex >= 0; ) {
-            @onDemandResources = this.onDemandResourcesFactory.remove(onDemandIndex);
+        for (int onDemandIndex = this.onDemandResourcesFactory_OnDemandLoader.size(); --onDemandIndex >= 0; ) {
+            @onDemandResources = this.onDemandResourcesFactory_OnDemandLoader.remove(onDemandIndex);
             if (onDemandResources !is OnDemandResources::NULL_ON_DEMAND_RESOURCES) {
-                index = onDemandResources.initAt(imageCache, this.resourceAnimationInterfaceFactoryInterfaceFactory, portion, loadingString, index);
+                index = onDemandResources.initAt(imageCache, this.resourceAnimationInterfaceFactoryInterfaceFactory_OnDemandLoader, portion, loadingString, index);
             }
         }
     }
@@ -69,9 +69,9 @@ class OnDemandLoader : JObjectBase
         PreLogUtil::put(StringMaker().jinit_StringMaker().append(commonStrings.START).appendint(int(onDemandArray.length())).toString(), this, "initLevel");
         OnDemandResources@ onDemandResources;
         for (int onDemandIndex = int(onDemandArray.length()); --onDemandIndex >= 0; ) {
-            @onDemandResources = this.onDemandResourcesFactory.remove(onDemandArray[onDemandIndex]);
+            @onDemandResources = this.onDemandResourcesFactory_OnDemandLoader.remove(onDemandArray[onDemandIndex]);
             if (onDemandResources !is OnDemandResources::NULL_ON_DEMAND_RESOURCES) {
-                index = onDemandResources.initAt(imageCache, this.resourceAnimationInterfaceFactoryInterfaceFactory, portion, loadingString, index);
+                index = onDemandResources.initAt(imageCache, this.resourceAnimationInterfaceFactoryInterfaceFactory_OnDemandLoader, portion, loadingString, index);
             }
         }
     }

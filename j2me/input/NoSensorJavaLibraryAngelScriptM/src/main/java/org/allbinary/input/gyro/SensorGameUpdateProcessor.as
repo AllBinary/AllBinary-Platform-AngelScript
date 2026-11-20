@@ -17,12 +17,12 @@
 
 class SensorGameUpdateProcessor : JObjectBase
 {
-    AllBinarySensor@ inputSensor;
+    AllBinarySensor@ inputSensor_SensorGameUpdateProcessor;
 
     // Java field initializers run after the super constructor
     void jfields_SensorGameUpdateProcessor()
     {
-    @this.inputSensor = NoAllBinarySensor::getInstance();
+    @this.inputSensor_SensorGameUpdateProcessor = NoAllBinarySensor::getInstance();
     }
 
     SensorGameUpdateProcessor@ jinit_SensorGameUpdateProcessor()
@@ -34,13 +34,13 @@ class SensorGameUpdateProcessor : JObjectBase
 
     void setInputSensor(AllBinarySensor@ inputSensor)
     {
-        @this.inputSensor = inputSensor;
+        @this.inputSensor_SensorGameUpdateProcessor = inputSensor;
     }
     
 
     AllBinarySensor@ getInputSensor()
     {
-        return this.inputSensor;
+        return this.inputSensor_SensorGameUpdateProcessor;
     }
     
 
@@ -56,7 +56,7 @@ class SensorGameUpdateProcessor : JObjectBase
 
     bool isAnySensor()
     {
-        if (this.inputSensor is NoAllBinarySensor::getInstance()) {
+        if (this.inputSensor_SensorGameUpdateProcessor is NoAllBinarySensor::getInstance()) {
             return false;
         } else {
             return true;

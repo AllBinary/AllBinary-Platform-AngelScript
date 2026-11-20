@@ -17,25 +17,25 @@
 
 class SingletonAnimationInterfaceFactory : JObjectBase, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
-    Animation@ animationInterface;
+    Animation@ animationInterface_SingletonAnimationInterfaceFactory;
     
 
     SingletonAnimationInterfaceFactory@ jinit_SingletonAnimationInterfaceFactory(Animation@ animationInterface)
     {
-        @this.animationInterface = animationInterface;
+        @this.animationInterface_SingletonAnimationInterfaceFactory = animationInterface;
         return this;
     }
     
 
     Animation@ getInstance(int instanceId)
     {
-        return this.animationInterface;
+        return this.animationInterface_SingletonAnimationInterfaceFactory;
     }
     
 
     Animation@ getInstanceAnimation(Animation@ animationInterface)
     {
-        return this.animationInterface;
+        return this.animationInterface_SingletonAnimationInterfaceFactory;
     }
     
 

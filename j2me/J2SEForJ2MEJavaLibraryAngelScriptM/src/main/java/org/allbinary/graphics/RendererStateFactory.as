@@ -17,14 +17,14 @@
 
 class RendererStateFactory : JObjectBase
 {
-    bool loaded;
-    bool surfaceChanged;
+    bool loaded_RendererStateFactory;
+    bool surfaceChanged_RendererStateFactory;
 
     // Java field initializers run after the super constructor
     void jfields_RendererStateFactory()
     {
-    this.loaded = false;
-    this.surfaceChanged = false;
+    this.loaded_RendererStateFactory = false;
+    this.surfaceChanged_RendererStateFactory = false;
     }
 
     RendererStateFactory@ jinit_RendererStateFactory()
@@ -36,25 +36,25 @@ class RendererStateFactory : JObjectBase
 
     void setLoaded(bool loaded)
     {
-        this.loaded = loaded;
+        this.loaded_RendererStateFactory = loaded;
     }
     
 
     bool isLoaded()
     {
-        return this.loaded;
+        return this.loaded_RendererStateFactory;
     }
     
 
     void setSurfaceChanged(bool initialized)
     {
-        this.surfaceChanged = initialized;
+        this.surfaceChanged_RendererStateFactory = initialized;
     }
     
 
     bool isSurfaceChanged()
     {
-        return this.surfaceChanged;
+        return this.surfaceChanged_RendererStateFactory;
     }
 }
 

@@ -17,12 +17,12 @@
 
 class CancelTouchButtonInputFactory : JObjectBase
 {
-    TouchButtonInput@[]@ cancelInputArray;
+    TouchButtonInput@[]@ cancelInputArray_CancelTouchButtonInputFactory;
 
     // Java field initializers run after the super constructor
     void jfields_CancelTouchButtonInputFactory()
     {
-    @this.cancelInputArray = array<TouchButtonInput@>(InputFactory::getInstance().MAX);
+    @this.cancelInputArray_CancelTouchButtonInputFactory = array<TouchButtonInput@>(InputFactory::getInstance().MAX);
     }
     
 
@@ -30,20 +30,20 @@ class CancelTouchButtonInputFactory : JObjectBase
     {
         this.jfields_CancelTouchButtonInputFactory();
         BasicTouchInputFactory@ basicTouchInputFactory = BasicTouchInputFactory::getInstance();
-        for (int index = int(this.cancelInputArray.length()) - 1; index >= 0; index--) {
-            @this.cancelInputArray[index] = basicTouchInputFactory.NONE;
+        for (int index = int(this.cancelInputArray_CancelTouchButtonInputFactory.length()) - 1; index >= 0; index--) {
+            @this.cancelInputArray_CancelTouchButtonInputFactory[index] = basicTouchInputFactory.NONE;
         }
-        @this.cancelInputArray[basicTouchInputFactory.UP.getSourceId()] = basicTouchInputFactory.DOWN;
-        @this.cancelInputArray[basicTouchInputFactory.DOWN.getSourceId()] = basicTouchInputFactory.UP;
-        @this.cancelInputArray[basicTouchInputFactory.LEFT.getSourceId()] = basicTouchInputFactory.RIGHT;
-        @this.cancelInputArray[basicTouchInputFactory.RIGHT.getSourceId()] = basicTouchInputFactory.LEFT;
+        @this.cancelInputArray_CancelTouchButtonInputFactory[basicTouchInputFactory.UP.getSourceId()] = basicTouchInputFactory.DOWN;
+        @this.cancelInputArray_CancelTouchButtonInputFactory[basicTouchInputFactory.DOWN.getSourceId()] = basicTouchInputFactory.UP;
+        @this.cancelInputArray_CancelTouchButtonInputFactory[basicTouchInputFactory.LEFT.getSourceId()] = basicTouchInputFactory.RIGHT;
+        @this.cancelInputArray_CancelTouchButtonInputFactory[basicTouchInputFactory.RIGHT.getSourceId()] = basicTouchInputFactory.LEFT;
         return this;
     }
     
 
     TouchButtonInput@ getCancel(TouchButtonInput@ touchButtonInput)
     {
-        return this.cancelInputArray[touchButtonInput.getSourceId()];
+        return this.cancelInputArray_CancelTouchButtonInputFactory[touchButtonInput.getSourceId()];
     }
 }
 

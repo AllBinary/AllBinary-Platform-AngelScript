@@ -17,12 +17,12 @@
 
 class CharArrayFactory : JObjectBase
 {
-    uint16[]@ zeroCharArray;
+    uint16[]@ zeroCharArray_CharArrayFactory;
 
     // Java field initializers run after the super constructor
     void jfields_CharArrayFactory()
     {
-    @this.zeroCharArray = array<uint16>(0);
+    @this.zeroCharArray_CharArrayFactory = array<uint16>(0);
     }
 
     CharArrayFactory@ jinit_CharArrayFactory()
@@ -34,7 +34,7 @@ class CharArrayFactory : JObjectBase
 
     uint16[]@ getZeroCharArray()
     {
-        return this.zeroCharArray;
+        return this.zeroCharArray_CharArrayFactory;
     }
 }
 

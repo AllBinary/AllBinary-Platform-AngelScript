@@ -17,25 +17,25 @@
 
 class AllBinaryEventObject : JObjectBase
 {
-    JObject@ source;
+    JObject@ source_AllBinaryEventObject;
     
 
     AllBinaryEventObject@ jinit_AllBinaryEventObject(JObject@ anyType)
     {
-        @this.source = anyType;
+        @this.source_AllBinaryEventObject = anyType;
         return this;
     }
     
 
     JObject@ getSource()
     {
-        return this.source;
+        return this.source_AllBinaryEventObject;
     }
     
 
     void setSource(JObject@ source)
     {
-        @this.source = source;
+        @this.source_AllBinaryEventObject = source;
     }
 }
 

@@ -17,14 +17,14 @@
 
 class OrientationToGameKeyEvent : JObjectBase
 {
-    AllBinaryOrientationSensor@ allBinaryGyroSensor;
-    int MIN;
+    AllBinaryOrientationSensor@ allBinaryGyroSensor_OrientationToGameKeyEvent;
+    int MIN_OrientationToGameKeyEvent;
 
     // Java field initializers run after the super constructor
     void jfields_OrientationToGameKeyEvent()
     {
     
-    this.MIN = 15;
+    this.MIN_OrientationToGameKeyEvent = 15;
     }
     
 
@@ -32,7 +32,7 @@ class OrientationToGameKeyEvent : JObjectBase
     {
         this.jfields_OrientationToGameKeyEvent();
         if (Features::getInstance().isFeature(SensorFeatureFactory::getInstance().NO_ORIENTATION)) {
-            @this.allBinaryGyroSensor = NoGyroSensor().jinit_NoGyroSensor();
+            @this.allBinaryGyroSensor_OrientationToGameKeyEvent = NoGyroSensor().jinit_NoGyroSensor();
         } else {
             jthrow(Exception().jinit_Exception("Not Such Feature"));
         }
@@ -42,13 +42,13 @@ class OrientationToGameKeyEvent : JObjectBase
 
     void setAllBinaryGyroSensor(AllBinaryOrientationSensor@ allBinaryGyroSensor)
     {
-        @this.allBinaryGyroSensor = allBinaryGyroSensor;
+        @this.allBinaryGyroSensor_OrientationToGameKeyEvent = allBinaryGyroSensor;
     }
     
 
     AllBinaryOrientationSensor@ getAllBinaryGyroSensor()
     {
-        return this.allBinaryGyroSensor;
+        return this.allBinaryGyroSensor_OrientationToGameKeyEvent;
     }
     
 

@@ -17,12 +17,12 @@
 
 class HardwareFactory : JObjectBase
 {
-    HardwareInterface@ SINGLETON;
+    HardwareInterface@ SINGLETON_HardwareFactory;
 
     // Java field initializers run after the super constructor
     void jfields_HardwareFactory()
     {
-    @this.SINGLETON = NoHardware::getInstance();
+    @this.SINGLETON_HardwareFactory = NoHardware::getInstance();
     }
     
 
@@ -36,7 +36,7 @@ class HardwareFactory : JObjectBase
     HardwareInterface@ getInstance(OperatingSystemInterface@ os)
     {
         try {
-            return this.SINGLETON;
+            return this.SINGLETON_HardwareFactory;
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {

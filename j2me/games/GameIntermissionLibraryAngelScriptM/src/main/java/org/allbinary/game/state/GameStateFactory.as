@@ -17,7 +17,7 @@
 
 class GameStateFactory : JObjectBase
 {
-    int index;
+    int index_GameStateFactory;
     GameState@ NO_GAME_STATE;
     GameState@ PLAYING_GAME_STATE;
     GameState@ SHOW_END_RESULT_GAME_STATE;
@@ -26,7 +26,7 @@ class GameStateFactory : JObjectBase
     // Java field initializers run after the super constructor
     void jfields_GameStateFactory()
     {
-    this.index = 0;
+    this.index_GameStateFactory = 0;
     @this.NO_GAME_STATE = this.createGameState("NO_GAME_STATE");
     @this.PLAYING_GAME_STATE = this.createGameState("PLAYING_GAME_STATE");
     @this.SHOW_END_RESULT_GAME_STATE = this.createGameState("SHOW_END_RESULT_GAME_STATE");
@@ -43,7 +43,7 @@ class GameStateFactory : JObjectBase
 
     GameState@ createGameState(string name)
     {
-        return GameState().jinit_GameState(name, this.index++);
+        return GameState().jinit_GameState(name, this.index_GameStateFactory++);
     }
 }
 

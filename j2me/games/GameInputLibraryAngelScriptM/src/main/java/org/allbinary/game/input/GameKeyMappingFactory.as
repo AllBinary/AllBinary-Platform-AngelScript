@@ -17,12 +17,12 @@
 
 class GameKeyMappingFactory : JObjectBase
 {
-    GameKey@[]@ intKeyToGameKey;
+    GameKey@[]@ intKeyToGameKey_GameKeyMappingFactory;
 
     // Java field initializers run after the super constructor
     void jfields_GameKeyMappingFactory()
     {
-    @this.intKeyToGameKey = array<GameKey@>(InputFactory::getInstance().MAX);
+    @this.intKeyToGameKey_GameKeyMappingFactory = array<GameKey@>(InputFactory::getInstance().MAX);
     }
     
 
@@ -60,13 +60,13 @@ class GameKeyMappingFactory : JObjectBase
 
     GameKey@ getGameKey(int key)
     {
-        return this.intKeyToGameKey[key];
+        return this.intKeyToGameKey_GameKeyMappingFactory[key];
     }
     
 
     void setGameKey(GameKey@ gameKey)
     {
-        @this.intKeyToGameKey[gameKey.getId()] = gameKey;
+        @this.intKeyToGameKey_GameKeyMappingFactory[gameKey.getId()] = gameKey;
     }
 }
 

@@ -17,12 +17,12 @@
 
 class OpenGLESGraphicsCompositeFactory : JObjectBase
 {
-    OpenGLESGraphicsFactory@ openGLESGraphicsFactory;
+    OpenGLESGraphicsFactory@ openGLESGraphicsFactory_OpenGLESGraphicsCompositeFactory;
 
     // Java field initializers run after the super constructor
     void jfields_OpenGLESGraphicsCompositeFactory()
     {
-    @this.openGLESGraphicsFactory = OpenGLESGraphicsFactory().jinit_OpenGLESGraphicsFactory();
+    @this.openGLESGraphicsFactory_OpenGLESGraphicsCompositeFactory = OpenGLESGraphicsFactory().jinit_OpenGLESGraphicsFactory();
     }
 
     OpenGLESGraphicsCompositeFactory@ jinit_OpenGLESGraphicsCompositeFactory()
@@ -34,13 +34,13 @@ class OpenGLESGraphicsCompositeFactory : JObjectBase
 
     void set(OpenGLESGraphicsFactory@ openGLESGraphicsFactory)
     {
-        @this.openGLESGraphicsFactory = openGLESGraphicsFactory;
+        @this.openGLESGraphicsFactory_OpenGLESGraphicsCompositeFactory = openGLESGraphicsFactory;
     }
     
 
     OpenGLESGraphicsFactory@ get()
     {
-        return this.openGLESGraphicsFactory;
+        return this.openGLESGraphicsFactory_OpenGLESGraphicsCompositeFactory;
     }
 }
 

@@ -4,13 +4,13 @@
 class GameMidletStateFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    GameState@ currentGameState;
+    GameState@ currentGameState_GameMidletStateFactory;
 
     // Java field initializers run after the super constructor
     void jfields_GameMidletStateFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.currentGameState = GameStateFactory::getInstance().NO_GAME_STATE;
+    @this.currentGameState_GameMidletStateFactory = GameStateFactory::getInstance().NO_GAME_STATE;
     }
     
 
@@ -23,14 +23,14 @@ class GameMidletStateFactory : JObjectBase
 
     GameState@ getCurrentGameState()
     {
-        return this.currentGameState;
+        return this.currentGameState_GameMidletStateFactory;
     }
     
 
     void setCurrentGameState(GameState@ currentGameState)
     {
         this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().CURRENT).append(" GameState: ").append(StringUtil::getInstance().toString(currentGameState)).toString(), this, "setCurrentGameState");
-        @this.currentGameState = currentGameState;
+        @this.currentGameState_GameMidletStateFactory = currentGameState;
     }
 }
 

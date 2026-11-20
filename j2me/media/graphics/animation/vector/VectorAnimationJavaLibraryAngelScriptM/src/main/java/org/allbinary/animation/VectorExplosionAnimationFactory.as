@@ -17,15 +17,15 @@
 
 class VectorExplosionAnimationFactory : JObjectBase, ProceduralAnimationInterfaceFactoryInterface
 {
-    VectorExplosionGenerator@ vectorExplosionGenerator;
-    BasicColor@ basicColor;
+    VectorExplosionGenerator@ vectorExplosionGenerator_VectorExplosionAnimationFactory;
+    BasicColor@ basicColor_VectorExplosionAnimationFactory;
     AnimationBehaviorFactory@ animationBehaviorFactory;
 
     // Java field initializers run after the super constructor
     void jfields_VectorExplosionAnimationFactory()
     {
-    @this.vectorExplosionGenerator = VectorExplosionGenerator::getInstance_jstatic();
-    @this.basicColor = BasicColorFactory::getInstance().WHITE;
+    @this.vectorExplosionGenerator_VectorExplosionAnimationFactory = VectorExplosionGenerator::getInstance_jstatic();
+    @this.basicColor_VectorExplosionAnimationFactory = BasicColorFactory::getInstance().WHITE;
     
     }
     
@@ -44,20 +44,20 @@ class VectorExplosionAnimationFactory : JObjectBase, ProceduralAnimationInterfac
         VectorAnimationInterface@ vectorRotationAnimationInterface = cast<VectorAnimationInterface>(animationInterface);
         int frame = vectorRotationAnimationInterface.getFrame();
         int[]@[]@ framePoints = vectorRotationAnimationInterface.getPoints(frame);
-        int[]@[]@[]@ points = this.vectorExplosionGenerator.getInstance(framePoints, 6, this.vectorExplosionGenerator.ROTATION);
+        int[]@[]@[]@ points = this.vectorExplosionGenerator_VectorExplosionAnimationFactory.getInstance(framePoints, 6, this.vectorExplosionGenerator_VectorExplosionAnimationFactory.ROTATION);
         return VectorRotationAnimation().jinit_VectorRotationAnimation(points, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
     }
     
 
     void setBasicColorP(BasicColor@ basicColor)
     {
-        @this.basicColor = basicColor;
+        @this.basicColor_VectorExplosionAnimationFactory = basicColor;
     }
     
 
     BasicColor@ getBasicColorP()
     {
-        return this.basicColor;
+        return this.basicColor_VectorExplosionAnimationFactory;
     }
 }
 

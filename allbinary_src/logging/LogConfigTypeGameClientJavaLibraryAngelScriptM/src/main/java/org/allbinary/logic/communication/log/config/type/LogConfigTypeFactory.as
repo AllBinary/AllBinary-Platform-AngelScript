@@ -17,16 +17,16 @@
 
 class LogConfigTypeFactory : JObjectBase
 {
-    string NO_DESCRIPTION;
+    string NO_DESCRIPTION_LogConfigTypeFactory;
     LogConfigType@ OS;
     LogConfigType@ FACTORYERROR;
 
     // Java field initializers run after the super constructor
     void jfields_LogConfigTypeFactory()
     {
-    this.NO_DESCRIPTION = "No Description";
-    @this.OS = LogConfigType().jinit_LogConfigType("Operating System", this.NO_DESCRIPTION);
-    @this.FACTORYERROR = LogConfigType().jinit_LogConfigType("Factory Error", this.NO_DESCRIPTION);
+    this.NO_DESCRIPTION_LogConfigTypeFactory = "No Description";
+    @this.OS = LogConfigType().jinit_LogConfigType("Operating System", this.NO_DESCRIPTION_LogConfigTypeFactory);
+    @this.FACTORYERROR = LogConfigType().jinit_LogConfigType("Factory Error", this.NO_DESCRIPTION_LogConfigTypeFactory);
     }
     
 

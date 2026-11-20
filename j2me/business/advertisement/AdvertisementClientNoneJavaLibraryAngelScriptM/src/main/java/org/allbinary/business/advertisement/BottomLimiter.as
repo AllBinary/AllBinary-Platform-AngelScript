@@ -17,10 +17,10 @@
 
 class BottomLimiter : JObjectBase
 {
-    int bottom;
-    int deltaY;
-    int lower;
-    int higher;
+    int bottom_BottomLimiter;
+    int deltaY_BottomLimiter;
+    int lower_BottomLimiter;
+    int higher_BottomLimiter;
     
 
     BottomLimiter@ jinit_BottomLimiter()
@@ -31,8 +31,8 @@ class BottomLimiter : JObjectBase
 
     void init(int lower, int higher)
     {
-        this.lower = lower;
-        this.higher = higher;
+        this.lower_BottomLimiter = lower;
+        this.higher_BottomLimiter = higher;
     }
     
 
@@ -41,23 +41,23 @@ class BottomLimiter : JObjectBase
         DisplayInfoSingleton@ displayInfo = DisplayInfoSingleton::getInstance();
         GameAdState@ gameAdState = GameAdStateFactory::getInstance().getCurrentInstance();
         if (gameAdState.isShowingAt()) {
-            this.deltaY = this.higher;
+            this.deltaY_BottomLimiter = this.higher_BottomLimiter;
         } else {
-            this.deltaY = this.lower;
+            this.deltaY_BottomLimiter = this.lower_BottomLimiter;
         }
-        this.bottom = displayInfo.getLastHeight() - this.deltaY;
+        this.bottom_BottomLimiter = displayInfo.getLastHeight() - this.deltaY_BottomLimiter;
     }
     
 
     int getDeltaY()
     {
-        return this.deltaY;
+        return this.deltaY_BottomLimiter;
     }
     
 
     int getBottom()
     {
-        return this.bottom;
+        return this.bottom_BottomLimiter;
     }
 }
 

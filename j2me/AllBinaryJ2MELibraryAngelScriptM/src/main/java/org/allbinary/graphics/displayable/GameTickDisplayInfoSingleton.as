@@ -17,20 +17,20 @@
 
 class GameTickDisplayInfoSingleton : JObjectBase
 {
-    DisplayInfoSingleton@ displayInfoSingleton;
-    int lastWidth;
-    int lastHeight;
-    int lastHalfWidth;
-    int lastHalfHeight;
+    DisplayInfoSingleton@ displayInfoSingleton_GameTickDisplayInfoSingleton;
+    int lastWidth_GameTickDisplayInfoSingleton;
+    int lastHeight_GameTickDisplayInfoSingleton;
+    int lastHalfWidth_GameTickDisplayInfoSingleton;
+    int lastHalfHeight_GameTickDisplayInfoSingleton;
 
     // Java field initializers run after the super constructor
     void jfields_GameTickDisplayInfoSingleton()
     {
-    @this.displayInfoSingleton = DisplayInfoSingleton::getInstance();
-    this.lastWidth = this.displayInfoSingleton.getLastWidth();
-    this.lastHeight = this.displayInfoSingleton.getLastHeight();
-    this.lastHalfWidth = this.displayInfoSingleton.getLastHalfWidth();
-    this.lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();
+    @this.displayInfoSingleton_GameTickDisplayInfoSingleton = DisplayInfoSingleton::getInstance();
+    this.lastWidth_GameTickDisplayInfoSingleton = this.displayInfoSingleton_GameTickDisplayInfoSingleton.getLastWidth();
+    this.lastHeight_GameTickDisplayInfoSingleton = this.displayInfoSingleton_GameTickDisplayInfoSingleton.getLastHeight();
+    this.lastHalfWidth_GameTickDisplayInfoSingleton = this.displayInfoSingleton_GameTickDisplayInfoSingleton.getLastHalfWidth();
+    this.lastHalfHeight_GameTickDisplayInfoSingleton = this.displayInfoSingleton_GameTickDisplayInfoSingleton.getLastHalfHeight();
     }
 
     GameTickDisplayInfoSingleton@ jinit_GameTickDisplayInfoSingleton()
@@ -42,34 +42,34 @@ class GameTickDisplayInfoSingleton : JObjectBase
 
     void update()
     {
-        this.lastWidth = this.displayInfoSingleton.getLastWidth();
-        this.lastHeight = this.displayInfoSingleton.getLastHeight();
-        this.lastHalfWidth = this.displayInfoSingleton.getLastHalfWidth();
-        this.lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();
+        this.lastWidth_GameTickDisplayInfoSingleton = this.displayInfoSingleton_GameTickDisplayInfoSingleton.getLastWidth();
+        this.lastHeight_GameTickDisplayInfoSingleton = this.displayInfoSingleton_GameTickDisplayInfoSingleton.getLastHeight();
+        this.lastHalfWidth_GameTickDisplayInfoSingleton = this.displayInfoSingleton_GameTickDisplayInfoSingleton.getLastHalfWidth();
+        this.lastHalfHeight_GameTickDisplayInfoSingleton = this.displayInfoSingleton_GameTickDisplayInfoSingleton.getLastHalfHeight();
     }
     
 
     int getLastWidth()
     {
-        return this.lastWidth;
+        return this.lastWidth_GameTickDisplayInfoSingleton;
     }
     
 
     int getLastHeight()
     {
-        return this.lastHeight;
+        return this.lastHeight_GameTickDisplayInfoSingleton;
     }
     
 
     int getLastHalfWidth()
     {
-        return this.lastHalfWidth;
+        return this.lastHalfWidth_GameTickDisplayInfoSingleton;
     }
     
 
     int getLastHalfHeight()
     {
-        return this.lastHalfHeight;
+        return this.lastHalfHeight_GameTickDisplayInfoSingleton;
     }
 }
 

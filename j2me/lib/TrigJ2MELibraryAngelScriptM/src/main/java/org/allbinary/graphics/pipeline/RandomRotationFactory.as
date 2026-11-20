@@ -17,14 +17,14 @@
 
 class RandomRotationFactory : JObjectBase
 {
-    MyRandomFactory@ myRandomFactory;
-    AngleFactory@ angleFactory;
+    MyRandomFactory@ myRandomFactory_RandomRotationFactory;
+    AngleFactory@ angleFactory_RandomRotationFactory;
 
     // Java field initializers run after the super constructor
     void jfields_RandomRotationFactory()
     {
-    @this.myRandomFactory = MyRandomFactory::getInstance();
-    @this.angleFactory = AngleFactory::getInstance();
+    @this.myRandomFactory_RandomRotationFactory = MyRandomFactory::getInstance();
+    @this.angleFactory_RandomRotationFactory = AngleFactory::getInstance();
     }
 
     RandomRotationFactory@ jinit_RandomRotationFactory()
@@ -38,14 +38,14 @@ class RandomRotationFactory : JObjectBase
     {
         BasicGraphicsPipeline@ graphicsPipe = BasicGraphicsPipeline().jinit_BasicGraphicsPipeline(vector);
         graphicsPipe.createMatrix();
-        graphicsPipe.rotateToAngle(this.angleFactory.getAt(this.getNextRandomAngle(howMuch)));
+        graphicsPipe.rotateToAngle(this.angleFactory_RandomRotationFactory.getAt(this.getNextRandomAngle(howMuch)));
         return graphicsPipe.getMatrix();
     }
     
 
     int getNextRandomAngle(int howMuch)
     {
-        return this.myRandomFactory.getNextInt(howMuch * 10);
+        return this.myRandomFactory_RandomRotationFactory.getNextInt(howMuch * 10);
     }
 }
 

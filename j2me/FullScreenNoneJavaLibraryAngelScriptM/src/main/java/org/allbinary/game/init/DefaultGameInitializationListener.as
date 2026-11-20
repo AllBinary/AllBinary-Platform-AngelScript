@@ -18,14 +18,14 @@
 class DefaultGameInitializationListener : JObjectBase, GameInitializedListenerInterface
 {
     LogUtil@ logUtil;
-    SWTJOGLProcessor@ swtJOGLProcessor;
+    SWTJOGLProcessor@ swtJOGLProcessor_DefaultGameInitializationListener;
     bool firstTime;
 
     // Java field initializers run after the super constructor
     void jfields_DefaultGameInitializationListener()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.swtJOGLProcessor = SWTJOGLProcessor::getInstance();
+    @this.swtJOGLProcessor_DefaultGameInitializationListener = SWTJOGLProcessor::getInstance();
     this.firstTime = true;
     }
     
@@ -52,7 +52,7 @@ class DefaultGameInitializationListener : JObjectBase, GameInitializedListenerIn
         CommonStrings@ commonStrings = CommonStrings::getInstance();
         try {
             this.logUtil.putF(commonStrings.START, this, ON_GAME_INITIALIZED);
-            while (!this.swtJOGLProcessor.isHolderCreated()) {
+            while (!this.swtJOGLProcessor_DefaultGameInitializationListener.isHolderCreated()) {
                 this.logUtil.putF(commonStrings.UPDATE, this, ON_GAME_INITIALIZED);
                 Thread::sleep(20);
             }
@@ -60,7 +60,7 @@ class DefaultGameInitializationListener : JObjectBase, GameInitializedListenerIn
             if (this.firstTime) {
                 this.firstTime = false;
             } else {
-                this.swtJOGLProcessor.onSurfaceChanged();
+                this.swtJOGLProcessor_DefaultGameInitializationListener.onSurfaceChanged();
             }
         } catch {
             Throwable@ jex0 = jcatch();

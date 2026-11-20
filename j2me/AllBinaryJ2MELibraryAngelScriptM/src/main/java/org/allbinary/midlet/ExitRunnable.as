@@ -18,16 +18,16 @@
 class ExitRunnable : JObjectBase, Runnable
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    AllBinaryMidlet@ midlet;
-    Processor@ processor;
-    bool isProgress;
+    CommonStrings@ commonStrings_ExitRunnable;
+    AllBinaryMidlet@ midlet_ExitRunnable;
+    Processor@ processor_ExitRunnable;
+    bool isProgress_ExitRunnable;
 
     // Java field initializers run after the super constructor
     void jfields_ExitRunnable()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
+    @this.commonStrings_ExitRunnable = CommonStrings::getInstance();
     
     
     
@@ -37,9 +37,9 @@ class ExitRunnable : JObjectBase, Runnable
     ExitRunnable@ jinit_ExitRunnable(AllBinaryMidlet@ midlet, Processor@ processor, bool isProgress)
     {
         this.jfields_ExitRunnable();
-        @this.midlet = midlet;
-        this.isProgress = isProgress;
-        @this.processor = processor;
+        @this.midlet_ExitRunnable = midlet;
+        this.isProgress_ExitRunnable = isProgress;
+        @this.processor_ExitRunnable = processor;
         return this;
     }
     
@@ -47,24 +47,24 @@ class ExitRunnable : JObjectBase, Runnable
     void run()
     {
         try {
-            this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
-            this.midlet.destroyAppInRunnable(false, this.isProgress);
-            this.midlet.setDisplay(NullCanvas::NULL_CANVAS);
-            this.midlet.notifyDestroyed();
-            this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
-            this.processor.process();
+            this.logUtil.putF(this.commonStrings_ExitRunnable.START_RUNNABLE, this, this.commonStrings_ExitRunnable.RUN);
+            this.midlet_ExitRunnable.destroyAppInRunnable(false, this.isProgress_ExitRunnable);
+            this.midlet_ExitRunnable.setDisplay(NullCanvas::NULL_CANVAS);
+            this.midlet_ExitRunnable.notifyDestroyed();
+            this.logUtil.putF(this.commonStrings_ExitRunnable.END_RUNNABLE, this, this.commonStrings_ExitRunnable.RUN);
+            this.processor_ExitRunnable.process();
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+            this.logUtil.put(this.commonStrings_ExitRunnable.EXCEPTION, this, this.commonStrings_ExitRunnable.RUN, e);
             try {
-                this.processor.process();
+                this.processor_ExitRunnable.process();
             } catch {
                 Throwable@ jex1 = jcatch();
                 if (cast<Exception>(jex1) !is null) {
                     Exception@ e2 = cast<Exception>(jex1);
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+                this.logUtil.put(this.commonStrings_ExitRunnable.EXCEPTION, this, this.commonStrings_ExitRunnable.RUN, e);
                 }
                 else { jthrow(jex1); }
             }

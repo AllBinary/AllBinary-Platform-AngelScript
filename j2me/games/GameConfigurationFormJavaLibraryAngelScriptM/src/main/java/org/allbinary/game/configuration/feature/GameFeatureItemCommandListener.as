@@ -18,7 +18,7 @@
 class GameFeatureItemCommandListener : JObjectBase, ItemCommandListener
 {
     LogUtil@ logUtil;
-    GameOptionsForm@ gameOptionsForm;
+    GameOptionsForm@ gameOptionsForm_GameFeatureItemCommandListener;
 
     // Java field initializers run after the super constructor
     void jfields_GameFeatureItemCommandListener()
@@ -31,7 +31,7 @@ class GameFeatureItemCommandListener : JObjectBase, ItemCommandListener
     GameFeatureItemCommandListener@ jinit_GameFeatureItemCommandListener(GameOptionsForm@ gameOptionsForm)
     {
         this.jfields_GameFeatureItemCommandListener();
-        @this.gameOptionsForm = gameOptionsForm;
+        @this.gameOptionsForm_GameFeatureItemCommandListener = gameOptionsForm;
         return this;
     }
     
@@ -42,7 +42,7 @@ class GameFeatureItemCommandListener : JObjectBase, ItemCommandListener
             string itemLabel = item.getLabel();
             this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings::getInstance().COMMAND_ACTION);
             if ((cast<GameConfigurationGauge>(item) !is null)) {
-                GameConfigurationUtil::getInstance().change(this.gameOptionsForm, cast<GameConfigurationGauge>(item));
+                GameConfigurationUtil::getInstance().change(this.gameOptionsForm_GameFeatureItemCommandListener, cast<GameConfigurationGauge>(item));
             }
         } catch {
             Throwable@ jex0 = jcatch();

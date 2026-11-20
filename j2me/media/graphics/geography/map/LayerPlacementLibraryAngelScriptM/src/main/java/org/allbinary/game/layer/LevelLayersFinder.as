@@ -17,12 +17,12 @@
 
 class LevelLayersFinder : JObjectBase
 {
-    EnumerationUtil@ enumerationUtil;
+    EnumerationUtil@ enumerationUtil_LevelLayersFinder;
 
     // Java field initializers run after the super constructor
     void jfields_LevelLayersFinder()
     {
-    @this.enumerationUtil = EnumerationUtil::getInstance();
+    @this.enumerationUtil_LevelLayersFinder = EnumerationUtil::getInstance();
     }
 
     LevelLayersFinder@ jinit_LevelLayersFinder()
@@ -40,8 +40,8 @@ class LevelLayersFinder : JObjectBase
         ABHashtable@ layerHashtableCanBeNull;
         JInteger@ integerCanBeNull;
         JInteger@ cachedIntegerCanBeNull;
-        while (this.enumerationUtil.hasMoreElements(enumeration)) {
-            @layerHashtableCanBeNull = cast<ABHashtable>(hashtable.get(this.enumerationUtil.nextElement(enumeration)));
+        while (this.enumerationUtil_LevelLayersFinder.hasMoreElements(enumeration)) {
+            @layerHashtableCanBeNull = cast<ABHashtable>(hashtable.get(this.enumerationUtil_LevelLayersFinder.nextElement(enumeration)));
             @integerCanBeNull = cast<JInteger>(layerHashtableCanBeNull.get(ABLayer::ID));
             @cachedIntegerCanBeNull = smallIntegerSingletonFactory.getAt(integerCanBeNull.intValue());
             if (!list.contains(cachedIntegerCanBeNull)) {

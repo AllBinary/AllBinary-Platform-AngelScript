@@ -17,27 +17,27 @@
 
 class RotationAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
-    int16 totalAngle;
-    int16 angleIncrement;
+    int16 totalAngle_RotationAnimationFactory;
+    int16 angleIncrement_RotationAnimationFactory;
     
 
     RotationAnimationFactory@ jinit_RotationAnimationFactory(int16 totalAngle, int16 angleIncrement)
     {
-        this.totalAngle = totalAngle;
-        this.angleIncrement = angleIncrement;
+        this.totalAngle_RotationAnimationFactory = totalAngle;
+        this.angleIncrement_RotationAnimationFactory = angleIncrement;
         return this;
     }
     
 
     Animation@ getInstance(int instanceId)
     {
-        return NullRotationAnimation::createTotalAngle(AngleInfo::getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior::getInstance());
+        return NullRotationAnimation::createTotalAngle(AngleInfo::getInstance(this.angleIncrement_RotationAnimationFactory), this.totalAngle_RotationAnimationFactory, AnimationBehavior::getInstance());
     }
     
 
     Animation@ getInstanceAnimation(Animation@ animationInterface)
     {
-        return NullRotationAnimation::createTotalAngle(AngleInfo::getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior::getInstance());
+        return NullRotationAnimation::createTotalAngle(AngleInfo::getInstance(this.angleIncrement_RotationAnimationFactory), this.totalAngle_RotationAnimationFactory, AnimationBehavior::getInstance());
     }
     
 

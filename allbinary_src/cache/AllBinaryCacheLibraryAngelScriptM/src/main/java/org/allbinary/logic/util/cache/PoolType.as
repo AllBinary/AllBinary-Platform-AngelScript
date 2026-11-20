@@ -17,19 +17,19 @@
 
 class PoolType : JObjectBase
 {
-    CacheType@ cacheType;
+    CacheType@ cacheType_PoolType;
     
 
     PoolType@ jinit_PoolType(CacheType@ cacheType)
     {
-        @this.cacheType = cacheType;
+        @this.cacheType_PoolType = cacheType;
         return this;
     }
     
 
     CacheType@ getCacheType()
     {
-        return this.cacheType;
+        return this.cacheType_PoolType;
     }
     
 

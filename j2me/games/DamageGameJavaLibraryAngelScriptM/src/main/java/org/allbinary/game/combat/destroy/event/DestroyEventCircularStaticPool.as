@@ -17,12 +17,12 @@
 
 class DestroyEventCircularStaticPool : JObjectBase
 {
-    AllBinaryEventCircularPool@ EVENT_POOL;
+    AllBinaryEventCircularPool@ EVENT_POOL_DestroyEventCircularStaticPool;
 
     // Java field initializers run after the super constructor
     void jfields_DestroyEventCircularStaticPool()
     {
-    @this.EVENT_POOL = AllBinaryEventCircularPool().jinit_AllBinaryEventCircularPool(20);
+    @this.EVENT_POOL_DestroyEventCircularStaticPool = AllBinaryEventCircularPool().jinit_AllBinaryEventCircularPool(20);
     }
     
 
@@ -35,13 +35,13 @@ class DestroyEventCircularStaticPool : JObjectBase
 
     void init(AllBinaryGameCanvas@ combatGameCanvas)
     {
-        this.EVENT_POOL.initAllBinaryEventCircularPool(DestroyEventFactory().jinit_DestroyEventFactory(combatGameCanvas));
+        this.EVENT_POOL_DestroyEventCircularStaticPool.initAllBinaryEventCircularPool(DestroyEventFactory().jinit_DestroyEventFactory(combatGameCanvas));
     }
     
 
     DestroyedEvent@ getInstanceForLayer(AllBinaryLayer@ layerInterface)
     {
-        DestroyedEvent@ destroyedEvent = cast<DestroyedEvent>(this.EVENT_POOL.getNextInstance());
+        DestroyedEvent@ destroyedEvent = cast<DestroyedEvent>(this.EVENT_POOL_DestroyEventCircularStaticPool.getNextInstance());
         destroyedEvent.setLayerInterfaceForCircularStaticPool(layerInterface);
         return destroyedEvent;
     }

@@ -18,13 +18,13 @@
 class NullRotationAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
     RotationAnimation@[]@ NULL_ROTATION_ANIMATION_ARRAY;
-    Animation@ NULL_ANIMATION;
+    Animation@ NULL_ANIMATION_NullRotationAnimationFactory;
 
     // Java field initializers run after the super constructor
     void jfields_NullRotationAnimationFactory()
     {
     @this.NULL_ROTATION_ANIMATION_ARRAY = array<RotationAnimation@>(0);
-    @this.NULL_ANIMATION = NullRotationAnimation2().jinit_NullRotationAnimation2();
+    @this.NULL_ANIMATION_NullRotationAnimationFactory = NullRotationAnimation2().jinit_NullRotationAnimation2();
     }
     
 
@@ -37,13 +37,13 @@ class NullRotationAnimationFactory : JObjectBase, AnimationInterfaceFactoryInter
 
     Animation@ getInstance(int instanceId)
     {
-        return this.NULL_ANIMATION;
+        return this.NULL_ANIMATION_NullRotationAnimationFactory;
     }
     
 
     Animation@ getInstanceAnimation(Animation@ animationInterface)
     {
-        return this.NULL_ANIMATION;
+        return this.NULL_ANIMATION_NullRotationAnimationFactory;
     }
     
 

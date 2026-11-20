@@ -18,13 +18,13 @@
 class GameKeyCompleteMotionGestureInputEventFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    BasicArrayList@ eventList;
+    BasicArrayList@ eventList_GameKeyCompleteMotionGestureInputEventFactory;
 
     // Java field initializers run after the super constructor
     void jfields_GameKeyCompleteMotionGestureInputEventFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.eventList = BasicArrayListD().jinit_BasicArrayListD();
+    @this.eventList_GameKeyCompleteMotionGestureInputEventFactory = BasicArrayListD().jinit_BasicArrayListD();
     }
 
     GameKeyCompleteMotionGestureInputEventFactory@ jinit_GameKeyCompleteMotionGestureInputEventFactory()
@@ -36,15 +36,15 @@ class GameKeyCompleteMotionGestureInputEventFactory : JObjectBase
 
     void add(GameKeyCompleteMotionGestureInputEvent@ gameKeyCompleteMotionGestureInputEvent)
     {
-        this.eventList.add(gameKeyCompleteMotionGestureInputEvent);
+        this.eventList_GameKeyCompleteMotionGestureInputEventFactory.add(gameKeyCompleteMotionGestureInputEvent);
     }
     
 
     void updateAll()
     {
-        this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().START_LABEL).appendint(this.eventList.size()).toString(), this, "updateAll");
-        for (int index = this.eventList.size() - 1; index >= 0; index--) {
-            GameKeyCompleteMotionGestureInputEvent@ gameKeyCompleteMotionGestureInputEvent = cast<GameKeyCompleteMotionGestureInputEvent>(this.eventList.objectArray[index]);
+        this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().START_LABEL).appendint(this.eventList_GameKeyCompleteMotionGestureInputEventFactory.size()).toString(), this, "updateAll");
+        for (int index = this.eventList_GameKeyCompleteMotionGestureInputEventFactory.size() - 1; index >= 0; index--) {
+            GameKeyCompleteMotionGestureInputEvent@ gameKeyCompleteMotionGestureInputEvent = cast<GameKeyCompleteMotionGestureInputEvent>(this.eventList_GameKeyCompleteMotionGestureInputEventFactory.objectArray[index]);
             gameKeyCompleteMotionGestureInputEvent.update();
         }
     }

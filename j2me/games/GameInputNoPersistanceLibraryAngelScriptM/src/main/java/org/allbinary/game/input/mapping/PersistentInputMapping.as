@@ -20,29 +20,29 @@ class PersistentInputMapping : JObjectBase
 {
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
-    EnumerationUtil@ enumerationUtil;
-    InputToGameKeyMapping@ inputMapping;
-    InputMappingEventListenerInterface@ inputMappingEventListenerInterface;
-    InputPersistance@ inputPersistance;
-    InputMappingEvent@ inputMappingEvent;
+    EnumerationUtil@ enumerationUtil_PersistentInputMapping;
+    InputToGameKeyMapping@ inputMapping_PersistentInputMapping;
+    InputMappingEventListenerInterface@ inputMappingEventListenerInterface_PersistentInputMapping;
+    InputPersistance@ inputPersistance_PersistentInputMapping;
+    InputMappingEvent@ inputMappingEvent_PersistentInputMapping;
 
     // Java field initializers run after the super constructor
     void jfields_PersistentInputMapping()
     {
     @this.logUtil = LogUtil::getInstance();
     @this.commonStrings = CommonStrings::getInstance();
-    @this.enumerationUtil = EnumerationUtil::getInstance();
-    @this.inputMapping = InputToGameKeyMapping().jinit_InputToGameKeyMapping();
-    @this.inputMappingEventListenerInterface = NullInputMappingEventListener::NULL_INPUT_MAPPING_EVENT_LISTENER;
+    @this.enumerationUtil_PersistentInputMapping = EnumerationUtil::getInstance();
+    @this.inputMapping_PersistentInputMapping = InputToGameKeyMapping().jinit_InputToGameKeyMapping();
+    @this.inputMappingEventListenerInterface_PersistentInputMapping = NullInputMappingEventListener::NULL_INPUT_MAPPING_EVENT_LISTENER;
     
-    @this.inputMappingEvent = InputMappingEvent().jinit_InputMappingEvent(this);
+    @this.inputMappingEvent_PersistentInputMapping = InputMappingEvent().jinit_InputMappingEvent(this);
     }
     
 
     PersistentInputMapping@ jinit_PersistentInputMapping(string name)
     {
         this.jfields_PersistentInputMapping();
-        @this.inputPersistance = InputPersistance().jinit_InputPersistance(name);
+        @this.inputPersistance_PersistentInputMapping = InputPersistance().jinit_InputPersistance(name);
         return this;
     }
     
@@ -75,17 +75,17 @@ class PersistentInputMapping : JObjectBase
 
     void update(AbeClientInformationInterface@ abeClientInformation)
     {
-        this.inputPersistance.deleteAll(abeClientInformation);
+        this.inputPersistance_PersistentInputMapping.deleteAll(abeClientInformation);
         this.save(abeClientInformation);
     }
     
 
     void save(AbeClientInformationInterface@ abeClientInformation)
     {
-        this.inputPersistance.save(abeClientInformation, this.getInputMapping().getHashtable());
-        this.inputMappingEvent.setInputToGameKeyMapping(this.getInputMapping());
+        this.inputPersistance_PersistentInputMapping.save(abeClientInformation, this.getInputMapping().getHashtable());
+        this.inputMappingEvent_PersistentInputMapping.setInputToGameKeyMapping(this.getInputMapping());
         if (this.getInputMappingEventListenerInterface() !is null) {
-            this.getInputMappingEventListenerInterface().onInputMappingEvent(this.inputMappingEvent);
+            this.getInputMappingEventListenerInterface().onInputMappingEvent(this.inputMappingEvent_PersistentInputMapping);
         }
     }
     
@@ -94,19 +94,19 @@ class PersistentInputMapping : JObjectBase
     {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
         try {
-            this.inputPersistance.loadAll(abeClientInformation);
+            this.inputPersistance_PersistentInputMapping.loadAll(abeClientInformation);
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
             PreLogUtil::putOE(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
-            this.inputPersistance.deleteRecoreStore(abeClientInformation);
+            this.inputPersistance_PersistentInputMapping.deleteRecoreStore(abeClientInformation);
             this.setDefault(abeClientInformation);
-            this.inputPersistance.loadAll(abeClientInformation);
+            this.inputPersistance_PersistentInputMapping.loadAll(abeClientInformation);
             }
             else { jthrow(jex0); }
         }
-        BasicArrayList@ list = this.inputPersistance.getList();
+        BasicArrayList@ list = this.inputPersistance_PersistentInputMapping.getList();
         int totalMappedTo = 0;
         int size = list.size();
         ABHashtable@ hashtable;
@@ -116,8 +116,8 @@ class PersistentInputMapping : JObjectBase
         for (int index = 0; index < size; index++) {
             @hashtable = cast<ABHashtable>(list.objectArray[index]);
             @enumeration = hashtable.keys();
-            while (this.enumerationUtil.hasMoreElements(enumeration)) {
-                @mappedToInput = cast<Input>(this.enumerationUtil.nextElement(enumeration));
+            while (this.enumerationUtil_PersistentInputMapping.hasMoreElements(enumeration)) {
+                @mappedToInput = cast<Input>(this.enumerationUtil_PersistentInputMapping.nextElement(enumeration));
                 @gameActionInput = cast<Input>(hashtable.get(mappedToInput));
                 totalMappedTo++;
                 this.getInputMapping().add(gameActionInput, mappedToInput);
@@ -134,19 +134,19 @@ class PersistentInputMapping : JObjectBase
 
     void setInputMappingEventListenerInterface(InputMappingEventListenerInterface@ inputMappingEventListenerInterface)
     {
-        @this.inputMappingEventListenerInterface = inputMappingEventListenerInterface;
+        @this.inputMappingEventListenerInterface_PersistentInputMapping = inputMappingEventListenerInterface;
     }
     
 
     InputMappingEventListenerInterface@ getInputMappingEventListenerInterface()
     {
-        return this.inputMappingEventListenerInterface;
+        return this.inputMappingEventListenerInterface_PersistentInputMapping;
     }
     
 
     InputToGameKeyMapping@ getInputMapping()
     {
-        return this.inputMapping;
+        return this.inputMapping_PersistentInputMapping;
     }
     
 

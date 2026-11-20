@@ -18,19 +18,19 @@
 class AllBinarySensorManager : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
+    CommonStrings@ commonStrings_AllBinarySensorManager;
     string ORIENTATION_SENSOR_INPUT;
     string ORIENTATION_TYPE;
-    BasicArrayList@ list;
+    BasicArrayList@ list_AllBinarySensorManager;
 
     // Java field initializers run after the super constructor
     void jfields_AllBinarySensorManager()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
+    @this.commonStrings_AllBinarySensorManager = CommonStrings::getInstance();
     this.ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
     this.ORIENTATION_TYPE = "Orientation Type";
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_AllBinarySensorManager = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
@@ -44,7 +44,7 @@ class AllBinarySensorManager : JObjectBase
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+            this.logUtil.put(this.commonStrings_AllBinarySensorManager.EXCEPTION, this, this.commonStrings_AllBinarySensorManager.CONSTRUCTOR, e);
             }
             else { jthrow(jex0); }
         }
@@ -59,7 +59,7 @@ class AllBinarySensorManager : JObjectBase
 
     BasicArrayList@ getSensorNamesList()
     {
-        return this.list;
+        return this.list_AllBinarySensorManager;
     }
     
 

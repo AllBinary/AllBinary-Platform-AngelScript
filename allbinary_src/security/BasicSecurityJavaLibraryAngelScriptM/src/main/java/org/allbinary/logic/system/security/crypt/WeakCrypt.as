@@ -17,14 +17,14 @@
 
 class WeakCrypt : JObjectBase
 {
-    TsUtil@ tsUtil;
-    AbCrypt@ abCrypt;
+    TsUtil@ tsUtil_WeakCrypt;
+    AbCrypt@ abCrypt_WeakCrypt;
 
     // Java field initializers run after the super constructor
     void jfields_WeakCrypt()
     {
-    @this.tsUtil = TsUtil::getInstance();
-    @this.abCrypt = AbCrypt().jinit_AbCrypt(KeySpecFactory::getInstance_jstatic().DES);
+    @this.tsUtil_WeakCrypt = TsUtil::getInstance();
+    @this.abCrypt_WeakCrypt = AbCrypt().jinit_AbCrypt(KeySpecFactory::getInstance_jstatic().DES);
     }
     
 
@@ -32,7 +32,7 @@ class WeakCrypt : JObjectBase
     {
         this.jfields_WeakCrypt();
         try {
-            this.abCrypt.init(WeakCrypt::keys[key]);
+            this.abCrypt_WeakCrypt.init(WeakCrypt::keys[key]);
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
@@ -49,7 +49,7 @@ class WeakCrypt : JObjectBase
     string encrypt(string value)
     {
         try {
-            int8[]@ crypted = this.abCrypt.encrypt(this.tsUtil.getByteArray(value));
+            int8[]@ crypted = this.abCrypt_WeakCrypt.encrypt(this.tsUtil_WeakCrypt.getByteArray(value));
             return DatabaseEncoder::encode(crypted);
         } catch {
             Throwable@ jex1 = jcatch();
@@ -67,7 +67,7 @@ class WeakCrypt : JObjectBase
     string decrypt(string value)
     {
         try {
-            int8[]@ decrypted = this.abCrypt.decrypt(DatabaseEncoder::decode(value));
+            int8[]@ decrypted = this.abCrypt_WeakCrypt.decrypt(DatabaseEncoder::decode(value));
             return String::newString(decrypted);
         } catch {
             Throwable@ jex2 = jcatch();
@@ -101,5 +101,6 @@ namespace WeakCrypt
     int jcell_KEYMAX;
     int get_KEYMAX() property { jclinit(); return jcell_KEYMAX; }
     void set_KEYMAX(int value) property { jclinit(); jcell_KEYMAX = value; }
+    int jpostAdd_KEYMAX(int delta) { jclinit(); int old = jcell_KEYMAX; jcell_KEYMAX = int(old + delta); return old; }
 }
 

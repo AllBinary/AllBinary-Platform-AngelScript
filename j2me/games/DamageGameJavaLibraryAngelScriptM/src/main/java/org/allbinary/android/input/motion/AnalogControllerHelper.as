@@ -17,37 +17,37 @@
 
 class AnalogControllerHelper : JObjectBase
 {
-    int reduceTimeFactor;
-    int SCALE_VALUE;
-    TimeDelayHelper@ rightTimeElapsedHelper;
-    TimeDelayHelper@ leftTimeElapsedHelper;
-    TimeDelayHelper@ downTimeElapsedHelper;
-    TimeDelayHelper@ upTimeElapsedHelper;
+    int reduceTimeFactor_AnalogControllerHelper;
+    int SCALE_VALUE_AnalogControllerHelper;
+    TimeDelayHelper@ rightTimeElapsedHelper_AnalogControllerHelper;
+    TimeDelayHelper@ leftTimeElapsedHelper_AnalogControllerHelper;
+    TimeDelayHelper@ downTimeElapsedHelper_AnalogControllerHelper;
+    TimeDelayHelper@ upTimeElapsedHelper_AnalogControllerHelper;
 
     // Java field initializers run after the super constructor
     void jfields_AnalogControllerHelper()
     {
     
-    this.SCALE_VALUE = AnalogControllerConfigurationFactory::getInstance().SCALE_VALUE;
-    @this.rightTimeElapsedHelper = TimeDelayHelper().jinit_TimeDelayHelper(0);
-    @this.leftTimeElapsedHelper = TimeDelayHelper().jinit_TimeDelayHelper(0);
-    @this.downTimeElapsedHelper = TimeDelayHelper().jinit_TimeDelayHelper(0);
-    @this.upTimeElapsedHelper = TimeDelayHelper().jinit_TimeDelayHelper(0);
+    this.SCALE_VALUE_AnalogControllerHelper = AnalogControllerConfigurationFactory::getInstance().SCALE_VALUE;
+    @this.rightTimeElapsedHelper_AnalogControllerHelper = TimeDelayHelper().jinit_TimeDelayHelper(0);
+    @this.leftTimeElapsedHelper_AnalogControllerHelper = TimeDelayHelper().jinit_TimeDelayHelper(0);
+    @this.downTimeElapsedHelper_AnalogControllerHelper = TimeDelayHelper().jinit_TimeDelayHelper(0);
+    @this.upTimeElapsedHelper_AnalogControllerHelper = TimeDelayHelper().jinit_TimeDelayHelper(0);
     }
     
 
     AnalogControllerHelper@ jinit_AnalogControllerHelper(int reduceTimeFactor)
     {
         this.jfields_AnalogControllerHelper();
-        this.reduceTimeFactor = reduceTimeFactor;
+        this.reduceTimeFactor_AnalogControllerHelper = reduceTimeFactor;
         return this;
     }
     
 
     void right(CollidableDestroyableDamageableLayer@ collidableDestroyableDamageableLayer, int xAnalogValue)
     {
-        this.rightTimeElapsedHelper.delay = ((this.SCALE_VALUE - xAnalogValue) >>> this.reduceTimeFactor);
-        if (this.rightTimeElapsedHelper.isTimeTNT()) {
+        this.rightTimeElapsedHelper_AnalogControllerHelper.delay = ((this.SCALE_VALUE_AnalogControllerHelper - xAnalogValue) >>> this.reduceTimeFactor_AnalogControllerHelper);
+        if (this.rightTimeElapsedHelper_AnalogControllerHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.right();
         }
     }
@@ -55,8 +55,8 @@ class AnalogControllerHelper : JObjectBase
 
     void left(CollidableDestroyableDamageableLayer@ collidableDestroyableDamageableLayer, int xAnalogValue)
     {
-        this.leftTimeElapsedHelper.delay = ((this.SCALE_VALUE + xAnalogValue) >>> this.reduceTimeFactor);
-        if (this.leftTimeElapsedHelper.isTimeTNT()) {
+        this.leftTimeElapsedHelper_AnalogControllerHelper.delay = ((this.SCALE_VALUE_AnalogControllerHelper + xAnalogValue) >>> this.reduceTimeFactor_AnalogControllerHelper);
+        if (this.leftTimeElapsedHelper_AnalogControllerHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.left();
         }
     }
@@ -64,8 +64,8 @@ class AnalogControllerHelper : JObjectBase
 
     void up(CollidableDestroyableDamageableLayer@ collidableDestroyableDamageableLayer, int xAnalogValue)
     {
-        this.upTimeElapsedHelper.delay = ((this.SCALE_VALUE - xAnalogValue) >>> this.reduceTimeFactor);
-        if (this.upTimeElapsedHelper.isTimeTNT()) {
+        this.upTimeElapsedHelper_AnalogControllerHelper.delay = ((this.SCALE_VALUE_AnalogControllerHelper - xAnalogValue) >>> this.reduceTimeFactor_AnalogControllerHelper);
+        if (this.upTimeElapsedHelper_AnalogControllerHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.up();
         }
     }
@@ -73,8 +73,8 @@ class AnalogControllerHelper : JObjectBase
 
     void down(CollidableDestroyableDamageableLayer@ collidableDestroyableDamageableLayer, int xAnalogValue)
     {
-        this.downTimeElapsedHelper.delay = ((this.SCALE_VALUE + xAnalogValue) >>> this.reduceTimeFactor);
-        if (this.downTimeElapsedHelper.isTimeTNT()) {
+        this.downTimeElapsedHelper_AnalogControllerHelper.delay = ((this.SCALE_VALUE_AnalogControllerHelper + xAnalogValue) >>> this.reduceTimeFactor_AnalogControllerHelper);
+        if (this.downTimeElapsedHelper_AnalogControllerHelper.isTimeTNT()) {
             collidableDestroyableDamageableLayer.down();
         }
     }

@@ -341,7 +341,7 @@ namespace RecordStoreHighScores
 
     HighScores@ getInstance(AbeClientInformationInterface@ abeClientInformation, GameInfo@ gameInfo, string highScoreName, string heading, string columnTwoHeading, RecordComparator@ recordComparatorInterface)
     {
-        JObject@ highScoresCanBeNull = RecordStoreHighScores::hashTable.get(highScoreName);
+        JObject@ highScoresCanBeNull = RecordStoreHighScores::hashTable.get(jbox(highScoreName));
         if (highScoresCanBeNull is null) {
             HighScores@ highScores = RecordStoreHighScores().jinit_RecordStoreHighScores(abeClientInformation, gameInfo, highScoreName, heading, columnTwoHeading, recordComparatorInterface);
             RecordStoreHighScores::hashTable.put(highScores.getName(), highScores);

@@ -19,8 +19,8 @@ class CommandRunnable : JObjectBase, Runnable
 {
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
-    CommandFormInputProcessor@ commandFormInputProcessor;
-    Command@ command;
+    CommandFormInputProcessor@ commandFormInputProcessor_CommandRunnable;
+    Command@ command_CommandRunnable;
 
     // Java field initializers run after the super constructor
     void jfields_CommandRunnable()
@@ -35,8 +35,8 @@ class CommandRunnable : JObjectBase, Runnable
     CommandRunnable@ jinit_CommandRunnable(CommandFormInputProcessor@ commandFormInputProcessor, Command@ command)
     {
         this.jfields_CommandRunnable();
-        @this.commandFormInputProcessor = commandFormInputProcessor;
-        @this.command = command;
+        @this.commandFormInputProcessor_CommandRunnable = commandFormInputProcessor;
+        @this.command_CommandRunnable = command;
         return this;
     }
     
@@ -45,9 +45,9 @@ class CommandRunnable : JObjectBase, Runnable
     {
         try {
             this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
-            MyCanvas@ canvas = this.commandFormInputProcessor.getCanvas();
+            MyCanvas@ canvas = this.commandFormInputProcessor_CommandRunnable.getCanvas();
             CommandListener@ commandListener = canvas.getCustomCommandListener();
-            commandListener.commandAction(this.command, canvas);
+            commandListener.commandAction(this.command_CommandRunnable, canvas);
             this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
         } catch {
             Throwable@ jex0 = jcatch();

@@ -17,53 +17,53 @@
 
 class GPoint : JObjectBase
 {
-    int x;
-    int y;
-    int z;
+    int x_GPoint;
+    int y_GPoint;
+    int z_GPoint;
     
 
     GPoint@ jinit_GPoint(int x, int y, int z)
     {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.x_GPoint = x;
+        this.y_GPoint = y;
+        this.z_GPoint = z;
         return this;
     }
     
 
     int getX()
     {
-        return this.x;
+        return this.x_GPoint;
     }
     
 
     int getY()
     {
-        return this.y;
+        return this.y_GPoint;
     }
     
 
     int getZ()
     {
-        return this.z;
+        return this.z_GPoint;
     }
     
 
     int getRawX()
     {
-        return this.x;
+        return this.x_GPoint;
     }
     
 
     int getRawY()
     {
-        return this.y;
+        return this.y_GPoint;
     }
     
 
     int getRawZ()
     {
-        return this.z;
+        return this.z_GPoint;
     }
     
 

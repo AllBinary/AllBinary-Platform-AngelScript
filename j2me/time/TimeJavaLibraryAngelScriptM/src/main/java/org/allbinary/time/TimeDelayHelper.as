@@ -17,15 +17,15 @@
 
 class TimeDelayHelper : JObjectBase
 {
-    int64 startTime;
-    int64 elapsedTimeAtPause;
+    int64 startTime_TimeDelayHelper;
+    int64 elapsedTimeAtPause_TimeDelayHelper;
     int delay;
 
     // Java field initializers run after the super constructor
     void jfields_TimeDelayHelper()
     {
-    this.startTime = int64(-1);
-    this.elapsedTimeAtPause = Long::MIN_VALUE;
+    this.startTime_TimeDelayHelper = int64(-1);
+    this.elapsedTimeAtPause_TimeDelayHelper = Long::MIN_VALUE;
     
     }
     
@@ -42,8 +42,8 @@ class TimeDelayHelper : JObjectBase
     bool isTimeTNT()
     {
         int64 currentTime = System::currentTimeMillis();
-        if (currentTime - this.startTime > int64(this.delay)) {
-            this.startTime = currentTime;
+        if (currentTime - this.startTime_TimeDelayHelper > int64(this.delay)) {
+            this.startTime_TimeDelayHelper = currentTime;
             return true;
         }
         return false;
@@ -53,8 +53,8 @@ class TimeDelayHelper : JObjectBase
     bool isTimeSinceTNT(int delay)
     {
         int64 currentTime = System::currentTimeMillis();
-        if (currentTime - this.startTime > int64(delay)) {
-            this.startTime = currentTime;
+        if (currentTime - this.startTime_TimeDelayHelper > int64(delay)) {
+            this.startTime_TimeDelayHelper = currentTime;
             return true;
         }
         return false;
@@ -63,8 +63,8 @@ class TimeDelayHelper : JObjectBase
 
     bool isTime(int64 currentTime)
     {
-        if (currentTime - this.startTime > int64(this.delay)) {
-            this.startTime = currentTime;
+        if (currentTime - this.startTime_TimeDelayHelper > int64(this.delay)) {
+            this.startTime_TimeDelayHelper = currentTime;
             return true;
         }
         return false;
@@ -73,7 +73,7 @@ class TimeDelayHelper : JObjectBase
 
     bool isTimeWithoutReset(int64 currentTime)
     {
-        if (currentTime - this.startTime > int64(this.delay)) {
+        if (currentTime - this.startTime_TimeDelayHelper > int64(this.delay)) {
             return true;
         }
         return false;
@@ -82,8 +82,8 @@ class TimeDelayHelper : JObjectBase
 
     bool isTimeSince(int delay, int64 currentTime)
     {
-        if (currentTime - this.startTime > int64(this.delay)) {
-            this.startTime = currentTime;
+        if (currentTime - this.startTime_TimeDelayHelper > int64(this.delay)) {
+            this.startTime_TimeDelayHelper = currentTime;
             return true;
         }
         return false;
@@ -92,13 +92,13 @@ class TimeDelayHelper : JObjectBase
 
     int64 getElapsedTNT()
     {
-        return System::currentTimeMillis() - this.startTime;
+        return System::currentTimeMillis() - this.startTime_TimeDelayHelper;
     }
     
 
     int64 getElapsed(int64 currentTime)
     {
-        return currentTime - this.startTime;
+        return currentTime - this.startTime_TimeDelayHelper;
     }
     
 
@@ -126,34 +126,34 @@ class TimeDelayHelper : JObjectBase
 
     void setStartTime(int64 startTime)
     {
-        this.startTime = startTime;
+        this.startTime_TimeDelayHelper = startTime;
     }
     
 
     int64 getStartTime()
     {
-        return this.startTime;
+        return this.startTime_TimeDelayHelper;
     }
     
 
     void setStartTimeTNT()
     {
-        this.startTime = System::currentTimeMillis();
+        this.startTime_TimeDelayHelper = System::currentTimeMillis();
     }
     
 
     void pause()
     {
-        this.elapsedTimeAtPause = this.getElapsedTNT();
-        this.startTime = Long::MAX_VALUE;
+        this.elapsedTimeAtPause_TimeDelayHelper = this.getElapsedTNT();
+        this.startTime_TimeDelayHelper = Long::MAX_VALUE;
     }
     
 
     bool resume()
     {
-        if (this.elapsedTimeAtPause != Long::MIN_VALUE) {
-            this.startTime = System::currentTimeMillis() + this.elapsedTimeAtPause;
-            this.elapsedTimeAtPause = Long::MIN_VALUE;
+        if (this.elapsedTimeAtPause_TimeDelayHelper != Long::MIN_VALUE) {
+            this.startTime_TimeDelayHelper = System::currentTimeMillis() + this.elapsedTimeAtPause_TimeDelayHelper;
+            this.elapsedTimeAtPause_TimeDelayHelper = Long::MIN_VALUE;
             this.setStartTimeTNT();
             return true;
         }
@@ -167,7 +167,7 @@ class TimeDelayHelper : JObjectBase
         if (elapsed > 0) {
             CommonLabels@ commonLabels = CommonLabels::getInstance();
             string elapsedAsString = Long::toString(elapsed);
-            return StringMaker().jinit_StringMaker().append(commonLabels.START).appendlong(this.startTime).append(commonLabels.CURRENT).appendlong(currentTime).append(commonLabels.ELAPSED).append(elapsedAsString).toString();
+            return StringMaker().jinit_StringMaker().append(commonLabels.START).appendlong(this.startTime_TimeDelayHelper).append(commonLabels.CURRENT).appendlong(currentTime).append(commonLabels.ELAPSED).append(elapsedAsString).toString();
         } else {
             return StringUtil::getInstance().EMPTY_STRING;
         }
@@ -182,7 +182,7 @@ class TimeDelayHelper : JObjectBase
         if (elapsed > 0) {
             CommonLabels@ commonLabels = CommonLabels::getInstance();
             string elapsedAsString = Long::toString(elapsed);
-            return StringMaker().jinit_StringMaker().append(commonLabels.START).appendlong(this.startTime).append(commonLabels.CURRENT).appendlong(currentTime).append(commonLabels.ELAPSED).append(elapsedAsString).toString();
+            return StringMaker().jinit_StringMaker().append(commonLabels.START).appendlong(this.startTime_TimeDelayHelper).append(commonLabels.CURRENT).appendlong(currentTime).append(commonLabels.ELAPSED).append(elapsedAsString).toString();
         } else {
             return StringUtil::getInstance().EMPTY_STRING;
         }

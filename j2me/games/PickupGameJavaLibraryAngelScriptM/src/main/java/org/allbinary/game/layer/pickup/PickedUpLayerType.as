@@ -17,19 +17,19 @@
 
 class PickedUpLayerType : JObjectBase
 {
-    string name;
+    string name_PickedUpLayerType;
     
 
     PickedUpLayerType@ jinit_PickedUpLayerType(string name)
     {
-        this.name = name;
+        this.name_PickedUpLayerType = name;
         return this;
     }
     
 
     string toString()
     {
-        return this.name;
+        return this.name_PickedUpLayerType;
     }
 }
 

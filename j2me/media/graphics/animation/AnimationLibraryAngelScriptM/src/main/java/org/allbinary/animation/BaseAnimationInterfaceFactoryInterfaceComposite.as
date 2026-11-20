@@ -17,12 +17,12 @@
 
 class BaseAnimationInterfaceFactoryInterfaceComposite : JObjectBase, AnimationInterfaceFactoryInterface
 {
-    BasicAnimationInterfaceFactoryInterface@[]@ basicAnimationInterfaceFactoryInterfaceArray;
+    BasicAnimationInterfaceFactoryInterface@[]@ basicAnimationInterfaceFactoryInterfaceArray_BaseAnimationInterfaceFactoryInterfaceComposite;
     
 
     BaseAnimationInterfaceFactoryInterfaceComposite@ jinit_BaseAnimationInterfaceFactoryInterfaceComposite(BasicAnimationInterfaceFactoryInterface@[]@ basicAnimationInterfaceFactoryInterfaceArray)
     {
-        @this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+        @this.basicAnimationInterfaceFactoryInterfaceArray_BaseAnimationInterfaceFactoryInterfaceComposite = basicAnimationInterfaceFactoryInterfaceArray;
         return this;
     }
     
@@ -35,13 +35,13 @@ class BaseAnimationInterfaceFactoryInterfaceComposite : JObjectBase, AnimationIn
 
     BasicAnimationInterfaceFactoryInterface@[]@ getBasicAnimationInterfaceFactoryInterfaceArray()
     {
-        return this.basicAnimationInterfaceFactoryInterfaceArray;
+        return this.basicAnimationInterfaceFactoryInterfaceArray_BaseAnimationInterfaceFactoryInterfaceComposite;
     }
     
 
     void setBasicAnimationInterfaceFactoryInterfaceArray(BasicAnimationInterfaceFactoryInterface@[]@ basicAnimationInterfaceFactoryInterfaceArray)
     {
-        @this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+        @this.basicAnimationInterfaceFactoryInterfaceArray_BaseAnimationInterfaceFactoryInterfaceComposite = basicAnimationInterfaceFactoryInterfaceArray;
     }
     
 

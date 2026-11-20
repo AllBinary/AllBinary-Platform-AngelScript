@@ -17,7 +17,7 @@
 
 class LayerCollisionUtil : JObjectBase
 {
-    CollisionProcessor@ collisionProcessor;
+    CollisionProcessor@ collisionProcessor_LayerCollisionUtil;
     
 
     LayerCollisionUtil@ jinit_LayerCollisionUtil()
@@ -25,9 +25,9 @@ class LayerCollisionUtil : JObjectBase
         Features@ features = Features::getInstance();
         GameFeatureFactory@ gameFeatureFactory = GameFeatureFactory::getInstance();
         if (OpenGLFeatureUtil::getInstance().isAnyThreed() && !features.isFeature(gameFeatureFactory.COLLISIONS_FORCED_TWO_DIMENSIONAL)) {
-            @this.collisionProcessor = CollisionThreedProcessor().jinit_CollisionThreedProcessor();
+            @this.collisionProcessor_LayerCollisionUtil = CollisionThreedProcessor().jinit_CollisionThreedProcessor();
         } else {
-            @this.collisionProcessor = Collision2DProcessor().jinit_Collision2DProcessor();
+            @this.collisionProcessor_LayerCollisionUtil = Collision2DProcessor().jinit_Collision2DProcessor();
         }
         return this;
     }
@@ -35,7 +35,7 @@ class LayerCollisionUtil : JObjectBase
 
     bool isCollision(AllBinaryLayer@ myLayer, AllBinaryLayer@ myLayer2)
     {
-        return this.collisionProcessor.isCollision(myLayer, myLayer2);
+        return this.collisionProcessor_LayerCollisionUtil.isCollision(myLayer, myLayer2);
     }
 }
 

@@ -17,15 +17,15 @@
 
 class VectorRotationAnimationInterfaceFactory : JObjectBase, AnimationInterfaceFactoryInterface
 {
-    int[]@[]@[]@ currentPoints;
-    BasicColor@ basicColor;
+    int[]@[]@[]@ currentPoints_VectorRotationAnimationInterfaceFactory;
+    BasicColor@ basicColor_VectorRotationAnimationInterfaceFactory;
     AnimationBehaviorFactory@ animationBehaviorFactory;
 
     // Java field initializers run after the super constructor
     void jfields_VectorRotationAnimationInterfaceFactory()
     {
-    @this.currentPoints = NullUtil::getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
-    @this.basicColor = BasicColorFactory::getInstance().WHITE;
+    @this.currentPoints_VectorRotationAnimationInterfaceFactory = NullUtil::getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
+    @this.basicColor_VectorRotationAnimationInterfaceFactory = BasicColorFactory::getInstance().WHITE;
     
     }
     
@@ -33,7 +33,7 @@ class VectorRotationAnimationInterfaceFactory : JObjectBase, AnimationInterfaceF
     VectorRotationAnimationInterfaceFactory@ jinit_VectorRotationAnimationInterfaceFactory(int[]@[]@[]@ currentPoints, BasicColor@ basicColor, AnimationBehaviorFactory@ animationBehaviorFactory)
     {
         this.jfields_VectorRotationAnimationInterfaceFactory();
-        @this.currentPoints = currentPoints;
+        @this.currentPoints_VectorRotationAnimationInterfaceFactory = currentPoints;
         this.setBasicColorP(basicColor);
         @this.animationBehaviorFactory = animationBehaviorFactory;
         return this;
@@ -42,19 +42,19 @@ class VectorRotationAnimationInterfaceFactory : JObjectBase, AnimationInterfaceF
 
     Animation@ getInstance(int instanceId)
     {
-        return VectorRotationAnimation().jinit_VectorRotationAnimation(this.currentPoints, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
+        return VectorRotationAnimation().jinit_VectorRotationAnimation(this.currentPoints_VectorRotationAnimationInterfaceFactory, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
     }
     
 
     void setBasicColorP(BasicColor@ basicColor)
     {
-        @this.basicColor = basicColor;
+        @this.basicColor_VectorRotationAnimationInterfaceFactory = basicColor;
     }
     
 
     BasicColor@ getBasicColorP()
     {
-        return this.basicColor;
+        return this.basicColor_VectorRotationAnimationInterfaceFactory;
     }
     
 

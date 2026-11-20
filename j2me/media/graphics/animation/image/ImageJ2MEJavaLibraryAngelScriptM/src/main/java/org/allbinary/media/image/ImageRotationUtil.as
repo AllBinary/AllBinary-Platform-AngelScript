@@ -17,12 +17,12 @@
 
 class ImageRotationUtil : JObjectBase
 {
-    int anchor;
+    int anchor_ImageRotationUtil;
 
     // Java field initializers run after the super constructor
     void jfields_ImageRotationUtil()
     {
-    this.anchor = Anchor::TOP_LEFT;
+    this.anchor_ImageRotationUtil = Anchor::TOP_LEFT;
     }
     
 

@@ -17,19 +17,19 @@
 
 class Angle : JObjectBase
 {
-    int16 value;
+    int16 value_Angle;
     
 
     Angle@ jinit_Angle(int16 angle)
     {
-        this.value = angle;
+        this.value_Angle = angle;
         return this;
     }
     
 
     int16 getValue()
     {
-        return this.value;
+        return this.value_Angle;
     }
 }
 

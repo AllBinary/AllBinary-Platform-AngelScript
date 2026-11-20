@@ -18,14 +18,14 @@
 class BaseGameInitialization : JObjectBase, GameInitializationInterface
 {
     ResourceInitialization@[]@ resourceInitializationArray;
-    int portion;
-    bool initialized;
+    int portion_BaseGameInitialization;
+    bool initialized_BaseGameInitialization;
     int EARLY_RESOURCES;
     int GAME_RESOURCES;
     int EARLY_CHANGABLE_RESOURCES;
     int GAME_CHANGABLE_RESOURCES;
-    bool gameInitialized;
-    bool allLoaded;
+    bool gameInitialized_BaseGameInitialization;
+    bool allLoaded_BaseGameInitialization;
 
     // Java field initializers run after the super constructor
     void jfields_BaseGameInitialization()
@@ -46,7 +46,7 @@ class BaseGameInitialization : JObjectBase, GameInitializationInterface
     {
         this.jfields_BaseGameInitialization();
         @this.resourceInitializationArray = resourceInitializationArray;
-        this.portion = portion;
+        this.portion_BaseGameInitialization = portion;
         return this;
     }
     
@@ -100,14 +100,14 @@ class BaseGameInitialization : JObjectBase, GameInitializationInterface
             this.resourceInitializationArray[this.EARLY_CHANGABLE_RESOURCES].init();
         }
         if (this.resourceAnimationChange() && level == resourceLoadingLevelFactory.LOAD_ALL.getLevel()) {
-            if (this.allLoaded) {
+            if (this.allLoaded_BaseGameInitialization) {
                 this.clearResources();
             }
             if (FeaturedAnimationInterfaceFactoryInterfaceFactory::getInstance().getList().size() == 0) {
                 this.resourceInitializationArray[this.EARLY_CHANGABLE_RESOURCES].init();
             }
             this.resourceInitializationArray[this.GAME_CHANGABLE_RESOURCES].init();
-            this.allLoaded = true;
+            this.allLoaded_BaseGameInitialization = true;
         }
     }
     
@@ -128,7 +128,7 @@ class BaseGameInitialization : JObjectBase, GameInitializationInterface
 
     void clearResources()
     {
-        this.allLoaded = false;
+        this.allLoaded_BaseGameInitialization = false;
         GameFeatureImageCacheFactory::releaseAll();
         FeaturedAnimationInterfaceFactoryInterfaceFactory@ featuredAnimationInterfaceFactoryInterfaceFactory = FeaturedAnimationInterfaceFactoryInterfaceFactory::getInstance();
         featuredAnimationInterfaceFactoryInterfaceFactory.clear();
@@ -138,31 +138,31 @@ class BaseGameInitialization : JObjectBase, GameInitializationInterface
 
     void setGameInitialized(bool gameInitialized)
     {
-        this.gameInitialized = gameInitialized;
+        this.gameInitialized_BaseGameInitialization = gameInitialized;
     }
     
 
     bool isGameInitialized()
     {
-        return this.gameInitialized;
+        return this.gameInitialized_BaseGameInitialization;
     }
     
 
     int getPortion()
     {
-        return this.portion;
+        return this.portion_BaseGameInitialization;
     }
     
 
     void setInitialized(bool initialized)
     {
-        this.initialized = initialized;
+        this.initialized_BaseGameInitialization = initialized;
     }
     
 
     bool isInitialized()
     {
-        return this.initialized;
+        return this.initialized_BaseGameInitialization;
     }
 }
 

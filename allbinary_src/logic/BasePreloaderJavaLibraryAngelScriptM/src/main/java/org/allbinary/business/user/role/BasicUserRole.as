@@ -17,11 +17,11 @@
 
 class BasicUserRole : JObjectBase, Serializable
 {
-    int m_int_RoleId;
-    string role;
-    string displayValue;
-    int64 sessionTimeout;
-    int64 sessionInactivityTimeout;
+    int m_int_RoleId_BasicUserRole;
+    string role_BasicUserRole;
+    string displayValue_BasicUserRole;
+    int64 sessionTimeout_BasicUserRole;
+    int64 sessionInactivityTimeout_BasicUserRole;
     
 
     BasicUserRole@ jinit_BasicUserRole(string aRole, int a_int_RoleId, int64 aSessionTimeout, int64 aSessionInactivityTimeout)
@@ -33,11 +33,11 @@ class BasicUserRole : JObjectBase, Serializable
 
     BasicUserRole@ jinit_BasicUserRole(string aRole, string aDisplayValue, int a_int_RoleId, int64 aSessionTimeout, int64 aSessionInactivityTimeout)
     {
-        this.m_int_RoleId = a_int_RoleId;
-        this.role = aRole;
-        this.displayValue = aDisplayValue;
-        this.sessionTimeout = aSessionTimeout;
-        this.sessionInactivityTimeout = aSessionInactivityTimeout;
+        this.m_int_RoleId_BasicUserRole = a_int_RoleId;
+        this.role_BasicUserRole = aRole;
+        this.displayValue_BasicUserRole = aDisplayValue;
+        this.sessionTimeout_BasicUserRole = aSessionTimeout;
+        this.sessionInactivityTimeout_BasicUserRole = aSessionInactivityTimeout;
         BasicUserRoles::getInstance().roleVector.add(this);
         return this;
     }
@@ -45,25 +45,25 @@ class BasicUserRole : JObjectBase, Serializable
 
     int getRoleId()
     {
-        return this.m_int_RoleId;
+        return this.m_int_RoleId_BasicUserRole;
     }
     
 
     string getRole()
     {
-        return this.role;
+        return this.role_BasicUserRole;
     }
     
 
     int64 getSessionTimeout()
     {
-        return this.sessionTimeout;
+        return this.sessionTimeout_BasicUserRole;
     }
     
 
     int64 getSessionInactivityTimeout()
     {
-        return this.sessionInactivityTimeout;
+        return this.sessionInactivityTimeout_BasicUserRole;
     }
     
 

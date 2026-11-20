@@ -18,7 +18,7 @@
 class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
 {
     LogUtil@ logUtil;
-    BasicArrayList@ eventListenerInterfaceList;
+    BasicArrayList@ eventListenerInterfaceList_BasicEventHandler;
 
     // Java field initializers run after the super constructor
     void jfields_BasicEventHandler()
@@ -31,7 +31,7 @@ class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
     BasicEventHandler@ jinit_BasicEventHandler()
     {
         this.jfields_BasicEventHandler();
-        @this.eventListenerInterfaceList = BasicArrayListD().jinit_BasicArrayListD();
+        @this.eventListenerInterfaceList_BasicEventHandler = BasicArrayListD().jinit_BasicArrayListD();
         return this;
     }
     
@@ -41,12 +41,12 @@ class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         string LISTENER = " Listener: ";
         stringBuffer.append("Total Listeners: ");
-        stringBuffer.appendint(this.eventListenerInterfaceList.size());
+        stringBuffer.appendint(this.eventListenerInterfaceList_BasicEventHandler.size());
         EventListenerInterface@ eventListenerInterface;
         int index = 0;
-        while (index < this.eventListenerInterfaceList.size()) {
+        while (index < this.eventListenerInterfaceList_BasicEventHandler.size()) {
             try {
-                @eventListenerInterface = cast<EventListenerInterface>(this.eventListenerInterfaceList.objectArray[index]);
+                @eventListenerInterface = cast<EventListenerInterface>(this.eventListenerInterfaceList_BasicEventHandler.objectArray[index]);
                 stringBuffer.append(LISTENER);
                 stringBuffer.append(StringUtil::getInstance().toString(eventListenerInterface));
             } catch {
@@ -66,35 +66,35 @@ class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
 
     void removeAllListeners()
     {
-        @this.eventListenerInterfaceList = BasicArrayListD().jinit_BasicArrayListD();
+        @this.eventListenerInterfaceList_BasicEventHandler = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
     void addListenerSingleThreaded(EventListenerInterface@ eventListenerInterface)
     {
-        if (!this.eventListenerInterfaceList.contains(eventListenerInterface)) {
-            this.eventListenerInterfaceList.add(eventListenerInterface);
+        if (!this.eventListenerInterfaceList_BasicEventHandler.contains(eventListenerInterface)) {
+            this.eventListenerInterfaceList_BasicEventHandler.add(eventListenerInterface);
         }
     }
     
 
     void addListenerInterface(EventListenerInterface@ eventListenerInterface)
     {
-        if (!this.eventListenerInterfaceList.contains(eventListenerInterface)) {
-            this.eventListenerInterfaceList.add(eventListenerInterface);
+        if (!this.eventListenerInterfaceList_BasicEventHandler.contains(eventListenerInterface)) {
+            this.eventListenerInterfaceList_BasicEventHandler.add(eventListenerInterface);
         }
     }
     
 
     void removeListenerSingleThreaded(EventListenerInterface@ eventListenerInterface)
     {
-        this.eventListenerInterfaceList.remove(eventListenerInterface);
+        this.eventListenerInterfaceList_BasicEventHandler.remove(eventListenerInterface);
     }
     
 
     void removeListener(EventListenerInterface@ eventListenerInterface)
     {
-        this.eventListenerInterfaceList.remove(eventListenerInterface);
+        this.eventListenerInterfaceList_BasicEventHandler.remove(eventListenerInterface);
     }
     
 
@@ -102,9 +102,9 @@ class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
     {
         int index = 0;
         EventListenerInterface@ eventListenerInterface;
-        while (index < this.eventListenerInterfaceList.size()) {
+        while (index < this.eventListenerInterfaceList_BasicEventHandler.size()) {
             try {
-                @eventListenerInterface = cast<EventListenerInterface>(this.eventListenerInterfaceList.objectArray[index]);
+                @eventListenerInterface = cast<EventListenerInterface>(this.eventListenerInterfaceList_BasicEventHandler.objectArray[index]);
                 this.process(eventObject, eventListenerInterface);
             } catch {
                 Throwable@ jex1 = jcatch();
@@ -128,7 +128,7 @@ class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
 
     BasicArrayList@ getEventListenerInterfaceListP()
     {
-        return this.eventListenerInterfaceList;
+        return this.eventListenerInterfaceList_BasicEventHandler;
     }
 }
 

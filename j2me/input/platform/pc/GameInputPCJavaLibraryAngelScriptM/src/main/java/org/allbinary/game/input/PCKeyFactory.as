@@ -17,7 +17,7 @@
 
 class PCKeyFactory : JObjectBase
 {
-    ABKeyEventWrapper@ keyEventWrapper;
+    ABKeyEventWrapper@ keyEventWrapper_PCKeyFactory;
     PCGameKey@ UNKNOWN;
     PCGameKey@ ENTER;
     PCGameKey@ _A;
@@ -102,35 +102,35 @@ class PCKeyFactory : JObjectBase
     // Java field initializers run after the super constructor
     void jfields_PCKeyFactory()
     {
-    @this.keyEventWrapper = ABKeyEventWrapper::getInstance();
-    @this.UNKNOWN = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_UNDEFINED, "UNKNOWN");
+    @this.keyEventWrapper_PCKeyFactory = ABKeyEventWrapper::getInstance();
+    @this.UNKNOWN = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_UNDEFINED, "UNKNOWN");
     @this.ENTER = PCGameKey().jinit_PCGameKey(5, "Enter");
-    @this._A = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_A, "A");
-    @this._B = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_B, "B");
-    @this._C = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_C, "C");
-    @this._D = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_D, "D");
-    @this._E = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_E, "E");
-    @this._F = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_F, "F");
-    @this._G = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_G, "G");
-    @this._H = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_H, "H");
-    @this._I = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_I, "I");
-    @this._J = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_J, "J");
-    @this._K = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_K, "K");
-    @this._L = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_L, "L");
-    @this._M = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_M, "M");
-    @this._N = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_N, "N");
-    @this._O = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_O, "O");
-    @this._P = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_P, "P");
-    @this._Q = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_Q, "Q");
-    @this._R = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_R, "R");
-    @this._S = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_S, "S");
-    @this._T = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_T, "T");
-    @this._U = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_U, "U");
-    @this._V = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_V, "V");
-    @this._W = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_W, "W");
-    @this._X = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_X, "X");
-    @this._Y = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_Y, "Y");
-    @this._Z = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_Z, "Z");
+    @this._A = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_A, "A");
+    @this._B = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_B, "B");
+    @this._C = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_C, "C");
+    @this._D = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_D, "D");
+    @this._E = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_E, "E");
+    @this._F = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_F, "F");
+    @this._G = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_G, "G");
+    @this._H = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_H, "H");
+    @this._I = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_I, "I");
+    @this._J = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_J, "J");
+    @this._K = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_K, "K");
+    @this._L = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_L, "L");
+    @this._M = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_M, "M");
+    @this._N = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_N, "N");
+    @this._O = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_O, "O");
+    @this._P = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_P, "P");
+    @this._Q = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_Q, "Q");
+    @this._R = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_R, "R");
+    @this._S = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_S, "S");
+    @this._T = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_T, "T");
+    @this._U = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_U, "U");
+    @this._V = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_V, "V");
+    @this._W = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_W, "W");
+    @this._X = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_X, "X");
+    @this._Y = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_Y, "Y");
+    @this._Z = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_Z, "Z");
     @this.a = PCGameKey().jinit_PCGameKey(97, "a");
     @this.b = PCGameKey().jinit_PCGameKey(98, "b");
     @this.c = PCGameKey().jinit_PCGameKey(99, "c");
@@ -157,32 +157,32 @@ class PCKeyFactory : JObjectBase
     @this.x = PCGameKey().jinit_PCGameKey(120, PositionStrings::getInstance().X);
     @this.y = PCGameKey().jinit_PCGameKey(121, PositionStrings::getInstance().Y);
     @this.z = PCGameKey().jinit_PCGameKey(122, "z");
-    @this.ZERO = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_0, CommonPhoneStrings::getInstance().ZERO);
-    @this.ONE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_1, CommonPhoneStrings::getInstance().ONE);
-    @this.TWO = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_2, CommonPhoneStrings::getInstance().TWO);
-    @this.THREE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_3, CommonPhoneStrings::getInstance().THREE);
-    @this.FOUR = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_4, CommonPhoneStrings::getInstance().FOUR);
-    @this.FIVE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_5, CommonPhoneStrings::getInstance().FIVE);
-    @this.SIX = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_6, CommonPhoneStrings::getInstance().SIX);
-    @this.SEVEN = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_7, CommonPhoneStrings::getInstance().SEVEN);
-    @this.EIGHT = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_8, CommonPhoneStrings::getInstance().EIGHT);
-    @this.NINE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_9, CommonPhoneStrings::getInstance().NINE);
-    @this.DPAD_UP = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_UP, CommonPhoneStrings::getInstance().UP);
-    @this.DPAD_DOWN = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_DOWN, CommonPhoneStrings::getInstance().DOWN);
-    @this.DPAD_LEFT = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_LEFT, CommonPhoneStrings::getInstance().LEFT);
-    @this.DPAD_RIGHT = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_RIGHT, CommonPhoneStrings::getInstance().RIGHT);
+    @this.ZERO = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_0, CommonPhoneStrings::getInstance().ZERO);
+    @this.ONE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_1, CommonPhoneStrings::getInstance().ONE);
+    @this.TWO = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_2, CommonPhoneStrings::getInstance().TWO);
+    @this.THREE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_3, CommonPhoneStrings::getInstance().THREE);
+    @this.FOUR = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_4, CommonPhoneStrings::getInstance().FOUR);
+    @this.FIVE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_5, CommonPhoneStrings::getInstance().FIVE);
+    @this.SIX = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_6, CommonPhoneStrings::getInstance().SIX);
+    @this.SEVEN = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_7, CommonPhoneStrings::getInstance().SEVEN);
+    @this.EIGHT = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_8, CommonPhoneStrings::getInstance().EIGHT);
+    @this.NINE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_9, CommonPhoneStrings::getInstance().NINE);
+    @this.DPAD_UP = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_UP, CommonPhoneStrings::getInstance().UP);
+    @this.DPAD_DOWN = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_DOWN, CommonPhoneStrings::getInstance().DOWN);
+    @this.DPAD_LEFT = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_LEFT, CommonPhoneStrings::getInstance().LEFT);
+    @this.DPAD_RIGHT = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_RIGHT, CommonPhoneStrings::getInstance().RIGHT);
     @this.DPAD_UP2 = this.DPAD_UP;
     @this.DPAD_DOWN2 = this.DPAD_DOWN;
     @this.DPAD_LEFT2 = this.DPAD_LEFT;
     @this.DPAD_RIGHT2 = this.DPAD_RIGHT;
-    @this.COMMA = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_COMMA, "COMMA");
-    @this.SPACE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_SPACE, "SPACE");
-    @this.DEL = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_DELETE, "DEL");
+    @this.COMMA = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_COMMA, "COMMA");
+    @this.SPACE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_SPACE, "SPACE");
+    @this.DEL = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_DELETE, "DEL");
     @this.STAR = PCGameKey().jinit_PCGameKey(42, CommonPhoneStrings::getInstance().STAR);
     @this.QUESTION = PCGameKey().jinit_PCGameKey(47, "?");
-    @this.PERIOD = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_PERIOD, CommonSeps::getInstance().PERIOD);
-    @this.ESCAPE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_ESCAPE, "Esc");
-    @this.BACK_SPACE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper.VK_BACK_SPACE, "Backspace");
+    @this.PERIOD = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_PERIOD, CommonSeps::getInstance().PERIOD);
+    @this.ESCAPE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_ESCAPE, "Esc");
+    @this.BACK_SPACE = PCGameKey().jinit_PCGameKey(this.keyEventWrapper_PCKeyFactory.VK_BACK_SPACE, "Backspace");
     }
 
     PCKeyFactory@ jinit_PCKeyFactory()

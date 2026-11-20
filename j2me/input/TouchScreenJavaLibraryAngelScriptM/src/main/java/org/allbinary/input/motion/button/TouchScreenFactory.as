@@ -18,10 +18,10 @@
 class TouchScreenFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    bool touch;
-    bool multiTouch;
-    bool multiTouchDistinct;
-    TouchScreenType@ touchScreenType;
+    bool touch_TouchScreenFactory;
+    bool multiTouch_TouchScreenFactory;
+    bool multiTouchDistinct_TouchScreenFactory;
+    TouchScreenType@ touchScreenType_TouchScreenFactory;
 
     // Java field initializers run after the super constructor
     void jfields_TouchScreenFactory()
@@ -30,7 +30,7 @@ class TouchScreenFactory : JObjectBase
     
     
     
-    @this.touchScreenType = TouchScreenTypesFactory::getInstance().NOTOUCH;
+    @this.touchScreenType_TouchScreenFactory = TouchScreenTypesFactory::getInstance().NOTOUCH;
     }
     
 
@@ -55,49 +55,49 @@ class TouchScreenFactory : JObjectBase
 
     void setMultiTouch(bool multiTouch)
     {
-        this.multiTouch = multiTouch;
+        this.multiTouch_TouchScreenFactory = multiTouch;
     }
     
 
     bool isMultiTouch()
     {
-        return this.multiTouch;
+        return this.multiTouch_TouchScreenFactory;
     }
     
 
     void setTouch(bool touch)
     {
-        this.touch = touch;
+        this.touch_TouchScreenFactory = touch;
     }
     
 
     bool isTouch()
     {
-        return this.touch;
+        return this.touch_TouchScreenFactory;
     }
     
 
     void setMultiTouchDistinct(bool multiTouchDistinct)
     {
-        this.multiTouchDistinct = multiTouchDistinct;
+        this.multiTouchDistinct_TouchScreenFactory = multiTouchDistinct;
     }
     
 
     bool isMultiTouchDistinct()
     {
-        return this.multiTouchDistinct;
+        return this.multiTouchDistinct_TouchScreenFactory;
     }
     
 
     void setTouchScreenType(TouchScreenType@ touchScreenType)
     {
-        @this.touchScreenType = touchScreenType;
+        @this.touchScreenType_TouchScreenFactory = touchScreenType;
     }
     
 
     TouchScreenType@ getTouchScreenType()
     {
-        return this.touchScreenType;
+        return this.touchScreenType_TouchScreenFactory;
     }
     
 

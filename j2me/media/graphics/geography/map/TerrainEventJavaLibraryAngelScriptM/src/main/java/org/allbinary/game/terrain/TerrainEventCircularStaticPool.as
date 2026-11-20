@@ -17,12 +17,12 @@
 
 class TerrainEventCircularStaticPool : JObjectBase
 {
-    AllBinaryEventCircularPool@ EVENT_POOL;
+    AllBinaryEventCircularPool@ EVENT_POOL_TerrainEventCircularStaticPool;
 
     // Java field initializers run after the super constructor
     void jfields_TerrainEventCircularStaticPool()
     {
-    @this.EVENT_POOL = AllBinaryEventCircularPool().jinit_AllBinaryEventCircularPool(20);
+    @this.EVENT_POOL_TerrainEventCircularStaticPool = AllBinaryEventCircularPool().jinit_AllBinaryEventCircularPool(20);
     }
 
     TerrainEventCircularStaticPool@ jinit_TerrainEventCircularStaticPool()
@@ -34,13 +34,13 @@ class TerrainEventCircularStaticPool : JObjectBase
 
     void init()
     {
-        this.EVENT_POOL.initAllBinaryEventCircularPool(TerrainEventFactory().jinit_TerrainEventFactory());
+        this.EVENT_POOL_TerrainEventCircularStaticPool.initAllBinaryEventCircularPool(TerrainEventFactory().jinit_TerrainEventFactory());
     }
     
 
     TerrainEvent@ getNext(BasicTerrainInfo@ basicTerrainInfo)
     {
-        TerrainEvent@ trackingEvent = cast<TerrainEvent>(this.EVENT_POOL.getNextInstance());
+        TerrainEvent@ trackingEvent = cast<TerrainEvent>(this.EVENT_POOL_TerrainEventCircularStaticPool.getNextInstance());
         trackingEvent.setBasicTerrainInfoForCircularStaticPool(basicTerrainInfo);
         return trackingEvent;
     }

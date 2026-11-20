@@ -18,33 +18,33 @@
 class FeaturedResourceFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    BasicArrayList@ list;
-    CommonStrings@ commonStrings;
-    string ANIMATION_FEATURES;
-    string IMAGE_LABEL;
-    string IMAGE_GRAPHICS_ARRAY;
-    string IMAGE_GRAPHICS_ROTATION;
-    string SPRITE_QUARTER;
-    string SPRITE_FULL;
-    string IS_LOADING_LEVEL_LABEL;
-    string IS_FEATURE;
-    string GAME_FEATURE_CONTROLLED;
+    BasicArrayList@ list_FeaturedResourceFactory;
+    CommonStrings@ commonStrings_FeaturedResourceFactory;
+    string ANIMATION_FEATURES_FeaturedResourceFactory;
+    string IMAGE_LABEL_FeaturedResourceFactory;
+    string IMAGE_GRAPHICS_ARRAY_FeaturedResourceFactory;
+    string IMAGE_GRAPHICS_ROTATION_FeaturedResourceFactory;
+    string SPRITE_QUARTER_FeaturedResourceFactory;
+    string SPRITE_FULL_FeaturedResourceFactory;
+    string IS_LOADING_LEVEL_LABEL_FeaturedResourceFactory;
+    string IS_FEATURE_FeaturedResourceFactory;
+    string GAME_FEATURE_CONTROLLED_FeaturedResourceFactory;
 
     // Java field initializers run after the super constructor
     void jfields_FeaturedResourceFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
-    @this.commonStrings = CommonStrings::getInstance();
-    this.ANIMATION_FEATURES = "Animation Features: Vector: ";
-    this.IMAGE_LABEL = " Image: ";
-    this.IMAGE_GRAPHICS_ARRAY = "Image Array: ";
-    this.IMAGE_GRAPHICS_ROTATION = "Image Rotate: ";
-    this.SPRITE_QUARTER = " Sprite Quarter: ";
-    this.SPRITE_FULL = " Sprite Full: ";
-    this.IS_LOADING_LEVEL_LABEL = " isLoadingLevel ";
-    this.IS_FEATURE = " isFeature: ";
-    this.GAME_FEATURE_CONTROLLED = "GameFeatureControlledInterface: ";
+    @this.list_FeaturedResourceFactory = BasicArrayListD().jinit_BasicArrayListD();
+    @this.commonStrings_FeaturedResourceFactory = CommonStrings::getInstance();
+    this.ANIMATION_FEATURES_FeaturedResourceFactory = "Animation Features: Vector: ";
+    this.IMAGE_LABEL_FeaturedResourceFactory = " Image: ";
+    this.IMAGE_GRAPHICS_ARRAY_FeaturedResourceFactory = "Image Array: ";
+    this.IMAGE_GRAPHICS_ROTATION_FeaturedResourceFactory = "Image Rotate: ";
+    this.SPRITE_QUARTER_FeaturedResourceFactory = " Sprite Quarter: ";
+    this.SPRITE_FULL_FeaturedResourceFactory = " Sprite Full: ";
+    this.IS_LOADING_LEVEL_LABEL_FeaturedResourceFactory = " isLoadingLevel ";
+    this.IS_FEATURE_FeaturedResourceFactory = " isFeature: ";
+    this.GAME_FEATURE_CONTROLLED_FeaturedResourceFactory = "GameFeatureControlledInterface: ";
     }
     
 
@@ -57,12 +57,12 @@ class FeaturedResourceFactory : JObjectBase
 
     void init(int level)
     {
-        int size = this.list.size();
+        int size = this.list_FeaturedResourceFactory.size();
         for (int index = 0; index < size; index++) {
-            GameFeatureControlledInterface@ featureInterface = cast<GameFeatureControlledInterface>(this.list.objectArray[index]);
+            GameFeatureControlledInterface@ featureInterface = cast<GameFeatureControlledInterface>(this.list_FeaturedResourceFactory.objectArray[index]);
             bool isLoadingLevel = featureInterface.isLoadingLevel(level);
             bool isFeature = featureInterface.isFeature();
-            this.logUtil.putF(StringMaker().jinit_StringMaker().append(this.GAME_FEATURE_CONTROLLED).append(featureInterface.toString()).append(this.IS_LOADING_LEVEL_LABEL).append(ResourceLoadingLevelFactory::getInstance().getLevelString(level)).append(CommonSeps::getInstance().COLON_SEP).appendboolean(isLoadingLevel).append(this.IS_FEATURE).appendboolean(isFeature).toString(), this, this.commonStrings.INIT);
+            this.logUtil.putF(StringMaker().jinit_StringMaker().append(this.GAME_FEATURE_CONTROLLED_FeaturedResourceFactory).append(featureInterface.toString()).append(this.IS_LOADING_LEVEL_LABEL_FeaturedResourceFactory).append(ResourceLoadingLevelFactory::getInstance().getLevelString(level)).append(CommonSeps::getInstance().COLON_SEP).appendboolean(isLoadingLevel).append(this.IS_FEATURE_FeaturedResourceFactory).appendboolean(isFeature).toString(), this, this.commonStrings_FeaturedResourceFactory.INIT);
             if (isLoadingLevel && isFeature) {
                 featureInterface.init(level);
             }
@@ -70,42 +70,42 @@ class FeaturedResourceFactory : JObjectBase
         Features@ features = Features::getInstance();
         GraphicsFeatureFactory@ graphicsFeatureFactory = GraphicsFeatureFactory::getInstance();
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
-        stringBuffer.append(this.ANIMATION_FEATURES);
+        stringBuffer.append(this.ANIMATION_FEATURES_FeaturedResourceFactory);
         stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.VECTOR_GRAPHICS));
-        stringBuffer.append(this.IMAGE_LABEL);
+        stringBuffer.append(this.IMAGE_LABEL_FeaturedResourceFactory);
         stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS));
-        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings_FeaturedResourceFactory.INIT);
         if (features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS)) {
             stringBuffer.delete(0, stringBuffer.length());
-            stringBuffer.append(this.IMAGE_GRAPHICS_ARRAY);
+            stringBuffer.append(this.IMAGE_GRAPHICS_ARRAY_FeaturedResourceFactory);
             stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS));
-            stringBuffer.append(this.IMAGE_GRAPHICS_ROTATION);
+            stringBuffer.append(this.IMAGE_GRAPHICS_ROTATION_FeaturedResourceFactory);
             stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.IMAGE_TO_ARRAY_GRAPHICS));
-            stringBuffer.append(this.SPRITE_QUARTER);
+            stringBuffer.append(this.SPRITE_QUARTER_FeaturedResourceFactory);
             stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.SPRITE_QUARTER_ROTATION_GRAPHICS));
-            stringBuffer.append(this.SPRITE_FULL);
+            stringBuffer.append(this.SPRITE_FULL_FeaturedResourceFactory);
             stringBuffer.appendboolean(features.isFeature(graphicsFeatureFactory.SPRITE_FULL_GRAPHICS));
-            this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
+            this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings_FeaturedResourceFactory.INIT);
         }
     }
     
 
     void clear()
     {
-        this.list.clear();
+        this.list_FeaturedResourceFactory.clear();
     }
     
 
     void add(GameFeatureControlledInterface@ featureInterface)
     {
-        this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().START_LABEL).append(StringUtil::getInstance().toString(featureInterface)).toString(), this, this.commonStrings.ADD);
-        this.list.add(featureInterface);
+        this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().START_LABEL).append(StringUtil::getInstance().toString(featureInterface)).toString(), this, this.commonStrings_FeaturedResourceFactory.ADD);
+        this.list_FeaturedResourceFactory.add(featureInterface);
     }
     
 
     BasicArrayList@ getList()
     {
-        return this.list;
+        return this.list_FeaturedResourceFactory;
     }
 }
 

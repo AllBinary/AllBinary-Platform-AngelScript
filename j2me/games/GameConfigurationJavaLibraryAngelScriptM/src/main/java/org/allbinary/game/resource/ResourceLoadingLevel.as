@@ -17,27 +17,27 @@
 
 class ResourceLoadingLevel : JObjectBase
 {
-    string name;
-    int level;
+    string name_ResourceLoadingLevel;
+    int level_ResourceLoadingLevel;
     
 
     ResourceLoadingLevel@ jinit_ResourceLoadingLevel(string name, int level)
     {
-        this.name = name;
-        this.level = level;
+        this.name_ResourceLoadingLevel = name;
+        this.level_ResourceLoadingLevel = level;
         return this;
     }
     
 
     int getLevel()
     {
-        return this.level;
+        return this.level_ResourceLoadingLevel;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_ResourceLoadingLevel;
     }
 }
 

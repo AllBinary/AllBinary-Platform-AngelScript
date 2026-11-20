@@ -17,19 +17,19 @@
 
 class BasicWeaponPart : JObjectBase, PartInterface, SalvoInterface
 {
-    Animation@ animationInterface;
-    AllBinaryLayer@ ownerLayerInterface;
-    WeaponProperties@ weaponProperties;
-    ScoreableInterface@ scoreableInterface;
+    Animation@ animationInterface_BasicWeaponPart;
+    AllBinaryLayer@ ownerLayerInterface_BasicWeaponPart;
+    WeaponProperties@ weaponProperties_BasicWeaponPart;
+    ScoreableInterface@ scoreableInterface_BasicWeaponPart;
     RelativeRelationship@ relativeRelationship;
 
     // Java field initializers run after the super constructor
     void jfields_BasicWeaponPart()
     {
-    @this.animationInterface = NullAnimationFactory::getFactoryInstance().getInstance(0);
-    @this.ownerLayerInterface = AllBinaryLayer::NULL_ALLBINARY_LAYER;
-    @this.weaponProperties = WeaponProperties::NULL_WEAPON_PROPERTIES;
-    @this.scoreableInterface = NoScoreable::getInstance();
+    @this.animationInterface_BasicWeaponPart = NullAnimationFactory::getFactoryInstance().getInstance(0);
+    @this.ownerLayerInterface_BasicWeaponPart = AllBinaryLayer::NULL_ALLBINARY_LAYER;
+    @this.weaponProperties_BasicWeaponPart = WeaponProperties::NULL_WEAPON_PROPERTIES;
+    @this.scoreableInterface_BasicWeaponPart = NoScoreable::getInstance();
     @this.relativeRelationship = RelativeRelationship::NULL_RELATIVE_RELATIONSHIP;
     }
     
@@ -47,14 +47,14 @@ class BasicWeaponPart : JObjectBase, PartInterface, SalvoInterface
     {
         this.setOwnerLayerInterface(sourceLayerInterface);
         this.setWeaponProperties(weaponProperties);
-        @this.scoreableInterface = scoreableInterface;
+        @this.scoreableInterface_BasicWeaponPart = scoreableInterface;
         @this.relativeRelationship = relativeRelationship;
     }
     
 
     void process(AllBinaryLayerManager@ allbinaryLayerManager, int16 angle, int16 otherAngle)
     {
-        this.processScore(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface);
+        this.processScore(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface_BasicWeaponPart);
     }
     
 
@@ -66,25 +66,25 @@ class BasicWeaponPart : JObjectBase, PartInterface, SalvoInterface
 
     AllBinaryLayer@ getOwnerLayerInterface()
     {
-        return this.ownerLayerInterface;
+        return this.ownerLayerInterface_BasicWeaponPart;
     }
     
 
     void setOwnerLayerInterface(AllBinaryLayer@ ownerLayerInterface)
     {
-        @this.ownerLayerInterface = ownerLayerInterface;
+        @this.ownerLayerInterface_BasicWeaponPart = ownerLayerInterface;
     }
     
 
     Animation@ getAnimationInterface()
     {
-        return this.animationInterface;
+        return this.animationInterface_BasicWeaponPart;
     }
     
 
     void setAnimationInterface(Animation@ animationInterface)
     {
-        @this.animationInterface = animationInterface;
+        @this.animationInterface_BasicWeaponPart = animationInterface;
     }
     
 
@@ -93,7 +93,7 @@ class BasicWeaponPart : JObjectBase, PartInterface, SalvoInterface
         ViewPositionBase@ viewPosition = this.getOwnerLayerInterface().getViewPosition();
         int viewX = viewPosition.getX();
         int viewY = viewPosition.getY();
-        this.animationInterface.paintXY(graphics, viewX, viewY);
+        this.animationInterface_BasicWeaponPart.paintXY(graphics, viewX, viewY);
     }
     
 
@@ -104,13 +104,13 @@ class BasicWeaponPart : JObjectBase, PartInterface, SalvoInterface
 
     WeaponProperties@ getWeaponProperties()
     {
-        return this.weaponProperties;
+        return this.weaponProperties_BasicWeaponPart;
     }
     
 
     void setWeaponProperties(WeaponProperties@ weaponProperties)
     {
-        @this.weaponProperties = weaponProperties;
+        @this.weaponProperties_BasicWeaponPart = weaponProperties;
     }
 }
 

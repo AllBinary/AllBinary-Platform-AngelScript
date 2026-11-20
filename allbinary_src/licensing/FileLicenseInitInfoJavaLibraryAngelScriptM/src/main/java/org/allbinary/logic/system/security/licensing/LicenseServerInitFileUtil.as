@@ -18,15 +18,15 @@
 class LicenseServerInitFileUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    OutputStream@ NULL_OUTPUT_STREAM;
+    CommonStrings@ commonStrings_LicenseServerInitFileUtil;
+    OutputStream@ NULL_OUTPUT_STREAM_LicenseServerInitFileUtil;
 
     // Java field initializers run after the super constructor
     void jfields_LicenseServerInitFileUtil()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.NULL_OUTPUT_STREAM = SimpleFileUtil::nullOutputStream();
+    @this.commonStrings_LicenseServerInitFileUtil = CommonStrings::getInstance();
+    @this.NULL_OUTPUT_STREAM_LicenseServerInitFileUtil = SimpleFileUtil::nullOutputStream();
     }
 
     LicenseServerInitFileUtil@ jinit_LicenseServerInitFileUtil()
@@ -42,7 +42,7 @@ class LicenseServerInitFileUtil : JObjectBase
             string filePath = LicenseInitInfoUtil::getInstance().INITFILENAME;
             LicenseInitInfoUtil::getInstance().setFilePath(StringUtil::getInstance().EMPTY_STRING);
             if (FileFactory::getInstance_jstatic().isFile(filePath)) {
-                this.logUtil.putF("Using Existing License File", this, this.commonStrings.INIT);
+                this.logUtil.putF("Using Existing License File", this, this.commonStrings_LicenseServerInitFileUtil.INIT);
             } else {
                 this.write();
             }
@@ -50,7 +50,7 @@ class LicenseServerInitFileUtil : JObjectBase
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            this.logUtil.put(this.commonStrings_LicenseServerInitFileUtil.EXCEPTION, this, this.commonStrings_LicenseServerInitFileUtil.INIT, e);
             }
             else { jthrow(jex0); }
         }
@@ -59,7 +59,7 @@ class LicenseServerInitFileUtil : JObjectBase
 
     void write()
     {
-        OutputStream@ fileOutputStream = this.NULL_OUTPUT_STREAM;
+        OutputStream@ fileOutputStream = this.NULL_OUTPUT_STREAM_LicenseServerInitFileUtil;
         {
             Throwable@ jfinally1;
             try {
@@ -67,7 +67,7 @@ class LicenseServerInitFileUtil : JObjectBase
             ResourceUtil@ resourceUtil = ResourceUtil::getInstance();
             string filePath = LicenseInitInfoUtil::getInstance().INITFILENAME;
             InputStream@ inputStream = resourceUtil.getResourceAsStream(filePath);
-            this.logUtil.putF("Writing Default License File", this, this.commonStrings.INIT);
+            this.logUtil.putF("Writing Default License File", this, this.commonStrings_LicenseServerInitFileUtil.INIT);
             FileStreamFactory@ fileStreamFactory = FileStreamFactory::getInstance();
             @fileOutputStream = fileStreamFactory.getFileOutputStreamInstance(StringUtil::getInstance().EMPTY_STRING, filePath);
             int b = 0;
@@ -80,13 +80,13 @@ class LicenseServerInitFileUtil : JObjectBase
                 fileOutputStream.write(b);
                 index++;
             }
-            this.logUtil.putF("Wrote Bytes: " + jstr(index), this, this.commonStrings.INIT);
+            this.logUtil.putF("Wrote Bytes: " + jstr(index), this, this.commonStrings_LicenseServerInitFileUtil.INIT);
             fileOutputStream.flush();
                 } catch {
                     Throwable@ jex1 = jcatch();
                     if (cast<Exception>(jex1) !is null) {
                         Exception@ e = cast<Exception>(jex1);
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            this.logUtil.put(this.commonStrings_LicenseServerInitFileUtil.EXCEPTION, this, this.commonStrings_LicenseServerInitFileUtil.INIT, e);
                     }
                     else { jthrow(jex1); }
                 }

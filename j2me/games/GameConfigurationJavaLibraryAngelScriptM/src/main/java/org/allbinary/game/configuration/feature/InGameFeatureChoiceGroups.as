@@ -17,12 +17,12 @@
 
 class InGameFeatureChoiceGroups : JObjectBase
 {
-    ABHashtable@ hashtable;
+    ABHashtable@ hashtable_InGameFeatureChoiceGroups;
 
     // Java field initializers run after the super constructor
     void jfields_InGameFeatureChoiceGroups()
     {
-    @this.hashtable = StdUtil::getInstance().createHashtable();
+    @this.hashtable_InGameFeatureChoiceGroups = StdUtil::getInstance().createHashtable();
     }
     
 
@@ -35,13 +35,13 @@ class InGameFeatureChoiceGroups : JObjectBase
 
     ABHashtable@ get()
     {
-        return this.hashtable;
+        return this.hashtable_InGameFeatureChoiceGroups;
     }
     
 
     void add(string name, BasicArrayList@ list)
     {
-        this.hashtable.put(name, list);
+        this.hashtable_InGameFeatureChoiceGroups.put(name, list);
     }
 }
 

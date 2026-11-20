@@ -17,14 +17,14 @@
 
 class GameInputMapping : JObjectBase
 {
-    string name;
-    GameKey@ gameKey;
+    string name_GameInputMapping;
+    GameKey@ gameKey_GameInputMapping;
 
     // Java field initializers run after the super constructor
     void jfields_GameInputMapping()
     {
-    this.name = StringUtil::getInstance().EMPTY_STRING;
-    @this.gameKey = GameKey::NULL_GAME_KEY;
+    this.name_GameInputMapping = StringUtil::getInstance().EMPTY_STRING;
+    @this.gameKey_GameInputMapping = GameKey::NULL_GAME_KEY;
     }
     
 
@@ -39,25 +39,25 @@ class GameInputMapping : JObjectBase
 
     void setGameKey(GameKey@ gameKey)
     {
-        @this.gameKey = gameKey;
+        @this.gameKey_GameInputMapping = gameKey;
     }
     
 
     GameKey@ getGameKey()
     {
-        return this.gameKey;
+        return this.gameKey_GameInputMapping;
     }
     
 
     void setName(string name)
     {
-        this.name = name;
+        this.name_GameInputMapping = name;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_GameInputMapping;
     }
 }
 

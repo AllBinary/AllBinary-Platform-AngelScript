@@ -17,12 +17,12 @@
 
 class Feature : JObjectBase
 {
-    string name;
+    string name_Feature;
     
 
     Feature@ jinit_Feature(string name)
     {
-        this.name = name;
+        this.name_Feature = name;
         Feature::add(name, this);
         ChangedGameFeatureListener::getInstance().add(this);
         return this;
@@ -37,7 +37,7 @@ class Feature : JObjectBase
 
     string getName()
     {
-        return this.name;
+        return this.name_Feature;
     }
 }
 

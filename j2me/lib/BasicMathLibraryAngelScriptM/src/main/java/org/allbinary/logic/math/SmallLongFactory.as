@@ -19,8 +19,8 @@ class SmallLongFactory : JObjectBase
 {
     int NEGATIVE_MAX;
     int POSITIVE_MAX;
-    JLong@[]@ INTEGER_ARRAY;
-    string[]@ STRING_ARRAY;
+    JLong@[]@ INTEGER_ARRAY_SmallLongFactory;
+    string[]@ STRING_ARRAY_SmallLongFactory;
     int MIN;
     int lastMin;
     int lastNegativeMin;
@@ -30,8 +30,8 @@ class SmallLongFactory : JObjectBase
     {
     this.NEGATIVE_MAX = 500;
     this.POSITIVE_MAX = 0x2D1;
-    @this.INTEGER_ARRAY = array<JLong@>(this.NEGATIVE_MAX + this.POSITIVE_MAX);
-    @this.STRING_ARRAY = array<string>(this.NEGATIVE_MAX + this.POSITIVE_MAX);
+    @this.INTEGER_ARRAY_SmallLongFactory = array<JLong@>(this.NEGATIVE_MAX + this.POSITIVE_MAX);
+    @this.STRING_ARRAY_SmallLongFactory = array<string>(this.NEGATIVE_MAX + this.POSITIVE_MAX);
     this.MIN = 0;
     this.lastMin = 0;
     this.lastNegativeMin = 0;
@@ -41,10 +41,10 @@ class SmallLongFactory : JObjectBase
     void initWithRange(int value, int negativeValue)
     {
         for (int index = value - 1; index >= this.lastMin; index--) {
-            @this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = JLong().jinit_JLong(index);
+            @this.INTEGER_ARRAY_SmallLongFactory[index + this.NEGATIVE_MAX] = JLong().jinit_JLong(index);
         }
         for (int index = negativeValue - 1; index >= this.lastNegativeMin; index--) {
-            @this.INTEGER_ARRAY[index] = JLong().jinit_JLong(-index);
+            @this.INTEGER_ARRAY_SmallLongFactory[index] = JLong().jinit_JLong(-index);
         }
         if (this.lastMin < value) {
             this.lastMin = value;
@@ -58,13 +58,13 @@ class SmallLongFactory : JObjectBase
 
     void init()
     {
-        if (this.INTEGER_ARRAY[0] is null) {
+        if (this.INTEGER_ARRAY_SmallLongFactory[0] is null) {
             if (this.lastMin < this.POSITIVE_MAX || this.lastNegativeMin < this.NEGATIVE_MAX) {
                 for (int index = this.POSITIVE_MAX - 1; index >= this.lastMin; index--) {
-                    @this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = JLong().jinit_JLong(index);
+                    @this.INTEGER_ARRAY_SmallLongFactory[index + this.NEGATIVE_MAX] = JLong().jinit_JLong(index);
                 }
                 for (int index = this.NEGATIVE_MAX - 1; index >= this.lastNegativeMin; index--) {
-                    @this.INTEGER_ARRAY[index] = JLong().jinit_JLong(-index);
+                    @this.INTEGER_ARRAY_SmallLongFactory[index] = JLong().jinit_JLong(-index);
                 }
                 this.lastMin = this.POSITIVE_MAX;
                 this.lastNegativeMin = this.NEGATIVE_MAX;
@@ -82,20 +82,20 @@ class SmallLongFactory : JObjectBase
 
     JLong@ getInstanceNoThrow(int64 index)
     {
-        if (index + int64(this.NEGATIVE_MAX) > int64(int(this.INTEGER_ARRAY.length()) - 1)) {
-            return this.INTEGER_ARRAY[-1 + this.NEGATIVE_MAX];
+        if (index + int64(this.NEGATIVE_MAX) > int64(int(this.INTEGER_ARRAY_SmallLongFactory.length()) - 1)) {
+            return this.INTEGER_ARRAY_SmallLongFactory[-1 + this.NEGATIVE_MAX];
         }
-        return this.INTEGER_ARRAY[(int(index)) + this.NEGATIVE_MAX];
+        return this.INTEGER_ARRAY_SmallLongFactory[(int(index)) + this.NEGATIVE_MAX];
     }
     
 
     string getString(int index)
     {
         int i = index + this.NEGATIVE_MAX;
-        if (this.STRING_ARRAY[i].isEmpty()) {
-            this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
+        if (this.STRING_ARRAY_SmallLongFactory[i].isEmpty()) {
+            this.STRING_ARRAY_SmallLongFactory[i] = this.INTEGER_ARRAY_SmallLongFactory[i].toString();
         }
-        return this.STRING_ARRAY[i];
+        return this.STRING_ARRAY_SmallLongFactory[i];
     }
 }
 

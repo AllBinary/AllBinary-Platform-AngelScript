@@ -17,21 +17,21 @@
 
 class KeyValueDrawCharArray : JObjectBase, UpdateMyFontInterface
 {
-    MyFontProcessor@ myFontProcessor;
-    string LABEL;
-    int labelX;
-    int valueX;
-    uint16[]@ value;
-    int len;
+    MyFontProcessor@ myFontProcessor_KeyValueDrawCharArray;
+    string LABEL_KeyValueDrawCharArray;
+    int labelX_KeyValueDrawCharArray;
+    int valueX_KeyValueDrawCharArray;
+    uint16[]@ value_KeyValueDrawCharArray;
+    int len_KeyValueDrawCharArray;
 
     // Java field initializers run after the super constructor
     void jfields_KeyValueDrawCharArray()
     {
-    @this.myFontProcessor = UpdateMyFontProcessor().jinit_UpdateMyFontProcessor(this);
+    @this.myFontProcessor_KeyValueDrawCharArray = UpdateMyFontProcessor().jinit_UpdateMyFontProcessor(this);
     
     
     
-    @this.value = CharArrayFactory::getInstance().getZeroCharArray();
+    @this.value_KeyValueDrawCharArray = CharArrayFactory::getInstance().getZeroCharArray();
     
     }
     
@@ -39,32 +39,32 @@ class KeyValueDrawCharArray : JObjectBase, UpdateMyFontInterface
     KeyValueDrawCharArray@ jinit_KeyValueDrawCharArray(string label, int x)
     {
         this.jfields_KeyValueDrawCharArray();
-        this.LABEL = label;
-        this.labelX = x;
+        this.LABEL_KeyValueDrawCharArray = label;
+        this.labelX_KeyValueDrawCharArray = x;
         return this;
     }
     
 
     void updateMeasurement(Graphics@ graphics)
     {
-        int labelWidth = graphics.getFont().stringWidth(this.LABEL) - int(this.LABEL.length());
-        this.valueX = labelWidth + this.labelX;
-        @this.myFontProcessor = MyFontProcessor::getInstance();
+        int labelWidth = graphics.getFont().stringWidth(this.LABEL_KeyValueDrawCharArray) - int(this.LABEL_KeyValueDrawCharArray.length());
+        this.valueX_KeyValueDrawCharArray = labelWidth + this.labelX_KeyValueDrawCharArray;
+        @this.myFontProcessor_KeyValueDrawCharArray = MyFontProcessor::getInstance();
     }
     
 
     void paint(Graphics@ graphics, int y)
     {
-        this.myFontProcessor.process(graphics);
-        graphics.drawString(this.LABEL, this.labelX, y, 0);
-        graphics.drawChars(this.value, 0, this.len, this.valueX, y, 0);
+        this.myFontProcessor_KeyValueDrawCharArray.process(graphics);
+        graphics.drawString(this.LABEL_KeyValueDrawCharArray, this.labelX_KeyValueDrawCharArray, y, 0);
+        graphics.drawChars(this.value_KeyValueDrawCharArray, 0, this.len_KeyValueDrawCharArray, this.valueX_KeyValueDrawCharArray, y, 0);
     }
     
 
     void update(uint16[]@ value, int len)
     {
-        @this.value = value;
-        this.len = len;
+        @this.value_KeyValueDrawCharArray = value;
+        this.len_KeyValueDrawCharArray = len;
     }
 }
 

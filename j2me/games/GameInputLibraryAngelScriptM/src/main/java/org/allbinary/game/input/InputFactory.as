@@ -18,7 +18,7 @@
 class InputFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
+    CommonStrings@ commonStrings_InputFactory;
     string KEY_CODE_LABEL;
     string DEVICE_ID_LABEL;
     int MAX;
@@ -29,12 +29,12 @@ class InputFactory : JObjectBase
     void jfields_InputFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
+    @this.commonStrings_InputFactory = CommonStrings::getInstance();
     this.KEY_CODE_LABEL = "KeyCode: ";
     this.DEVICE_ID_LABEL = "DeviceId: ";
     this.MAX = SmallIntegerSingletonFactory::getInstance().getMin();
     @this.inputIntegerArray = array<Input@>(this.MAX);
-    @this.NO_INPUT = Input().jinit_Input(0, this.commonStrings.UNKNOWN);
+    @this.NO_INPUT = Input().jinit_Input(0, this.commonStrings_InputFactory.UNKNOWN);
     }
     
 
@@ -61,7 +61,7 @@ class InputFactory : JObjectBase
             id = -id;
         }
         if (id > int(this.inputIntegerArray.length())) {
-            this.logUtil.putF(StringMaker().jinit_StringMaker().append("Warning id: ").appendint(id).toString(), this, this.commonStrings.GET_INSTANCE);
+            this.logUtil.putF(StringMaker().jinit_StringMaker().append("Warning id: ").appendint(id).toString(), this, this.commonStrings_InputFactory.GET_INSTANCE);
             return this.NO_INPUT;
         }
         return this.inputIntegerArray[id];

@@ -17,12 +17,12 @@
 
 class CamelCaseUtil : JObjectBase
 {
-    CommonSeps@ commonSeps;
+    CommonSeps@ commonSeps_CamelCaseUtil;
 
     // Java field initializers run after the super constructor
     void jfields_CamelCaseUtil()
     {
-    @this.commonSeps = CommonSeps::getInstance();
+    @this.commonSeps_CamelCaseUtil = CommonSeps::getInstance();
     }
 
     CamelCaseUtil@ jinit_CamelCaseUtil()
@@ -37,7 +37,7 @@ class CamelCaseUtil : JObjectBase
         StringValidationUtil@ stringValidationUtil = StringValidationUtil::getInstance();
         stringBuilder.delete(0, stringBuilder.length());
         BasicArrayList@ list = BasicArrayListD().jinit_BasicArrayListD();
-        Tokenizer@ tokenizer = Tokenizer().jinit_Tokenizer(this.commonSeps.UNDERSCORE);
+        Tokenizer@ tokenizer = Tokenizer().jinit_Tokenizer(this.commonSeps_CamelCaseUtil.UNDERSCORE);
         tokenizer.getTokensFromString(string_, list);
         int size = list.size();
         string word = "";

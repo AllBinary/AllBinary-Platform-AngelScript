@@ -17,12 +17,12 @@
 
 class GameDifficultyFactory : JObjectBase
 {
-    int level;
+    int level_GameDifficultyFactory;
 
     // Java field initializers run after the super constructor
     void jfields_GameDifficultyFactory()
     {
-    this.level = 0;
+    this.level_GameDifficultyFactory = 0;
     }
 
     GameDifficultyFactory@ jinit_GameDifficultyFactory()
@@ -34,13 +34,13 @@ class GameDifficultyFactory : JObjectBase
 
     void setLevel(int level)
     {
-        this.level = level;
+        this.level_GameDifficultyFactory = level;
     }
     
 
     int getLevel()
     {
-        return this.level;
+        return this.level_GameDifficultyFactory;
     }
 }
 

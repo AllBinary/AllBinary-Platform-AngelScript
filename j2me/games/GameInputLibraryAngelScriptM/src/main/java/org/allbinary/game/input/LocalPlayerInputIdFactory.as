@@ -19,30 +19,30 @@ class LocalPlayerInputIdFactory : JObjectBase
 {
     LogUtil@ logUtil;
     int MAX_NUMBER_OF_PLAYERS;
-    int MAX_FAST_DEVICEID;
-    int[]@ deviceIdToplayerId;
-    int[]@ playerIdToDeviceId;
-    bool[]@ playersInPlay;
-    int totalDevicesMapped;
+    int MAX_FAST_DEVICEID_LocalPlayerInputIdFactory;
+    int[]@ deviceIdToplayerId_LocalPlayerInputIdFactory;
+    int[]@ playerIdToDeviceId_LocalPlayerInputIdFactory;
+    bool[]@ playersInPlay_LocalPlayerInputIdFactory;
+    int totalDevicesMapped_LocalPlayerInputIdFactory;
 
     // Java field initializers run after the super constructor
     void jfields_LocalPlayerInputIdFactory()
     {
     @this.logUtil = LogUtil::getInstance();
     this.MAX_NUMBER_OF_PLAYERS = 6;
-    this.MAX_FAST_DEVICEID = 65;
-    @this.deviceIdToplayerId = array<int>(this.MAX_FAST_DEVICEID);
-    @this.playerIdToDeviceId = array<int>(this.MAX_NUMBER_OF_PLAYERS);
-    @this.playersInPlay = array<bool>(this.MAX_NUMBER_OF_PLAYERS);
-    this.totalDevicesMapped = 0;
+    this.MAX_FAST_DEVICEID_LocalPlayerInputIdFactory = 65;
+    @this.deviceIdToplayerId_LocalPlayerInputIdFactory = array<int>(this.MAX_FAST_DEVICEID_LocalPlayerInputIdFactory);
+    @this.playerIdToDeviceId_LocalPlayerInputIdFactory = array<int>(this.MAX_NUMBER_OF_PLAYERS);
+    @this.playersInPlay_LocalPlayerInputIdFactory = array<bool>(this.MAX_NUMBER_OF_PLAYERS);
+    this.totalDevicesMapped_LocalPlayerInputIdFactory = 0;
     }
     
 
     LocalPlayerInputIdFactory@ jinit_LocalPlayerInputIdFactory()
     {
         this.jfields_LocalPlayerInputIdFactory();
-        for (int index = int(this.deviceIdToplayerId.length()) - 1; index >= 0; index--) {
-            this.deviceIdToplayerId[index] = -1;
+        for (int index = int(this.deviceIdToplayerId_LocalPlayerInputIdFactory.length()) - 1; index >= 0; index--) {
+            this.deviceIdToplayerId_LocalPlayerInputIdFactory[index] = -1;
         }
         return this;
     }
@@ -50,35 +50,35 @@ class LocalPlayerInputIdFactory : JObjectBase
 
     int getDeviceId(int playerInputId)
     {
-        return this.playerIdToDeviceId[playerInputId];
+        return this.playerIdToDeviceId_LocalPlayerInputIdFactory[playerInputId];
     }
     
 
     int getPlayerForDevice(int deviceId)
     {
         int index = 0;
-        if (deviceId < this.MAX_FAST_DEVICEID) {
-            int playerInputId = this.deviceIdToplayerId[deviceId];
+        if (deviceId < this.MAX_FAST_DEVICEID_LocalPlayerInputIdFactory) {
+            int playerInputId = this.deviceIdToplayerId_LocalPlayerInputIdFactory[deviceId];
             if (playerInputId != -1) {
                 return playerInputId;
             }
         } else {
-            for (index = this.totalDevicesMapped - 1; index >= 0; index--) {
-                if (this.playerIdToDeviceId[index] == deviceId) {
+            for (index = this.totalDevicesMapped_LocalPlayerInputIdFactory - 1; index >= 0; index--) {
+                if (this.playerIdToDeviceId_LocalPlayerInputIdFactory[index] == deviceId) {
                     return index;
                 }
             }
         }
-        index = this.totalDevicesMapped;
-        if (deviceId < this.MAX_FAST_DEVICEID) {
-            this.deviceIdToplayerId[deviceId] = index;
+        index = this.totalDevicesMapped_LocalPlayerInputIdFactory;
+        if (deviceId < this.MAX_FAST_DEVICEID_LocalPlayerInputIdFactory) {
+            this.deviceIdToplayerId_LocalPlayerInputIdFactory[deviceId] = index;
         } else {
             this.logUtil.putF(StringMaker().jinit_StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" beyond fast Id list").toString(), this, "getPlayerForDevice");
         }
-        this.playerIdToDeviceId[index] = deviceId;
-        AnalogLocationInputFactory::getInstance().addPlayer(this.totalDevicesMapped);
-        this.totalDevicesMapped++;
-        this.logUtil.putF(StringMaker().jinit_StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" at: ").appendint(index).append(" Total: ").appendint(this.totalDevicesMapped).toString(), this, "getPlayerForDevice");
+        this.playerIdToDeviceId_LocalPlayerInputIdFactory[index] = deviceId;
+        AnalogLocationInputFactory::getInstance().addPlayer(this.totalDevicesMapped_LocalPlayerInputIdFactory);
+        this.totalDevicesMapped_LocalPlayerInputIdFactory++;
+        this.logUtil.putF(StringMaker().jinit_StringMaker().append("Added DeviceId: ").appendint(deviceId).append(" at: ").appendint(index).append(" Total: ").appendint(this.totalDevicesMapped_LocalPlayerInputIdFactory).toString(), this, "getPlayerForDevice");
         return index;
     }
     
@@ -86,8 +86,8 @@ class LocalPlayerInputIdFactory : JObjectBase
     int getTotalDevicesInPlay()
     {
         int total = 0;
-        for (int index = this.totalDevicesMapped - 1; index >= 0; index--) {
-            if (this.playersInPlay[index] == true) {
+        for (int index = this.totalDevicesMapped_LocalPlayerInputIdFactory - 1; index >= 0; index--) {
+            if (this.playersInPlay_LocalPlayerInputIdFactory[index] == true) {
                 total++;
             }
         }
@@ -97,27 +97,27 @@ class LocalPlayerInputIdFactory : JObjectBase
 
     bool isPlayerInPlay(int playerInputId)
     {
-        return this.playersInPlay[playerInputId];
+        return this.playersInPlay_LocalPlayerInputIdFactory[playerInputId];
     }
     
 
     void setPlayerInPlay(int playerInputId)
     {
         this.logUtil.putF(StringMaker().jinit_StringMaker().append("Setting PlayerInPlay with playerInputId: ").appendint(playerInputId).toString(), this, "setPlayerInPlay");
-        this.playersInPlay[playerInputId] = true;
+        this.playersInPlay_LocalPlayerInputIdFactory[playerInputId] = true;
     }
     
 
     void setPlayerOutOfPlay(int playerInputId)
     {
         this.logUtil.putF(StringMaker().jinit_StringMaker().append("Setting PlayerOutOfPlay with playerInputId: ").appendint(playerInputId).toString(), this, "setPlayerOutOfPlay");
-        this.playersInPlay[playerInputId] = false;
+        this.playersInPlay_LocalPlayerInputIdFactory[playerInputId] = false;
     }
     
 
     bool[]@ getPlayersInPlay()
     {
-        return this.playersInPlay;
+        return this.playersInPlay_LocalPlayerInputIdFactory;
     }
 }
 

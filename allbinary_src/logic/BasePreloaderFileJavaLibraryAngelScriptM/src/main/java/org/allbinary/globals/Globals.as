@@ -38,7 +38,7 @@ class Globals : JObjectBase
         CommonStrings@ commonStrings = CommonStrings::getInstance();
         AppUrlGlobals@ appUrlGlobals = AppUrlGlobals().jinit_AppUrlGlobals();
         appUrlGlobals.setWebappPath(pathString);
-        ::URLGLOBALS.init(appUrlGlobals);
+        URLGLOBALS::init(appUrlGlobals);
         WebappClassLoaderInfo::setLoader(classLoader);
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         stringBuffer.append("Setting Up AllBinary System Configuration Args: ");
@@ -54,12 +54,12 @@ class Globals : JObjectBase
             stringBuffer.append(CommonSeps::getInstance().SPACE);
             stringBuffer.append(CommonSeps::getInstance().EQUALS);
             stringBuffer.append(CommonSeps::getInstance().SPACE);
-            stringBuffer.append(::URLGLOBALS.getWebappPath());
+            stringBuffer.append(URLGLOBALS::getWebappPath());
             this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
         }
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append("Webapp Path Set To: ");
-        stringBuffer.append(::URLGLOBALS.getWebappPath());
+        stringBuffer.append(URLGLOBALS::getWebappPath());
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
     }
 }

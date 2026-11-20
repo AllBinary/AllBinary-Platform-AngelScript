@@ -17,14 +17,14 @@
 
 class DrawStringUtil : JObjectBase
 {
-    string EMPTY_STRING;
-    int anchor;
+    string EMPTY_STRING_DrawStringUtil;
+    int anchor_DrawStringUtil;
 
     // Java field initializers run after the super constructor
     void jfields_DrawStringUtil()
     {
-    this.EMPTY_STRING = StringUtil::getInstance().EMPTY_STRING;
-    this.anchor = Anchor::TOP_LEFT;
+    this.EMPTY_STRING_DrawStringUtil = StringUtil::getInstance().EMPTY_STRING;
+    this.anchor_DrawStringUtil = Anchor::TOP_LEFT;
     }
 
     DrawStringUtil@ jinit_DrawStringUtil()
@@ -38,7 +38,7 @@ class DrawStringUtil : JObjectBase
     {
         int width = (graphics.getFont().substringWidth(string_, offset, length) >>> 1);
         try {
-            graphics.drawSubstring(string_, offset, length, x - width, y, this.anchor);
+            graphics.drawSubstring(string_, offset, length, x - width, y, this.anchor_DrawStringUtil);
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
@@ -55,7 +55,7 @@ class DrawStringUtil : JObjectBase
         int extraLines = 0;
         for (int index = 0; index < int(stringArray.length()); index++) {
             string string_ = stringArray[index];
-            if (string_ != this.EMPTY_STRING) {
+            if (string_ != this.EMPTY_STRING_DrawStringUtil) {
                 int width = graphics.getFont().stringWidth(string_);
                 int minTotalLines = 1;
                 if (width > maxWidth) {

@@ -19,45 +19,45 @@ class SmallIntegerSingletonFactory : JObjectBase
 {
     int NEGATIVE_MAX;
     int POSITIVE_MAX;
-    JInteger@[]@ INTEGER_ARRAY;
-    string[]@ STRING_ARRAY;
-    int MIN;
-    int lastMin;
-    int lastNegativeMin;
+    JInteger@[]@ INTEGER_ARRAY_SmallIntegerSingletonFactory;
+    string[]@ STRING_ARRAY_SmallIntegerSingletonFactory;
+    int MIN_SmallIntegerSingletonFactory;
+    int lastMin_SmallIntegerSingletonFactory;
+    int lastNegativeMin_SmallIntegerSingletonFactory;
 
     // Java field initializers run after the super constructor
     void jfields_SmallIntegerSingletonFactory()
     {
     this.NEGATIVE_MAX = 500;
     this.POSITIVE_MAX = 0x2D1;
-    @this.INTEGER_ARRAY = array<JInteger@>(this.NEGATIVE_MAX + this.POSITIVE_MAX);
-    @this.STRING_ARRAY = array<string>(this.NEGATIVE_MAX + this.POSITIVE_MAX);
-    this.MIN = 0;
-    this.lastMin = 0;
-    this.lastNegativeMin = 0;
+    @this.INTEGER_ARRAY_SmallIntegerSingletonFactory = array<JInteger@>(this.NEGATIVE_MAX + this.POSITIVE_MAX);
+    @this.STRING_ARRAY_SmallIntegerSingletonFactory = array<string>(this.NEGATIVE_MAX + this.POSITIVE_MAX);
+    this.MIN_SmallIntegerSingletonFactory = 0;
+    this.lastMin_SmallIntegerSingletonFactory = 0;
+    this.lastNegativeMin_SmallIntegerSingletonFactory = 0;
     }
     
 
     int getMin()
     {
         int minAllowed = this.getMinAllowed();
-        if (this.MIN <= minAllowed) {
+        if (this.MIN_SmallIntegerSingletonFactory <= minAllowed) {
             if (J2MEUtil::isJ2ME()) {
             } else if (AndroidUtil::isAndroid()) {
                 LogUtil@ logUtil = LogUtil::getInstance();
-                logUtil.putF(StringMaker().jinit_StringMaker().append("Android InputFactory was initialized before GameMidlet: ").appendint(this.MIN).toString(), this, "getMin");
+                logUtil.putF(StringMaker().jinit_StringMaker().append("Android InputFactory was initialized before GameMidlet: ").appendint(this.MIN_SmallIntegerSingletonFactory).toString(), this, "getMin");
                 this.initWithRange(0x291, 6);
             } else {
                 LogUtil@ logUtil = LogUtil::getInstance();
-                logUtil.putF(StringMaker().jinit_StringMaker().append("InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: ").appendint(this.MIN).toString(), this, "getMin");
+                logUtil.putF(StringMaker().jinit_StringMaker().append("InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: ").appendint(this.MIN_SmallIntegerSingletonFactory).toString(), this, "getMin");
                 this.initWithRange(0x2D0, 6);
             }
         }
-        if (this.MIN <= minAllowed) {
+        if (this.MIN_SmallIntegerSingletonFactory <= minAllowed) {
             LogUtil@ logUtil = LogUtil::getInstance();
             logUtil.put("This means you loaded the InputFactory before determining the platform input size requirements.", this, "getMin", Exception().jinit_Exception());
         }
-        return this.MIN;
+        return this.MIN_SmallIntegerSingletonFactory;
     }
     
 
@@ -78,34 +78,34 @@ class SmallIntegerSingletonFactory : JObjectBase
 
     void initWithRange(int value, int negativeValue)
     {
-        for (int index = value - 1; index >= this.lastMin; index--) {
-            @this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = JInteger().jinit_JInteger(index);
+        for (int index = value - 1; index >= this.lastMin_SmallIntegerSingletonFactory; index--) {
+            @this.INTEGER_ARRAY_SmallIntegerSingletonFactory[index + this.NEGATIVE_MAX] = JInteger().jinit_JInteger(index);
         }
-        for (int index = negativeValue - 1; index >= this.lastNegativeMin; index--) {
-            @this.INTEGER_ARRAY[index] = JInteger().jinit_JInteger(-index);
+        for (int index = negativeValue - 1; index >= this.lastNegativeMin_SmallIntegerSingletonFactory; index--) {
+            @this.INTEGER_ARRAY_SmallIntegerSingletonFactory[index] = JInteger().jinit_JInteger(-index);
         }
-        if (this.lastMin < value) {
-            this.lastMin = value;
-            this.MIN = value;
+        if (this.lastMin_SmallIntegerSingletonFactory < value) {
+            this.lastMin_SmallIntegerSingletonFactory = value;
+            this.MIN_SmallIntegerSingletonFactory = value;
         }
-        if (this.lastNegativeMin < negativeValue) {
-            this.lastNegativeMin = negativeValue;
+        if (this.lastNegativeMin_SmallIntegerSingletonFactory < negativeValue) {
+            this.lastNegativeMin_SmallIntegerSingletonFactory = negativeValue;
         }
     }
     
 
     void init()
     {
-        if (this.lastMin < this.POSITIVE_MAX || this.lastNegativeMin < this.NEGATIVE_MAX) {
-            for (int index = this.POSITIVE_MAX - 1; index >= this.lastMin; index--) {
-                @this.INTEGER_ARRAY[index + this.NEGATIVE_MAX] = JInteger().jinit_JInteger(index);
+        if (this.lastMin_SmallIntegerSingletonFactory < this.POSITIVE_MAX || this.lastNegativeMin_SmallIntegerSingletonFactory < this.NEGATIVE_MAX) {
+            for (int index = this.POSITIVE_MAX - 1; index >= this.lastMin_SmallIntegerSingletonFactory; index--) {
+                @this.INTEGER_ARRAY_SmallIntegerSingletonFactory[index + this.NEGATIVE_MAX] = JInteger().jinit_JInteger(index);
             }
-            for (int index = this.NEGATIVE_MAX - 1; index >= this.lastNegativeMin; index--) {
-                @this.INTEGER_ARRAY[index] = JInteger().jinit_JInteger(-index);
+            for (int index = this.NEGATIVE_MAX - 1; index >= this.lastNegativeMin_SmallIntegerSingletonFactory; index--) {
+                @this.INTEGER_ARRAY_SmallIntegerSingletonFactory[index] = JInteger().jinit_JInteger(-index);
             }
-            this.lastMin = this.POSITIVE_MAX;
-            this.MIN = this.lastMin;
-            this.lastNegativeMin = this.NEGATIVE_MAX;
+            this.lastMin_SmallIntegerSingletonFactory = this.POSITIVE_MAX;
+            this.MIN_SmallIntegerSingletonFactory = this.lastMin_SmallIntegerSingletonFactory;
+            this.lastNegativeMin_SmallIntegerSingletonFactory = this.NEGATIVE_MAX;
         }
     }
     
@@ -120,16 +120,16 @@ class SmallIntegerSingletonFactory : JObjectBase
 
     JInteger@ getAt(int index)
     {
-        return this.INTEGER_ARRAY[index + this.NEGATIVE_MAX];
+        return this.INTEGER_ARRAY_SmallIntegerSingletonFactory[index + this.NEGATIVE_MAX];
     }
     
 
     JInteger@ getAtNoThrow(int index)
     {
-        if (index + this.NEGATIVE_MAX > int(this.INTEGER_ARRAY.length()) - 1) {
-            return this.INTEGER_ARRAY[-1 + this.NEGATIVE_MAX];
+        if (index + this.NEGATIVE_MAX > int(this.INTEGER_ARRAY_SmallIntegerSingletonFactory.length()) - 1) {
+            return this.INTEGER_ARRAY_SmallIntegerSingletonFactory[-1 + this.NEGATIVE_MAX];
         }
-        return this.INTEGER_ARRAY[index + this.NEGATIVE_MAX];
+        return this.INTEGER_ARRAY_SmallIntegerSingletonFactory[index + this.NEGATIVE_MAX];
     }
     
 
@@ -146,10 +146,10 @@ class SmallIntegerSingletonFactory : JObjectBase
     string getString(int index)
     {
         int i = index + this.NEGATIVE_MAX;
-        if (this.STRING_ARRAY[i].isEmpty()) {
-            this.STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
+        if (this.STRING_ARRAY_SmallIntegerSingletonFactory[i].isEmpty()) {
+            this.STRING_ARRAY_SmallIntegerSingletonFactory[i] = this.INTEGER_ARRAY_SmallIntegerSingletonFactory[i].toString();
         }
-        return this.STRING_ARRAY[i];
+        return this.STRING_ARRAY_SmallIntegerSingletonFactory[i];
     }
 }
 

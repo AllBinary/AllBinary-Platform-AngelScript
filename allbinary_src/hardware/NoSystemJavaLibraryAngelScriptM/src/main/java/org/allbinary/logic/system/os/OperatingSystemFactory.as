@@ -18,13 +18,13 @@
 class OperatingSystemFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    GenericOperatingSystem@ genericOperatingSystem;
+    GenericOperatingSystem@ genericOperatingSystem_OperatingSystemFactory;
 
     // Java field initializers run after the super constructor
     void jfields_OperatingSystemFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.genericOperatingSystem = NoOperatingSystem::NO_OPERATING_SYSTEM;
+    @this.genericOperatingSystem_OperatingSystemFactory = NoOperatingSystem::NO_OPERATING_SYSTEM;
     }
     
 
@@ -39,7 +39,7 @@ class OperatingSystemFactory : JObjectBase
     {
         CommonStrings@ commonStrings = CommonStrings::getInstance();
         try {
-            string osString = StringMaker().jinit_StringMaker().append("OperatingSystem Info: ").append(this.genericOperatingSystem.toString()).toString();
+            string osString = StringMaker().jinit_StringMaker().append("OperatingSystem Info: ").append(this.genericOperatingSystem_OperatingSystemFactory.toString()).toString();
             System::out_println(osString);
             this.logUtil.putF(osString, this, commonStrings.GET_INSTANCE);
         } catch {
@@ -50,7 +50,7 @@ class OperatingSystemFactory : JObjectBase
             }
             else { jthrow(jex0); }
         }
-        return this.genericOperatingSystem;
+        return this.genericOperatingSystem_OperatingSystemFactory;
     }
 }
 

@@ -17,19 +17,19 @@
 
 class Component : JObjectBase
 {
-    string name;
+    string name_Component;
     
 
     Component@ jinit_Component(string componentName)
     {
-        this.name = componentName;
+        this.name_Component = componentName;
         return this;
     }
     
 
     string toString()
     {
-        return this.name;
+        return this.name_Component;
     }
 }
 

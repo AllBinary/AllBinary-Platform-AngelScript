@@ -18,15 +18,15 @@
 class BasicArrayListUtil : JObjectBase
 {
     BasicArrayList@[]@[]@ NULL_ARRAY_OF_ARRAY;
-    MyRandomFactory@ myRandomFactory;
-    BasicArrayList@ immutableInstance;
+    MyRandomFactory@ myRandomFactory_BasicArrayListUtil;
+    BasicArrayList@ immutableInstance_BasicArrayListUtil;
 
     // Java field initializers run after the super constructor
     void jfields_BasicArrayListUtil()
     {
     @this.NULL_ARRAY_OF_ARRAY = BasicArrayListUtil::jnewArray2_BasicArrayList(0, 0);
-    @this.myRandomFactory = MyRandomFactory::getInstance();
-    @this.immutableInstance = ImmutableBasicArrayList().jinit_ImmutableBasicArrayList("Immutable", 0);
+    @this.myRandomFactory_BasicArrayListUtil = MyRandomFactory::getInstance();
+    @this.immutableInstance_BasicArrayListUtil = ImmutableBasicArrayList().jinit_ImmutableBasicArrayList("Immutable", 0);
     }
 
     BasicArrayListUtil@ jinit_BasicArrayListUtil()
@@ -45,7 +45,7 @@ class BasicArrayListUtil : JObjectBase
 
     int getRandomIndex(BasicArrayList@ list)
     {
-        return this.myRandomFactory.getAbsoluteNextInt(list.size());
+        return this.myRandomFactory_BasicArrayListUtil.getAbsoluteNextInt(list.size());
     }
     
 
@@ -82,7 +82,7 @@ class BasicArrayListUtil : JObjectBase
 
     BasicArrayList@ getImmutableInstance()
     {
-        return this.immutableInstance;
+        return this.immutableInstance_BasicArrayListUtil;
     }
 }
 

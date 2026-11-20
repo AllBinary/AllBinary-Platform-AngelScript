@@ -17,16 +17,16 @@
 
 class Advertisements : JObjectBase
 {
-    BasicArrayList@ bannerList;
-    BasicArrayList@ pageList;
-    MyRandomFactory@ myRandomFactory;
+    BasicArrayList@ bannerList_Advertisements;
+    BasicArrayList@ pageList_Advertisements;
+    MyRandomFactory@ myRandomFactory_Advertisements;
 
     // Java field initializers run after the super constructor
     void jfields_Advertisements()
     {
-    @this.bannerList = BasicArrayListD().jinit_BasicArrayListD();
-    @this.pageList = BasicArrayListD().jinit_BasicArrayListD();
-    @this.myRandomFactory = MyRandomFactory::getInstance();
+    @this.bannerList_Advertisements = BasicArrayListD().jinit_BasicArrayListD();
+    @this.pageList_Advertisements = BasicArrayListD().jinit_BasicArrayListD();
+    @this.myRandomFactory_Advertisements = MyRandomFactory::getInstance();
     }
 
     Advertisements@ jinit_Advertisements()
@@ -38,18 +38,18 @@ class Advertisements : JObjectBase
 
     void addPage(AdvertisementProcessorInterface@ advertisementProcessorInterface)
     {
-        if (!this.pageList.contains(advertisementProcessorInterface)) {
-            this.pageList.add(advertisementProcessorInterface);
+        if (!this.pageList_Advertisements.contains(advertisementProcessorInterface)) {
+            this.pageList_Advertisements.add(advertisementProcessorInterface);
         }
     }
     
 
     void startRandomPage()
     {
-        int size = this.pageList.size();
+        int size = this.pageList_Advertisements.size();
         if (size > 0) {
-            int random = this.myRandomFactory.getAbsoluteNextInt(size);
-            AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.pageList.objectArray[random]);
+            int random = this.myRandomFactory_Advertisements.getAbsoluteNextInt(size);
+            AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.pageList_Advertisements.objectArray[random]);
             advertisementProcessorInterface.start();
         }
     }
@@ -58,10 +58,10 @@ class Advertisements : JObjectBase
     void processRandomPage()
     {
         if (LockedUtil::getInstance().isLocked()) {
-            int size = this.pageList.size();
+            int size = this.pageList_Advertisements.size();
             if (size > 0) {
-                int random = this.myRandomFactory.getAbsoluteNextInt(size);
-                AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.pageList.objectArray[random]);
+                int random = this.myRandomFactory_Advertisements.getAbsoluteNextInt(size);
+                AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.pageList_Advertisements.objectArray[random]);
                 advertisementProcessorInterface.process();
             }
         }
@@ -70,8 +70,8 @@ class Advertisements : JObjectBase
 
     void stopAllPage()
     {
-        for (int index = this.pageList.size(); --index >= 0; ) {
-            AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.pageList.objectArray[index]);
+        for (int index = this.pageList_Advertisements.size(); --index >= 0; ) {
+            AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.pageList_Advertisements.objectArray[index]);
             advertisementProcessorInterface.stop();
         }
     }
@@ -79,16 +79,16 @@ class Advertisements : JObjectBase
 
     void addBanner(AdvertisementProcessorInterface@ advertisementProcessorInterface)
     {
-        if (!this.bannerList.contains(advertisementProcessorInterface)) {
-            this.bannerList.add(advertisementProcessorInterface);
+        if (!this.bannerList_Advertisements.contains(advertisementProcessorInterface)) {
+            this.bannerList_Advertisements.add(advertisementProcessorInterface);
         }
     }
     
 
     void startAll()
     {
-        for (int index = this.bannerList.size(); --index >= 0; ) {
-            AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.bannerList.objectArray[index]);
+        for (int index = this.bannerList_Advertisements.size(); --index >= 0; ) {
+            AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.bannerList_Advertisements.objectArray[index]);
             advertisementProcessorInterface.start();
         }
     }
@@ -96,8 +96,8 @@ class Advertisements : JObjectBase
 
     void stopAllBanner()
     {
-        for (int index = this.bannerList.size(); --index >= 0; ) {
-            AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.bannerList.objectArray[index]);
+        for (int index = this.bannerList_Advertisements.size(); --index >= 0; ) {
+            AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.bannerList_Advertisements.objectArray[index]);
             advertisementProcessorInterface.stop();
         }
     }
@@ -105,7 +105,7 @@ class Advertisements : JObjectBase
 
     AdvertisementProcessorInterface@ getBanner(int index)
     {
-        AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.bannerList.objectArray[index]);
+        AdvertisementProcessorInterface@ advertisementProcessorInterface = cast<AdvertisementProcessorInterface>(this.bannerList_Advertisements.objectArray[index]);
         return advertisementProcessorInterface;
     }
     

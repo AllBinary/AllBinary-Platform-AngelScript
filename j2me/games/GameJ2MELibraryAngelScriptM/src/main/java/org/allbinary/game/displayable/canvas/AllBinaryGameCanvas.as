@@ -638,7 +638,7 @@ class AllBinaryGameCanvas : RunnableCanvas, AllBinaryGameCanvasInterface, GameCa
     {
         GameCommandsFactory@ gameCommandsFactory = GameCommandsFactory::getInstance();
         MyCommandsFactory@ myCommandsFactory = MyCommandsFactory::getInstance();
-        if (DebugFactory::getInstance() != NoDebug::getInstance()) {
+        if (DebugFactory::getInstance() !is NoDebug::getInstance()) {
             this.addCommand(gameCommandsFactory.START_TRACE);
         }
         this.addCommand(gameCommandsFactory.RESTART_COMMAND);
@@ -948,7 +948,7 @@ class AllBinaryGameCanvas : RunnableCanvas, AllBinaryGameCanvasInterface, GameCa
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.LOAD);
         ABHashtable@ hashtable = this.getLoadStateHashtable();
         if (hashtable !is null && hashtable.size() > 0) {
-            string levelAsString = jstringOf(hashtable.get(GameInfo::LEVEL_NAME));
+            string levelAsString = jstringOf(hashtable.get(jbox(GameInfo::LEVEL_NAME)));
             int level = Integer::valueOf(levelAsString).intValue();
             GameInfo@ gameInfo = this.gameLayerManager.getGameInfo();
             gameInfo.setCurrentLevel(level);

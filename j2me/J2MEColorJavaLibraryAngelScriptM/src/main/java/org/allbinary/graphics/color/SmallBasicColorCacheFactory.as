@@ -17,18 +17,18 @@
 
 class SmallBasicColorCacheFactory : JObjectBase
 {
-    int SIZE;
-    int[]@ INDEX_TO_COLOR;
-    BasicColor@[]@ BASIC_COLOR_ARRAY;
-    int colorIndex;
+    int SIZE_SmallBasicColorCacheFactory;
+    int[]@ INDEX_TO_COLOR_SmallBasicColorCacheFactory;
+    BasicColor@[]@ BASIC_COLOR_ARRAY_SmallBasicColorCacheFactory;
+    int colorIndex_SmallBasicColorCacheFactory;
 
     // Java field initializers run after the super constructor
     void jfields_SmallBasicColorCacheFactory()
     {
-    this.SIZE = 255;
-    @this.INDEX_TO_COLOR = array<int>(this.SIZE);
-    @this.BASIC_COLOR_ARRAY = array<BasicColor@>(this.SIZE);
-    this.colorIndex = 0;
+    this.SIZE_SmallBasicColorCacheFactory = 255;
+    @this.INDEX_TO_COLOR_SmallBasicColorCacheFactory = array<int>(this.SIZE_SmallBasicColorCacheFactory);
+    @this.BASIC_COLOR_ARRAY_SmallBasicColorCacheFactory = array<BasicColor@>(this.SIZE_SmallBasicColorCacheFactory);
+    this.colorIndex_SmallBasicColorCacheFactory = 0;
     }
     
 
@@ -41,18 +41,18 @@ class SmallBasicColorCacheFactory : JObjectBase
 
     void add(BasicColor@ basicDefaultColor)
     {
-        @this.BASIC_COLOR_ARRAY[this.colorIndex] = basicDefaultColor;
-        this.INDEX_TO_COLOR[this.colorIndex] = basicDefaultColor.intValue();
-        this.colorIndex++;
+        @this.BASIC_COLOR_ARRAY_SmallBasicColorCacheFactory[this.colorIndex_SmallBasicColorCacheFactory] = basicDefaultColor;
+        this.INDEX_TO_COLOR_SmallBasicColorCacheFactory[this.colorIndex_SmallBasicColorCacheFactory] = basicDefaultColor.intValue();
+        this.colorIndex_SmallBasicColorCacheFactory++;
     }
     
 
     BasicColor@ getAndOrCreate(int colorAsInt)
     {
         BasicColor@ basicColor;
-        for (int index = 0; index < this.SIZE; index++) {
-            if (this.INDEX_TO_COLOR[index] == colorAsInt) {
-                return this.BASIC_COLOR_ARRAY[index];
+        for (int index = 0; index < this.SIZE_SmallBasicColorCacheFactory; index++) {
+            if (this.INDEX_TO_COLOR_SmallBasicColorCacheFactory[index] == colorAsInt) {
+                return this.BASIC_COLOR_ARRAY_SmallBasicColorCacheFactory[index];
             }
         }
         int ALPHA_MASK = int(0xFF000000);

@@ -17,14 +17,14 @@
 
 class SaveHighScoreRunnable : JObjectBase, Runnable
 {
-    ProgressCanvas@ progressCanvas;
-    bool isLast;
-    HighScoreTextBox@ textBox;
+    ProgressCanvas@ progressCanvas_SaveHighScoreRunnable;
+    bool isLast_SaveHighScoreRunnable;
+    HighScoreTextBox@ textBox_SaveHighScoreRunnable;
 
     // Java field initializers run after the super constructor
     void jfields_SaveHighScoreRunnable()
     {
-    @this.progressCanvas = ProgressCanvasFactory::getInstance();
+    @this.progressCanvas_SaveHighScoreRunnable = ProgressCanvasFactory::getInstance();
     
     
     }
@@ -33,8 +33,8 @@ class SaveHighScoreRunnable : JObjectBase, Runnable
     SaveHighScoreRunnable@ jinit_SaveHighScoreRunnable(bool isLast, HighScoreTextBox@ textBox)
     {
         this.jfields_SaveHighScoreRunnable();
-        this.isLast = isLast;
-        @this.textBox = textBox;
+        this.isLast_SaveHighScoreRunnable = isLast;
+        @this.textBox_SaveHighScoreRunnable = textBox;
         return this;
     }
     
@@ -43,10 +43,10 @@ class SaveHighScoreRunnable : JObjectBase, Runnable
     {
         LogUtil@ logUtil = LogUtil::getInstance();
         try {
-            if (this.isLast) {
-                this.textBox.submit();
+            if (this.isLast_SaveHighScoreRunnable) {
+                this.textBox_SaveHighScoreRunnable.submit();
             } else {
-                this.textBox.saveHighScore();
+                this.textBox_SaveHighScoreRunnable.saveHighScore();
             }
         } catch {
             Throwable@ jex0 = jcatch();
@@ -54,7 +54,7 @@ class SaveHighScoreRunnable : JObjectBase, Runnable
                 Exception@ e = cast<Exception>(jex0);
             CommonStrings@ commonStrings = CommonStrings::getInstance();
             logUtil.put(commonStrings.EXCEPTION, this, "run", e);
-            this.progressCanvas.end();
+            this.progressCanvas_SaveHighScoreRunnable.end();
             }
             else { jthrow(jex0); }
         }

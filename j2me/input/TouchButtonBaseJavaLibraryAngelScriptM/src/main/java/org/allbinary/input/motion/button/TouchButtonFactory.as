@@ -17,18 +17,18 @@
 
 class TouchButtonFactory : JObjectBase
 {
-    BasicArrayList@ LIST;
-    BasicArrayList@ list;
-    BasicArrayList@ savedList;
-    bool saved;
+    BasicArrayList@ LIST_TouchButtonFactory;
+    BasicArrayList@ list_TouchButtonFactory;
+    BasicArrayList@ savedList_TouchButtonFactory;
+    bool saved_TouchButtonFactory;
 
     // Java field initializers run after the super constructor
     void jfields_TouchButtonFactory()
     {
-    @this.LIST = BasicArrayListUtil::getInstance().getImmutableInstance();
-    @this.list = this.LIST;
-    @this.savedList = this.LIST;
-    this.saved = false;
+    @this.LIST_TouchButtonFactory = BasicArrayListUtil::getInstance().getImmutableInstance();
+    @this.list_TouchButtonFactory = this.LIST_TouchButtonFactory;
+    @this.savedList_TouchButtonFactory = this.LIST_TouchButtonFactory;
+    this.saved_TouchButtonFactory = false;
     }
     
 
@@ -41,29 +41,29 @@ class TouchButtonFactory : JObjectBase
 
     void defaultList()
     {
-        @this.list = this.LIST;
-        this.toggle(false, this.LIST);
+        @this.list_TouchButtonFactory = this.LIST_TouchButtonFactory;
+        this.toggle(false, this.LIST_TouchButtonFactory);
     }
     
 
     void toggle(bool save, BasicArrayList@ list)
     {
         if (list !is BasicArrayListUtil::getInstance().getImmutableInstance()) {
-            @this.savedList = list;
-            if (!this.saved) {
-                @this.list = this.savedList;
+            @this.savedList_TouchButtonFactory = list;
+            if (!this.saved_TouchButtonFactory) {
+                @this.list_TouchButtonFactory = this.savedList_TouchButtonFactory;
             }
         } else {
             if (save) {
-                if (!this.saved) {
-                    this.saved = true;
-                    @this.savedList = this.list;
-                    @this.list = this.LIST;
+                if (!this.saved_TouchButtonFactory) {
+                    this.saved_TouchButtonFactory = true;
+                    @this.savedList_TouchButtonFactory = this.list_TouchButtonFactory;
+                    @this.list_TouchButtonFactory = this.LIST_TouchButtonFactory;
                 } else {
                 }
             } else {
-                @this.list = this.savedList;
-                this.saved = false;
+                @this.list_TouchButtonFactory = this.savedList_TouchButtonFactory;
+                this.saved_TouchButtonFactory = false;
             }
         }
     }
@@ -74,13 +74,13 @@ class TouchButtonFactory : JObjectBase
         if (list is null) {
             jthrow(Exception().jinit_Exception("Null List"));
         }
-        @this.list = list;
+        @this.list_TouchButtonFactory = list;
     }
     
 
     BasicArrayList@ getList()
     {
-        return this.list;
+        return this.list_TouchButtonFactory;
     }
 }
 

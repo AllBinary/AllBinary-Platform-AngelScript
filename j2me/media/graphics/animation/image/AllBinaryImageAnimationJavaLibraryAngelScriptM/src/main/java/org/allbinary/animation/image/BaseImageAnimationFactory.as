@@ -18,9 +18,9 @@
 class BaseImageAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterface
 {
     AnimationFactoryImageScaleUtil@ animationFactoryImageScaleUtil;
-    Image@ image;
+    Image@ image_BaseImageAnimationFactory;
     AnimationBehaviorFactory@ animationBehaviorFactory;
-    int[]@ sequenceArray;
+    int[]@ sequenceArray_BaseImageAnimationFactory;
     AnimationFactoryInitializationVisitor@ animationFactoryInitializationVisitor;
     ScaleProperties@ scaleProperties;
 
@@ -40,11 +40,11 @@ class BaseImageAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterfac
     {
         this.jfields_BaseImageAnimationFactory();
         @this.animationFactoryInitializationVisitor = AnimationFactoryInitializationVisitor().jinit_AnimationFactoryInitializationVisitor();
-        @this.image = image;
+        @this.image_BaseImageAnimationFactory = image;
         this.animationFactoryInitializationVisitor.width = width;
         this.animationFactoryInitializationVisitor.height = height;
         @this.animationBehaviorFactory = animationBehaviorFactory;
-        @this.sequenceArray = sequenceArray;
+        @this.sequenceArray_BaseImageAnimationFactory = sequenceArray;
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
         return this;
@@ -59,13 +59,13 @@ class BaseImageAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterfac
 
     Image@ getImage()
     {
-        return this.image;
+        return this.image_BaseImageAnimationFactory;
     }
     
 
     int[]@ getSequenceArray()
     {
-        return this.sequenceArray;
+        return this.sequenceArray_BaseImageAnimationFactory;
     }
     
 
@@ -97,9 +97,9 @@ class BaseImageAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterfac
         CommonSeps@ commonSeps = CommonSeps::getInstance();
         CommonLabels@ commonLabels = CommonLabels::getInstance();
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
-        stringBuffer.append(::toString());
+        stringBuffer.append(JObjectBase::toString());
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(int(this.image.getHeight()));
+        stringBuffer.appendint(int(this.image_BaseImageAnimationFactory.getHeight()));
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(this.animationFactoryInitializationVisitor.toString());
         return stringBuffer.toString();

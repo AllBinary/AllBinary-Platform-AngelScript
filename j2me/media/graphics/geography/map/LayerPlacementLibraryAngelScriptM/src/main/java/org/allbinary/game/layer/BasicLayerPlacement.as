@@ -17,41 +17,41 @@
 
 class BasicLayerPlacement : JObjectBase
 {
-    LayerPlacementType@ layerType;
-    int width;
-    int height;
+    LayerPlacementType@ layerType_BasicLayerPlacement;
+    int width_BasicLayerPlacement;
+    int height_BasicLayerPlacement;
     
 
     BasicLayerPlacement@ jinit_BasicLayerPlacement(LayerPlacementType@ layerType, int width, int height)
     {
-        @this.layerType = layerType;
-        this.width = width;
-        this.height = height;
+        @this.layerType_BasicLayerPlacement = layerType;
+        this.width_BasicLayerPlacement = width;
+        this.height_BasicLayerPlacement = height;
         return this;
     }
     
 
     int getWidth()
     {
-        return this.width;
+        return this.width_BasicLayerPlacement;
     }
     
 
     int getHeight()
     {
-        return this.height;
+        return this.height_BasicLayerPlacement;
     }
     
 
     LayerPlacementType@ getLayerType()
     {
-        return this.layerType;
+        return this.layerType_BasicLayerPlacement;
     }
     
 
     void setLayerType(LayerPlacementType@ layerType)
     {
-        @this.layerType = layerType;
+        @this.layerType_BasicLayerPlacement = layerType;
     }
 }
 

@@ -17,16 +17,16 @@
 
 class TouchScreenFactory : JObjectBase
 {
-    bool multiTouch;
-    bool touch;
-    TouchScreenType@ touchScreenType;
+    bool multiTouch_TouchScreenFactory;
+    bool touch_TouchScreenFactory;
+    TouchScreenType@ touchScreenType_TouchScreenFactory;
 
     // Java field initializers run after the super constructor
     void jfields_TouchScreenFactory()
     {
     
     
-    @this.touchScreenType = TouchScreenTypesFactory::getInstance().NOTOUCH;
+    @this.touchScreenType_TouchScreenFactory = TouchScreenTypesFactory::getInstance().NOTOUCH;
     }
     
 
@@ -39,7 +39,7 @@ class TouchScreenFactory : JObjectBase
 
     bool isMultiTouch()
     {
-        return this.multiTouch;
+        return this.multiTouch_TouchScreenFactory;
     }
     
 
@@ -50,13 +50,13 @@ class TouchScreenFactory : JObjectBase
 
     bool isTouch()
     {
-        return this.touch;
+        return this.touch_TouchScreenFactory;
     }
     
 
     TouchScreenType@ getTouchScreenType()
     {
-        return this.touchScreenType;
+        return this.touchScreenType_TouchScreenFactory;
     }
 }
 

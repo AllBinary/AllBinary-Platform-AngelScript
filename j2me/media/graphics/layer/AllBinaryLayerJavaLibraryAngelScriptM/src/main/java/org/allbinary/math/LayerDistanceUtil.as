@@ -17,12 +17,12 @@
 
 class LayerDistanceUtil : JObjectBase
 {
-    MathUtil@ mathUtil;
+    MathUtil@ mathUtil_LayerDistanceUtil;
 
     // Java field initializers run after the super constructor
     void jfields_LayerDistanceUtil()
     {
-    @this.mathUtil = MathUtil::getInstance();
+    @this.mathUtil_LayerDistanceUtil = MathUtil::getInstance();
     }
 
     LayerDistanceUtil@ jinit_LayerDistanceUtil()
@@ -36,7 +36,7 @@ class LayerDistanceUtil : JObjectBase
     {
         int dx = (layerInterface.getXP() + layerInterface.getHalfWidth()) - (layerInterface2.getXP() + layerInterface2.getHalfWidth());
         int dy = (layerInterface.getYP() + layerInterface.getHalfHeight()) - (layerInterface2.getYP() + layerInterface2.getHalfHeight());
-        return this.mathUtil.sqrt((dx * dx) + (dy * dy));
+        return this.mathUtil_LayerDistanceUtil.sqrt((dx * dx) + (dy * dy));
     }
     
 
@@ -45,7 +45,7 @@ class LayerDistanceUtil : JObjectBase
         int dx = (layerInterface.getXP() + layerInterface.getHalfWidth()) - (layerInterface2.getXP() + layerInterface2.getHalfWidth());
         int dy = (layerInterface.getYP() + layerInterface.getHalfHeight()) - (layerInterface2.getYP() + layerInterface2.getHalfHeight());
         int dz = (layerInterface.getZP() + layerInterface.getHalfDepth()) - (layerInterface2.getZP() + layerInterface2.getHalfDepth());
-        return this.mathUtil.sqrt((dx * dx) + (dy * dy) + (dz * dz));
+        return this.mathUtil_LayerDistanceUtil.sqrt((dx * dx) + (dy * dy) + (dz * dz));
     }
     
 
@@ -53,7 +53,7 @@ class LayerDistanceUtil : JObjectBase
     {
         int dx = layerInterface.getXP() - point.getX();
         int dy = layerInterface.getYP() - point.getY();
-        return this.mathUtil.sqrt((dx * dx) + (dy * dy));
+        return this.mathUtil_LayerDistanceUtil.sqrt((dx * dx) + (dy * dy));
     }
 }
 

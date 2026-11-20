@@ -17,12 +17,12 @@
 
 class GameLimitedCommandTextItemArrayFactory : JObjectBase
 {
-    CommandTextItemArrayFactory@ commandTextItemArrayFactory;
+    CommandTextItemArrayFactory@ commandTextItemArrayFactory_GameLimitedCommandTextItemArrayFactory;
 
     // Java field initializers run after the super constructor
     void jfields_GameLimitedCommandTextItemArrayFactory()
     {
-    @this.commandTextItemArrayFactory = CommandTextItemArrayFactory().jinit_CommandTextItemArrayFactory(LimitCommandsVisitor().jinit_LimitCommandsVisitor());
+    @this.commandTextItemArrayFactory_GameLimitedCommandTextItemArrayFactory = CommandTextItemArrayFactory().jinit_CommandTextItemArrayFactory(LimitCommandsVisitor().jinit_LimitCommandsVisitor());
     }
 
     GameLimitedCommandTextItemArrayFactory@ jinit_GameLimitedCommandTextItemArrayFactory()
@@ -34,7 +34,7 @@ class GameLimitedCommandTextItemArrayFactory : JObjectBase
 
     CommandTextItemArrayFactory@ getCommandTextItemArrayFactory()
     {
-        return this.commandTextItemArrayFactory;
+        return this.commandTextItemArrayFactory_GameLimitedCommandTextItemArrayFactory;
     }
 }
 

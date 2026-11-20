@@ -18,7 +18,7 @@
 class BasicTouchButtonCellPositionFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
+    CommonStrings@ commonStrings_BasicTouchButtonCellPositionFactory;
     CellPosition@ TOP_RIGHT;
     CellPosition@ TOP_LEFT;
     CellPosition@ SECOND_FROM_TOP_LEFT;
@@ -45,7 +45,7 @@ class BasicTouchButtonCellPositionFactory : JObjectBase
     void jfields_BasicTouchButtonCellPositionFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
+    @this.commonStrings_BasicTouchButtonCellPositionFactory = CommonStrings::getInstance();
     
     
     
@@ -73,7 +73,7 @@ class BasicTouchButtonCellPositionFactory : JObjectBase
     BasicTouchButtonCellPositionFactory@ jinit_BasicTouchButtonCellPositionFactory()
     {
         this.jfields_BasicTouchButtonCellPositionFactory();
-        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.logUtil.putF(this.commonStrings_BasicTouchButtonCellPositionFactory.START, this, this.commonStrings_BasicTouchButtonCellPositionFactory.CONSTRUCTOR);
         TouchButtonLocationHelper@ touchButtonLocationHelper = TouchButtonLocationHelper().jinit_TouchButtonLocationHelper();
         CellPositionFactory@ cellPositionFactory = CellPositionFactory::getInstance();
         cellPositionFactory.init(touchButtonLocationHelper.getTotalColumns(), touchButtonLocationHelper.getTotalRows());

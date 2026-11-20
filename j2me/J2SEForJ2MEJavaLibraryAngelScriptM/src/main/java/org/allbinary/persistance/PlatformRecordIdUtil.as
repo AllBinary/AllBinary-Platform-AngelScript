@@ -17,12 +17,12 @@
 
 class PlatformRecordIdUtil : JObjectBase
 {
-    string PLATFORM_SHORT_NAME;
+    string PLATFORM_SHORT_NAME_PlatformRecordIdUtil;
 
     // Java field initializers run after the super constructor
     void jfields_PlatformRecordIdUtil()
     {
-    this.PLATFORM_SHORT_NAME = "JSE";
+    this.PLATFORM_SHORT_NAME_PlatformRecordIdUtil = "JSE";
     }
 
     PlatformRecordIdUtil@ jinit_PlatformRecordIdUtil()
@@ -34,7 +34,7 @@ class PlatformRecordIdUtil : JObjectBase
 
     string getRecordId(AbeClientInformationInterface@ abeClientInformation, string baseRecordId)
     {
-        return StringMaker().jinit_StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps::getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME).append(baseRecordId).toString();
+        return StringMaker().jinit_StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps::getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME_PlatformRecordIdUtil).append(baseRecordId).toString();
     }
 }
 

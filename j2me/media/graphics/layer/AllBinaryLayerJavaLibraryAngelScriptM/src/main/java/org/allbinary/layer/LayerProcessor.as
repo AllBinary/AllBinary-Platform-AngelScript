@@ -18,7 +18,7 @@
 class LayerProcessor : JObjectBase, LayerProcessorInterface
 {
     CommonStrings@ commonStrings;
-    ABLayerManager@ layerManager;
+    ABLayerManager@ layerManager_LayerProcessor;
 
     // Java field initializers run after the super constructor
     void jfields_LayerProcessor()
@@ -31,7 +31,7 @@ class LayerProcessor : JObjectBase, LayerProcessorInterface
     LayerProcessor@ jinit_LayerProcessor(ABLayerManager@ layerManager)
     {
         this.jfields_LayerProcessor();
-        @this.layerManager = layerManager;
+        @this.layerManager_LayerProcessor = layerManager;
         return this;
     }
     
@@ -51,7 +51,7 @@ class LayerProcessor : JObjectBase, LayerProcessorInterface
 
     ABLayerManager@ getLayerManager()
     {
-        return this.layerManager;
+        return this.layerManager_LayerProcessor;
     }
     
 

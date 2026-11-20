@@ -17,12 +17,12 @@
 
 class AbIOSystem : JObjectBase
 {
-    string type;
+    string type_AbIOSystem;
 
     // Java field initializers run after the super constructor
     void jfields_AbIOSystem()
     {
-    this.type = "java.io";
+    this.type_AbIOSystem = "java.io";
     }
 
     AbIOSystem@ jinit_AbIOSystem()
@@ -34,13 +34,13 @@ class AbIOSystem : JObjectBase
 
     string getType()
     {
-        return this.type;
+        return this.type_AbIOSystem;
     }
     
 
     bool isType(string type)
     {
-        if (String::compareTo(this.type, type) == 0) {
+        if (String::compareTo(this.type_AbIOSystem, type) == 0) {
             return true;
         } else {
             return false;

@@ -17,7 +17,7 @@
 
 class TestInputExample : JObjectBase, TestInputInterface
 {
-    int testValue;
+    int testValue_TestInputExample;
 
     TestInputExample@ jinit_TestInputExample()
     {
@@ -37,13 +37,13 @@ class TestInputExample : JObjectBase, TestInputInterface
 
     void left()
     {
-        this.testValue++;
+        this.testValue_TestInputExample++;
     }
     
 
     void right()
     {
-        this.testValue--;
+        this.testValue_TestInputExample--;
     }
     
 

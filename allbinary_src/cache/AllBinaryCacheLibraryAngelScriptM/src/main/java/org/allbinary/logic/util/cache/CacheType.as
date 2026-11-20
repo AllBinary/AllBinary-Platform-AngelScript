@@ -17,27 +17,27 @@
 
 class CacheType : JObjectBase
 {
-    string vendor;
-    string type;
+    string vendor_CacheType;
+    string type_CacheType;
     
 
     CacheType@ jinit_CacheType(string vendor, string type)
     {
-        this.vendor = vendor;
-        this.type = type;
+        this.vendor_CacheType = vendor;
+        this.type_CacheType = type;
         return this;
     }
     
 
     string getVendor()
     {
-        return this.vendor;
+        return this.vendor_CacheType;
     }
     
 
     string getType()
     {
-        return this.type;
+        return this.type_CacheType;
     }
     
 

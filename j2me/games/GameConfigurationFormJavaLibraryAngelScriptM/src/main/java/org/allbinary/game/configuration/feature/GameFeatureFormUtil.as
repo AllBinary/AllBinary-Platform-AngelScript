@@ -18,13 +18,13 @@
 class GameFeatureFormUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    MIDPUtil@ meUtil;
+    MIDPUtil@ meUtil_GameFeatureFormUtil;
 
     // Java field initializers run after the super constructor
     void jfields_GameFeatureFormUtil()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.meUtil = MIDPUtil::getInstance();
+    @this.meUtil_GameFeatureFormUtil = MIDPUtil::getInstance();
     }
 
     GameFeatureFormUtil@ jinit_GameFeatureFormUtil()
@@ -38,7 +38,7 @@ class GameFeatureFormUtil : JObjectBase
     {
         StringMaker@ stringMaker = StringMaker().jinit_StringMaker();
         ChoiceGroup@ choiceGroup = ChoiceGroup().jinit_ChoiceGroup(name, option, StringUtil::getInstance().getArrayInstance(), NullImage::NULL_IMAGE_ARRAY);
-        BasicArrayList@ list = cast<BasicArrayList>(hashtable.get(name));
+        BasicArrayList@ list = cast<BasicArrayList>(hashtable.get(jbox(name)));
         Features@ features = Features::getInstance();
         string ADD_CHOICE = ": Adding Choice: ";
         string GET_CHOICE_GROUP = "getChoiceGroup";
@@ -68,7 +68,7 @@ class GameFeatureFormUtil : JObjectBase
             name = jstringOf(objectArray[index]);
             stringMaker.delete(0, stringMaker.length());
             this.logUtil.putF(stringMaker.append(ADDING_CHOICE_GROUP).append(name).toString(), this, ADD_CHOICE_GROUP);
-            this.meUtil.appendItem(form, this.getChoiceGroup(hashtable, name, option));
+            this.meUtil_GameFeatureFormUtil.appendItem(form, this.getChoiceGroup(hashtable, name, option));
         }
     }
     

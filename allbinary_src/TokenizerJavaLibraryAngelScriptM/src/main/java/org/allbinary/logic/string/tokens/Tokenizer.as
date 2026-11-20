@@ -17,14 +17,14 @@
 
 class Tokenizer : JObjectBase
 {
-    string sep;
-    string endSep;
+    string sep_Tokenizer;
+    string endSep_Tokenizer;
 
     // Java field initializers run after the super constructor
     void jfields_Tokenizer()
     {
     
-    this.endSep = StringUtil::getInstance().EMPTY_STRING;
+    this.endSep_Tokenizer = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
@@ -34,20 +34,20 @@ class Tokenizer : JObjectBase
         if (TsUtil::getInstance().compareTo(sep, StringUtil::getInstance().EMPTY_STRING) == 0) {
             jthrow(Exception().jinit_Exception("Sep provided is not valid"));
         }
-        this.sep = sep;
+        this.sep_Tokenizer = sep;
         return this;
     }
     
 
     void setSep(string sep)
     {
-        this.sep = sep;
+        this.sep_Tokenizer = sep;
     }
     
 
     void setEndSep(string endSep)
     {
-        this.endSep = endSep;
+        this.endSep_Tokenizer = endSep;
     }
     
 
@@ -57,12 +57,12 @@ class Tokenizer : JObjectBase
         int index = 0;
         int size = int(string_.length());
         while (index < size) {
-            index = String::indexOf(string_, this.sep, index);
+            index = String::indexOf(string_, this.sep_Tokenizer, index);
             if (index != -1) {
-                int end = String::indexOf(string_, this.endSep, index + int(this.sep.length()));
+                int end = String::indexOf(string_, this.endSep_Tokenizer, index + int(this.sep_Tokenizer.length()));
                 if (end != -1) {
-                    tokenList.add(jbox(String::substring(string_, index + int(this.sep.length()), end - (int(this.endSep.length()) - 1))));
-                    index = end + int(this.endSep.length());
+                    tokenList.add(jbox(String::substring(string_, index + int(this.sep_Tokenizer.length()), end - (int(this.endSep_Tokenizer.length()) - 1))));
+                    index = end + int(this.endSep_Tokenizer.length());
                 } else {
                 }
             } else {
@@ -78,10 +78,10 @@ class Tokenizer : JObjectBase
         int index = 0;
         int end = 0;
         while (index < int(string_.length())) {
-            end = String::indexOf(string_, this.sep, index);
+            end = String::indexOf(string_, this.sep_Tokenizer, index);
             if (end != -1) {
                 tokenVector.add(jbox(String::substring(string_, index, end)));
-                index = end + int(this.sep.length());
+                index = end + int(this.sep_Tokenizer.length());
             } else {
                 tokenVector.add(jbox(String::substring(string_, index, int(string_.length()))));
                 break;
@@ -99,7 +99,7 @@ class Tokenizer : JObjectBase
         int size = stringVector.size();
         for (int index = 0; index < size; index++) {
             string_ = jstringOf(stringVector.objectArray[index]);
-            end = String::indexOf(string_, this.sep);
+            end = String::indexOf(string_, this.sep_Tokenizer);
             if (end >= 0) {
                 tokenHashtable.put(String::substring(string_, 0, end), String::substring(string_, end + 1, int(string_.length())));
             }

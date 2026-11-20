@@ -17,7 +17,7 @@
 
 class BaseSoundsFactory : JObjectBase, SoundsFactoryInterface
 {
-    bool initialized;
+    bool initialized_BaseSoundsFactory;
 
     BaseSoundsFactory@ jinit_BaseSoundsFactory()
     {
@@ -38,13 +38,13 @@ class BaseSoundsFactory : JObjectBase, SoundsFactoryInterface
 
     void setInitialized(bool initialized)
     {
-        this.initialized = initialized;
+        this.initialized_BaseSoundsFactory = initialized;
     }
     
 
     bool isInitialized()
     {
-        return this.initialized;
+        return this.initialized_BaseSoundsFactory;
     }
 }
 

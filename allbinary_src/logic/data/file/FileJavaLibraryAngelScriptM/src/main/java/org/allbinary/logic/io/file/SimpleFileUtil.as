@@ -20,9 +20,9 @@ class SimpleFileUtil : JObjectBase
     LogUtil@ logUtil;
     Writer@ NULL_WRITER;
     Reader@ NULL_READER;
-    CommonStrings@ commonStrings;
-    NullUtil@ nullUtil;
-    StreamUtil@ streamUtil;
+    CommonStrings@ commonStrings_SimpleFileUtil;
+    NullUtil@ nullUtil_SimpleFileUtil;
+    StreamUtil@ streamUtil_SimpleFileUtil;
 
     // Java field initializers run after the super constructor
     void jfields_SimpleFileUtil()
@@ -30,9 +30,9 @@ class SimpleFileUtil : JObjectBase
     @this.logUtil = LogUtil::getInstance();
     @this.NULL_WRITER = SimpleFileUtil::nullWriter();
     @this.NULL_READER = SimpleFileUtil::nullReader();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.nullUtil = NullUtil::getInstance();
-    @this.streamUtil = StreamUtil::getInstance();
+    @this.commonStrings_SimpleFileUtil = CommonStrings::getInstance();
+    @this.nullUtil_SimpleFileUtil = NullUtil::getInstance();
+    @this.streamUtil_SimpleFileUtil = StreamUtil::getInstance();
     }
 
     SimpleFileUtil@ jinit_SimpleFileUtil()
@@ -54,17 +54,17 @@ class SimpleFileUtil : JObjectBase
         if (inputStream is null) {
             return stringList;
         }
-        int8[]@ byteArray = this.nullUtil.NULL_BYTE_ARRAY;
+        int8[]@ byteArray = this.nullUtil_SimpleFileUtil.NULL_BYTE_ARRAY;
         try {
             ByteArrayOutputStream@ outputStream2 = ByteArrayOutputStream().jinit_ByteArrayOutputStream(max);
-            @byteArray = this.streamUtil.getByteArray(inputStream, outputStream2, byteArray1);
-            this.streamUtil.close(inputStream);
+            @byteArray = this.streamUtil_SimpleFileUtil.getByteArray(inputStream, outputStream2, byteArray1);
+            this.streamUtil_SimpleFileUtil.close(inputStream);
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
-            this.streamUtil.close(inputStream);
-            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD, e);
+            this.streamUtil_SimpleFileUtil.close(inputStream);
+            this.logUtil.put(this.commonStrings_SimpleFileUtil.EXCEPTION, this, this.commonStrings_SimpleFileUtil.ADD, e);
             }
             else { jthrow(jex0); }
         }

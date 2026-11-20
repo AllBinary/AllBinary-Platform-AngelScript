@@ -17,16 +17,16 @@
 
 class Line : JObjectBase
 {
-    GPoint@ p1;
-    GPoint@ p2;
-    double deltaX;
-    double deltaY;
+    GPoint@ p1_Line;
+    GPoint@ p2_Line;
+    double deltaX_Line;
+    double deltaY_Line;
     
 
     Line@ jinit_Line(GPoint@ p1, GPoint@ p2)
     {
-        @this.p1 = PointFactory::getInstance().ZERO_ZERO;
-        @this.p2 = this.p1;
+        @this.p1_Line = PointFactory::getInstance().ZERO_ZERO;
+        @this.p2_Line = this.p1_Line;
         this.setP1(p1);
         this.setP2(p2);
         return this;
@@ -41,45 +41,45 @@ class Line : JObjectBase
 
     void update()
     {
-        this.deltaX = double(this.getP1().getX()) - double(this.getP2().getX());
-        this.deltaY = double(this.getP1().getY()) - double(this.getP2().getY());
+        this.deltaX_Line = double(this.getP1().getX()) - double(this.getP2().getX());
+        this.deltaY_Line = double(this.getP1().getY()) - double(this.getP2().getY());
     }
     
 
     double getDeltaX()
     {
-        return this.deltaX;
+        return this.deltaX_Line;
     }
     
 
     double getDeltaY()
     {
-        return this.deltaY;
+        return this.deltaY_Line;
     }
     
 
     GPoint@ getP1()
     {
-        return this.p1;
+        return this.p1_Line;
     }
     
 
     GPoint@ getP2()
     {
-        return this.p2;
+        return this.p2_Line;
     }
     
 
     void setP1(GPoint@ p1)
     {
-        @this.p1 = p1;
+        @this.p1_Line = p1;
         this.update();
     }
     
 
     void setP2(GPoint@ p2)
     {
-        @this.p2 = p2;
+        @this.p2_Line = p2;
         this.update();
     }
 }

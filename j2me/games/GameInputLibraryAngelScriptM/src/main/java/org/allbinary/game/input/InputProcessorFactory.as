@@ -17,12 +17,12 @@
 
 class InputProcessorFactory : JObjectBase
 {
-    InputProcessor@ inputProcessor;
+    InputProcessor@ inputProcessor_InputProcessorFactory;
 
     // Java field initializers run after the super constructor
     void jfields_InputProcessorFactory()
     {
-    @this.inputProcessor = InputProcessor().jinit_InputProcessor();
+    @this.inputProcessor_InputProcessorFactory = InputProcessor().jinit_InputProcessor();
     }
 
     InputProcessorFactory@ jinit_InputProcessorFactory()
@@ -34,7 +34,7 @@ class InputProcessorFactory : JObjectBase
 
     InputProcessor@ getInputProcessor()
     {
-        return this.inputProcessor;
+        return this.inputProcessor_InputProcessorFactory;
     }
 }
 

@@ -18,100 +18,100 @@
 class GameInfo : JObjectBase
 {
     LogUtil@ logUtil;
-    GameInfoData@ gameInfoData;
-    GameType@ gameType;
-    GameMode@ gameMode;
-    PlayerType@ playerType;
-    int highestLevel;
-    int currentLevel;
-    string NEW_LEVEL;
-    string SET_CURRENT_LEVEL;
-    string NEXT_GAME_LEVEL;
+    GameInfoData@ gameInfoData_GameInfo;
+    GameType@ gameType_GameInfo;
+    GameMode@ gameMode_GameInfo;
+    PlayerType@ playerType_GameInfo;
+    int highestLevel_GameInfo;
+    int currentLevel_GameInfo;
+    string NEW_LEVEL_GameInfo;
+    string SET_CURRENT_LEVEL_GameInfo;
+    string NEXT_GAME_LEVEL_GameInfo;
 
     // Java field initializers run after the super constructor
     void jfields_GameInfo()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.gameInfoData = GameInfoData::getInstance();
+    @this.gameInfoData_GameInfo = GameInfoData::getInstance();
     
     
     
     
     
-    this.NEW_LEVEL = "New Level: ";
-    this.SET_CURRENT_LEVEL = "setCurrentLevel";
-    this.NEXT_GAME_LEVEL = "nextGameLevel";
+    this.NEW_LEVEL_GameInfo = "New Level: ";
+    this.SET_CURRENT_LEVEL_GameInfo = "setCurrentLevel";
+    this.NEXT_GAME_LEVEL_GameInfo = "nextGameLevel";
     }
     
 
     GameInfo@ jinit_GameInfo(GameType@ gameType, GameMode@ gameMode, PlayerType@ playerType, int highestLevel, int currentLevel)
     {
         this.jfields_GameInfo();
-        @this.gameType = gameType;
-        @this.gameMode = gameMode;
+        @this.gameType_GameInfo = gameType;
+        @this.gameMode_GameInfo = gameMode;
         this.setHighestLevel(highestLevel);
-        this.currentLevel = currentLevel;
-        @this.playerType = playerType;
+        this.currentLevel_GameInfo = currentLevel;
+        @this.playerType_GameInfo = playerType;
         return this;
     }
     
 
     GameType@ getGameType()
     {
-        return this.gameType;
+        return this.gameType_GameInfo;
     }
     
 
     GameMode@ getGameMode()
     {
-        return this.gameMode;
+        return this.gameMode_GameInfo;
     }
     
 
     PlayerType@ getPlayerType()
     {
-        return this.playerType;
+        return this.playerType_GameInfo;
     }
     
 
     int getHighestLevel()
     {
-        return this.highestLevel;
+        return this.highestLevel_GameInfo;
     }
     
 
     void setHighestLevel(int highestLevel)
     {
-        this.highestLevel = highestLevel;
+        this.highestLevel_GameInfo = highestLevel;
     }
     
 
     int getCurrentLevel()
     {
-        return this.currentLevel;
+        return this.currentLevel_GameInfo;
     }
     
 
     void setCurrentLevel(int currentLevel)
     {
-        this.currentLevel = currentLevel;
-        this.logUtil.putF(StringMaker().jinit_StringMaker().append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.SET_CURRENT_LEVEL);
+        this.currentLevel_GameInfo = currentLevel;
+        this.logUtil.putF(StringMaker().jinit_StringMaker().append(this.NEW_LEVEL_GameInfo).appendint(this.getCurrentLevel()).toString(), this, this.SET_CURRENT_LEVEL_GameInfo);
     }
     
 
     void nextGameLevel()
     {
         if (this.getCurrentLevel() < this.getHighestLevel()) {
-            this.currentLevel++;
+            this.currentLevel_GameInfo++;
         }
-        this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().NEXT).append(CommonSeps::getInstance().SPACE).append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.NEXT_GAME_LEVEL);
+        this.logUtil.putF(StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().NEXT).append(CommonSeps::getInstance().SPACE).append(this.NEW_LEVEL_GameInfo).appendint(this.getCurrentLevel()).toString(), this, this.NEXT_GAME_LEVEL_GameInfo);
     }
     
 
     void previousGameLevel()
     {
         if (this.getCurrentLevel() > 1) {
-            this.currentLevel--;
+            this.currentLevel_GameInfo--;
         }
     }
     
@@ -130,11 +130,11 @@ class GameInfo : JObjectBase
     ABHashtable@ toHashtable()
     {
         ABHashtable@ hashtable = StdUtil::getInstance().createHashtable();
-        hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().toString());
-        hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.toString());
-        hashtable.put(this.gameInfoData.PLAYER_TYPE, this.playerType.toString());
-        hashtable.put(this.gameInfoData.HIGHEST_LEVEL, Integer::toString(this.getHighestLevel()));
-        hashtable.put(this.gameInfoData.CURRENT_LEVEL, Integer::toString(this.currentLevel));
+        hashtable.put(this.gameInfoData_GameInfo.GAME_TYPE, this.getGameType().toString());
+        hashtable.put(this.gameInfoData_GameInfo.GAME_MODE, this.gameMode_GameInfo.toString());
+        hashtable.put(this.gameInfoData_GameInfo.PLAYER_TYPE, this.playerType_GameInfo.toString());
+        hashtable.put(this.gameInfoData_GameInfo.HIGHEST_LEVEL, Integer::toString(this.getHighestLevel()));
+        hashtable.put(this.gameInfoData_GameInfo.CURRENT_LEVEL, Integer::toString(this.currentLevel_GameInfo));
         return hashtable;
     }
     
@@ -143,25 +143,25 @@ class GameInfo : JObjectBase
     {
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         CommonSeps@ commonSeps = CommonSeps::getInstance();
-        stringBuffer.append(this.gameInfoData.GAME_TYPE);
+        stringBuffer.append(this.gameInfoData_GameInfo.GAME_TYPE);
         stringBuffer.append(commonSeps.EQUALS);
         stringBuffer.append(this.getGameType().toString());
         stringBuffer.append(commonSeps.COMMA_SEP);
-        stringBuffer.append(this.gameInfoData.GAME_MODE);
+        stringBuffer.append(this.gameInfoData_GameInfo.GAME_MODE);
         stringBuffer.append(commonSeps.EQUALS);
-        stringBuffer.append(this.gameMode.toString());
+        stringBuffer.append(this.gameMode_GameInfo.toString());
         stringBuffer.append(commonSeps.COMMA_SEP);
-        stringBuffer.append(this.gameInfoData.PLAYER_TYPE);
+        stringBuffer.append(this.gameInfoData_GameInfo.PLAYER_TYPE);
         stringBuffer.append(commonSeps.EQUALS);
-        stringBuffer.append(StringUtil::getInstance().toString(this.playerType));
+        stringBuffer.append(StringUtil::getInstance().toString(this.playerType_GameInfo));
         stringBuffer.append(commonSeps.COMMA_SEP);
-        stringBuffer.append(this.gameInfoData.HIGHEST_LEVEL);
+        stringBuffer.append(this.gameInfoData_GameInfo.HIGHEST_LEVEL);
         stringBuffer.append(commonSeps.EQUALS);
         stringBuffer.appendint(this.getHighestLevel());
         stringBuffer.append(commonSeps.COMMA_SEP);
-        stringBuffer.append(this.gameInfoData.CURRENT_LEVEL);
+        stringBuffer.append(this.gameInfoData_GameInfo.CURRENT_LEVEL);
         stringBuffer.append(commonSeps.EQUALS);
-        stringBuffer.appendint(this.currentLevel);
+        stringBuffer.appendint(this.currentLevel_GameInfo);
         return stringBuffer.toString();
     }
 }

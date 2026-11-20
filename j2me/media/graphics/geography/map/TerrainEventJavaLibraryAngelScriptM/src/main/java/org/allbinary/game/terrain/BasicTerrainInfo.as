@@ -17,25 +17,25 @@
 
 class BasicTerrainInfo : JObjectBase
 {
-    Angle@ angle;
+    Angle@ angle_BasicTerrainInfo;
     
 
     BasicTerrainInfo@ jinit_BasicTerrainInfo(Angle@ angle)
     {
-        @this.angle = angle;
+        @this.angle_BasicTerrainInfo = angle;
         return this;
     }
     
 
     Angle@ getAngle()
     {
-        return this.angle;
+        return this.angle_BasicTerrainInfo;
     }
     
 
     void setAngle(Angle@ angle)
     {
-        @this.angle = angle;
+        @this.angle_BasicTerrainInfo = angle;
     }
 }
 

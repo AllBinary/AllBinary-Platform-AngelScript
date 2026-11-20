@@ -17,19 +17,19 @@
 
 class AudioContentTypeData : JObjectBase
 {
-    string name;
+    string name_AudioContentTypeData;
     
 
     AudioContentTypeData@ jinit_AudioContentTypeData(string name)
     {
-        this.name = name;
+        this.name_AudioContentTypeData = name;
         return this;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_AudioContentTypeData;
     }
 }
 

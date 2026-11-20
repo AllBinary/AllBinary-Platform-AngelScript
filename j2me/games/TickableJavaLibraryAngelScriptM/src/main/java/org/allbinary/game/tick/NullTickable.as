@@ -17,12 +17,12 @@
 
 class NullTickable : JObjectBase, TickableInterface
 {
-    string NAME;
+    string NAME_NullTickable;
 
     // Java field initializers run after the super constructor
     void jfields_NullTickable()
     {
-    this.NAME = "NulLTickable";
+    this.NAME_NullTickable = "NulLTickable";
     }
 
     NullTickable@ jinit_NullTickable()
@@ -39,7 +39,7 @@ class NullTickable : JObjectBase, TickableInterface
 
     string getName()
     {
-        return this.NAME;
+        return this.NAME_NullTickable;
     }
 }
 

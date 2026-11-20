@@ -21,7 +21,7 @@ class BasicVelocityProperties : JObjectBase, BasicVelocityInterface
     BasicDecimal@ velocityXBasicDecimal;
     BasicDecimal@ velocityYBasicDecimal;
     BasicDecimal@ velocityZBasicDecimal;
-    AxisMathVectorUtil@ axisMathVectorUtil;
+    AxisMathVectorUtil@ axisMathVectorUtil_BasicVelocityProperties;
     DirectionUtil@ directionUtil;
 
     // Java field initializers run after the super constructor
@@ -31,7 +31,7 @@ class BasicVelocityProperties : JObjectBase, BasicVelocityInterface
     
     
     
-    @this.axisMathVectorUtil = AxisMathVectorUtil::getInstance();
+    @this.axisMathVectorUtil_BasicVelocityProperties = AxisMathVectorUtil::getInstance();
     @this.directionUtil = DirectionUtil::getInstance();
     }
     
@@ -132,9 +132,9 @@ class BasicVelocityProperties : JObjectBase, BasicVelocityInterface
 
     void setVelocityi(int64 magnitude, int angle, int otherAngle)
     {
-        int64 xVector = (this.axisMathVectorUtil.calculateX(magnitude, angle) / int64(this.velocityXBasicDecimal.getScaledFactorValue()));
-        int64 yVector = (this.axisMathVectorUtil.calculateY(magnitude, angle) / int64(this.velocityYBasicDecimal.getScaledFactorValue()));
-        int64 zVector = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) / int64(this.velocityZBasicDecimal.getScaledFactorValue()));
+        int64 xVector = (this.axisMathVectorUtil_BasicVelocityProperties.calculateX(magnitude, angle) / int64(this.velocityXBasicDecimal.getScaledFactorValue()));
+        int64 yVector = (this.axisMathVectorUtil_BasicVelocityProperties.calculateY(magnitude, angle) / int64(this.velocityYBasicDecimal.getScaledFactorValue()));
+        int64 zVector = (this.axisMathVectorUtil_BasicVelocityProperties.calculateZ(magnitude, otherAngle) / int64(this.velocityZBasicDecimal.getScaledFactorValue()));
         this.velocityXBasicDecimal.setlong(xVector);
         this.velocityYBasicDecimal.setlong(yVector);
         this.velocityZBasicDecimal.setlong(zVector);
@@ -143,9 +143,9 @@ class BasicVelocityProperties : JObjectBase, BasicVelocityInterface
 
     void addVelocityi(int64 magnitude, int angle, int otherAngle)
     {
-        int64 xVector = (this.axisMathVectorUtil.calculateX(magnitude, angle) / int64(this.velocityXBasicDecimal.getScaledFactorValue()));
-        int64 yVector = (this.axisMathVectorUtil.calculateY(magnitude, angle) / int64(this.velocityYBasicDecimal.getScaledFactorValue()));
-        int64 zVector = (this.axisMathVectorUtil.calculateZ(magnitude, otherAngle) / int64(this.velocityZBasicDecimal.getScaledFactorValue()));
+        int64 xVector = (this.axisMathVectorUtil_BasicVelocityProperties.calculateX(magnitude, angle) / int64(this.velocityXBasicDecimal.getScaledFactorValue()));
+        int64 yVector = (this.axisMathVectorUtil_BasicVelocityProperties.calculateY(magnitude, angle) / int64(this.velocityYBasicDecimal.getScaledFactorValue()));
+        int64 zVector = (this.axisMathVectorUtil_BasicVelocityProperties.calculateZ(magnitude, otherAngle) / int64(this.velocityZBasicDecimal.getScaledFactorValue()));
         this.velocityXBasicDecimal.addlong(xVector);
         this.velocityYBasicDecimal.addlong(yVector);
         this.velocityZBasicDecimal.addlong(zVector);

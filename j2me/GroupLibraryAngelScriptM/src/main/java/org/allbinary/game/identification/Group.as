@@ -17,23 +17,23 @@
 
 class Group : JObjectBase, GroupInterface
 {
-    string name;
-    int16 teamId;
-    string string_;
+    string name_Group;
+    int16 teamId_Group;
+    string string__Group;
 
     // Java field initializers run after the super constructor
     void jfields_Group()
     {
-    this.name = StringUtil::getInstance().EMPTY_STRING;
+    this.name_Group = StringUtil::getInstance().EMPTY_STRING;
     
-    this.string_ = StringUtil::getInstance().EMPTY_STRING;
+    this.string__Group = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
     Group@ jinit_Group(string teamName, int16 teamId)
     {
         this.jfields_Group();
-        this.teamId = teamId;
+        this.teamId_Group = teamId;
         this.setName(teamName);
         return this;
     }
@@ -41,32 +41,32 @@ class Group : JObjectBase, GroupInterface
 
     string getGroupName()
     {
-        return this.name;
+        return this.name_Group;
     }
     
 
     void setName(string name)
     {
-        this.name = name;
+        this.name_Group = name;
         GroupCommonFactory@ groupCommonFactory = GroupCommonFactory::getInstance();
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         stringBuffer.append(groupCommonFactory.GROUP_NAME_LABEL);
-        stringBuffer.append(this.name);
+        stringBuffer.append(this.name_Group);
         stringBuffer.append(groupCommonFactory.ID_LABEL);
-        stringBuffer.appendshort(this.teamId);
-        this.string_ = stringBuffer.toString();
+        stringBuffer.appendshort(this.teamId_Group);
+        this.string__Group = stringBuffer.toString();
     }
     
 
     int16 getGroupId()
     {
-        return this.teamId;
+        return this.teamId_Group;
     }
     
 
     string toString()
     {
-        return this.string_;
+        return this.string__Group;
     }
 }
 

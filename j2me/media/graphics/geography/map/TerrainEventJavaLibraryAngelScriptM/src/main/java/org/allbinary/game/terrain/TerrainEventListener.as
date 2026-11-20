@@ -3,12 +3,12 @@
 
 class TerrainEventListener : JObjectBase, TerrainEventListenerInterface
 {
-    BasicArrayList@ list;
+    BasicArrayList@ list_TerrainEventListener;
 
     // Java field initializers run after the super constructor
     void jfields_TerrainEventListener()
     {
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_TerrainEventListener = BasicArrayListD().jinit_BasicArrayListD();
     }
 
     TerrainEventListener@ jinit_TerrainEventListener()
@@ -26,14 +26,14 @@ class TerrainEventListener : JObjectBase, TerrainEventListenerInterface
 
     void onTerrainEvent(TerrainEvent@ terrainEvent)
     {
-        this.list.clear();
-        this.list.add(terrainEvent);
+        this.list_TerrainEventListener.clear();
+        this.list_TerrainEventListener.add(terrainEvent);
     }
     
 
     BasicArrayList@ getList()
     {
-        return this.list;
+        return this.list_TerrainEventListener;
     }
 }
 

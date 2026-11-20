@@ -3,66 +3,66 @@
 
 class AnalogLocationInput : JObjectBase
 {
-    int playerId;
-    CustomGPoint@ customGPoint;
-    int rz;
-    int rightTrigger;
-    int leftTrigger;
+    int playerId_AnalogLocationInput;
+    CustomGPoint@ customGPoint_AnalogLocationInput;
+    int rz_AnalogLocationInput;
+    int rightTrigger_AnalogLocationInput;
+    int leftTrigger_AnalogLocationInput;
     
 
     AnalogLocationInput@ jinit_AnalogLocationInput(int playerId)
     {
-        this.playerId = playerId;
-        @this.customGPoint = CustomGPoint().jinit_CustomGPoint(0, 0, 0);
+        this.playerId_AnalogLocationInput = playerId;
+        @this.customGPoint_AnalogLocationInput = CustomGPoint().jinit_CustomGPoint(0, 0, 0);
         return this;
     }
     
 
     int getPlayerId()
     {
-        return this.playerId;
+        return this.playerId_AnalogLocationInput;
     }
     
 
     CustomGPoint@ getCustomGPoint()
     {
-        return this.customGPoint;
+        return this.customGPoint_AnalogLocationInput;
     }
     
 
     int getRz()
     {
-        return this.rz;
+        return this.rz_AnalogLocationInput;
     }
     
 
     void setRz(int rz)
     {
-        this.rz = rz;
+        this.rz_AnalogLocationInput = rz;
     }
     
 
     int getRightTrigger()
     {
-        return this.rightTrigger;
+        return this.rightTrigger_AnalogLocationInput;
     }
     
 
     void setRightTrigger(int rightTrigger)
     {
-        this.rightTrigger = rightTrigger;
+        this.rightTrigger_AnalogLocationInput = rightTrigger;
     }
     
 
     int getLeftTrigger()
     {
-        return this.leftTrigger;
+        return this.leftTrigger_AnalogLocationInput;
     }
     
 
     void setLeftTrigger(int leftTrigger)
     {
-        this.leftTrigger = leftTrigger;
+        this.leftTrigger_AnalogLocationInput = leftTrigger;
     }
 }
 

@@ -17,14 +17,14 @@
 
 class DirectionUtil : JObjectBase
 {
-    Angle@[]@ directionArray;
-    Angle@[]@ directionArray2;
+    Angle@[]@ directionArray_DirectionUtil;
+    Angle@[]@ directionArray2_DirectionUtil;
 
     // Java field initializers run after the super constructor
     void jfields_DirectionUtil()
     {
-    @this.directionArray = array<Angle@>(10);
-    @this.directionArray2 = array<Angle@>(10);
+    @this.directionArray_DirectionUtil = array<Angle@>(10);
+    @this.directionArray2_DirectionUtil = array<Angle@>(10);
     }
     
 
@@ -33,27 +33,27 @@ class DirectionUtil : JObjectBase
         this.jfields_DirectionUtil();
         AngleFactory@ angleFactory = AngleFactory::getInstance();
         DirectionFactory@ directionFactory = DirectionFactory::getInstance();
-        @this.directionArray[directionFactory.LEFT.getValue()] = angleFactory.LEFT;
-        @this.directionArray[directionFactory.RIGHT.getValue()] = angleFactory.RIGHT;
-        @this.directionArray[directionFactory.UP.getValue()] = angleFactory.UP;
-        @this.directionArray[directionFactory.DOWN.getValue()] = angleFactory.DOWN;
-        @this.directionArray2[directionFactory.LEFT.getValue()] = angleFactory.LEFT;
-        @this.directionArray2[directionFactory.RIGHT.getValue()] = angleFactory.RIGHT;
-        @this.directionArray2[directionFactory.UP.getValue()] = angleFactory.UP;
-        @this.directionArray2[directionFactory.DOWN.getValue()] = angleFactory.DOWN;
+        @this.directionArray_DirectionUtil[directionFactory.LEFT.getValue()] = angleFactory.LEFT;
+        @this.directionArray_DirectionUtil[directionFactory.RIGHT.getValue()] = angleFactory.RIGHT;
+        @this.directionArray_DirectionUtil[directionFactory.UP.getValue()] = angleFactory.UP;
+        @this.directionArray_DirectionUtil[directionFactory.DOWN.getValue()] = angleFactory.DOWN;
+        @this.directionArray2_DirectionUtil[directionFactory.LEFT.getValue()] = angleFactory.LEFT;
+        @this.directionArray2_DirectionUtil[directionFactory.RIGHT.getValue()] = angleFactory.RIGHT;
+        @this.directionArray2_DirectionUtil[directionFactory.UP.getValue()] = angleFactory.UP;
+        @this.directionArray2_DirectionUtil[directionFactory.DOWN.getValue()] = angleFactory.DOWN;
         return this;
     }
     
 
     Angle@ getAngle(Direction@ direction)
     {
-        return this.directionArray2[direction.getValue()];
+        return this.directionArray2_DirectionUtil[direction.getValue()];
     }
     
 
     Angle@ getFrameAngle(Direction@ direction)
     {
-        return this.directionArray[direction.getValue()];
+        return this.directionArray_DirectionUtil[direction.getValue()];
     }
 }
 

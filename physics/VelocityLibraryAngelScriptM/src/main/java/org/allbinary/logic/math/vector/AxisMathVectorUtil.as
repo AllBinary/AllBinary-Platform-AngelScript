@@ -17,12 +17,12 @@
 
 class AxisMathVectorUtil : JObjectBase
 {
-    NoDecimalTrigTable@ noDecimalTrigTable;
+    NoDecimalTrigTable@ noDecimalTrigTable_AxisMathVectorUtil;
 
     // Java field initializers run after the super constructor
     void jfields_AxisMathVectorUtil()
     {
-    @this.noDecimalTrigTable = NoDecimalTrigTable::getInstance();
+    @this.noDecimalTrigTable_AxisMathVectorUtil = NoDecimalTrigTable::getInstance();
     }
 
     AxisMathVectorUtil@ jinit_AxisMathVectorUtil()
@@ -34,19 +34,19 @@ class AxisMathVectorUtil : JObjectBase
 
     int64 calculateX(int64 magnitude, int angle)
     {
-        return magnitude * this.noDecimalTrigTable.cos(angle) / 10;
+        return magnitude * this.noDecimalTrigTable_AxisMathVectorUtil.cos(angle) / 10;
     }
     
 
     int64 calculateY(int64 magnitude, int angle)
     {
-        return magnitude * this.noDecimalTrigTable.sin(angle) / 10;
+        return magnitude * this.noDecimalTrigTable_AxisMathVectorUtil.sin(angle) / 10;
     }
     
 
     int64 calculateZ(int64 magnitude, int otherAngle)
     {
-        return magnitude * this.noDecimalTrigTable.sin(otherAngle) / 10;
+        return magnitude * this.noDecimalTrigTable_AxisMathVectorUtil.sin(otherAngle) / 10;
     }
 }
 

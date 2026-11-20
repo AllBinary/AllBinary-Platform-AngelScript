@@ -18,14 +18,14 @@
 class WebCommandProcessor : JObjectBase
 {
     LogUtil@ logUtil;
-    AboutCommandProcessor@ aboutCommandProcessor;
+    AboutCommandProcessor@ aboutCommandProcessor_WebCommandProcessor;
     BasicArrayList@ list;
 
     // Java field initializers run after the super constructor
     void jfields_WebCommandProcessor()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.aboutCommandProcessor = AboutCommandProcessor::getInstance();
+    @this.aboutCommandProcessor_WebCommandProcessor = AboutCommandProcessor::getInstance();
     @this.list = BasicArrayListD().jinit_BasicArrayListD();
     }
 

@@ -17,16 +17,16 @@
 
 class CircularIndexUtil : JObjectBase
 {
-    int index;
-    int lastIndex;
-    int size;
+    int index_CircularIndexUtil;
+    int lastIndex_CircularIndexUtil;
+    int size_CircularIndexUtil;
 
     // Java field initializers run after the super constructor
     void jfields_CircularIndexUtil()
     {
-    this.index = 0;
-    this.lastIndex = 0;
-    this.size = 0;
+    this.index_CircularIndexUtil = 0;
+    this.lastIndex_CircularIndexUtil = 0;
+    this.size_CircularIndexUtil = 0;
     }
     
 
@@ -41,58 +41,58 @@ class CircularIndexUtil : JObjectBase
 
     int next()
     {
-        if (this.index >= this.lastIndex) {
-            this.index = 0;
+        if (this.index_CircularIndexUtil >= this.lastIndex_CircularIndexUtil) {
+            this.index_CircularIndexUtil = 0;
         } else {
-            this.index++;
+            this.index_CircularIndexUtil++;
         }
-        return this.index;
+        return this.index_CircularIndexUtil;
     }
     
 
     int previous()
     {
-        if (this.index < 1) {
-            this.index = this.lastIndex;
+        if (this.index_CircularIndexUtil < 1) {
+            this.index_CircularIndexUtil = this.lastIndex_CircularIndexUtil;
         } else {
-            this.index--;
+            this.index_CircularIndexUtil--;
         }
-        return this.index;
+        return this.index_CircularIndexUtil;
     }
     
 
     void setIndex(int index)
     {
-        if (index > this.lastIndex) {
+        if (index > this.lastIndex_CircularIndexUtil) {
             return;
         }
-        this.index = index;
+        this.index_CircularIndexUtil = index;
     }
     
 
     int getIndex()
     {
-        return this.index;
+        return this.index_CircularIndexUtil;
     }
     
 
     void setSize(int size)
     {
-        this.size = size;
-        this.lastIndex = size - 1;
-        this.index = 0;
+        this.size_CircularIndexUtil = size;
+        this.lastIndex_CircularIndexUtil = size - 1;
+        this.index_CircularIndexUtil = 0;
     }
     
 
     int getSize()
     {
-        return this.size;
+        return this.size_CircularIndexUtil;
     }
     
 
     string toString()
     {
-        return StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().INDEX_LABEL).appendint(this.index).append("lastIndex: ").appendint(this.lastIndex).append("size: ").appendint(this.size).toString();
+        return StringMaker().jinit_StringMaker().append(CommonLabels::getInstance().INDEX_LABEL).appendint(this.index_CircularIndexUtil).append("lastIndex: ").appendint(this.lastIndex_CircularIndexUtil).append("size: ").appendint(this.size_CircularIndexUtil).toString();
     }
 }
 

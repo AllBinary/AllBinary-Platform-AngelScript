@@ -17,12 +17,12 @@
 
 class AngleIncrementInfo : JObjectBase
 {
-    int16 angleIncrement;
+    int16 angleIncrement_AngleIncrementInfo;
     JInteger@ DOWN_FRAME;
     JInteger@ UP_FRAME;
     JInteger@ LEFT_FRAME;
     JInteger@ RIGHT_FRAME;
-    FrameUtil@ frameUtil;
+    FrameUtil@ frameUtil_AngleIncrementInfo;
 
     // Java field initializers run after the super constructor
     void jfields_AngleIncrementInfo()
@@ -32,39 +32,39 @@ class AngleIncrementInfo : JObjectBase
     
     
     
-    @this.frameUtil = FrameUtil::getInstance();
+    @this.frameUtil_AngleIncrementInfo = FrameUtil::getInstance();
     }
     
 
     AngleIncrementInfo@ jinit_AngleIncrementInfo(int16 angleIncrement)
     {
         this.jfields_AngleIncrementInfo();
-        this.angleIncrement = angleIncrement;
+        this.angleIncrement_AngleIncrementInfo = angleIncrement;
         AngleFactory@ angleFactory = AngleFactory::getInstance();
         SmallIntegerSingletonFactory@ smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();
-        @this.DOWN_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.DOWN.getValue() / this.angleIncrement);
+        @this.DOWN_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.DOWN.getValue() / this.angleIncrement_AngleIncrementInfo);
         @this.UP_FRAME = smallIntegerSingletonFactory.getAt(int(angleFactory.UP.getValue()));
-        @this.LEFT_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.LEFT.getValue() / this.angleIncrement);
-        @this.RIGHT_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.RIGHT.getValue() / this.angleIncrement);
+        @this.LEFT_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.LEFT.getValue() / this.angleIncrement_AngleIncrementInfo);
+        @this.RIGHT_FRAME = smallIntegerSingletonFactory.getAt(angleFactory.RIGHT.getValue() / this.angleIncrement_AngleIncrementInfo);
         return this;
     }
     
 
     int getFrameAngle(int frame)
     {
-        return this.frameUtil.getFrameAngle(frame, int(this.angleIncrement));
+        return this.frameUtil_AngleIncrementInfo.getFrameAngle(frame, int(this.angleIncrement_AngleIncrementInfo));
     }
     
 
     int16 getAngleIncrement()
     {
-        return this.angleIncrement;
+        return this.angleIncrement_AngleIncrementInfo;
     }
     
 
     string toString()
     {
-        return StringMaker().jinit_StringMaker().append(AngleIncrementInfo::INCREMENT).appendshort(this.angleIncrement).toString();
+        return StringMaker().jinit_StringMaker().append(AngleIncrementInfo::INCREMENT).appendshort(this.angleIncrement_AngleIncrementInfo).toString();
     }
     
 

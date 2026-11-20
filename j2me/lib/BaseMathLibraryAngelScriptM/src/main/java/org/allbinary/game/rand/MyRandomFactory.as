@@ -18,13 +18,13 @@
 //Do not use in client code for money related things.
 class MyRandomFactory : JObjectBase
 {
-    MathUtil@ mathUtil;
-    Random@ rand;
+    MathUtil@ mathUtil_MyRandomFactory;
+    Random@ rand_MyRandomFactory;
 
     // Java field initializers run after the super constructor
     void jfields_MyRandomFactory()
     {
-    @this.mathUtil = MathUtil::getInstance();
+    @this.mathUtil_MyRandomFactory = MathUtil::getInstance();
     
     }
     
@@ -32,27 +32,27 @@ class MyRandomFactory : JObjectBase
     MyRandomFactory@ jinit_MyRandomFactory()
     {
         this.jfields_MyRandomFactory();
-        @this.rand = Random().jinit_Random(System::currentTimeMillis());
+        @this.rand_MyRandomFactory = Random().jinit_Random(System::currentTimeMillis());
         return this;
     }
     
 
     void setSeed(int64 seed)
     {
-        @this.rand = Random().jinit_Random(seed);
+        @this.rand_MyRandomFactory = Random().jinit_Random(seed);
     }
     
 
     int getNextInt(int range)
     {
         int div = (Integer::MAX_VALUE / range) + 1;
-        return (this.rand.nextInt() / div);
+        return (this.rand_MyRandomFactory.nextInt() / div);
     }
     
 
     int getAbsoluteNextInt(int range)
     {
-        return this.mathUtil.abs(this.getNextInt(range));
+        return this.mathUtil_MyRandomFactory.abs(this.getNextInt(range));
     }
     
 
@@ -61,7 +61,7 @@ class MyRandomFactory : JObjectBase
         if (range == 0) {
             return 0;
         } else {
-            return this.mathUtil.abs(this.getNextInt(range));
+            return this.mathUtil_MyRandomFactory.abs(this.getNextInt(range));
         }
         return 0;
     }

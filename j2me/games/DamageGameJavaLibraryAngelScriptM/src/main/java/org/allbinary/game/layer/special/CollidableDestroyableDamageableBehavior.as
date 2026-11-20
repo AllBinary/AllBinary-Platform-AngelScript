@@ -36,7 +36,7 @@ class CollidableDestroyableDamageableBehavior : CollidableBaseBehavior
 
     bool isCollision(CollidableCompositeLayer@ ownerLayer, CollidableCompositeLayer@ collisionLayer)
     {
-        if (ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0]) {
+        if (ownerLayer.getGroupInterface()[0] !is collisionLayer.getGroupInterface()[0]) {
             return CollidableBaseBehavior::isCollision(ownerLayer, collisionLayer);
         }
         return false;

@@ -17,19 +17,19 @@
 
 class PointsLayerFactory : JObjectBase, AllBinaryLayerFactoryInterface
 {
-    int points;
+    int points_PointsLayerFactory;
     
 
     PointsLayerFactory@ jinit_PointsLayerFactory(int points)
     {
-        this.points = points;
+        this.points_PointsLayerFactory = points;
         return this;
     }
     
 
     AllBinaryLayer@ getInstance()
     {
-        return PointsLayer().jinit_PointsLayer(this.points);
+        return PointsLayer().jinit_PointsLayer(this.points_PointsLayerFactory);
     }
 }
 

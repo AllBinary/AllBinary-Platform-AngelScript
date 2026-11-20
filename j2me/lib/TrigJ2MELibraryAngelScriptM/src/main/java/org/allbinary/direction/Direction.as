@@ -17,18 +17,18 @@
 
 class Direction : JObjectBase
 {
-    string name;
-    string otherName;
-    int value;
-    int frameFactor;
+    string name_Direction;
+    string otherName_Direction;
+    int value_Direction;
+    int frameFactor_Direction;
     
 
     Direction@ jinit_Direction(string name, string otherName, int value, int frameFactor)
     {
-        this.name = name;
-        this.otherName = otherName;
-        this.value = value;
-        this.frameFactor = frameFactor;
+        this.name_Direction = name;
+        this.otherName_Direction = otherName;
+        this.value_Direction = value;
+        this.frameFactor_Direction = frameFactor;
         @Direction::directionArray[value] = this;
         return this;
     }
@@ -36,25 +36,25 @@ class Direction : JObjectBase
 
     int getValue()
     {
-        return this.value;
+        return this.value_Direction;
     }
     
 
     int getFrameFactor()
     {
-        return this.frameFactor;
+        return this.frameFactor_Direction;
     }
     
 
     string getOtherName()
     {
-        return this.otherName;
+        return this.otherName_Direction;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_Direction;
     }
     
 
@@ -66,7 +66,7 @@ class Direction : JObjectBase
         stringBuffer.append(" Or: ");
         stringBuffer.append(this.getOtherName());
         stringBuffer.append(" Value: ");
-        stringBuffer.appendint(this.value);
+        stringBuffer.appendint(this.value_Direction);
         return stringBuffer.toString();
     }
 }

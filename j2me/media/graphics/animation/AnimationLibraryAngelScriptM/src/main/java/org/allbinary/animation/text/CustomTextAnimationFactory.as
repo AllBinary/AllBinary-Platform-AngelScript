@@ -18,10 +18,10 @@
 class CustomTextAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterface
 {
     LogUtil@ logUtil;
-    AnimationBehaviorFactory@ animationBehaviorFactory;
+    AnimationBehaviorFactory@ animationBehaviorFactory_CustomTextAnimationFactory;
     BasicColor@ basicColor;
-    string text;
-    int initScaleHeight;
+    string text_CustomTextAnimationFactory;
+    int initScaleHeight_CustomTextAnimationFactory;
     int dx;
     int dy;
     Font@ font;
@@ -46,11 +46,11 @@ class CustomTextAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterfa
     {
         this.jfields_CustomTextAnimationFactory();
         @this.scaleProperties = ScaleProperties().jinit_ScaleProperties();
-        this.text = text;
+        this.text_CustomTextAnimationFactory = text;
         this.scaleProperties.scaleHeight = fontSize - (fontSize / 4);
-        this.initScaleHeight = this.scaleProperties.scaleHeight;
-        @this.animationBehaviorFactory = animationBehaviorFactory;
-        @this.font = Font::getFont(Font::FACE_SYSTEM, Font::STYLE_PLAIN, this.initScaleHeight);
+        this.initScaleHeight_CustomTextAnimationFactory = this.scaleProperties.scaleHeight;
+        @this.animationBehaviorFactory_CustomTextAnimationFactory = animationBehaviorFactory;
+        @this.font = Font::getFont(Font::FACE_SYSTEM, Font::STYLE_PLAIN, this.initScaleHeight_CustomTextAnimationFactory);
         return this;
     }
     
@@ -59,9 +59,9 @@ class CustomTextAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterfa
     {
         CustomTextAnimation@ customTextAnimation;
         if (this.dx != 0 || this.dy != 0) {
-            @customTextAnimation = AdjustCustomTextAnimation().jinit_AdjustCustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            @customTextAnimation = AdjustCustomTextAnimation().jinit_AdjustCustomTextAnimation(this.text_CustomTextAnimationFactory, this.scaleProperties.scaleHeight, this.dx, this.dy, this.animationBehaviorFactory_CustomTextAnimationFactory.getOrCreateInstance());
         } else {
-            @customTextAnimation = CustomTextAnimation().jinit_CustomTextAnimation(this.text, this.scaleProperties.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
+            @customTextAnimation = CustomTextAnimation().jinit_CustomTextAnimation(this.text_CustomTextAnimationFactory, this.scaleProperties.scaleHeight, this.animationBehaviorFactory_CustomTextAnimationFactory.getOrCreateInstance());
         }
         customTextAnimation.setBasicColorP(this.basicColor);
         return customTextAnimation;
@@ -75,7 +75,7 @@ class CustomTextAnimationFactory : JObjectBase, AnimationInterfaceFactoryInterfa
 
     int getWidth()
     {
-        return this.font.stringWidth(this.text);
+        return this.font.stringWidth(this.text_CustomTextAnimationFactory);
     }
     
 

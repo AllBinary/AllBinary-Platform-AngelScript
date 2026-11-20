@@ -18,13 +18,13 @@
 class NoGameNotificationHudSingleton : JObjectBase
 {
     LogUtil@ logUtil;
-    GameNotificationHud@ gameNotificationHud;
+    GameNotificationHud@ gameNotificationHud_NoGameNotificationHudSingleton;
 
     // Java field initializers run after the super constructor
     void jfields_NoGameNotificationHudSingleton()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.gameNotificationHud = GameNotificationHud::NULL_GAME_NOTIFICATION;
+    @this.gameNotificationHud_NoGameNotificationHudSingleton = GameNotificationHud::NULL_GAME_NOTIFICATION;
     }
     
 
@@ -33,7 +33,7 @@ class NoGameNotificationHudSingleton : JObjectBase
         this.jfields_NoGameNotificationHudSingleton();
         try {
             BasicHudFactory@ basicHudFactory = BasicHudFactory::getInstance();
-            @this.gameNotificationHud = NoGameGameNotificationHud().jinit_NoGameGameNotificationHud();
+            @this.gameNotificationHud_NoGameNotificationHudSingleton = NoGameGameNotificationHud().jinit_NoGameGameNotificationHud();
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
@@ -49,7 +49,7 @@ class NoGameNotificationHudSingleton : JObjectBase
 
     GameNotificationHud@ getGameNotificationHud()
     {
-        return this.gameNotificationHud;
+        return this.gameNotificationHud_NoGameNotificationHudSingleton;
     }
 }
 

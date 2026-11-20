@@ -18,7 +18,7 @@
 class ScoreComparator : JObjectBase, RecordComparator
 {
     LogUtil@ logUtil;
-    bool isHighestBest;
+    bool isHighestBest_ScoreComparator;
 
     // Java field initializers run after the super constructor
     void jfields_ScoreComparator()
@@ -31,14 +31,14 @@ class ScoreComparator : JObjectBase, RecordComparator
     ScoreComparator@ jinit_ScoreComparator(bool isHighestBest)
     {
         this.jfields_ScoreComparator();
-        this.isHighestBest = isHighestBest;
+        this.isHighestBest_ScoreComparator = isHighestBest;
         return this;
     }
     
 
     int64 getBestScore()
     {
-        return (this.isHighestBest ? Long::MAX_VALUE : 0);
+        return (this.isHighestBest_ScoreComparator ? Long::MAX_VALUE : 0);
     }
     
 
@@ -74,7 +74,7 @@ class ScoreComparator : JObjectBase, RecordComparator
             }
             else { jthrow(jex0); }
         }
-        if (this.isHighestBest) {
+        if (this.isHighestBest_ScoreComparator) {
             return this.getHighTooLow(scoreOne, scoreTwo);
         } else {
             return this.getLowTooHigh(scoreOne, scoreTwo);

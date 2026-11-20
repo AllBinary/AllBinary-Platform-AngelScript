@@ -19,7 +19,7 @@ class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
 {
     LogUtil@ logUtil;
     CommonStrings@ commonStrings;
-    EventStrings@ eventStrings;
+    EventStrings@ eventStrings_BasicEventHandler;
     BasicArrayList@ eventListenerInterfaceList;
 
     // Java field initializers run after the super constructor
@@ -27,7 +27,7 @@ class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
     {
     @this.logUtil = LogUtil::getInstance();
     @this.commonStrings = CommonStrings::getInstance();
-    @this.eventStrings = EventStrings::getInstance();
+    @this.eventStrings_BasicEventHandler = EventStrings::getInstance();
     
     }
     
@@ -108,7 +108,7 @@ class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
                 Throwable@ jex0 = jcatch();
                 if (cast<Exception>(jex0) !is null) {
                     Exception@ e = cast<Exception>(jex0);
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.eventStrings.FIRE_EVENT, e);
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.eventStrings_BasicEventHandler.FIRE_EVENT, e);
                 }
                 else { jthrow(jex0); }
             }
@@ -132,14 +132,14 @@ class BasicEventHandler : JObjectBase, BasicEventHandlerInterface
     string toString()
     {
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
-        stringBuffer.append(this.eventStrings.TOTAL_LISTENERS);
+        stringBuffer.append(this.eventStrings_BasicEventHandler.TOTAL_LISTENERS);
         stringBuffer.appendint(this.eventListenerInterfaceList.size());
         EventListenerInterface@ eventListenerInterface;
         int index = 0;
         while (index < this.eventListenerInterfaceList.size()) {
             try {
                 @eventListenerInterface = cast<EventListenerInterface>(this.eventListenerInterfaceList.get(index));
-                stringBuffer.append(this.eventStrings.LISTENER_LABEL);
+                stringBuffer.append(this.eventStrings_BasicEventHandler.LISTENER_LABEL);
                 stringBuffer.append(eventListenerInterface.toString());
             } catch {
                 Throwable@ jex1 = jcatch();

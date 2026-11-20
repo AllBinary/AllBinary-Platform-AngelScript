@@ -29,10 +29,10 @@ class InGameFeatures : Init
     {
         string LABEL = "Screen Buttons";
         OrientationData@ orientationData = OrientationData::getInstance();
-        BasicArrayList@ exclusiveOrientationSensorVector = cast<BasicArrayList>(GameFeatureChoiceGroups::getExclusiveInstance().get().get(orientationData.ORIENTATION_SENSOR_INPUT));
+        BasicArrayList@ exclusiveOrientationSensorVector = cast<BasicArrayList>(GameFeatureChoiceGroups::getExclusiveInstance().get().get(jbox(orientationData.ORIENTATION_SENSOR_INPUT)));
         InGameFeatureChoiceGroups@ inGameFeatureChoiceGroups = InGameFeatureChoiceGroups::getExclusiveInstance();
         if (exclusiveOrientationSensorVector !is null) {
-            JObject@ inGameExclusiveOrientationSensorVectorCanBeNull = inGameFeatureChoiceGroups.get().get(orientationData.ORIENTATION_SENSOR_INPUT);
+            JObject@ inGameExclusiveOrientationSensorVectorCanBeNull = inGameFeatureChoiceGroups.get().get(jbox(orientationData.ORIENTATION_SENSOR_INPUT));
             if (inGameExclusiveOrientationSensorVectorCanBeNull is null) {
                 this.addToInGameMenu();
             } else {
@@ -71,7 +71,7 @@ class InGameFeatures : Init
         if (features.isFeature(touchFeatureFactory.SHOW_SCREEN_BUTTONS) || features.isFeature(touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS) || features.isFeature(touchFeatureFactory.HIDE_SCREEN_BUTTONS)) {
             return true;
         }
-        BasicArrayList@ exclusiveOrientationSensorVector = cast<BasicArrayList>(GameFeatureChoiceGroups::getExclusiveInstance().get().get(OrientationData::getInstance().ORIENTATION_SENSOR_INPUT));
+        BasicArrayList@ exclusiveOrientationSensorVector = cast<BasicArrayList>(GameFeatureChoiceGroups::getExclusiveInstance().get().get(jbox(OrientationData::getInstance().ORIENTATION_SENSOR_INPUT)));
         if (exclusiveOrientationSensorVector !is null) {
             return true;
         }

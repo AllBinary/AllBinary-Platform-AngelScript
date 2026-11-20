@@ -17,14 +17,14 @@
 
 class Input : JObjectBase
 {
-    int id;
-    string name;
+    int id_Input;
+    string name_Input;
 
     // Java field initializers run after the super constructor
     void jfields_Input()
     {
     
-    this.name = StringUtil::getInstance().EMPTY_STRING;
+    this.name_Input = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
@@ -39,25 +39,25 @@ class Input : JObjectBase
 
     int getId()
     {
-        return this.id;
+        return this.id_Input;
     }
     
 
     void setId(int key)
     {
-        this.id = key;
+        this.id_Input = key;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_Input;
     }
     
 
     void setName(string keyName)
     {
-        this.name = keyName;
+        this.name_Input = keyName;
     }
     
 

@@ -17,7 +17,7 @@
 
 class LogConfigTypeFactory : JObjectBase
 {
-    string NO_DESCRIPTION;
+    string NO_DESCRIPTION_LogConfigTypeFactory;
     LogConfigType@ OS;
     LogConfigType@ FACTORYERROR;
     LogConfigType@ FILE;
@@ -30,15 +30,15 @@ class LogConfigTypeFactory : JObjectBase
     // Java field initializers run after the super constructor
     void jfields_LogConfigTypeFactory()
     {
-    this.NO_DESCRIPTION = "No Description";
-    @this.OS = LogConfigType().jinit_LogConfigType("Operating System", this.NO_DESCRIPTION);
-    @this.FACTORYERROR = LogConfigType().jinit_LogConfigType("Factory Error", this.NO_DESCRIPTION);
-    @this.FILE = LogConfigType().jinit_LogConfigType("File", this.NO_DESCRIPTION);
-    @this.FILEERROR = LogConfigType().jinit_LogConfigType("File Error", this.NO_DESCRIPTION);
-    @this.IDLOGGING = LogConfigType().jinit_LogConfigType("ID Logging", this.NO_DESCRIPTION);
-    @this.REPLACE = LogConfigType().jinit_LogConfigType("Replace", this.NO_DESCRIPTION);
-    @this.REPLACE_INFO = LogConfigType().jinit_LogConfigType("Replace Info", this.NO_DESCRIPTION);
-    @this.REPLACEERROR = LogConfigType().jinit_LogConfigType("Replace Error", this.NO_DESCRIPTION);
+    this.NO_DESCRIPTION_LogConfigTypeFactory = "No Description";
+    @this.OS = LogConfigType().jinit_LogConfigType("Operating System", this.NO_DESCRIPTION_LogConfigTypeFactory);
+    @this.FACTORYERROR = LogConfigType().jinit_LogConfigType("Factory Error", this.NO_DESCRIPTION_LogConfigTypeFactory);
+    @this.FILE = LogConfigType().jinit_LogConfigType("File", this.NO_DESCRIPTION_LogConfigTypeFactory);
+    @this.FILEERROR = LogConfigType().jinit_LogConfigType("File Error", this.NO_DESCRIPTION_LogConfigTypeFactory);
+    @this.IDLOGGING = LogConfigType().jinit_LogConfigType("ID Logging", this.NO_DESCRIPTION_LogConfigTypeFactory);
+    @this.REPLACE = LogConfigType().jinit_LogConfigType("Replace", this.NO_DESCRIPTION_LogConfigTypeFactory);
+    @this.REPLACE_INFO = LogConfigType().jinit_LogConfigType("Replace Info", this.NO_DESCRIPTION_LogConfigTypeFactory);
+    @this.REPLACEERROR = LogConfigType().jinit_LogConfigType("Replace Error", this.NO_DESCRIPTION_LogConfigTypeFactory);
     }
     
 

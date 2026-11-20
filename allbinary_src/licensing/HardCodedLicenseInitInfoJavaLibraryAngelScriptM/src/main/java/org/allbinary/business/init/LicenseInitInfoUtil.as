@@ -20,7 +20,7 @@ class LicenseInitInfoUtil : JObjectBase
     string INITFILENAME;
     string ABOUT;
     string PRIVACY_POLICY;
-    string OFFICIAL_ALLBINARY_SERVICES_SERVER;
+    string OFFICIAL_ALLBINARY_SERVICES_SERVER_LicenseInitInfoUtil;
 
     // Java field initializers run after the super constructor
     void jfields_LicenseInitInfoUtil()
@@ -28,7 +28,7 @@ class LicenseInitInfoUtil : JObjectBase
     this.INITFILENAME = "licenseinitdata.dat";
     this.ABOUT = "about";
     this.PRIVACY_POLICY = "privacy_policy";
-    this.OFFICIAL_ALLBINARY_SERVICES_SERVER = "https://services.allbinary.com/LicServ/serverssl.php";
+    this.OFFICIAL_ALLBINARY_SERVICES_SERVER_LicenseInitInfoUtil = "https://services.allbinary.com/LicServ/serverssl.php";
     }
     
 
@@ -59,7 +59,7 @@ class LicenseInitInfoUtil : JObjectBase
     {
         LicenseInitInfo@ licenseInitInfo = LicenseInitInfo().jinit_LicenseInitInfo();
         licenseInitInfo.clearServers();
-        licenseInitInfo.addServer(this.OFFICIAL_ALLBINARY_SERVICES_SERVER);
+        licenseInitInfo.addServer(this.OFFICIAL_ALLBINARY_SERVICES_SERVER_LicenseInitInfoUtil);
         return licenseInitInfo;
     }
 }

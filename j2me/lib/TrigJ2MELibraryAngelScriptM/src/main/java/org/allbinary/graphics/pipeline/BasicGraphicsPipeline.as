@@ -18,13 +18,13 @@
 class BasicGraphicsPipeline : JObjectBase
 {
     BasicArrayList@ pointBasicArrayList;
-    NoDecimalTrigTable@ noDecimalTrigTable;
+    NoDecimalTrigTable@ noDecimalTrigTable_BasicGraphicsPipeline;
 
     // Java field initializers run after the super constructor
     void jfields_BasicGraphicsPipeline()
     {
     
-    @this.noDecimalTrigTable = NoDecimalTrigTable::getInstance();
+    @this.noDecimalTrigTable_BasicGraphicsPipeline = NoDecimalTrigTable::getInstance();
     }
     
 
@@ -86,8 +86,8 @@ class BasicGraphicsPipeline : JObjectBase
         for (int index = 0; index < size; index++) {
             @secondPoint = cast<GPoint>(this.pointBasicArrayList.objectArray[index]);
             if (secondPoint.getX() != 1000) {
-                sin = this.noDecimalTrigTable.sin(angle);
-                cos = this.noDecimalTrigTable.cos(angle);
+                sin = this.noDecimalTrigTable_BasicGraphicsPipeline.sin(angle);
+                cos = this.noDecimalTrigTable_BasicGraphicsPipeline.cos(angle);
                 y = int64(secondPoint.getY()) * sin;
                 secondX = (int64(secondPoint.getX()) * cos) - y;
                 secondY = (int64(secondPoint.getX()) * sin) + (int64(secondPoint.getY()) * cos);

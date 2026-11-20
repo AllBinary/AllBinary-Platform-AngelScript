@@ -31,13 +31,25 @@ class SimultaneousCompoundRotationAnimationInterfaceFactory : CompoundAnimationI
 
     Animation@[]@ createArray(int size)
     {
-        return array<RotationAnimation@>(size);
+        return array<Animation@>(size);
     }
     
 
     Animation@ createAnimation(Animation@[]@ animationInterfaceArray)
     {
-        return SimultaneousCompoundRotationAnimation().jinit_SimultaneousCompoundRotationAnimation(jarrayOf_RotationAnimation(animationInterfaceArray), this.animationBehaviorFactory.getOrCreateInstance());
+        return SimultaneousCompoundRotationAnimation().jinit_SimultaneousCompoundRotationAnimation(SimultaneousCompoundRotationAnimationInterfaceFactory::jarrayCast_RotationAnimation_Animation(animationInterfaceArray), this.animationBehaviorFactory.getOrCreateInstance());
+    }
+}
+
+namespace SimultaneousCompoundRotationAnimationInterfaceFactory
+{
+
+    RotationAnimation@[]@ jarrayCast_RotationAnimation_Animation(Animation@[]@ source)
+    {
+        if (source is null) { return null; }
+        RotationAnimation@[]@ result = array<RotationAnimation@>(source.length());
+        for (uint i = 0; i < source.length(); i++) { @result[i] = cast<RotationAnimation>(source[i]); }
+        return result;
     }
 }
 

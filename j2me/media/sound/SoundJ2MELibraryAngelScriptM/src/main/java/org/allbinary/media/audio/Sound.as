@@ -17,7 +17,7 @@
 
 class Sound : JObjectBase, SoundInterface, Runnable
 {
-    string resource;
+    string resource_Sound;
     Player@ player;
 
     // Java field initializers run after the super constructor
@@ -31,14 +31,14 @@ class Sound : JObjectBase, SoundInterface, Runnable
     Sound@ jinit_Sound(string resource)
     {
         this.jfields_Sound();
-        this.resource = resource;
+        this.resource_Sound = resource;
         return this;
     }
     
 
     string getResource()
     {
-        return this.resource;
+        return this.resource_Sound;
     }
     
 

@@ -18,15 +18,15 @@
 class MyFormUtil : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    Rectangle@ popupMenuRectangle;
+    CommonStrings@ commonStrings_MyFormUtil;
+    Rectangle@ popupMenuRectangle_MyFormUtil;
 
     // Java field initializers run after the super constructor
     void jfields_MyFormUtil()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.popupMenuRectangle = RectangleFactory::SINGLETON;
+    @this.commonStrings_MyFormUtil = CommonStrings::getInstance();
+    @this.popupMenuRectangle_MyFormUtil = RectangleFactory::SINGLETON;
     }
 
     MyFormUtil@ jinit_MyFormUtil()
@@ -46,16 +46,16 @@ class MyFormUtil : JObjectBase
         int width = MyFontProcessor::defaultStringWidth(font, TOTAL_CHAR_WIDTH);
         PointFactory@ pointFactory = PointFactory::getInstance();
         if (displayInfo.getLastHeight() < 320) {
-            @this.popupMenuRectangle = Rectangle().jinit_Rectangle(pointFactory.createXY(0, 25), width, (font.getHeight() * 4) + 2);
+            @this.popupMenuRectangle_MyFormUtil = Rectangle().jinit_Rectangle(pointFactory.createXY(0, 25), width, (font.getHeight() * 4) + 2);
         } else {
-            @this.popupMenuRectangle = Rectangle().jinit_Rectangle(pointFactory.createXY(0, displayInfo.getLastHalfHeight() - 70), width, (font.getHeight() * 5));
+            @this.popupMenuRectangle_MyFormUtil = Rectangle().jinit_Rectangle(pointFactory.createXY(0, displayInfo.getLastHalfHeight() - 70), width, (font.getHeight() * 5));
         }
     }
     
 
     Rectangle@ getPopupMenuRectangle()
     {
-        return this.popupMenuRectangle;
+        return this.popupMenuRectangle_MyFormUtil;
     }
 }
 

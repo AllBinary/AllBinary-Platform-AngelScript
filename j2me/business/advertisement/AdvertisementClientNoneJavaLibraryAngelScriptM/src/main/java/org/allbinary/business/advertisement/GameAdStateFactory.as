@@ -3,14 +3,14 @@
 
 class GameAdStateFactory : JObjectBase, GameAdStateFactoryInterface
 {
-    GameAdState@[]@ gameAdStateArray;
-    GameAdState@ gameAdState;
+    GameAdState@[]@ gameAdStateArray_GameAdStateFactory;
+    GameAdState@ gameAdState_GameAdStateFactory;
 
     // Java field initializers run after the super constructor
     void jfields_GameAdStateFactory()
     {
-    @this.gameAdStateArray = array<GameAdState@> = {GameAdState().jinit_GameAdState(AppNameLicensingAdConfiguration().jinit_AppNameLicensingAdConfiguration())};
-    @this.gameAdState = this.gameAdStateArray[0];
+    @this.gameAdStateArray_GameAdStateFactory = array<GameAdState@> = {GameAdState().jinit_GameAdState(AppNameLicensingAdConfiguration().jinit_AppNameLicensingAdConfiguration())};
+    @this.gameAdState_GameAdStateFactory = this.gameAdStateArray_GameAdStateFactory[0];
     }
 
     GameAdStateFactory@ jinit_GameAdStateFactory()
@@ -22,14 +22,14 @@ class GameAdStateFactory : JObjectBase, GameAdStateFactoryInterface
 
     GameAdState@ getCurrentInstance()
     {
-        return this.gameAdState;
+        return this.gameAdState_GameAdStateFactory;
     }
     
 
     GameAdStateBase@ getInstanceForApp(SoftwareInformation@ softwareInformation)
     {
-        @this.gameAdState = this.gameAdStateArray[0];
-        return this.gameAdStateArray[0];
+        @this.gameAdState_GameAdStateFactory = this.gameAdStateArray_GameAdStateFactory[0];
+        return this.gameAdStateArray_GameAdStateFactory[0];
     }
     
 

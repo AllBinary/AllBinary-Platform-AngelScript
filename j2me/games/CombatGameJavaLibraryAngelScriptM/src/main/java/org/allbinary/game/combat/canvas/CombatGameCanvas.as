@@ -48,11 +48,11 @@ class CombatGameCanvas : AllBinaryGameCanvas
         GameFeatureFactory@ gameFeatureFactory = GameFeatureFactory::getInstance();
         if (features.isFeature(gameFeatureFactory.DROPPED_ITEMS) && features.isFeature(gameFeatureFactory.DROPPED_ITEMS_FROM_DEATH)) {
             @CombatGameCanvas::basicLayerProcessor = array<BasicLayerProcessor@>(2);
-            CombatGameCanvas::basicLayerProcessor[0] = DestroyedLayerProcessor::getInstance();
-            CombatGameCanvas::basicLayerProcessor[1] = DropLayerProcessor::getInstance();
+            @CombatGameCanvas::basicLayerProcessor[0] = DestroyedLayerProcessor::getInstance();
+            @CombatGameCanvas::basicLayerProcessor[1] = DropLayerProcessor::getInstance();
         } else {
             @CombatGameCanvas::basicLayerProcessor = array<BasicLayerProcessor@>(1);
-            CombatGameCanvas::basicLayerProcessor[0] = DestroyedLayerProcessor::getInstance();
+            @CombatGameCanvas::basicLayerProcessor[0] = DestroyedLayerProcessor::getInstance();
         }
     }
     

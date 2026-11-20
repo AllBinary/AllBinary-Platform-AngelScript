@@ -17,12 +17,12 @@
 
 class ImageCacheable : JObjectBase
 {
-    string name;
+    string name_ImageCacheable;
 
     // Java field initializers run after the super constructor
     void jfields_ImageCacheable()
     {
-    this.name = StringUtil::getInstance().EMPTY_STRING;
+    this.name_ImageCacheable = StringUtil::getInstance().EMPTY_STRING;
     }
     
 
@@ -35,13 +35,13 @@ class ImageCacheable : JObjectBase
 
     JObject@ getKey()
     {
-        return jbox(this.name);
+        return jbox(this.name_ImageCacheable);
     }
     
 
     string toString()
     {
-        return this.name;
+        return this.name_ImageCacheable;
     }
 }
 

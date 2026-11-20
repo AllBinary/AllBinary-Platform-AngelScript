@@ -18,13 +18,13 @@
 class PlatformInputMappingFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    PersistentInputMapping@ inputToGameKeyMapping;
+    PersistentInputMapping@ inputToGameKeyMapping_PlatformInputMappingFactory;
 
     // Java field initializers run after the super constructor
     void jfields_PlatformInputMappingFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.inputToGameKeyMapping = PersistentInputMapping::getNullInstance();
+    @this.inputToGameKeyMapping_PlatformInputMappingFactory = PersistentInputMapping::getNullInstance();
     }
 
     PlatformInputMappingFactory@ jinit_PlatformInputMappingFactory()
@@ -37,8 +37,8 @@ class PlatformInputMappingFactory : JObjectBase
     PersistentInputMapping@ getPersistentInputMappingInstance()
     {
         try {
-            if (this.inputToGameKeyMapping is PersistentInputMapping::getNullInstance()) {
-                @this.inputToGameKeyMapping = MotionLaptopGameInputMapping().jinit_MotionLaptopGameInputMapping();
+            if (this.inputToGameKeyMapping_PlatformInputMappingFactory is PersistentInputMapping::getNullInstance()) {
+                @this.inputToGameKeyMapping_PlatformInputMappingFactory = MotionLaptopGameInputMapping().jinit_MotionLaptopGameInputMapping();
             }
         } catch {
             Throwable@ jex0 = jcatch();
@@ -49,7 +49,7 @@ class PlatformInputMappingFactory : JObjectBase
             }
             else { jthrow(jex0); }
         }
-        return this.inputToGameKeyMapping;
+        return this.inputToGameKeyMapping_PlatformInputMappingFactory;
     }
 }
 

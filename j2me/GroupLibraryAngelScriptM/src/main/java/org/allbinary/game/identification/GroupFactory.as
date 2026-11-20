@@ -19,16 +19,16 @@ class GroupFactory : JObjectBase
 {
     LogUtil@ logUtil;
     Group@[]@ NULL_GROUP_ARRAY;
-    BasicArrayList@ list;
-    int index;
+    BasicArrayList@ list_GroupFactory;
+    int index_GroupFactory;
 
     // Java field initializers run after the super constructor
     void jfields_GroupFactory()
     {
     @this.logUtil = LogUtil::getInstance();
     @this.NULL_GROUP_ARRAY = array<Group@>(0);
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
-    this.index = 0;
+    @this.list_GroupFactory = BasicArrayListD().jinit_BasicArrayListD();
+    this.index_GroupFactory = 0;
     }
 
     GroupFactory@ jinit_GroupFactory()
@@ -40,8 +40,8 @@ class GroupFactory : JObjectBase
 
     Group@ getNextGroup()
     {
-        Group@ group = cast<Group>(this.list.objectArray[this.index]);
-        this.index++;
+        Group@ group = cast<Group>(this.list_GroupFactory.objectArray[this.index_GroupFactory]);
+        this.index_GroupFactory++;
         return group;
     }
     
@@ -59,9 +59,9 @@ class GroupFactory : JObjectBase
         StringMaker@ stringMaker = StringMaker().jinit_StringMaker();
         StringUtil@ stringUtil = StringUtil::getInstance();
         string TEAM = "Team ";
-        this.list.clear();
-        this.index = 0;
-        int size = this.list.size();
+        this.list_GroupFactory.clear();
+        this.index_GroupFactory = 0;
+        int size = this.list_GroupFactory.size();
         string name = "";
         while (size < int(groups)) {
             name = stringUtil.EMPTY_STRING;
@@ -71,7 +71,7 @@ class GroupFactory : JObjectBase
                 stringMaker.delete(0, stringMaker.length());
                 name = stringMaker.append(TEAM).appendint(size).toString();
             }
-            this.list.add(Group().jinit_Group(name, int16((size + 3))));
+            this.list_GroupFactory.add(Group().jinit_Group(name, int16((size + 3))));
             size++;
         }
     }

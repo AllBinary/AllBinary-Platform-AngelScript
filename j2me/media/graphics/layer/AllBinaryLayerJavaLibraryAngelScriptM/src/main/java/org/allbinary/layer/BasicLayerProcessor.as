@@ -18,13 +18,13 @@
 class BasicLayerProcessor : JObjectBase
 {
     LogUtil@ logUtil;
-    BasicArrayList@ list;
+    BasicArrayList@ list_BasicLayerProcessor;
 
     // Java field initializers run after the super constructor
     void jfields_BasicLayerProcessor()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.list = BasicArrayListD().jinit_BasicArrayListD();
+    @this.list_BasicLayerProcessor = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
@@ -37,8 +37,8 @@ class BasicLayerProcessor : JObjectBase
 
     void add(AllBinaryLayer@ layerInterface)
     {
-        if (!this.list.contains(layerInterface)) {
-            this.list.add(layerInterface);
+        if (!this.list_BasicLayerProcessor.contains(layerInterface)) {
+            this.list_BasicLayerProcessor.add(layerInterface);
         }
     }
     
@@ -51,7 +51,7 @@ class BasicLayerProcessor : JObjectBase
 
     BasicArrayList@ getList()
     {
-        return this.list;
+        return this.list_BasicLayerProcessor;
     }
 }
 

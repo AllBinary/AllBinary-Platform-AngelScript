@@ -17,19 +17,19 @@
 
 class DestroyEventFactory : JObjectBase, AllBinaryEventObjectFactoryInterface
 {
-    AllBinaryGameCanvas@ combatGameCanvas;
+    AllBinaryGameCanvas@ combatGameCanvas_DestroyEventFactory;
     
 
     DestroyEventFactory@ jinit_DestroyEventFactory(AllBinaryGameCanvas@ combatGameCanvas)
     {
-        @this.combatGameCanvas = combatGameCanvas;
+        @this.combatGameCanvas_DestroyEventFactory = combatGameCanvas;
         return this;
     }
     
 
     AllBinaryEventObject@ getInstance()
     {
-        return DestroyedEvent().jinit_DestroyedEvent(this.combatGameCanvas);
+        return DestroyedEvent().jinit_DestroyedEvent(this.combatGameCanvas_DestroyEventFactory);
     }
 }
 

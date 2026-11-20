@@ -18,13 +18,13 @@
 class InGameOptionsFormFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    CommandForm@ SINGLETON;
+    CommandForm@ SINGLETON_InGameOptionsFormFactory;
 
     // Java field initializers run after the super constructor
     void jfields_InGameOptionsFormFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.SINGLETON = CommandForm::getNullCommandForm();
+    @this.SINGLETON_InGameOptionsFormFactory = CommandForm::getNullCommandForm();
     }
 
     InGameOptionsFormFactory@ jinit_InGameOptionsFormFactory()
@@ -37,9 +37,9 @@ class InGameOptionsFormFactory : JObjectBase
     void init(CommandListener@ commandListener, Init@ initInterface, string title, BasicColor@ backgrounBasicColor, BasicColor@ foregroundBasicColor)
     {
         try {
-            if (this.SINGLETON is CommandForm::getNullCommandForm()) {
+            if (this.SINGLETON_InGameOptionsFormFactory is CommandForm::getNullCommandForm()) {
                 initInterface.init();
-                @this.SINGLETON = InGameOptionsForm().jinit_InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+                @this.SINGLETON_InGameOptionsFormFactory = InGameOptionsForm().jinit_InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
             }
         } catch {
             Throwable@ jex0 = jcatch();
@@ -55,7 +55,7 @@ class InGameOptionsFormFactory : JObjectBase
 
     CommandForm@ get()
     {
-        return this.SINGLETON;
+        return this.SINGLETON_InGameOptionsFormFactory;
     }
 }
 

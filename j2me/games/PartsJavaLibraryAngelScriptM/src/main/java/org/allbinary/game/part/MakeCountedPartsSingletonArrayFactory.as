@@ -18,13 +18,13 @@
 class MakeCountedPartsSingletonArrayFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    BasicArrayList@ list;
+    BasicArrayList@ list_MakeCountedPartsSingletonArrayFactory;
 
     // Java field initializers run after the super constructor
     void jfields_MakeCountedPartsSingletonArrayFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.list = BasicArrayListUtil::getInstance().getImmutableInstance();
+    @this.list_MakeCountedPartsSingletonArrayFactory = BasicArrayListUtil::getInstance().getImmutableInstance();
     }
 
     MakeCountedPartsSingletonArrayFactory@ jinit_MakeCountedPartsSingletonArrayFactory()
@@ -36,28 +36,28 @@ class MakeCountedPartsSingletonArrayFactory : JObjectBase
 
     PartInterface@[]@ getUpdated(PartInterface@[]@ partInterfaceArray)
     {
-        @this.list = BasicArrayListD().jinit_BasicArrayListD();
+        @this.list_MakeCountedPartsSingletonArrayFactory = BasicArrayListD().jinit_BasicArrayListD();
         for (int index = 0; index < int(partInterfaceArray.length()); index++) {
-            this.list.add(partInterfaceArray[index]);
+            this.list_MakeCountedPartsSingletonArrayFactory.add(partInterfaceArray[index]);
         }
         BasicArrayList@ countedBasicArrayList = CountedPickedUpLayerInterfaceFactoryPool::getInstance().getList();
         CountedPickedUpLayerInterfaceFactory@ layerInterfaceFactoryInterface;
         int size = countedBasicArrayList.size();
         for (int index = 0; index < size; index++) {
             @layerInterfaceFactoryInterface = cast<CountedPickedUpLayerInterfaceFactory>(countedBasicArrayList.objectArray[index]);
-            this.list.add(CountedLayerInterfaceFactoryPart().jinit_CountedLayerInterfaceFactoryPart(0, layerInterfaceFactoryInterface));
+            this.list_MakeCountedPartsSingletonArrayFactory.add(CountedLayerInterfaceFactoryPart().jinit_CountedLayerInterfaceFactoryPart(0, layerInterfaceFactoryInterface));
         }
         StringMaker@ stringBuffer = StringMaker().jinit_StringMaker();
         stringBuffer.append("Total Parts: ");
-        stringBuffer.appendint(this.list.size());
+        stringBuffer.appendint(this.list_MakeCountedPartsSingletonArrayFactory.size());
         stringBuffer.append(" Counted: ");
         stringBuffer.appendint(countedBasicArrayList.size());
         CommonStrings@ commonStrings = CommonStrings::getInstance();
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
-        PartInterface@[]@ newPartInterfaceArray = array<PartInterface@>(this.list.size());
+        PartInterface@[]@ newPartInterfaceArray = array<PartInterface@>(this.list_MakeCountedPartsSingletonArrayFactory.size());
         int newSize = int(newPartInterfaceArray.length());
         for (int index = 0; index < newSize; index++) {
-            @newPartInterfaceArray[index] = cast<PartInterface>(this.list.get(index));
+            @newPartInterfaceArray[index] = cast<PartInterface>(this.list_MakeCountedPartsSingletonArrayFactory.get(index));
         }
         return newPartInterfaceArray;
     }

@@ -17,19 +17,19 @@
 
 class LockableFeature : JObjectBase
 {
-    string name;
+    string name_LockableFeature;
     
 
     LockableFeature@ jinit_LockableFeature(string name)
     {
-        this.name = name;
+        this.name_LockableFeature = name;
         return this;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_LockableFeature;
     }
 }
 

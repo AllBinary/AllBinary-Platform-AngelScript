@@ -17,29 +17,29 @@
 
 class IndependentVectorExplosionRotationAnimationFactory : JObjectBase, ProceduralAnimationInterfaceFactoryInterface
 {
-    int[]@[]@[]@ framePoints;
-    VectorInfo@ vectorInfo;
-    BasicColor@ basicColor;
-    VectorAnimationFactoryInterface@ vectorAnimationFactoryInterface;
-    VectorExplosionGenerator@ vectorExplosionGenerator;
+    int[]@[]@[]@ framePoints_IndependentVectorExplosionRotationAnimationFactory;
+    VectorInfo@ vectorInfo_IndependentVectorExplosionRotationAnimationFactory;
+    BasicColor@ basicColor_IndependentVectorExplosionRotationAnimationFactory;
+    VectorAnimationFactoryInterface@ vectorAnimationFactoryInterface_IndependentVectorExplosionRotationAnimationFactory;
+    VectorExplosionGenerator@ vectorExplosionGenerator_IndependentVectorExplosionRotationAnimationFactory;
 
     // Java field initializers run after the super constructor
     void jfields_IndependentVectorExplosionRotationAnimationFactory()
     {
-    @this.framePoints = NullUtil::getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
+    @this.framePoints_IndependentVectorExplosionRotationAnimationFactory = NullUtil::getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
     
     
     
-    @this.vectorExplosionGenerator = VectorExplosionGenerator::getInstance_jstatic();
+    @this.vectorExplosionGenerator_IndependentVectorExplosionRotationAnimationFactory = VectorExplosionGenerator::getInstance_jstatic();
     }
     
 
     IndependentVectorExplosionRotationAnimationFactory@ jinit_IndependentVectorExplosionRotationAnimationFactory(VectorInfo@ vectorInfo, BasicColor@ basicColor, VectorAnimationFactoryInterface@ vectorAnimationFactoryInterface)
     {
         this.jfields_IndependentVectorExplosionRotationAnimationFactory();
-        @this.vectorInfo = vectorInfo;
-        @this.basicColor = basicColor;
-        @this.vectorAnimationFactoryInterface = vectorAnimationFactoryInterface;
+        @this.vectorInfo_IndependentVectorExplosionRotationAnimationFactory = vectorInfo;
+        @this.basicColor_IndependentVectorExplosionRotationAnimationFactory = basicColor;
+        @this.vectorAnimationFactoryInterface_IndependentVectorExplosionRotationAnimationFactory = vectorAnimationFactoryInterface;
         this.init();
         return this;
     }
@@ -47,7 +47,7 @@ class IndependentVectorExplosionRotationAnimationFactory : JObjectBase, Procedur
 
     void init()
     {
-        @this.framePoints = VectorRotationGenerator::getInstance_jstatic().getInstance(this.vectorInfo);
+        @this.framePoints_IndependentVectorExplosionRotationAnimationFactory = VectorRotationGenerator::getInstance_jstatic().getInstance(this.vectorInfo_IndependentVectorExplosionRotationAnimationFactory);
     }
     
 
@@ -58,8 +58,8 @@ class IndependentVectorExplosionRotationAnimationFactory : JObjectBase, Procedur
             IndexedAnimation@ rotationAnimationInterface = cast<IndexedAnimation>(animationInterface);
             frame = rotationAnimationInterface.getFrame();
         }
-        int[]@[]@[]@ points = this.vectorExplosionGenerator.getInstance(this.framePoints[frame], 6, this.vectorExplosionGenerator.ROTATION);
-        return this.vectorAnimationFactoryInterface.getInstance(points, this.basicColor);
+        int[]@[]@[]@ points = this.vectorExplosionGenerator_IndependentVectorExplosionRotationAnimationFactory.getInstance(this.framePoints_IndependentVectorExplosionRotationAnimationFactory[frame], 6, this.vectorExplosionGenerator_IndependentVectorExplosionRotationAnimationFactory.ROTATION);
+        return this.vectorAnimationFactoryInterface_IndependentVectorExplosionRotationAnimationFactory.getInstance(points, this.basicColor_IndependentVectorExplosionRotationAnimationFactory);
     }
 }
 

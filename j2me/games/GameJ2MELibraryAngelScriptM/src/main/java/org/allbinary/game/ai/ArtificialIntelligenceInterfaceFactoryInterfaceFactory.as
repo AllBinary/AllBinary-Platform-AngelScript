@@ -17,12 +17,12 @@
 
 class ArtificialIntelligenceInterfaceFactoryInterfaceFactory : JObjectBase
 {
-    BasicArrayList@ list;
+    BasicArrayList@ list_ArtificialIntelligenceInterfaceFactoryInterfaceFactory;
 
     // Java field initializers run after the super constructor
     void jfields_ArtificialIntelligenceInterfaceFactoryInterfaceFactory()
     {
-    @this.list = BasicArrayListUtil::getInstance().getImmutableInstance();
+    @this.list_ArtificialIntelligenceInterfaceFactoryInterfaceFactory = BasicArrayListUtil::getInstance().getImmutableInstance();
     }
 
     ArtificialIntelligenceInterfaceFactoryInterfaceFactory@ jinit_ArtificialIntelligenceInterfaceFactoryInterfaceFactory()
@@ -34,7 +34,7 @@ class ArtificialIntelligenceInterfaceFactoryInterfaceFactory : JObjectBase
 
     void clear()
     {
-        @this.list = BasicArrayListD().jinit_BasicArrayListD();
+        @this.list_ArtificialIntelligenceInterfaceFactoryInterfaceFactory = BasicArrayListD().jinit_BasicArrayListD();
     }
     
 
@@ -42,14 +42,14 @@ class ArtificialIntelligenceInterfaceFactoryInterfaceFactory : JObjectBase
     {
         JInteger@ typeInteger = cast<JInteger>(hashtable.get(BasicAI::ID));
         int type = typeInteger.intValue();
-        ArtificialIntelligenceInterfaceFactoryInterface@ artificialIntelligenceInterfaceFactoryInterface = cast<ArtificialIntelligenceInterfaceFactoryInterface>(this.list.objectArray[type - 1]);
+        ArtificialIntelligenceInterfaceFactoryInterface@ artificialIntelligenceInterfaceFactoryInterface = cast<ArtificialIntelligenceInterfaceFactoryInterface>(this.list_ArtificialIntelligenceInterfaceFactoryInterfaceFactory.objectArray[type - 1]);
         return artificialIntelligenceInterfaceFactoryInterface;
     }
     
 
     void add(ArtificialIntelligenceInterfaceFactoryInterface@ artificialIntelligenceInterfaceFactoryInterface)
     {
-        this.list.add(artificialIntelligenceInterfaceFactoryInterface);
+        this.list_ArtificialIntelligenceInterfaceFactoryInterfaceFactory.add(artificialIntelligenceInterfaceFactoryInterface);
     }
 }
 

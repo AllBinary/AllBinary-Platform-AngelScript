@@ -17,24 +17,24 @@
 
 class SimultaneousCompoundIndexAnimationInterfaceFactory : JObjectBase, AnimationInterfaceFactoryInterface
 {
-    AnimationInterfaceFactoryInterface@[]@ basicAnimationInterfaceFactoryInterfaceArray;
-    AnimationBehaviorFactory@ animationBehaviorFactory;
+    AnimationInterfaceFactoryInterface@[]@ basicAnimationInterfaceFactoryInterfaceArray_SimultaneousCompoundIndexAnimationInterfaceFactory;
+    AnimationBehaviorFactory@ animationBehaviorFactory_SimultaneousCompoundIndexAnimationInterfaceFactory;
     
 
     SimultaneousCompoundIndexAnimationInterfaceFactory@ jinit_SimultaneousCompoundIndexAnimationInterfaceFactory(AnimationInterfaceFactoryInterface@[]@ basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory@ animationBehaviorFactory)
     {
-        @this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
-        @this.animationBehaviorFactory = animationBehaviorFactory;
+        @this.basicAnimationInterfaceFactoryInterfaceArray_SimultaneousCompoundIndexAnimationInterfaceFactory = basicAnimationInterfaceFactoryInterfaceArray;
+        @this.animationBehaviorFactory_SimultaneousCompoundIndexAnimationInterfaceFactory = animationBehaviorFactory;
         return this;
     }
     
 
     Animation@ getInstance(int instanceId)
     {
-        int size = int(this.basicAnimationInterfaceFactoryInterfaceArray.length());
+        int size = int(this.basicAnimationInterfaceFactoryInterfaceArray_SimultaneousCompoundIndexAnimationInterfaceFactory.length());
         IndexedAnimation@[]@ animationInterfaceArray = array<IndexedAnimation@>(size);
         for (int index = 0; index < size; index++) {
-            @animationInterfaceArray[index] = cast<IndexedAnimation>(this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance(instanceId));
+            @animationInterfaceArray[index] = cast<IndexedAnimation>(this.basicAnimationInterfaceFactoryInterfaceArray_SimultaneousCompoundIndexAnimationInterfaceFactory[index].getInstance(instanceId));
         }
         return this.getOrCreate(animationInterfaceArray);
     }
@@ -42,13 +42,13 @@ class SimultaneousCompoundIndexAnimationInterfaceFactory : JObjectBase, Animatio
 
     Animation@ getOrCreate(IndexedAnimation@[]@ animationInterfaceArray)
     {
-        return SimultaneousCompoundIndexAnimation().jinit_SimultaneousCompoundIndexAnimation(animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
+        return SimultaneousCompoundIndexAnimation().jinit_SimultaneousCompoundIndexAnimation(animationInterfaceArray, this.animationBehaviorFactory_SimultaneousCompoundIndexAnimationInterfaceFactory.getOrCreateInstance());
     }
     
 
     AnimationInterfaceFactoryInterface@[]@ getBasicAnimationInterfaceFactoryInterfaceArray()
     {
-        return this.basicAnimationInterfaceFactoryInterfaceArray;
+        return this.basicAnimationInterfaceFactoryInterfaceArray_SimultaneousCompoundIndexAnimationInterfaceFactory;
     }
     
 

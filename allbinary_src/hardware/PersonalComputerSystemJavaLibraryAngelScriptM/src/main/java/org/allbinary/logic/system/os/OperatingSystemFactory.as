@@ -18,17 +18,17 @@
 class OperatingSystemFactory : JObjectBase
 {
     LogUtil@ logUtil;
-    CommonStrings@ commonStrings;
-    GenericOperatingSystem@ genericOperatingSystem;
-    bool hasDetected;
+    CommonStrings@ commonStrings_OperatingSystemFactory;
+    GenericOperatingSystem@ genericOperatingSystem_OperatingSystemFactory;
+    bool hasDetected_OperatingSystemFactory;
 
     // Java field initializers run after the super constructor
     void jfields_OperatingSystemFactory()
     {
     @this.logUtil = LogUtil::getInstance();
-    @this.commonStrings = CommonStrings::getInstance();
-    @this.genericOperatingSystem = NoOperatingSystem::NO_OPERATING_SYSTEM;
-    this.hasDetected = false;
+    @this.commonStrings_OperatingSystemFactory = CommonStrings::getInstance();
+    @this.genericOperatingSystem_OperatingSystemFactory = NoOperatingSystem::NO_OPERATING_SYSTEM;
+    this.hasDetected_OperatingSystemFactory = false;
     }
     
 
@@ -47,38 +47,38 @@ class OperatingSystemFactory : JObjectBase
             string osName = systemProperties.getName();
             string osArch = systemProperties.getArch();
             string osVersion = systemProperties.getVersion();
-            if (!this.hasDetected) {
-                this.logUtil.putF("osName: " + osName, this, this.commonStrings.GET_INSTANCE);
-                this.hasDetected = true;
+            if (!this.hasDetected_OperatingSystemFactory) {
+                this.logUtil.putF("osName: " + osName, this, this.commonStrings_OperatingSystemFactory.GET_INSTANCE);
+                this.hasDetected_OperatingSystemFactory = true;
                 if (String::indexOf(osName, operatingSystems.LINUX) >= 0) {
                     if (LogConfigTypes::LOGGING.contains(LogConfigTypeFactory::getInstance().FACTORYERROR)) {
-                        this.logUtil.putF("Found a Linux OS", this, this.commonStrings.GET_INSTANCE);
+                        this.logUtil.putF("Found a Linux OS", this, this.commonStrings_OperatingSystemFactory.GET_INSTANCE);
                     }
-                    @this.genericOperatingSystem = LinuxOperatingSystemFactory::getInstance().getOperatingSystemInstance();
+                    @this.genericOperatingSystem_OperatingSystemFactory = LinuxOperatingSystemFactory::getInstance().getOperatingSystemInstance();
                 } else if (String::indexOf(osName, operatingSystems.WINDOWS) >= 0) {
                     if (LogConfigTypes::LOGGING.contains(LogConfigTypeFactory::getInstance().FACTORYERROR)) {
-                        this.logUtil.putF("Found a Windows OS", this, this.commonStrings.GET_INSTANCE);
+                        this.logUtil.putF("Found a Windows OS", this, this.commonStrings_OperatingSystemFactory.GET_INSTANCE);
                     }
-                    @this.genericOperatingSystem = WindowsOperatingSystemFactory::getInstance().getOperatingSystemInstance();
+                    @this.genericOperatingSystem_OperatingSystemFactory = WindowsOperatingSystemFactory::getInstance().getOperatingSystemInstance();
                 } else if (String::indexOf(osName, operatingSystems.SOLARIS) >= 0) {
                     if (LogConfigTypes::LOGGING.contains(LogConfigTypeFactory::getInstance().FACTORYERROR)) {
-                        this.logUtil.putF("Found a Solaris OS", this, this.commonStrings.GET_INSTANCE);
+                        this.logUtil.putF("Found a Solaris OS", this, this.commonStrings_OperatingSystemFactory.GET_INSTANCE);
                     }
-                    @this.genericOperatingSystem = SolarisOperatingSystemFactory::getInstance().getOperatingSystemInstance();
+                    @this.genericOperatingSystem_OperatingSystemFactory = SolarisOperatingSystemFactory::getInstance().getOperatingSystemInstance();
                 } else {
                     jthrow(Exception().jinit_Exception(StringMaker().jinit_StringMaker().append("OS Not Supported: ").append(osName).toString()));
                 }
-                Log@ log = LogFactory::getInstanceF(StringMaker().jinit_StringMaker().append("OperatingSystem Info: ").append(StringUtil::getInstance().toString(this.genericOperatingSystem)).toString(), this, this.commonStrings.GET_INSTANCE);
+                Log@ log = LogFactory::getInstanceF(StringMaker().jinit_StringMaker().append("OperatingSystem Info: ").append(StringUtil::getInstance().toString(this.genericOperatingSystem_OperatingSystemFactory)).toString(), this, this.commonStrings_OperatingSystemFactory.GET_INSTANCE);
                 System::out_println(log.toString());
                 this.logUtil.putL(log);
             }
-            return this.genericOperatingSystem;
+            return this.genericOperatingSystem_OperatingSystemFactory;
         } catch {
             Throwable@ jex0 = jcatch();
             if (cast<Exception>(jex0) !is null) {
                 Exception@ e = cast<Exception>(jex0);
             if (LogConfigTypes::LOGGING.contains(LogConfigTypeFactory::getInstance().FACTORYERROR)) {
-                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.GET_INSTANCE, e);
+                this.logUtil.put(this.commonStrings_OperatingSystemFactory.EXCEPTION, this, this.commonStrings_OperatingSystemFactory.GET_INSTANCE, e);
             }
             return NoOperatingSystem::NO_OPERATING_SYSTEM;
             }

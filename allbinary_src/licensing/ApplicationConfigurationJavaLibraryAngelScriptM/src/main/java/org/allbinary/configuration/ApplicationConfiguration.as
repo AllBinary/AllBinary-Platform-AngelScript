@@ -4,19 +4,19 @@
 class ApplicationConfiguration : JObjectBase
 {
     LogUtil@ logUtil;
-    bool fullscreen;
-    bool showTitleBar;
-    bool progressBarView;
-    string FILE;
+    bool fullscreen_ApplicationConfiguration;
+    bool showTitleBar_ApplicationConfiguration;
+    bool progressBarView_ApplicationConfiguration;
+    string FILE_ApplicationConfiguration;
 
     // Java field initializers run after the super constructor
     void jfields_ApplicationConfiguration()
     {
     @this.logUtil = LogUtil::getInstance();
-    this.fullscreen = true;
-    this.showTitleBar = false;
-    this.progressBarView = false;
-    this.FILE = "ReloadConfiguration.dat";
+    this.fullscreen_ApplicationConfiguration = true;
+    this.showTitleBar_ApplicationConfiguration = false;
+    this.progressBarView_ApplicationConfiguration = false;
+    this.FILE_ApplicationConfiguration = "ReloadConfiguration.dat";
     }
     
 
@@ -24,7 +24,7 @@ class ApplicationConfiguration : JObjectBase
     {
         this.jfields_ApplicationConfiguration();
         try {
-            if (FileFactory::getInstance_jstatic().isFile(this.FILE)) {
+            if (FileFactory::getInstance_jstatic().isFile(this.FILE_ApplicationConfiguration)) {
                 this.read();
             } else {
                 this.write();
@@ -45,7 +45,7 @@ class ApplicationConfiguration : JObjectBase
     void read()
     {
         FileStreamFactory@ fileInputStreamFactory = FileStreamFactory::getInstance();
-        InputStream@ fileInputStream = fileInputStreamFactory.getFileInputStreamInstance(StringUtil::getInstance().EMPTY_STRING, this.FILE);
+        InputStream@ fileInputStream = fileInputStreamFactory.getFileInputStreamInstance(StringUtil::getInstance().EMPTY_STRING, this.FILE_ApplicationConfiguration);
         AbDataInputStream@ dataInputStream = AbDataInputStream().jinit_AbDataInputStream(fileInputStream);
         int fullScreen = dataInputStream.readInt();
         if (fullScreen == 0) {
@@ -84,7 +84,7 @@ class ApplicationConfiguration : JObjectBase
                 try {
             this.logUtil.putF("Write Configuration: " + this.toString(), this, "write");
             FileStreamFactory@ fileInputStreamFactory = FileStreamFactory::getInstance();
-            OutputStream@ fileOutputStream = fileInputStreamFactory.getFileOutputStreamInstance(StringUtil::getInstance().EMPTY_STRING, this.FILE);
+            OutputStream@ fileOutputStream = fileInputStreamFactory.getFileOutputStreamInstance(StringUtil::getInstance().EMPTY_STRING, this.FILE_ApplicationConfiguration);
             AbDataOutputStream@ dataOutputStream = AbDataOutputStream().jinit_AbDataOutputStream(fileOutputStream);
             @closeable = dataOutputStream;
             if (this.isFullscreen()) {
@@ -141,37 +141,37 @@ class ApplicationConfiguration : JObjectBase
 
     void setFullscreen(bool fullscreen)
     {
-        this.fullscreen = fullscreen;
+        this.fullscreen_ApplicationConfiguration = fullscreen;
     }
     
 
     bool isFullscreen()
     {
-        return this.fullscreen;
+        return this.fullscreen_ApplicationConfiguration;
     }
     
 
     void setShowTitleBar(bool showTitleBar)
     {
-        this.showTitleBar = showTitleBar;
+        this.showTitleBar_ApplicationConfiguration = showTitleBar;
     }
     
 
     bool isShowTitleBar()
     {
-        return this.showTitleBar;
+        return this.showTitleBar_ApplicationConfiguration;
     }
     
 
     void setProgressBarView(bool progressBarView)
     {
-        this.progressBarView = progressBarView;
+        this.progressBarView_ApplicationConfiguration = progressBarView;
     }
     
 
     bool isProgressBarView()
     {
-        return this.progressBarView;
+        return this.progressBarView_ApplicationConfiguration;
     }
     
 

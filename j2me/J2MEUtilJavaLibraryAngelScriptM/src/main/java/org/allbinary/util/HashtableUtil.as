@@ -17,12 +17,12 @@
 
 class HashtableUtil : JObjectBase
 {
-    EnumerationUtil@ enumerationUtil;
+    EnumerationUtil@ enumerationUtil_HashtableUtil;
 
     // Java field initializers run after the super constructor
     void jfields_HashtableUtil()
     {
-    @this.enumerationUtil = EnumerationUtil::getInstance();
+    @this.enumerationUtil_HashtableUtil = EnumerationUtil::getInstance();
     }
 
     HashtableUtil@ jinit_HashtableUtil()
@@ -37,8 +37,8 @@ class HashtableUtil : JObjectBase
         Enumeration@ enumeration = fromHashtable.keys();
         JObject@ keyCanBeNull;
         JObject@ valueCanBeNull;
-        while (this.enumerationUtil.hasMoreElements(enumeration)) {
-            @keyCanBeNull = this.enumerationUtil.nextElement(enumeration);
+        while (this.enumerationUtil_HashtableUtil.hasMoreElements(enumeration)) {
+            @keyCanBeNull = this.enumerationUtil_HashtableUtil.nextElement(enumeration);
             @valueCanBeNull = hashtable.get(keyCanBeNull);
             if (valueCanBeNull is null) {
             } else {
@@ -53,8 +53,8 @@ class HashtableUtil : JObjectBase
         JObject@[]@ objectArray = array<JObject@>(hashtable.size());
         int index = 0;
         Enumeration@ enumeration = hashtable.keys();
-        while (this.enumerationUtil.hasMoreElements(enumeration)) {
-            @objectArray[index++] = this.enumerationUtil.nextElement(enumeration);
+        while (this.enumerationUtil_HashtableUtil.hasMoreElements(enumeration)) {
+            @objectArray[index++] = this.enumerationUtil_HashtableUtil.nextElement(enumeration);
         }
         return objectArray;
     }
@@ -64,8 +64,8 @@ class HashtableUtil : JObjectBase
     {
         BasicArrayList@ list = BasicArrayListS().jinit_BasicArrayListS(hashtable.size());
         Enumeration@ enumeration = hashtable.keys();
-        while (this.enumerationUtil.hasMoreElements(enumeration)) {
-            list.add(this.enumerationUtil.nextElement(enumeration));
+        while (this.enumerationUtil_HashtableUtil.hasMoreElements(enumeration)) {
+            list.add(this.enumerationUtil_HashtableUtil.nextElement(enumeration));
         }
         return list;
     }

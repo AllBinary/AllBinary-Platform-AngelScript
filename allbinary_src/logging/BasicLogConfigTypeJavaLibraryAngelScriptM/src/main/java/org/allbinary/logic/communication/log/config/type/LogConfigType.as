@@ -17,39 +17,39 @@
 
 class LogConfigType : JObjectBase
 {
-    string name;
-    string description;
+    string name_LogConfigType;
+    string description_LogConfigType;
     
 
     LogConfigType@ jinit_LogConfigType(string name, string description)
     {
-        this.name = name;
-        this.description = description;
+        this.name_LogConfigType = name;
+        this.description_LogConfigType = description;
         return this;
     }
     
 
     string getName()
     {
-        return this.name;
+        return this.name_LogConfigType;
     }
     
 
     string getDescription()
     {
-        return this.description;
+        return this.description_LogConfigType;
     }
     
 
     void setName(string value)
     {
-        this.name = value;
+        this.name_LogConfigType = value;
     }
     
 
     void setDescription(string value)
     {
-        this.description = value;
+        this.description_LogConfigType = value;
     }
 }
 

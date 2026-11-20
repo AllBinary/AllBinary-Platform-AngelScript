@@ -17,9 +17,9 @@
 
 class SimpleWeaponProperties : JObjectBase
 {
-    int damage;
-    int16 dissipation;
-    int range;
+    int damage_SimpleWeaponProperties;
+    int16 dissipation_SimpleWeaponProperties;
+    int range_SimpleWeaponProperties;
 
     SimpleWeaponProperties@ jinit_SimpleWeaponProperties()
     {
@@ -37,37 +37,37 @@ class SimpleWeaponProperties : JObjectBase
 
     void setDamage(int damage)
     {
-        this.damage = damage;
+        this.damage_SimpleWeaponProperties = damage;
     }
     
 
     int getDamage()
     {
-        return this.damage;
+        return this.damage_SimpleWeaponProperties;
     }
     
 
     void setDissipation(int16 dissipation)
     {
-        this.dissipation = dissipation;
+        this.dissipation_SimpleWeaponProperties = dissipation;
     }
     
 
     int16 getDissipation()
     {
-        return this.dissipation;
+        return this.dissipation_SimpleWeaponProperties;
     }
     
 
     int getRange()
     {
-        return this.range;
+        return this.range_SimpleWeaponProperties;
     }
     
 
     void setRange(int range)
     {
-        this.range = range;
+        this.range_SimpleWeaponProperties = range;
     }
 }
 
